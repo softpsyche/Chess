@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Homeless
 {
@@ -40,7 +41,43 @@ namespace Homeless
             //Check for knight threats...
             return false;
         }
-        
+        public Dictionary<BoardLocation, PinType> GetThreatenedBoardLocations(Player player)
+        {
+            //find all opposing pieces
+            var opposingPlayer = player.OpposingPlayer();
+            var opposingPieces = _board.GetPiecesForPlayer(opposingPlayer);
+
+            Dictionary<BoardLocation, PinType> threats = new Dictionary<BoardLocation, PinType>();
+
+            opposingPieces.ForEach(
+        }
+        private void AddPieceThreats(ChessPiece chessPiece, Dictionary<BoardLocation, PinType> threatenedBoardLocations)
+        {
+            switch (chessPiece)
+            {
+                case ChessPiece.BlackPawn:
+                case ChessPiece.WhitePawn:
+                    break;
+                case ChessPiece.BlackRook:
+                case ChessPiece.WhiteRook:
+
+                    break;
+                case ChessPiece.BlackKnight:
+                case ChessPiece.WhiteKnight:
+                    break;
+                case ChessPiece.BlackBishop:
+                case ChessPiece.WhiteBishop:
+                    break;
+                case ChessPiece.BlackQueen:
+                case ChessPiece.WhiteQueen:
+                    break;
+                case ChessPiece.BlackKing:
+                case ChessPiece.WhiteKing:
+                    break;
+                default:
+                    throw new Exception($"Unexpected chessPiece value {chessPiece.ToString()}");
+            }
+        }
 
         #endregion
 
@@ -76,6 +113,19 @@ namespace Homeless
         }
     }
 
+    /// <summary>
+    /// Describes a 
+    /// </summary>
+    [Flags]
+    public enum PinType : byte
+    {
+        None = 0,
+        Horizontal = 1,
+        Vertical = 2,
+        Slope = 4,
+        Grade = 8
+    }
+
     public enum GameState : byte
     {   //from https://en.wikipedia.org/wiki/Draw_(chess)
         InPlay = 0,
@@ -99,11 +149,11 @@ namespace Homeless
         //3:| 2|10|18|26|34|42|50|58|
         //2:| 1| 9|17|25|33|41|49|57|
         //1:| 0| 8|16|24|32|40|48|56|
-        private static readonly BoardSquare[] StartingBoard;
+        private static readonly ChessPiece[] StartingBoard;
 
-        private BoardSquare[] BoardSquares = null;
+        private ChessPiece[] BoardSquares = null;
 
-        public BoardSquare this[BoardLocation boardLocation]
+        public ChessPiece this[BoardLocation boardLocation]
         {
             get
             {
@@ -120,55 +170,75 @@ namespace Homeless
             Reset();
         }
 
-        public void Reset() => BoardSquares = (BoardSquare[])StartingBoard.Clone();
+        public void Reset() => BoardSquares = (ChessPiece[])StartingBoard.Clone();
+
+        public ChessPiece[] GetPiecesForPlayer(Player player)
+            => (player == Player.Black) ? 
+                BoardSquares.Where(a => a.ToByte() >= 10 && a.ToByte() <= 15).ToArray(): 
+                BoardSquares.Where(a => a.ToByte() >= 20 && a.ToByte() <= 25).ToArray();
 
         static Board()
         {
-            StartingBoard = new BoardSquare[64];
+            StartingBoard = new ChessPiece[64];
 
             //White peasantry
-            StartingBoard[BoardLocation.A2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.B2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.C2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.D2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.E2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.F2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.G2.ToByte()] = BoardSquare.WhitePawn;
-            StartingBoard[BoardLocation.H2.ToByte()] = BoardSquare.WhitePawn;
+            StartingBoard[BoardLocation.A2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.B2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.C2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.D2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.E2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.F2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.G2.ToByte()] = ChessPiece.WhitePawn;
+            StartingBoard[BoardLocation.H2.ToByte()] = ChessPiece.WhitePawn;
             //White aristocracy
-            StartingBoard[BoardLocation.A1.ToByte()] = BoardSquare.WhiteRook;
-            StartingBoard[BoardLocation.B1.ToByte()] = BoardSquare.WhiteKnight;
-            StartingBoard[BoardLocation.C1.ToByte()] = BoardSquare.WhiteBishop;
-            StartingBoard[BoardLocation.D1.ToByte()] = BoardSquare.WhiteQueen;
-            StartingBoard[BoardLocation.E1.ToByte()] = BoardSquare.WhiteKing;
-            StartingBoard[BoardLocation.F1.ToByte()] = BoardSquare.WhiteBishop;
-            StartingBoard[BoardLocation.G1.ToByte()] = BoardSquare.WhiteKnight;
-            StartingBoard[BoardLocation.H1.ToByte()] = BoardSquare.WhiteRook;
+            StartingBoard[BoardLocation.A1.ToByte()] = ChessPiece.WhiteRook;
+            StartingBoard[BoardLocation.B1.ToByte()] = ChessPiece.WhiteKnight;
+            StartingBoard[BoardLocation.C1.ToByte()] = ChessPiece.WhiteBishop;
+            StartingBoard[BoardLocation.D1.ToByte()] = ChessPiece.WhiteQueen;
+            StartingBoard[BoardLocation.E1.ToByte()] = ChessPiece.WhiteKing;
+            StartingBoard[BoardLocation.F1.ToByte()] = ChessPiece.WhiteBishop;
+            StartingBoard[BoardLocation.G1.ToByte()] = ChessPiece.WhiteKnight;
+            StartingBoard[BoardLocation.H1.ToByte()] = ChessPiece.WhiteRook;
 
             //Black peasantry
-            StartingBoard[BoardLocation.A7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.B7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.C7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.D7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.E7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.F7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.G7.ToByte()] = BoardSquare.BlackPawn;
-            StartingBoard[BoardLocation.H7.ToByte()] = BoardSquare.BlackPawn;
+            StartingBoard[BoardLocation.A7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.B7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.C7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.D7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.E7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.F7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.G7.ToByte()] = ChessPiece.BlackPawn;
+            StartingBoard[BoardLocation.H7.ToByte()] = ChessPiece.BlackPawn;
             //Black aristocracy                                    
-            StartingBoard[BoardLocation.A8.ToByte()] = BoardSquare.BlackRook;
-            StartingBoard[BoardLocation.B8.ToByte()] = BoardSquare.BlackKnight;
-            StartingBoard[BoardLocation.C8.ToByte()] = BoardSquare.BlackBishop;
-            StartingBoard[BoardLocation.D8.ToByte()] = BoardSquare.BlackQueen;
-            StartingBoard[BoardLocation.E8.ToByte()] = BoardSquare.BlackKing;
-            StartingBoard[BoardLocation.F8.ToByte()] = BoardSquare.BlackBishop;
-            StartingBoard[BoardLocation.G8.ToByte()] = BoardSquare.BlackKnight;
-            StartingBoard[BoardLocation.H8.ToByte()] = BoardSquare.BlackRook;
+            StartingBoard[BoardLocation.A8.ToByte()] = ChessPiece.BlackRook;
+            StartingBoard[BoardLocation.B8.ToByte()] = ChessPiece.BlackKnight;
+            StartingBoard[BoardLocation.C8.ToByte()] = ChessPiece.BlackBishop;
+            StartingBoard[BoardLocation.D8.ToByte()] = ChessPiece.BlackQueen;
+            StartingBoard[BoardLocation.E8.ToByte()] = ChessPiece.BlackKing;
+            StartingBoard[BoardLocation.F8.ToByte()] = ChessPiece.BlackBishop;
+            StartingBoard[BoardLocation.G8.ToByte()] = ChessPiece.BlackKnight;
+            StartingBoard[BoardLocation.H8.ToByte()] = ChessPiece.BlackRook;
         }
     }
 
     internal static class Extensions
     {
         public static byte ToByte(this BoardLocation boardLocation) => (byte)boardLocation;
+
+        public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
+
+        public static Player OpposingPlayer(this Player player) => player == Player.White ? Player.Black : Player.White;
+
+        /// <summary>
+        /// Performs the specified action on each element of the enumeration.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="action"></param>
+        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            foreach (var item in items) action(item);
+        }
     }
 
     public enum BoardLocation : byte
@@ -253,21 +323,21 @@ namespace Homeless
         Black
     }
 
-    public enum BoardSquare : byte
+    public enum ChessPiece : byte
     {
-        Empty = 0,
-        BlackPawn,
-        BlackKnight,
-        BlackBishop,
-        BlackRook,
-        BlackQueen,
-        BlackKing,
-        WhitePawn,
-        WhiteKnight,
-        WhiteBishop,
-        WhiteRook,
-        WhiteQueen,
-        WhiteKing
+        None = 0,
+        BlackPawn=10,
+        BlackKnight=11,
+        BlackBishop=12,
+        BlackRook=13,
+        BlackQueen=14,
+        BlackKing=15,
+        WhitePawn=20,
+        WhiteKnight=21,
+        WhiteBishop=22,
+        WhiteRook=23,
+        WhiteQueen=24,
+        WhiteKing=26
     }
 
     public class ChessException : Exception
