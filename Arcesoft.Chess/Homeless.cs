@@ -7,6 +7,7 @@ namespace Homeless
 
     public class Game
     {
+
         private readonly Board _board;
         private GameState _gameState = GameState.InPlay;
         private List<GameMove> _moves = new List<GameMove>();
@@ -41,18 +42,26 @@ namespace Homeless
             //Check for knight threats...
             return false;
         }
+
         public Dictionary<BoardLocation, PinType> GetThreatenedBoardLocations(Player player)
         {
             //find all opposing pieces
             var opposingPlayer = player.OpposingPlayer();
-            var opposingPieces = _board.GetPiecesForPlayer(opposingPlayer);
+            var playerKingLocation = _board.GetKingsLocation(player);
+            var opposingPieceLocations = _board.GetPlayerPieceLocations(opposingPlayer);
 
-            Dictionary<BoardLocation, PinType> threats = new Dictionary<BoardLocation, PinType>();
+            Dictionary<BoardLocation, PinType> threatenedBoardLocations = new Dictionary<BoardLocation, PinType>();
 
-            opposingPieces.ForEach(
+            opposingPieceLocations
+                .ForEach(a => AddThreats(player, playerKingLocation, a, threatenedBoardLocations));
+
+            return threatenedBoardLocations;
         }
-        private void AddPieceThreats(ChessPiece chessPiece, Dictionary<BoardLocation, PinType> threatenedBoardLocations)
+
+        private void AddThreats(Player player, BoardLocation playerKingLocation, BoardLocation opposingPieceBoardLocation, Dictionary<BoardLocation, PinType> threatenedBoardLocations)
         {
+            var chessPiece = _board[opposingPieceBoardLocation];
+
             switch (chessPiece)
             {
                 case ChessPiece.BlackPawn:
@@ -60,7 +69,7 @@ namespace Homeless
                     break;
                 case ChessPiece.BlackRook:
                 case ChessPiece.WhiteRook:
-
+                    AddHorizontalThreats(player, playerKingLocation, opposingPieceBoardLocation, threatenedBoardLocations);
                     break;
                 case ChessPiece.BlackKnight:
                 case ChessPiece.WhiteKnight:
@@ -75,7 +84,57 @@ namespace Homeless
                 case ChessPiece.WhiteKing:
                     break;
                 default:
-                    throw new Exception($"Unexpected chessPiece value {chessPiece.ToString()}");
+                    throw new Exception($"Unexpected chessPiece value {opposingPieceBoardLocation.ToString()}");
+            }
+        }
+
+        private void AddHorizontalThreats(Player player, BoardLocation playerKingLocation, BoardLocation opposingPieceBoardLocation, Dictionary<BoardLocation, PinType> threatenedBoardLocations)
+        {
+            //east: while we got land to the east
+            BoardLocation? currentLocation = opposingPieceBoardLocation.East();
+            while (currentLocation != null)
+            {
+                //get the piece
+                var piece = _board[currentLocation.Value];
+
+
+                if (piece == ChessPiece.None)
+                {
+                    //empty square, no pin possible
+                    AddThreat(threatenedBoardLocations, currentLocation.Value, PinType.None);
+                }
+                else if (piece.BelongsTo(player))
+                {
+                    //our piece which means no pin possible and we are done
+                    AddThreat(threatenedBoardLocations, currentLocation.Value, PinType.None);
+                }
+                else
+                {
+                    //opposing piece which MIGHT have a pin...
+                    AddThreat(threatenedBoardLocations, currentLocation.Value, 
+                }
+
+                currentLocation = currentLocation.Value.East();
+            }
+
+            //west: while we got land to the west
+            currentLocation = opposingPieceBoardLocation.West();
+            while (currentLocation != null)
+            {
+
+
+                currentLocation = currentLocation.Value.West();
+            }
+        }
+        private void AddThreat(Dictionary<BoardLocation, PinType> threatenedBoardLocations, BoardLocation boardLocation, PinType pin)
+        {
+            if (!threatenedBoardLocations.ContainsKey(boardLocation))
+            {
+                threatenedBoardLocations.Add(boardLocation, pin);
+            }
+            else
+            {
+                threatenedBoardLocations[boardLocation] = (threatenedBoardLocations[boardLocation] | pin);
             }
         }
 
@@ -113,6 +172,13 @@ namespace Homeless
         }
     }
 
+    public static class Constants
+    {
+        public const int BoardSize = 64;
+        public const int BoardWidth = 8;
+        public const int BoardHeight = 8;
+    }
+
     /// <summary>
     /// Describes a 
     /// </summary>
@@ -120,12 +186,23 @@ namespace Homeless
     public enum PinType : byte
     {
         None = 0,
-        Horizontal = 1,
-        Vertical = 2,
-        Slope = 4,
-        Grade = 8
+        EastToWest = 1,//horizontal
+        NorthToSouth = 2,//vertical
+        NorthWestToSouthEast = 4,//slope
+        SouthWestToNorthEast = 8//grade
     }
 
+    public enum Direction
+    {
+        North,
+        South,
+        East,
+        West,
+        NorthEast,
+        NorthWest,
+        SouthEast,
+        SouthWest
+    }
     public enum GameState : byte
     {   //from https://en.wikipedia.org/wiki/Draw_(chess)
         InPlay = 0,
@@ -151,17 +228,17 @@ namespace Homeless
         //1:| 0| 8|16|24|32|40|48|56|
         private static readonly ChessPiece[] StartingBoard;
 
-        private ChessPiece[] BoardSquares = null;
+        private ChessPiece[] _boardSquares = null;
 
         public ChessPiece this[BoardLocation boardLocation]
         {
             get
             {
-                return BoardSquares[boardLocation.ToByte()];
+                return _boardSquares[boardLocation.ToByte()];
             }
             set
             {
-                BoardSquares[boardLocation.ToByte()] = value;
+                _boardSquares[boardLocation.ToByte()] = value;
             }
         }
 
@@ -170,12 +247,47 @@ namespace Homeless
             Reset();
         }
 
-        public void Reset() => BoardSquares = (ChessPiece[])StartingBoard.Clone();
+        public void Reset() => _boardSquares = (ChessPiece[])StartingBoard.Clone();
 
-        public ChessPiece[] GetPiecesForPlayer(Player player)
-            => (player == Player.Black) ? 
-                BoardSquares.Where(a => a.ToByte() >= 10 && a.ToByte() <= 15).ToArray(): 
-                BoardSquares.Where(a => a.ToByte() >= 20 && a.ToByte() <= 25).ToArray();
+        public List<BoardLocation> GetPlayerPieceLocations(Player player)
+        {
+            var listy = new List<BoardLocation>();
+            byte lowRange, upperRange;
+            if (player == Player.White)
+            {
+                lowRange = ChessPiece.WhitePawn.ToByte();
+                upperRange = ChessPiece.WhiteQueen.ToByte();
+            }
+            else
+            {
+                lowRange = ChessPiece.BlackPawn.ToByte();
+                upperRange = ChessPiece.BlackQueen.ToByte();
+            }
+
+            for (int i = 0; i < Constants.BoardSize; i++)
+            {
+                var pieceValue = (byte)_boardSquares[i];
+
+                if (pieceValue >= lowRange && pieceValue <= upperRange)
+                {
+                    listy.Add((BoardLocation)i);
+                }
+            }
+
+            return listy;
+        }
+
+        public BoardLocation GetKingsLocation(Player player)
+        {
+            var king = player == Player.Black ? ChessPiece.BlackKing : ChessPiece.WhiteKing;
+
+            for (int i = 0; i < Constants.BoardSize; i++)
+            {
+                if (_boardSquares[i] == king) return (BoardLocation)i;
+            }
+
+            throw new InvalidOperationException($"Unable to find king for player '{player}'. Invalid board configuration.");
+        }
 
         static Board()
         {
@@ -223,6 +335,95 @@ namespace Homeless
 
     internal static class Extensions
     {
+        public static bool BelongsTo(this ChessPiece chessPiece, Player player)
+        {
+            return player == Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
+        }
+        public static bool BelongsToWhite(this ChessPiece chessPiece)
+        {
+            return chessPiece.ToByte() >= 20;
+        }
+        public static bool BelongsToBlack(this ChessPiece chessPiece)
+        {
+            return chessPiece.ToByte() >= 10 || chessPiece.ToByte() < 20;
+        }
+
+        public static BoardLocation? NorthWest(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() - 7;
+
+            //if we DONT hop columns we are out of bounds
+            if (val / 8 == currentColumn) return null;
+
+            return (val >= 0) ? (BoardLocation)val : default(BoardLocation?);
+        }
+        public static BoardLocation? NorthEast(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() + 9;
+
+            //if we are not the next column this is invalid
+            if ((val / 8) - 1 != currentColumn) return null;
+
+            return (val < Constants.BoardSize) ? (BoardLocation)val : default(BoardLocation?);
+        }
+
+        public static BoardLocation? SouthWest(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() - 9;
+
+            //if we are not the next column this is invalid
+            if ((val / 8) + 1 != currentColumn) return null;
+
+            return (val >= 0) ? (BoardLocation)val : default(BoardLocation?);
+        }
+        public static BoardLocation? SouthEast(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() + 7;
+
+            //if we are not the next column this is invalid
+            if ((val / 8) == currentColumn) return null;
+
+            return (val < Constants.BoardSize) ? (BoardLocation)val : default(BoardLocation?);
+        }
+
+        public static BoardLocation? North(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() + 1;
+
+            //if we hop columns we are out of bounds
+            if (val / 8 != currentColumn) return null;
+
+            return (val < Constants.BoardSize) ? (BoardLocation)val : default(BoardLocation?);
+        }
+        public static BoardLocation? South(this BoardLocation currentLocation)
+        {
+            var currentColumn = currentLocation.ToByte() / 8;
+            var val = currentLocation.ToByte() - 1;
+
+            //if we hop columns we are out of bounds
+            if (val / 8 != currentColumn) return null;
+
+            return (val >= 0) ? (BoardLocation)val : default(BoardLocation?);
+        }
+
+        public static BoardLocation? East(this BoardLocation currentLocation)
+        {
+            var val = currentLocation.ToByte() + Constants.BoardWidth;
+
+            return (val < Constants.BoardSize) ? (BoardLocation)val : default(BoardLocation?);
+        }
+        public static BoardLocation? West(this BoardLocation currentLocation)
+        {
+            var val = currentLocation.ToByte() - Constants.BoardWidth;
+
+            return (val >= 0) ? (BoardLocation)val : default(BoardLocation?);
+        }
+
         public static byte ToByte(this BoardLocation boardLocation) => (byte)boardLocation;
 
         public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
