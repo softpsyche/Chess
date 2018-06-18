@@ -5,7 +5,11 @@ VisualStudioVersion = 15.0.27703.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcesoft.Chess.FormsApplication", "Arcesoft.Chess.FormsApplication\Arcesoft.Chess.FormsApplication.csproj", "{5371A414-DD75-4E1E-8184-4CB5F1AFDD7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcesoft.Chess", "Arcesoft.Chess\Arcesoft.Chess.csproj", "{0F8C4C2C-F905-4CE7-8007-71C7E123F172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcesoft.Chess", "Arcesoft.Chess\Arcesoft.Chess.csproj", "{0F8C4C2C-F905-4CE7-8007-71C7E123F172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcesoft.Chess.Tests", "Arcesoft.Chess.Tests\Arcesoft.Chess.Tests.csproj", "{725F3C40-9435-499B-BFE5-B36CFFDC76E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5D5D598C-93DC-4A5D-9DAA-B74DDC2A9A02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{0F8C4C2C-F905-4CE7-8007-71C7E123F172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F8C4C2C-F905-4CE7-8007-71C7E123F172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F8C4C2C-F905-4CE7-8007-71C7E123F172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{725F3C40-9435-499B-BFE5-B36CFFDC76E3} = {5D5D598C-93DC-4A5D-9DAA-B74DDC2A9A02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F06BE1C-4FF2-4A76-AB68-A6A926D122CC}

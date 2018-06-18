@@ -161,7 +161,6 @@ namespace Arcesoft.Chess.Implementation
             return piece == ChessPiece.None || piece.Player() == player;
         }
 
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -216,6 +215,15 @@ namespace Arcesoft.Chess.Implementation
             }
 
             return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
+        }
+
+        public Board Clone()
+        {
+            var newBoard = new Board();
+
+            newBoard._board = (ChessPiece[])_board.Clone();
+
+            return newBoard;
         }
 
         #region Static methods

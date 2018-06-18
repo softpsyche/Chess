@@ -3,22 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Arcesoft.Chess
+namespace Arcesoft.Chess.Models
 {
-    ///// <summary>
-    ///// Used to indicate if en passant is possible
-    ///// </summary>
-    //public enum EnPassant
-    //{
-    //    Eastern,
-    //    Western
-    //}
-
     /// <summary>
     /// Describes a threat direction
     /// </summary>
     [Flags]
-    public enum ThreatDirection : int
+    internal enum ThreatDirection : int
     {
         North = 1,
         South = 2,

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Arcesoft.Chess.Implementation
 {
-    public class ThreatProvider
+    internal class ThreatProvider
     {
         /// <summary>
         /// Finds all threats for the given player and board. Finds all the opposing players

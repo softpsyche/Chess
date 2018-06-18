@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Arcesoft.Chess.Implementation
 {
-    public class Game
+    internal class Game : IGame
     {
         private readonly Board _board;
         private readonly ThreatProvider _threatProvider;
@@ -15,7 +15,13 @@ namespace Arcesoft.Chess.Implementation
         private List<Move> _moveHistory = new List<Move>();
 
         public bool GameIsOver => _gameState != GameState.InPlay;
+
+        public GameState GameState => _gameState;
+
+        public Board GetBoard() => _board.Clone();
+
         public Player CurrentPlayer => (_moveHistory.Count % 2) == 0 ? Player.White : Player.Black;
+
         public bool IsValidMove(Move gameMove) => GameIsOver ? false : FindMoves().Contains(gameMove);
 
         public Game(Board board, ThreatProvider threatProvider)

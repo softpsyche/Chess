@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arcesoft.Chess.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,7 +34,7 @@ namespace Arcesoft.Chess.Implementation
 
         public static bool BelongsTo(this ChessPiece chessPiece, Player player)
         {
-            return player == Chess.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
+            return player == Models.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
         }
         public static bool BelongsToWhite(this ChessPiece chessPiece)
         {
@@ -50,12 +51,12 @@ namespace Arcesoft.Chess.Implementation
                 throw new InvalidOperationException($"The chessPiece '{chessPiece}' does not belong to any player.");
             }
 
-            return chessPiece.BelongsToWhite() ? Chess.Player.White : Chess.Player.Black;
+            return chessPiece.BelongsToWhite() ? Models.Player.White : Models.Player.Black;
         }
 
         public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
 
-        public static Player OpposingPlayer(this Player player) => player == Chess.Player.White ? Chess.Player.Black : Chess.Player.White;
+        public static Player OpposingPlayer(this Player player) => player == Models.Player.White ? Models.Player.Black : Models.Player.White;
 
         /// <summary>
         /// Performs the specified action on each element of the enumeration.
