@@ -1,0 +1,162 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{087A5CD7-71BD-40B7-BF3A-E801368A2DCF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Chess</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Chess</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Compile Include="ArtificialIntelligence.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChessGame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ctlUIChessBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dlgAboutEuclid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDebugArtificialIntelligence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDebugArtificialIntelligence.Designer.cs">
+      <DependentUpon>dlgDebugArtificialIntelligence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgDebugSelectPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDebugSelectPosition.Designer.cs">
+      <DependentUpon>dlgDebugSelectPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgPawnPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgSquareInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChessMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tree.cs" />
+    <EmbeddedResource Include="ctlUIChessBoard.resx">
+      <DependentUpon>ctlUIChessBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgAboutEuclid.resx">
+      <DependentUpon>dlgAboutEuclid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgDebugArtificialIntelligence.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgDebugArtificialIntelligence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgDebugSelectPosition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgDebugSelectPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPawnPromotion.resx">
+      <DependentUpon>dlgPawnPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgSquareInfo.resx">
+      <DependentUpon>dlgSquareInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChessMain.resx">
+      <DependentUpon>frmChessMain.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
