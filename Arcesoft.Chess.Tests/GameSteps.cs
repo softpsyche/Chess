@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Arcesoft.Chess.Tests
 {
@@ -24,12 +25,23 @@ namespace Arcesoft.Chess.Tests
             player.Should().Be(player);
         }
 
+        [Then(@"I expect the gamestate to be '(.*)'")]
+        public void ThenIExpectTheGamestateToBe(GameState gameState)
+        {
+            Game.GameState.Should().Be(gameState);
+        }
+
+        [Then(@"I expect no moves to have been made")]
+        public void ThenIExpectNoMovesToHaveBeenMade()
+        {
+
+        }
+
+
         [Then(@"I expect the current board to contain the following")]
         public void ThenIExpectTheCurrentBoardToContainTheFollowing(Table table)
         {
-            var board = Game.GetBoard();
-
-            board.Should().BeEquivalentTo(table.ToBoard());
+            Game.Board.ToString().Should().Be(table.ToBoard().ToString());
         }
     }
 
@@ -49,13 +61,56 @@ namespace Arcesoft.Chess.Tests
         public static Board ToBoard(this Table table)
         {
             Board board = new Board();
+            board.Clear();
+            int boardPosition = 0;
 
-            for (int row = 7; row >= 0; row--)
+            for (int column = 7; column >= 0; column--)
             {
-                for (int column = 0; column < 8; column++)
+                for (int row = 7; row >= 0; row--)
                 {
-                    var table.Rows[row][column]
+                    var chessPiece = table.Rows[row][column].ToChessPieceFromInputString();
+
+                    board[(BoardLocation)boardPosition] = chessPiece;
+                    boardPosition++;
                 }
+            }
+
+            return board;
+        }
+
+        public static ChessPiece ToChessPieceFromInputString(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return ChessPiece.None;
+
+            switch (value?.ToUpperInvariant())
+            {
+                case "WP":
+                    return ChessPiece.WhitePawn;
+                case "WN":
+                    return ChessPiece.WhiteKnight;
+                case "WB":
+                    return ChessPiece.WhiteBishop;
+                case "WR":
+                    return ChessPiece.WhiteRook;
+                case "WQ":
+                    return ChessPiece.WhiteQueen;
+                case "WK":
+                    return ChessPiece.WhiteKing;
+                case "BP":
+                    return ChessPiece.BlackPawn;
+                case "BN":
+                    return ChessPiece.BlackKnight;
+                case "BB":
+                    return ChessPiece.BlackBishop;
+                case "BR":
+                    return ChessPiece.BlackRook;
+                case "BQ":
+                    return ChessPiece.BlackQueen;
+                case "BK":
+                    return ChessPiece.BlackKing;
+                default:
+                    throw new InvalidOperationException($"Unexpected piece value of '{value}' found.");
             }
         }
     }

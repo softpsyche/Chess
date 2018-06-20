@@ -109,6 +109,10 @@ this.FeatureBackground();
 #line 11
  testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.Then("I expect no moves to have been made", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 14
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -192,7 +196,7 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 13
+#line 15
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();

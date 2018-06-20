@@ -18,7 +18,7 @@ namespace Arcesoft.Chess.Implementation
 
         public GameState GameState => _gameState;
 
-        public Board GetBoard() => _board.Clone();
+        public IReadOnlyBoard Board => _board as IReadOnlyBoard;
 
         public Player CurrentPlayer => (_moveHistory.Count % 2) == 0 ? Player.White : Player.Black;
 

@@ -9,6 +9,8 @@ Background:
 Scenario: New game should start in correct state
 	When I start a new game
 	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect no moves to have been made
 	Then I expect the current player is 'White'
 	Then I expect the current board to contain the following
 		| A  | B  | C  | D  | E  | F  | G  | H  |

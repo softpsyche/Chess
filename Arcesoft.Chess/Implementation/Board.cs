@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Arcesoft.Chess.Implementation
 {
-    public class Board
+    public class Board : IReadOnlyBoard
     {
         //PGN format for the board
         //    A  B  C  D  E  F  G  H
@@ -142,7 +142,7 @@ namespace Arcesoft.Chess.Implementation
             var neighbor = boardLocation.Neighbor(direction);
             var piece = this[neighbor.Value];
 
-            if ((neighbor.HasValue) && 
+            if ((neighbor.HasValue) &&
                 (piece.BelongsTo(player) || piece == ChessPiece.None))
             {
                 return true;

@@ -14,7 +14,7 @@ namespace Arcesoft.Chess
 
         GameState GameState { get; }
 
-        Board GetBoard();
+        IReadOnlyBoard Board { get; }
 
         List<Move> FindMoves();
 
