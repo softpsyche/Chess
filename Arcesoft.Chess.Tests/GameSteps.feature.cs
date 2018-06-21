@@ -480,21 +480,30 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
-                        "BP"});
+                        ""});
             table6.AddRow(new string[] {
                         "",
                         "WP",
                         "BP",
                         "BP",
+                        "",
+                        "",
+                        "",
+                        "BP"});
+            table6.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "",
+                        "WP",
                         "",
                         "",
                         "",
                         ""});
             table6.AddRow(new string[] {
                         "",
-                        "WP",
                         "",
-                        "WP",
+                        "",
+                        "",
                         "",
                         "",
                         "BP",
@@ -525,15 +534,6 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
-                        ""});
-            table6.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
                         "WK"});
 #line 108
  testRunner.Given("I start a new game in the following state", ((string)(null)), table6, "Given ");
@@ -543,8 +543,8 @@ this.FeatureBackground();
                         "Destination",
                         "Result"});
             table7.AddRow(new string[] {
-                        "G2",
-                        "G4",
+                        "H2",
+                        "H4",
                         "None"});
 #line 120
  testRunner.Given("I have the following move history", ((string)(null)), table7, "Given ");
@@ -555,8 +555,32 @@ this.FeatureBackground();
                         "Source",
                         "Destination"});
             table8.AddRow(new string[] {
-                        "A2",
-                        "A3"});
+                        "A8",
+                        "B8"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "A6"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "A5"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "B6"});
+            table8.AddRow(new string[] {
+                        "C6",
+                        "B5"});
+            table8.AddRow(new string[] {
+                        "C6",
+                        "C5"});
+            table8.AddRow(new string[] {
+                        "C6",
+                        "D5"});
+            table8.AddRow(new string[] {
+                        "G4",
+                        "H3"});
+            table8.AddRow(new string[] {
+                        "H6",
+                        "H5"});
 #line 124
  testRunner.Then("I expect the the moves found to contain", ((string)(null)), table8, "Then ");
 #line hidden

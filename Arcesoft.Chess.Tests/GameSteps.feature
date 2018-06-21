@@ -108,19 +108,27 @@ Scenario: Find moves should find all moves for black pawns
 	Given I start a new game in the following state
 		| A  | B  | C  | D  | E | F | G  | H  |
 		| BK |    |    |    |   |   |    |    |
-		| BP | BP |    |    |   |   |    | BP |
-		|    | WP | BP | BP |   |   |    |    |
-		|    | WP |    | WP |   |   | BP | WP |
+		| BP | BP |    |    |   |   |    |    |
+		|    | WP | BP | BP |   |   |    | BP |
+		|    | WP |    | WP |   |   |    |    |
+		|    |    |    |    |   |   | BP | WP |
 		|    |    |    |    |   |   | WP |    |
-		|    |    |    |    |   |   |    |    |
 		|    |    |    |    |   |   |    |    |
 		|    |    |    |    |   |   |    | WK |
 	#moves made must be odd so its blacks turn
 	#last move is to test au passant
 	Given I have the following move history
 		| Source | Destination | Result |
-		| G2     | G4          | None   |
+		| H2     | H4          | None   |
 	When I find moves for the current game
 	Then I expect the the moves found to contain
 		| Source | Destination |
-		| A2     | A3          |
+		| A8     | B8          |
+		| A7     | A6          |
+		| A7     | A5          |
+		| A7     | B6          |
+		| C6     | B5          |
+		| C6     | C5          |
+		| C6     | D5          |
+		| G4     | H3          |
+		| H6     | H5          |
