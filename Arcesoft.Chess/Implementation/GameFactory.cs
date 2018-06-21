@@ -13,6 +13,9 @@ namespace Arcesoft.Chess.Implementation
         {
             _container = container;
         }
-        public IGame NewGame() => _container.GetInstance<IGame>();
+        public IGame NewGame()
+        {
+            return _container.GetInstance<IGame>();
+        }
     }
 }

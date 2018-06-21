@@ -1,4 +1,5 @@
 ﻿using Arcesoft.Chess.Implementation;
+using Arcesoft.Chess.Models;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,18 @@ namespace Arcesoft.Chess.Tests
             get
             {
                 return GetScenarioContextItemOrDefault<IGame>();
+            }
+            set
+            {
+                CurrentContext.Set(value);
+            }
+        }
+
+        protected List<Move> Moves
+        {
+            get
+            {
+                return GetScenarioContextItemOrDefault<List<Move>>();
             }
             set
             {

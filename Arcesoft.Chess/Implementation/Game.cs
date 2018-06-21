@@ -12,7 +12,9 @@ namespace Arcesoft.Chess.Implementation
         private readonly ThreatProvider _threatProvider;
 
         private GameState _gameState = GameState.InPlay;
-        private List<Move> _moveHistory = new List<Move>();
+        private List<MoveHistory> _moveHistory = new List<MoveHistory>();
+
+        public IReadOnlyList<MoveHistory> MoveHistory => _moveHistory;
 
         public bool GameIsOver => _gameState != GameState.InPlay;
 
@@ -74,7 +76,7 @@ namespace Arcesoft.Chess.Implementation
             var playerKingLocation = _board.GetKingsLocation(CurrentPlayer);
             var playerKingThreatDirection = threats.ContainsKey(playerKingLocation) ? threats[playerKingLocation] : default(ThreatDirection?);
 
-            //if ad man is in check, we need to find only the moves that remove the check...
+            //if da man is in check, we need to find only the moves that remove the check...
             if (playerKingThreatDirection.HasValue)
             {
                 FindMovesWhenKingsInCheck(
@@ -109,7 +111,7 @@ namespace Arcesoft.Chess.Implementation
             //if the king has multiple threats, the only valid moves require the king moving
             if (playerKingThreatDirection.HasMultipleThreats())
             {
-                //only chance for is for the king to move to a location that is no longer threatening him. 
+                //only chance for is for the king to move to a location that is not threatened.
                 FindMoves(moves, threats, playerKingLocation);
             }
             else
@@ -182,7 +184,7 @@ namespace Arcesoft.Chess.Implementation
 
                 //we can also move up two spaces if the next northern square is empty
                 if ((playerPieceLocation.IsPawnStartingLocation(player)) &&
-                    (_board.NeighboringLocationIsEmptyOrOccupiedBy(firstMarchLocation, marchDirection, opposingPlayer)))
+                    (_board.NeighboringLocationIsEmpty(firstMarchLocation, marchDirection)))
                 {
                     moves.Add(new Move(playerPieceLocation, firstMarchLocation.Neighbor(marchDirection).Value));
                 }
@@ -247,10 +249,13 @@ namespace Arcesoft.Chess.Implementation
             //If (and ONLY if):
             //-: the last move was a pawn move AND
             //-: the last move was two spaces AND
-            //-: the last move was right next to the given pawn in the right direction
+            //-: we can thus infer it belongs to the opposite player AND
+            //-: the last move was right next to the given pawn 
+            //-: the last move was in the right column (based on capture direction)
             //(Jesus christ almighty this was not easy)
             if ((_board.ContainsPawn(lastMove.Destination)) &&
                 (Math.Abs(lastMove.Destination.ToByte() - lastMove.Source.ToByte()) == 2) &&
+                (lastMove.Destination.Row() == pawnLocation.Row()) &&
                 (lastMove.Destination.Column() == lastMoveExpectedColumn))
             {
                 return true;

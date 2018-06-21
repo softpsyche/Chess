@@ -119,10 +119,9 @@ namespace Arcesoft.Chess.Implementation
         public bool NeighboringLocationIsOccupiedBy(BoardLocation boardLocation, Direction direction, Player player)
         {
             var neighbor = boardLocation.Neighbor(direction);
-            var piece = this[neighbor.Value];
 
             if ((neighbor.HasValue) &&
-                (piece.BelongsTo(player)))
+                (this[neighbor.Value].BelongsTo(player)))
             {
                 return true;
             }

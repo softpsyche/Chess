@@ -34,15 +34,41 @@ namespace Arcesoft.Chess.Tests
         [Then(@"I expect no moves to have been made")]
         public void ThenIExpectNoMovesToHaveBeenMade()
         {
-
+            Game.MoveHistory.Should().BeEmpty();
         }
-
 
         [Then(@"I expect the current board to contain the following")]
         public void ThenIExpectTheCurrentBoardToContainTheFollowing(Table table)
         {
             Game.Board.ToString().Should().Be(table.ToBoard().ToString());
         }
+
+        [When(@"I find moves for the current game")]
+        public void WhenIFindMovesForTheCurrentGame()
+        {
+            Invoke(() => Moves = Game.FindMoves());
+        }
+
+        [Then(@"I expect the the moves found to contain")]
+        public void ThenIExpectTheTheMovesFoundToContain(Table table)
+        {
+            table.CompareToSet(Moves);
+        }
+
+        [Given(@"I start a new game in the following state")]
+        public void GivenIStartANewGameInTheFollowingState(Table table)
+        {
+            Invoke(() => Game = GameFactory.NewGame());
+
+            Game.SetPrivateField("_board", table.ToBoard());
+        }
+
+        [Given(@"I have the following move history")]
+        public void GivenIHaveTheFollowingMoveHistory(Table table)
+        {
+            Game.SetPrivateField("_moveHistory", table.ToMoveHistory());
+        }
+
     }
 
     public static class Extensions
@@ -57,14 +83,13 @@ namespace Arcesoft.Chess.Tests
         //3:| 2|10|18|26|34|42|50|58|
         //2:| 1| 9|17|25|33|41|49|57|
         //1:| 0| 8|16|24|32|40|48|56|
-
         public static Board ToBoard(this Table table)
         {
             Board board = new Board();
             board.Clear();
             int boardPosition = 0;
 
-            for (int column = 7; column >= 0; column--)
+            for (int column = 0; column < 8; column++)
             {
                 for (int row = 7; row >= 0; row--)
                 {
@@ -76,6 +101,21 @@ namespace Arcesoft.Chess.Tests
             }
 
             return board;
+        }
+
+        public static List<MoveHistory> ToMoveHistory(this Table table)
+        {
+            List<MoveHistory> moveHistories = new List<MoveHistory>();
+
+            foreach (var row in table.Rows)
+            {
+                moveHistories.Add(new MoveHistory(
+                    (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(MoveHistory.Source)]),
+                    (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(MoveHistory.Destination)]),
+                    (MoveResult)Enum.Parse(typeof(MoveResult), row[nameof(MoveHistory.Result)])));
+            }
+
+            return moveHistories;
         }
 
         public static ChessPiece ToChessPieceFromInputString(this string value)
@@ -112,6 +152,13 @@ namespace Arcesoft.Chess.Tests
                 default:
                     throw new InvalidOperationException($"Unexpected piece value of '{value}' found.");
             }
+        }
+
+        public static void SetPrivateField(this Object obj, string name, Object value)
+        {
+            obj.GetType()
+               .GetField(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+               .SetValue(obj, value);
         }
     }
 }

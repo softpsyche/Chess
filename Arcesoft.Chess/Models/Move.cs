@@ -8,7 +8,7 @@ namespace Arcesoft.Chess.Models
     /// <summary>
     /// This class is immutable and thus also threadsafe.
     /// </summary>
-    public sealed class Move
+    public class Move
     {
         public BoardLocation Source { get; private set; }
         public BoardLocation Destination { get; private set; }

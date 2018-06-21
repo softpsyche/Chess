@@ -42,7 +42,7 @@ namespace Arcesoft.Chess.Implementation
         }
         public static bool BelongsToBlack(this ChessPiece chessPiece)
         {
-            return chessPiece.ToByte() >= 10 || chessPiece.ToByte() < 20;
+            return chessPiece.ToByte() >= 10 && chessPiece.ToByte() < 20;
         }
         public static Player Player(this ChessPiece chessPiece)
         {

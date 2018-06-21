@@ -16,6 +16,8 @@ namespace Arcesoft.Chess
 
         IReadOnlyBoard Board { get; }
 
+        IReadOnlyList<MoveHistory> MoveHistory { get; }
+
         List<Move> FindMoves();
 
         bool IsValidMove(Move gameMove);
