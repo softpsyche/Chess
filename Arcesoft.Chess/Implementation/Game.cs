@@ -360,9 +360,25 @@ namespace Arcesoft.Chess.Implementation
             BoardLocation playerPieceLocation,
             ThreatDirection? playerPieceThreatDirection)
         {
-            //again, this trick comes in handy...
-            FindBishopMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
-            FindRookMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+            //we will use the threats matrix for this queen to calculate our moves...
+            var queenThreatLocations = _threatProvider.FindThreatsForBoardLocation(_board, playerPieceLocation);
+            var hasVerticalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Vertical);
+            var hasHorizontalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Horizontal);
+            var hasSlopeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Slope);
+            var hasGradeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Grade);
+
+            foreach (var location in queenThreatLocations.Keys)
+            {
+                //only add moves that do a capture or move along the same threat vector
+                if ((_board.LocationIsEmptyOrOccupiedBy(location, player.OpposingPlayer())) &&
+                    ((hasGradeThreats == false) || (location.IsOnSameGradeAs(playerPieceLocation))) &&
+                    ((hasSlopeThreats == false) || (location.IsOnSameSlopeAs(playerPieceLocation))) &&
+                    ((hasVerticalThreats == false) || (location.IsOnSameColumnAs(playerPieceLocation))) &&
+                    ((hasHorizontalThreats == false) || (location.IsOnSameRowAs(playerPieceLocation))))
+                {
+                    moves.Add(new Move(playerPieceLocation, location));
+                }
+            }
         }
 
         private void FindKingMoves(

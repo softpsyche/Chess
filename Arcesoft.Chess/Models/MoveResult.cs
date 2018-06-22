@@ -10,6 +10,7 @@ namespace Arcesoft.Chess.Models
     {
         None = 0,
         Capture = 1,
-        Check = 2
+        Castle = 2,
+        Check = 3
     }
 }

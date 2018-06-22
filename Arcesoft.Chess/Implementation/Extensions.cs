@@ -68,5 +68,36 @@ namespace Arcesoft.Chess.Implementation
         {
             foreach (var item in items) action(item);
         }
+
+        public static string ToVisualString(this IDictionary<BoardLocation, ThreatDirection?> threatDictionary)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int row = 7; row >= 0; row--)
+            {
+                for (int column = 0; column < 8; column++)
+                {
+                    var location = (BoardLocation)(row + (column * 8));
+
+                    sb.Append(ToBoardLocationThreatString(threatDictionary, location,  column == 0));
+                }
+
+                sb.Append("\r\n");
+            }
+
+            return sb.ToString();
+        }
+
+        private static string ToBoardLocationThreatString(IDictionary<BoardLocation, ThreatDirection?> threatDictionary, BoardLocation boardLocation,bool printStartingPipe)
+        {
+            string pieceString = "  ";
+
+            if (threatDictionary.ContainsKey(boardLocation))
+            {
+                pieceString = "<>";
+            }
+
+            return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
+        }
     }
 }
