@@ -81,6 +81,29 @@ namespace Arcesoft.Chess.Tests
             Game.SetPrivateField("_moveHistory", table.ToMoveHistory());
         }
 
+
+        [Then(@"I expect the moves found should NOT contain '(.*)'")]
+        public void ThenIExpectTheMovesFoundShouldNOTContain(string expectedMoves)
+        {
+            var moves = expectedMoves.ToMoves();
+
+            if (moves.Any())
+            {
+                Moves.Should().NotContain(moves);
+            }
+        }
+
+        [Then(@"I expect the moves found should contain '(.*)'")]
+        public void ThenIExpectTheMovesFoundShouldContain(string nonExpectedMoves)
+        {
+            var moves = nonExpectedMoves.ToMoves();
+
+            if (moves.Any())
+            {
+                Moves.Should().Contain(moves);
+            }
+        }
+
     }
 
     public static class Extensions
@@ -113,6 +136,32 @@ namespace Arcesoft.Chess.Tests
             }
 
             return board;
+        }
+
+        public static List<Move> ToMoves(this string pgnString)
+        {
+            if (string.IsNullOrWhiteSpace(pgnString))
+                return new List<Move>();
+
+            return pgnString.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
+                .Select(a => a.ToMove())
+                .ToList();
+        }
+        public static Move ToMove(this string moveString)
+        {
+            var pieces = moveString.ToUpperInvariant().Split("-".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+            return new Move(pieces[0].ToBoardLocation(), pieces[1].ToBoardLocation());
+
+        }
+        public static BoardLocation ToBoardLocation(this string boardLocation)
+        {
+            return boardLocation.ToEnum<BoardLocation>();
+        }
+
+        public static T ToEnum<T>(this string value)
+        {
+            return (T)Enum.Parse(typeof(T), value);
         }
 
         public static List<Move> ToMoves(this Table table)

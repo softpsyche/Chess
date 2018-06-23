@@ -589,24 +589,21 @@ Scenario Outline: Find moves should NOT find castle moves for white king when
 		| WR |      |      | <D1> | WK |      | <G1> | WR |
 	Given I have the following move history
 		| Source              | Destination              | Result |
-		| A1                  | A1                       | None   |
+		| D1                  | D1                       | None   |
 		| <MoveHistorySource> | <MoveHistoryDestination> | None   |
 	When I find moves for the current game
-	Then I expect the moves found should NOT contain
-		| Source | Destination |
-		#king castle
-		| E1     | G1          |
-		| E1     | C1          |
+	Then I expect the moves found should NOT contain '<NonExpectedMoves>'
+	Then I expect the moves found should contain '<ExpectedMoves>'
 	Examples: 
-		| TestName                   | MoveHistorySource | MoveHistoryDestination | B3 | C3 | D1 | F8 | G1 |
-		| king has moved             | E1                | F1                     |    |    |    |    |    |
-		| eastern rook has moved     | H1                | H3                     |    |    |    |    |    |
-		| western rook has moved     | A1                | D1                     |    |    |    |    |    |
-		| eastern path blocked       | D4                | D4                     |    |    |    |    | WN |
-		| western path blocked       | D4                | D4                     |    |    | WQ |    |    |
-		| king is in check           | D4                | D4                     |    | BB |    |    |    |
-		| eastern path is threatened | D4                | D4                     |    |    |    | BR |    |
-		| western path is threatened | D4                | D4                     | BB |    |    |    |    |
+		| TestName                   | MoveHistorySource | MoveHistoryDestination | B3 | C3 | D1 | F8 | G1 | ExpectedMoves | NonExpectedMoves |
+		| king has moved             | E1                | F1                     |    |    |    |    |    |               | E1-G1,E1-C1      |
+		| king is in check           | D4                | D4                     |    | BB |    |    |    |               | E1-G1,E1-C1      |
+		| eastern rook has moved     | H1                | H3                     |    |    |    |    |    | E1-C1         | E1-G1            |
+		| eastern path blocked       | D4                | D4                     |    |    |    |    | WN | E1-C1         | E1-G1            |
+		| eastern path is threatened | D4                | D4                     |    |    |    | BR |    | E1-C1         | E1-G1            |
+		| western rook has moved     | A1                | D1                     |    |    |    |    |    | E1-G1         | E1-C1            |
+		| western path blocked       | D4                | D4                     |    |    | WQ |    |    | E1-G1         | E1-C1            |
+		| western path is threatened | D4                | D4                     | BB |    |    |    |    | E1-G1         | E1-C1            |
 
 Scenario Outline: Find moves should NOT find castle moves for black king when
 	Given I start a new game in the following state
@@ -623,21 +620,18 @@ Scenario Outline: Find moves should NOT find castle moves for black king when
 		| Source              | Destination              | Result |
 		| <MoveHistorySource> | <MoveHistoryDestination> | None   |
 	When I find moves for the current game
-	Then I expect the moves found should NOT contain
-		| Source | Destination |
-		#king castle
-		| E8     | G8          |
-		| E8     | C8          |
+	Then I expect the moves found should NOT contain '<NonExpectedMoves>'
+	Then I expect the moves found should contain '<ExpectedMoves>'
 	Examples: 
-		| TestName                   | MoveHistorySource | MoveHistoryDestination | B6 | C6 | D8 | F1 | G8 |
-		| king has moved             | E8                | F8                     |    |    |    |    |    |
-		| eastern rook has moved     | H8                | H3                     |    |    |    |    |    |
-		| western rook has moved     | A8                | D8                     |    |    |    |    |    |
-		| eastern path blocked       | D4                | D4                     |    |    |    |    | BN |
-		| western path blocked       | D4                | D4                     |    |    | BQ |    |    |
-		| king is in check           | D4                | D4                     |    | WB |    |    |    |
-		| eastern path is threatened | D4                | D4                     |    |    |    | WR |    |
-		| western path is threatened | D4                | D4                     | WB |    |    |    |    |
+		| TestName                   | MoveHistorySource | MoveHistoryDestination | B6 | C6 | D8 | F1 | G8 | ExpectedMoves | NonExpectedMoves |
+		| king has moved             | E8                | F8                     |    |    |    |    |    |               | E8-G8,E8-C8      |
+		| king is in check           | D4                | D4                     |    | WB |    |    |    |               | E8-G8,E8-C8      |
+		| eastern rook has moved     | H8                | H3                     |    |    |    |    |    | E8-C8         | E8-G8            |
+		| eastern path blocked       | D4                | D4                     |    |    |    |    | BN | E8-C8         | E8-G8            |
+		| eastern path is threatened | D4                | D4                     |    |    |    | WR |    | E8-C8         | E8-G8            |
+		| western rook has moved     | A8                | D8                     |    |    |    |    |    | E8-G8         | E8-C8            |
+		| western path blocked       | D4                | D4                     |    |    | BQ |    |    | E8-G8         | E8-C8            |
+		| western path is threatened | D4                | D4                     | WB |    |    |    |    | E8-G8         | E8-C8            |
 
 
 #########################################################################

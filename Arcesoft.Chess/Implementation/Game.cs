@@ -420,7 +420,64 @@ namespace Arcesoft.Chess.Implementation
             //    -The king moves through a square that is attacked by a piece of the opponent.
             //    -The king would be in check after castling.
 
-            if(KingHasMoved(
+            if ((KingHasMoved(player)) ||//king has moved
+                (threats.ContainsKey(playerPieceLocation)))//king in check
+            {
+                return;
+            }
+
+            if (WesternCastleMoveAvailable(player, threats))
+            {
+                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.C1: BoardLocation.C8));
+            }
+
+            if (EasternCastleMoveAvailable(player, threats))
+            {
+                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.G1 : BoardLocation.G8));
+            }
+        }
+
+        private bool WesternCastleMoveAvailable(Player player, Dictionary<BoardLocation, ThreatDirection?> threats)
+        {
+            if (player == Player.White)
+            {
+                return
+                    (!_moveHistory.Any(a => a.Source == BoardLocation.A1)) &&//rook has not moved
+                    (!threats.ContainsKey(BoardLocation.D1) && !threats.ContainsKey(BoardLocation.C1)) && //no threats in path
+                    (_board[BoardLocation.D1].IsEmpty() && _board[BoardLocation.C1].IsEmpty());//path is empty
+            }
+            else
+            {
+                return
+                    (!_moveHistory.Any(a => a.Source == BoardLocation.A8)) &&//rook has not moved
+                    (!threats.ContainsKey(BoardLocation.D8) && !threats.ContainsKey(BoardLocation.C8)) && //no threats in path
+                    (_board[BoardLocation.D8].IsEmpty() && _board[BoardLocation.C8].IsEmpty());//path is empty
+            }
+        }
+
+        private bool EasternCastleMoveAvailable(Player player, Dictionary<BoardLocation, ThreatDirection?> threats)
+        {
+            if (player == Player.White)
+            {
+                return
+                    (!_moveHistory.Any(a => a.Source == BoardLocation.H1)) &&//rook has not moved
+                    (!threats.ContainsKey(BoardLocation.F1) && !threats.ContainsKey(BoardLocation.G1)) && //no threats in path
+                    (_board[BoardLocation.G1].IsEmpty() && _board[BoardLocation.G1].IsEmpty());//path is empty
+            }
+            else
+            {
+                return
+                    (!_moveHistory.Any(a => a.Source == BoardLocation.H8)) &&//rook has not moved
+                    (!threats.ContainsKey(BoardLocation.F8) && !threats.ContainsKey(BoardLocation.G8)) && //no threats in path
+                    (_board[BoardLocation.F8].IsEmpty() && _board[BoardLocation.G8].IsEmpty());//path is empty
+            }
+        }
+
+        private bool KingHasMoved(Player player)
+        {
+            return player == Player.White ? 
+                _board[BoardLocation.E1] != ChessPiece.WhiteKing || _moveHistory.Any(a => a.Source == BoardLocation.E1) : 
+                _board[BoardLocation.E8] != ChessPiece.BlackKing || _moveHistory.Any(a => a.Source == BoardLocation.E8);
         }
         #endregion
     }

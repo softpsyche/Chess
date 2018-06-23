@@ -19,8 +19,6 @@ namespace Arcesoft.Chess.Models
     //1:| 0| 8|16|24|32|40|48|56|
     internal static class BoardLocationExtensions
     {
-        
-
         public static bool IsPawnStartingLocation(this BoardLocation boardLocation, Player player)
         {
             if (player == Player.White)
@@ -257,7 +255,6 @@ namespace Arcesoft.Chess.Models
         {
             return source.Slope() == target.Slope();
         }
-
         public static bool IsOnSameGradeAs(this BoardLocation source, BoardLocation target)
         {
             return source.Grade() == target.Grade();
@@ -267,7 +264,6 @@ namespace Arcesoft.Chess.Models
         {
             return source.Column() == target.Column();
         }
-
         public static bool IsOnSameRowAs(this BoardLocation source, BoardLocation target)
         {
             return source.Row() == target.Row();
@@ -370,7 +366,6 @@ namespace Arcesoft.Chess.Models
                     throw new ArgumentException();
             }
         }
-
         public static int Grade(this BoardLocation boardLocation)
         {
             //PGN format for the board
@@ -471,7 +466,6 @@ namespace Arcesoft.Chess.Models
         }
 
         public static int Row(this BoardLocation boardLocation) => (byte)boardLocation % 8;
-
         public static int Column(this BoardLocation boardLocation) => (byte)boardLocation / 8;
 
         public static byte ToByte(this BoardLocation boardLocation) => (byte)boardLocation;

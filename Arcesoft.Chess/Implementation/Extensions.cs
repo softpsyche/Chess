@@ -58,6 +58,8 @@ namespace Arcesoft.Chess.Implementation
             return chessPiece.BelongsToWhite() ? Models.Player.White : Models.Player.Black;
         }
 
+        public static bool IsEmpty(this ChessPiece chessPiece) => chessPiece == ChessPiece.None;
+
         public static bool IsKing(this ChessPiece chessPiece,Player player)
         {
             return player == Models.Player.White ? chessPiece == ChessPiece.WhiteKing : chessPiece == ChessPiece.BlackKing;

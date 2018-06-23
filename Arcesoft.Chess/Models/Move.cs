@@ -19,6 +19,11 @@ namespace Arcesoft.Chess.Models
             Destination = destination;
         }
 
+        public override string ToString()
+        {
+            return $"{Source}-{Destination}";
+        }
+
         public override bool Equals(object obj)
         {
             var other = obj as Move;
