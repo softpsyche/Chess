@@ -37,7 +37,7 @@ Scenario: New game should start in correct state
 Scenario: New game should find moves for starting board
 	Given I start a new game
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| A2     | A3          |
 		| A2     | A4          |
@@ -84,7 +84,7 @@ Scenario: Find moves should find all moves for white pawns
 		| A1     | A2          | None   |
 		| F7     | F5          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| A2     | A3          |
 		| A2     | A4          |
@@ -121,7 +121,7 @@ Scenario: Find moves should find all moves for black pawns
 		| Source | Destination | Result |
 		| H2     | H4          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| A8     | B8          |
 		| A7     | A6          |
@@ -145,7 +145,7 @@ Scenario: Find moves should find all moves for white knights
 		|    |    |    |    |   |   | WN |    |
 		|    |    |    |    |   |   |    | WK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| B3     | A5          |
 		| B3     | C5          |
@@ -183,7 +183,7 @@ Scenario: Find moves should find all moves for black knights
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| B3     | A5          |
 		| B3     | C5          |
@@ -218,7 +218,7 @@ Scenario: Find moves should find all moves for white bishops
 		|    |    |    |   | WP |   |   | WP |
 		|    |    |    |   |    |   |   | WK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| A8     | B7          |
 		| A8     | C6          |
@@ -251,7 +251,7 @@ Scenario: Find moves should find all moves for black bishops
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| A8     | B8          |
 		| D4     | C5          |
@@ -278,7 +278,7 @@ Scenario: Find moves should find all moves for white rooks
 		|    |   |   | WP |   |   |    | BP |
 		|    |   |   |    |   |   |    | WK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D2     | D3          |
 		| D2     | D4          |
@@ -309,7 +309,7 @@ Scenario: Find moves should find all moves for black rooks
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| E4     | F4          |
 		| E4     | G4          |
@@ -338,7 +338,7 @@ Scenario: Find moves should find all moves for white queens
 		|   |   |   | WP |   |   |    | BP |
 		|   |   |   |    |   |   |    | WK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D2     | D3          |
 		| D2     | D4          |
@@ -381,7 +381,7 @@ Scenario: Find moves should find all moves for black queens
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D4     | E4          |
 		| D4     | F4          |
@@ -421,7 +421,7 @@ Scenario: Find moves should find all moves for white King (no threats)
 		|   |   |   |    |   |   |   |    |
 		|   |   |   |    |   |   |   | BK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D5     | D6          |
 		| D5     | E5          |
@@ -434,17 +434,17 @@ Scenario: Find moves should find all moves for white King (no threats)
 
 Scenario: Find moves should find all moves for white King 
 	Given I start a new game in the following state
-		| A | B | C  | D  | E | F  | G | H  |
-		|   |   |    |    |   |    |   |    |
-		|   |   |    |    |   |    |   |    |
-		|   |   |    |    |   |    |   |    |
-		|   |   | BR | WK |   | WP |   |    |
-		|   |   |    |    |   |    |   |    |
-		|   |   |    |    |   |    |   |    |
-		|   |   |    |    |   |    |   |    |
-		|   |   |    |    |   |    |   | BK |
+		| A | B | C  | D  | E | F | G | H  |
+		|   |   |    |    |   |   |   |    |
+		|   |   |    |    |   |   |   |    |
+		|   |   | BB |    |   |   |   |    |
+		|   |   |    | WK |   |   |   |    |
+		|   |   | BQ |    |   |   |   |    |
+		|   |   |    |    |   |   |   |    |
+		|   |   |    |    |   |   |   |    |
+		|   |   |    |    |   |   |   | BK |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D5     | D6          |
 		| D5     | E5          |
@@ -465,7 +465,7 @@ Scenario: Find moves should find all moves for black King (no threats)
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D5     | D6          |
 		| D5     | E5          |
@@ -491,8 +491,407 @@ Scenario: Find moves should find all moves for black King
 		| Source | Destination | Result |
 		| A1     | A1          | None   |
 	When I find moves for the current game
-	Then I expect the the moves found to contain
+	Then I expect the moves found should contain
 		| Source | Destination |
 		| D5     | D6          |
 		| D5     | E5          |
 		| D5     | C4          |
+
+Scenario: Find moves should find castle moves for white king
+	Given I start a new game in the following state
+		| A  | B | C | D | E  | F | G | H  |
+		|    |   |   |   | BK |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		| WP |   |   |   |    |   |   | WP |
+		| WR |   |   |   | WK |   |   | WR |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		#king
+		| E1     | F1          |
+		| E1     | F2          |
+		| E1     | E2          |
+		| E1     | D2          |
+		| E1     | D1          |
+		#king castle
+		| E1     | G1          |
+		| E1     | C1          |
+		#pawn and rook moves
+		| A1     | B1          |
+		| A1     | C1          |
+		| A1     | D1          |
+		| A2     | A3          |
+		| A2     | A4          |
+		| H1     | G1          |
+		| H1     | F1          |
+		| H2     | H3          |
+		| H2     | H4          |
+
+Scenario: Find moves should find castle moves for black king
+	Given I start a new game in the following state
+		| A  | B | C | D | E  | F | G | H  |
+		| BR |   |   |   | BK |   |   | BR |
+		| BP |   |   |   |    |   |   | BP |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   |    |   |   |    |
+		|    |   |   |   | WK |   |   |    |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		#king
+		| E8     | F8          |
+		| E8     | F7          |
+		| E8     | E7          |
+		| E8     | D7          |
+		| E8     | D8          |
+		#king castle
+		| E8     | G8          |
+		| E8     | C8          |
+		#pawn and rook moves
+		| A7     | A6          |
+		| A7     | A5          |
+		| A8     | B8          |
+		| A8     | C8          |
+		| A8     | D8          |
+		| H7     | H6          |
+		| H7     | H5          |
+		| H8     | G8          |
+		| H8     | F8          |
+
+#When are you not allowed to castle?
+#There are a number of cases when castling is not permitted.
+#-Your king has been moved earlier in the game.
+#-The rook that castles has been moved earlier in the game.
+#-There are pieces standing between your king and rook.
+#-The king is in check.
+#-The king moves through a square that is attacked by a piece of the opponent.
+#-The king would be in check after castling.
+Scenario Outline: Find moves should NOT find castle moves for white king when
+	Given I start a new game in the following state
+		| A  | B    | C    | D    | E  | F    | G    | H  |
+		|    |      |      |      | BK | <F8> |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    | <B3> | <C3> |      |    |      |      |    |
+		| WP |      |      |      |    |      |      | WP |
+		| WR |      |      | <D1> | WK |      | <G1> | WR |
+	Given I have the following move history
+		| Source              | Destination              | Result |
+		| A1                  | A1                       | None   |
+		| <MoveHistorySource> | <MoveHistoryDestination> | None   |
+	When I find moves for the current game
+	Then I expect the moves found should NOT contain
+		| Source | Destination |
+		#king castle
+		| E1     | G1          |
+		| E1     | C1          |
+	Examples: 
+		| TestName                   | MoveHistorySource | MoveHistoryDestination | B3 | C3 | D1 | F8 | G1 |
+		| king has moved             | E1                | F1                     |    |    |    |    |    |
+		| eastern rook has moved     | H1                | H3                     |    |    |    |    |    |
+		| western rook has moved     | A1                | D1                     |    |    |    |    |    |
+		| eastern path blocked       | D4                | D4                     |    |    |    |    | WN |
+		| western path blocked       | D4                | D4                     |    |    | WQ |    |    |
+		| king is in check           | D4                | D4                     |    | BB |    |    |    |
+		| eastern path is threatened | D4                | D4                     |    |    |    | BR |    |
+		| western path is threatened | D4                | D4                     | BB |    |    |    |    |
+
+Scenario Outline: Find moves should NOT find castle moves for black king when
+	Given I start a new game in the following state
+		| A  | B    | C    | D    | E  | F    | G    | H  |
+		| BR |      |      | <D8> | BK |      | <G8> | BR |
+		| BP |      |      |      |    |      |      | BP |
+		|    | <B6> | <C6> |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      |    |      |      |    |
+		|    |      |      |      | WK | <F1> |      |    |
+	Given I have the following move history
+		| Source              | Destination              | Result |
+		| <MoveHistorySource> | <MoveHistoryDestination> | None   |
+	When I find moves for the current game
+	Then I expect the moves found should NOT contain
+		| Source | Destination |
+		#king castle
+		| E8     | G8          |
+		| E8     | C8          |
+	Examples: 
+		| TestName                   | MoveHistorySource | MoveHistoryDestination | B6 | C6 | D8 | F1 | G8 |
+		| king has moved             | E8                | F8                     |    |    |    |    |    |
+		| eastern rook has moved     | H8                | H3                     |    |    |    |    |    |
+		| western rook has moved     | A8                | D8                     |    |    |    |    |    |
+		| eastern path blocked       | D4                | D4                     |    |    |    |    | BN |
+		| western path blocked       | D4                | D4                     |    |    | BQ |    |    |
+		| king is in check           | D4                | D4                     |    | WB |    |    |    |
+		| eastern path is threatened | D4                | D4                     |    |    |    | WR |    |
+		| western path is threatened | D4                | D4                     | WB |    |    |    |    |
+
+
+#########################################################################
+###		Pinned Moves												  ###
+#########################################################################
+#NOTE: we never have to worry about au-passant
+Scenario: Find moves should find all moves for pinned white pawns
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| BB |    |    | BR |    |    | BB |    |
+		|    | WP |    |    |    |    |    |    |
+		|    |    |    | WP | WP |    |    |    |
+		| BN | BR | WP | WK |    | WP |    | BR |
+		|    |    |    |    |    |    |    |    |
+		|    | WP | BR |    |    | WP |    |    |
+		| BB |    |    | WP |    |    | BB |    |
+		|    |    |    | BR |    |    |    | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		#kings moves
+		| D5     | E5          |
+		| D5     | E4          |
+		| D5     | D4          |
+		#pawn moves
+		| B7     | A8          |
+		| D6     | D7          |
+		| D2     | D3          |
+		| D2     | D4          |
+#NOTE: we never have to worry about au-passant
+Scenario: Find moves should find all moves for pinned black pawns
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| WB |    |    | WR |    |    | WB |    |
+		|    | BP |    | BP |    |    |    |    |
+		|    |    |    |    | BP |    |    |    |
+		| WN | WR | BP | BK |    | BP |    | WR |
+		|    |    |    |    | BP |    |    |    |
+		|    | BP |    | BP |    |    |    |    |
+		| WB |    |    |    | WP |    | WB |    |
+		|    |    |    | WR |    |    |    | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		#kings moves
+		| D5     | D6          |
+		| D5     | E5          |
+		| D5     | D4          |
+		#pawn moves
+		| D7     | D6          |
+		| D3     | D2          |
+		| B3     | A2          |
+
+Scenario: Find moves should find all moves for pinned white knights
+	Given I start a new game in the following state
+		| A  | B | C  | D  | E  | F | G  | H  |
+		| BB |   |    | BR |    |   | BB |    |
+		|    |   |    |    |    |   |    |    |
+		|    |   | WN | WN | WN |   |    |    |
+		| BR |   | WN | WK | WN |   | BR |    |
+		|    |   | WN | WN | WN |   |    |    |
+		|    |   |    |    |    |   |    |    |
+		| BB |   |    | BR |    |   | BB |    |
+		|    |   |    |    |    |   |    | BK |
+	When I find moves for the current game
+	Then I expect no moves were found
+
+Scenario: Find moves should find all moves for pinned black knights
+	Given I start a new game in the following state
+		| A  | B | C  | D  | E  | F | G  | H  |
+		| WB |   |    | WR |    |   | WB |    |
+		|    |   |    |    |    |   |    |    |
+		|    |   | BN | BN | BN |   |    |    |
+		| WR |   | BN | BK | BN |   | WR |    |
+		|    |   | BN | BN | BN |   |    |    |
+		|    |   |    |    |    |   |    |    |
+		| WB |   |    | WR |    |   | WB |    |
+		|    |   |    |    |    |   |    | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect no moves were found
+
+Scenario: Find moves should find all moves for pinned white bishops
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G  | H  |
+		| BB |    |    | BR |    |   | BB |    |
+		|    | WB |    |    |    |   |    |    |
+		|    |    |    | WB | WB |   |    |    |
+		| BR |    | WB | WK | WB |   | BR |    |
+		|    |    | WB | WB | WB |   |    |    |
+		|    |    |    |    |    |   |    |    |
+		| BB |    |    | BR |    |   | BB |    |
+		|    |    |    |    |    |   |    | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| B7     | A8          |
+		| B7     | C6          |
+		| C4     | B3          |
+		| C4     | A2          |
+		| D5     | C6          |
+		| E4     | F3          |
+		| E4     | G2          |
+		| E6     | F7          |
+		| E6     | G8          |
+		
+Scenario: Find moves should find all moves for pinned black bishops
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G  | H  |
+		| WB |    |    | WR |    |   | WB |    |
+		|    | BB |    |    |    |   |    |    |
+		|    |    |    | BB | BB |   |    |    |
+		| WR |    | BB | BK | BB |   | WR |    |
+		|    |    | BB | BB | BB |   |    |    |
+		|    |    |    |    |    |   |    |    |
+		| WB |    |    | WR |    |   | WB |    |
+		|    |    |    |    |    |   |    | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| B7     | A8          |
+		| B7     | C6          |
+		| C4     | B3          |
+		| C4     | A2          |
+		| D5     | C6          |
+		| E4     | F3          |
+		| E4     | G2          |
+		| E6     | F7          |
+		| E6     | G8          |
+
+Scenario: Find moves should find all moves for pinned white rooks
+	Given I start a new game in the following state
+		| A  | B | C  | D  | E  | F | G  | H  |
+		| BB |   |    | BR |    |   | BB |    |
+		|    |   |    |    |    |   |    |    |
+		|    |   | WR | WR | WR |   |    |    |
+		| BR |   | WR | WK | WR |   | BR |    |
+		|    |   | WR |    | WR |   |    |    |
+		|    |   |    | WR |    |   |    |    |
+		| BB |   |    | BR |    |   | BB |    |
+		|    |   |    |    |    |   |    | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| D5     | D4          |
+		| D6     | D7          |
+		| D6     | D8          |
+		| E5     | F5          |
+		| E5     | G5          |
+		| D3     | D4          |
+		| D3     | D2          |
+		| C5     | B5          |
+		| C5     | A5          |
+		
+Scenario: Find moves should find all moves for pinned black rooks
+	Given I start a new game in the following state
+		| A  | B | C  | D  | E  | F | G  | H  |
+		| WB |   |    | WR |    |   | WB |    |
+		|    |   |    |    |    |   |    |    |
+		|    |   | BR | BR | BR |   |    |    |
+		| WR |   | BR | BK | BR |   | WR |    |
+		|    |   | BR |    | BR |   |    |    |
+		|    |   |    | BR |    |   |    |    |
+		| WB |   |    | WR |    |   | WB |    |
+		|    |   |    |    |    |   |    | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| D5     | D4          |
+		| D6     | D7          |
+		| D6     | D8          |
+		| E5     | F5          |
+		| E5     | G5          |
+		| D3     | D4          |
+		| D3     | D2          |
+		| C5     | B5          |
+		| C5     | A5          |
+
+Scenario: Find moves should find all moves for pinned white queens
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G  | H  |
+		| BB |    |    | BR |    |   | BB |    |
+		|    | WQ |    |    |    |   |    |    |
+		|    |    |    | WQ | WQ |   |    |    |
+		| BR |    | WQ | WK | WQ |   | BR |    |
+		|    |    | WQ |    | WQ |   |    |    |
+		|    |    |    | WQ |    |   |    |    |
+		| BB |    |    | BR |    |   | BB |    |
+		|    |    |    |    |    |   |    | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| D5     | D4          |
+		| D5     | C6          |
+		| D6     | D7          |
+		| D6     | D8          |
+		| E5     | F5          |
+		| E5     | G5          |
+		| D3     | D4          |
+		| D3     | D2          |
+		| C5     | B5          |
+		| C5     | A5          |
+		| B7     | A8          |
+		| B7     | C6          |
+		| C4     | B3          |
+		| C4     | A2          |
+		| E4     | F3          |
+		| E4     | G2          |
+		| E6     | F7          |
+		| E6     | G8          |
+		
+Scenario: Find moves should find all moves for pinned black queens
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G  | H  |
+		| WB |    |    | WR |    |   | WB |    |
+		|    | BQ |    |    |    |   |    |    |
+		|    |    |    | BQ | BQ |   |    |    |
+		| WR |    | BQ | BK | BQ |   | WR |    |
+		|    |    | BQ |    | BQ |   |    |    |
+		|    |    |    | BQ |    |   |    |    |
+		| WB |    |    | WR |    |   | WB |    |
+		|    |    |    |    |    |   |    | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| A1     | A1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| D5     | D4          |
+		| D5     | C6          |
+		| D6     | D7          |
+		| D6     | D8          |
+		| E5     | F5          |
+		| E5     | G5          |
+		| D3     | D4          |
+		| D3     | D2          |
+		| C5     | B5          |
+		| C5     | A5          |
+		| B7     | A8          |
+		| B7     | C6          |
+		| C4     | B3          |
+		| C4     | A2          |
+		| E4     | F3          |
+		| E4     | G2          |
+		| E6     | F7          |
+		| E6     | G8          |

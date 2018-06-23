@@ -217,7 +217,7 @@ namespace Arcesoft.Chess.Models
         }
         public static bool IsSouthFrom(this BoardLocation source, BoardLocation target)
         {
-            return ((source.ToByte() > target.ToByte()) &&
+            return ((source.ToByte() < target.ToByte()) &&
                     source.IsOnSameColumnAs(target));
         }
 
@@ -238,7 +238,7 @@ namespace Arcesoft.Chess.Models
         }
         public static bool IsSouthWestFrom(this BoardLocation source, BoardLocation target)
         {
-            return ((source.ToByte() > target.ToByte()) &&
+            return ((source.ToByte() < target.ToByte()) &&
                     source.IsOnSameGradeAs(target));
         }
 
@@ -249,7 +249,7 @@ namespace Arcesoft.Chess.Models
         }
         public static bool IsSouthEastFrom(this BoardLocation source, BoardLocation target)
         {
-            return ((source.ToByte() < target.ToByte()) &&
+            return ((source.ToByte() > target.ToByte()) &&
                     source.IsOnSameSlopeAs(target));
         }
 

@@ -400,6 +400,27 @@ namespace Arcesoft.Chess.Implementation
                     moves.Add(new Move(playerPieceLocation, location));
                 }
             }
+
+            //find our castle moves
+            FindKingCastleMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+        }
+        private void FindKingCastleMoves(
+            List<Move> moves,
+            Dictionary<BoardLocation, ThreatDirection?> threats,
+            Player player,
+            BoardLocation playerPieceLocation,
+            ThreatDirection? playerPieceThreatDirection)
+        {
+            //When are you not allowed to castle?
+            //    There are a number of cases when castling is not permitted:
+            //    -Your king has been moved earlier in the game.
+            //    -The rook that castles has been moved earlier in the game.
+            //    -There are pieces standing between your king and rook.
+            //    -The king is in check.
+            //    -The king moves through a square that is attacked by a piece of the opponent.
+            //    -The king would be in check after castling.
+
+            if(KingHasMoved(
         }
         #endregion
     }

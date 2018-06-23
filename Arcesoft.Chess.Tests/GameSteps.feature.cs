@@ -282,7 +282,7 @@ this.FeatureBackground();
                         "H2",
                         "H4"});
 #line 40
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table2, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -437,7 +437,7 @@ this.FeatureBackground();
                         "H3",
                         "G2"});
 #line 87
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table5, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -582,7 +582,7 @@ this.FeatureBackground();
                         "H6",
                         "H5"});
 #line 124
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table8, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table8, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -749,7 +749,7 @@ this.FeatureBackground();
                         "H8",
                         "F7"});
 #line 148
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table10, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table10, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -927,7 +927,7 @@ this.FeatureBackground();
                         "H8",
                         "F7"});
 #line 186
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table13, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table13, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1079,7 +1079,7 @@ this.FeatureBackground();
                         "H1",
                         "G1"});
 #line 221
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table15, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table15, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1233,7 +1233,7 @@ this.FeatureBackground();
                         "D4",
                         "H8"});
 #line 254
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table18, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table18, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1379,7 +1379,7 @@ this.FeatureBackground();
                         "D5",
                         "D3"});
 #line 281
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table20, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table20, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1539,7 +1539,7 @@ this.FeatureBackground();
                         "E7",
                         "E5"});
 #line 312
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table23, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table23, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1721,7 +1721,7 @@ this.FeatureBackground();
                         "D5",
                         "G8"});
 #line 341
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table25, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table25, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1914,7 +1914,7 @@ this.FeatureBackground();
                         "D7",
                         "D5"});
 #line 384
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table28, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table28, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -2045,7 +2045,7 @@ this.FeatureBackground();
                         "D5",
                         "E4"});
 #line 424
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table30, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table30, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -2092,7 +2092,7 @@ this.FeatureBackground();
             table31.AddRow(new string[] {
                         "",
                         "",
-                        "",
+                        "BB",
                         "",
                         "",
                         "",
@@ -2101,16 +2101,16 @@ this.FeatureBackground();
             table31.AddRow(new string[] {
                         "",
                         "",
-                        "BR",
+                        "",
                         "WK",
                         "",
-                        "WP",
+                        "",
                         "",
                         ""});
             table31.AddRow(new string[] {
                         "",
                         "",
-                        "",
+                        "BQ",
                         "",
                         "",
                         "",
@@ -2161,7 +2161,7 @@ this.FeatureBackground();
                         "D5",
                         "C4"});
 #line 447
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table32, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table32, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -2303,7 +2303,7 @@ this.FeatureBackground();
                         "D5",
                         "E4"});
 #line 468
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table35, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table35, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -2430,7 +2430,2276 @@ this.FeatureBackground();
                         "D5",
                         "C4"});
 #line 494
- testRunner.Then("I expect the the moves found to contain", ((string)(null)), table38, "Then ");
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table38, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find castle moves for white king")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindCastleMovesForWhiteKing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find castle moves for white king", ((string[])(null)));
+#line 500
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table39.AddRow(new string[] {
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP"});
+            table39.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 501
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table39, "Given ");
+#line 511
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "F1"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "F2"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "E2"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "D2"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "D1"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "G1"});
+            table40.AddRow(new string[] {
+                        "E1",
+                        "C1"});
+            table40.AddRow(new string[] {
+                        "A1",
+                        "B1"});
+            table40.AddRow(new string[] {
+                        "A1",
+                        "C1"});
+            table40.AddRow(new string[] {
+                        "A1",
+                        "D1"});
+            table40.AddRow(new string[] {
+                        "A2",
+                        "A3"});
+            table40.AddRow(new string[] {
+                        "A2",
+                        "A4"});
+            table40.AddRow(new string[] {
+                        "H1",
+                        "G1"});
+            table40.AddRow(new string[] {
+                        "H1",
+                        "F1"});
+            table40.AddRow(new string[] {
+                        "H2",
+                        "H3"});
+            table40.AddRow(new string[] {
+                        "H2",
+                        "H4"});
+#line 512
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table40, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find castle moves for black king")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindCastleMovesForBlackKing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find castle moves for black king", ((string[])(null)));
+#line 534
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table41.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table41.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP"});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table41.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 535
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table41, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table42.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 545
+ testRunner.Given("I have the following move history", ((string)(null)), table42, "Given ");
+#line 548
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "F8"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "F7"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "E7"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "D7"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "D8"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "G8"});
+            table43.AddRow(new string[] {
+                        "E8",
+                        "C8"});
+            table43.AddRow(new string[] {
+                        "A7",
+                        "A6"});
+            table43.AddRow(new string[] {
+                        "A7",
+                        "A5"});
+            table43.AddRow(new string[] {
+                        "A8",
+                        "B8"});
+            table43.AddRow(new string[] {
+                        "A8",
+                        "C8"});
+            table43.AddRow(new string[] {
+                        "A8",
+                        "D8"});
+            table43.AddRow(new string[] {
+                        "H7",
+                        "H6"});
+            table43.AddRow(new string[] {
+                        "H7",
+                        "H5"});
+            table43.AddRow(new string[] {
+                        "H8",
+                        "G8"});
+            table43.AddRow(new string[] {
+                        "H8",
+                        "F8"});
+#line 549
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table43, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen(string testName, string moveHistorySource, string moveHistoryDestination, string b3, string c3, string d1, string f8, string g1, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should NOT find castle moves for white king when", exampleTags);
+#line 579
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table44.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        string.Format("{0}", f8),
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "",
+                        string.Format("{0}", b3),
+                        string.Format("{0}", c3),
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table44.AddRow(new string[] {
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP"});
+            table44.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        string.Format("{0}", d1),
+                        "WK",
+                        "",
+                        string.Format("{0}", g1),
+                        "WR"});
+#line 580
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table44, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table45.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+            table45.AddRow(new string[] {
+                        string.Format("{0}", moveHistorySource),
+                        string.Format("{0}", moveHistoryDestination),
+                        "None"});
+#line 590
+ testRunner.Given("I have the following move history", ((string)(null)), table45, "Given ");
+#line 594
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table46.AddRow(new string[] {
+                        "E1",
+                        "G1"});
+            table46.AddRow(new string[] {
+                        "E1",
+                        "C1"});
+#line 595
+ testRunner.Then("I expect the moves found should NOT contain", ((string)(null)), table46, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "E1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "F1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_KingHasMoved()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("king has moved", "E1", "F1", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: eastern rook has mov" +
+            "ed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "H1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "H3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_EasternRookHasMoved()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("eastern rook has moved", "H1", "H3", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: western rook has mov" +
+            "ed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "A1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_WesternRookHasMoved()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("western rook has moved", "A1", "D1", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: eastern path blocked" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "WN")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_EasternPathBlocked()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("eastern path blocked", "D4", "D4", "", "", "", "", "WN", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: western path blocked" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "WQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_WesternPathBlocked()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("western path blocked", "D4", "D4", "", "", "WQ", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "BB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_KingIsInCheck()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("king is in check", "D4", "D4", "", "BB", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: eastern path is thre" +
+            "atened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "BR")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_EasternPathIsThreatened()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("eastern path is threatened", "D4", "D4", "", "", "", "BR", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for white king when: western path is thre" +
+            "atened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B3", "BB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C3", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G1", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForWhiteKingWhen_WesternPathIsThreatened()
+        {
+#line 579
+this.FindMovesShouldNOTFindCastleMovesForWhiteKingWhen("western path is threatened", "D4", "D4", "BB", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen(string testName, string moveHistorySource, string moveHistoryDestination, string b6, string c6, string d8, string f1, string g8, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should NOT find castle moves for black king when", exampleTags);
+#line 611
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table47.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        string.Format("{0}", d8),
+                        "BK",
+                        "",
+                        string.Format("{0}", g8),
+                        "BR"});
+            table47.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP"});
+            table47.AddRow(new string[] {
+                        "",
+                        string.Format("{0}", b6),
+                        string.Format("{0}", c6),
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table47.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table47.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table47.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table47.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table47.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        string.Format("{0}", f1),
+                        "",
+                        ""});
+#line 612
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table47, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table48.AddRow(new string[] {
+                        string.Format("{0}", moveHistorySource),
+                        string.Format("{0}", moveHistoryDestination),
+                        "None"});
+#line 622
+ testRunner.Given("I have the following move history", ((string)(null)), table48, "Given ");
+#line 625
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table49.AddRow(new string[] {
+                        "E8",
+                        "G8"});
+            table49.AddRow(new string[] {
+                        "E8",
+                        "C8"});
+#line 626
+ testRunner.Then("I expect the moves found should NOT contain", ((string)(null)), table49, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "king has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "E8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "F8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_KingHasMoved()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("king has moved", "E8", "F8", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: eastern rook has mov" +
+            "ed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "H8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "H3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_EasternRookHasMoved()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("eastern rook has moved", "H8", "H3", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: western rook has mov" +
+            "ed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western rook has moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "A8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_WesternRookHasMoved()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("western rook has moved", "A8", "D8", "", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: eastern path blocked" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "BN")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_EasternPathBlocked()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("eastern path blocked", "D4", "D4", "", "", "", "", "BN", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: western path blocked" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western path blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "BQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_WesternPathBlocked()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("western path blocked", "D4", "D4", "", "", "BQ", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "king is in check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "WB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_KingIsInCheck()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("king is in check", "D4", "D4", "", "WB", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: eastern path is thre" +
+            "atened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "eastern path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "eastern path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "WR")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_EasternPathIsThreatened()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("eastern path is threatened", "D4", "D4", "", "", "", "WR", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should NOT find castle moves for black king when: western path is thre" +
+            "atened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "western path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "western path is threatened")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistorySource", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:MoveHistoryDestination", "D4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:B6", "WB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C6", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:D8", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F1", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:G8", "")]
+        public virtual void FindMovesShouldNOTFindCastleMovesForBlackKingWhen_WesternPathIsThreatened()
+        {
+#line 611
+this.FindMovesShouldNOTFindCastleMovesForBlackKingWhen("western path is threatened", "D4", "D4", "WB", "", "", "", "", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned white pawns")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedWhitePawns()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white pawns", ((string[])(null)));
+#line 647
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table50.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table50.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table50.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table50.AddRow(new string[] {
+                        "BN",
+                        "BR",
+                        "WP",
+                        "WK",
+                        "",
+                        "WP",
+                        "",
+                        "BR"});
+            table50.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table50.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "BR",
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        ""});
+            table50.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table50.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK"});
+#line 648
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table50, "Given ");
+#line 658
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table51.AddRow(new string[] {
+                        "D5",
+                        "E5"});
+            table51.AddRow(new string[] {
+                        "D5",
+                        "E4"});
+            table51.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table51.AddRow(new string[] {
+                        "B7",
+                        "A8"});
+            table51.AddRow(new string[] {
+                        "D6",
+                        "D7"});
+            table51.AddRow(new string[] {
+                        "D2",
+                        "D3"});
+            table51.AddRow(new string[] {
+                        "D2",
+                        "D4"});
+#line 659
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table51, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned black pawns")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedBlackPawns()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black pawns", ((string[])(null)));
+#line 671
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table52.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table52.AddRow(new string[] {
+                        "",
+                        "BP",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table52.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        ""});
+            table52.AddRow(new string[] {
+                        "WN",
+                        "WR",
+                        "BP",
+                        "BK",
+                        "",
+                        "BP",
+                        "",
+                        "WR"});
+            table52.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        ""});
+            table52.AddRow(new string[] {
+                        "",
+                        "BP",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table52.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "WB",
+                        ""});
+            table52.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK"});
+#line 672
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table52, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table53.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 682
+ testRunner.Given("I have the following move history", ((string)(null)), table53, "Given ");
+#line 685
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table54.AddRow(new string[] {
+                        "D5",
+                        "D6"});
+            table54.AddRow(new string[] {
+                        "D5",
+                        "E5"});
+            table54.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table54.AddRow(new string[] {
+                        "D7",
+                        "D6"});
+            table54.AddRow(new string[] {
+                        "D3",
+                        "D2"});
+            table54.AddRow(new string[] {
+                        "B3",
+                        "A2"});
+#line 686
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table54, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned white knights")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedWhiteKnights()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white knights", ((string[])(null)));
+#line 697
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table55.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table55.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table55.AddRow(new string[] {
+                        "",
+                        "",
+                        "WN",
+                        "WN",
+                        "WN",
+                        "",
+                        "",
+                        ""});
+            table55.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "WN",
+                        "WK",
+                        "WN",
+                        "",
+                        "BR",
+                        ""});
+            table55.AddRow(new string[] {
+                        "",
+                        "",
+                        "WN",
+                        "WN",
+                        "WN",
+                        "",
+                        "",
+                        ""});
+            table55.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table55.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table55.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK"});
+#line 698
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table55, "Given ");
+#line 708
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 709
+ testRunner.Then("I expect no moves were found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned black knights")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedBlackKnights()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black knights", ((string[])(null)));
+#line 711
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table56.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table56.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table56.AddRow(new string[] {
+                        "",
+                        "",
+                        "BN",
+                        "BN",
+                        "BN",
+                        "",
+                        "",
+                        ""});
+            table56.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "BN",
+                        "BK",
+                        "BN",
+                        "",
+                        "WR",
+                        ""});
+            table56.AddRow(new string[] {
+                        "",
+                        "",
+                        "BN",
+                        "BN",
+                        "BN",
+                        "",
+                        "",
+                        ""});
+            table56.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table56.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table56.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK"});
+#line 712
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table56, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table57.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 722
+ testRunner.Given("I have the following move history", ((string)(null)), table57, "Given ");
+#line 725
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 726
+ testRunner.Then("I expect no moves were found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned white bishops")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedWhiteBishops()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white bishops", ((string[])(null)));
+#line 728
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table58.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table58.AddRow(new string[] {
+                        "",
+                        "WB",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table58.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WB",
+                        "WB",
+                        "",
+                        "",
+                        ""});
+            table58.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "WB",
+                        "WK",
+                        "WB",
+                        "",
+                        "BR",
+                        ""});
+            table58.AddRow(new string[] {
+                        "",
+                        "",
+                        "WB",
+                        "WB",
+                        "WB",
+                        "",
+                        "",
+                        ""});
+            table58.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table58.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table58.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK"});
+#line 729
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table58, "Given ");
+#line 739
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table59.AddRow(new string[] {
+                        "B7",
+                        "A8"});
+            table59.AddRow(new string[] {
+                        "B7",
+                        "C6"});
+            table59.AddRow(new string[] {
+                        "C4",
+                        "B3"});
+            table59.AddRow(new string[] {
+                        "C4",
+                        "A2"});
+            table59.AddRow(new string[] {
+                        "D5",
+                        "C6"});
+            table59.AddRow(new string[] {
+                        "E4",
+                        "F3"});
+            table59.AddRow(new string[] {
+                        "E4",
+                        "G2"});
+            table59.AddRow(new string[] {
+                        "E6",
+                        "F7"});
+            table59.AddRow(new string[] {
+                        "E6",
+                        "G8"});
+#line 740
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table59, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned black bishops")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedBlackBishops()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black bishops", ((string[])(null)));
+#line 752
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table60.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table60.AddRow(new string[] {
+                        "",
+                        "BB",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table60.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BB",
+                        "BB",
+                        "",
+                        "",
+                        ""});
+            table60.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "BB",
+                        "BK",
+                        "BB",
+                        "",
+                        "WR",
+                        ""});
+            table60.AddRow(new string[] {
+                        "",
+                        "",
+                        "BB",
+                        "BB",
+                        "BB",
+                        "",
+                        "",
+                        ""});
+            table60.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table60.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table60.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK"});
+#line 753
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table60, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table61.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 763
+ testRunner.Given("I have the following move history", ((string)(null)), table61, "Given ");
+#line 766
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table62.AddRow(new string[] {
+                        "B7",
+                        "A8"});
+            table62.AddRow(new string[] {
+                        "B7",
+                        "C6"});
+            table62.AddRow(new string[] {
+                        "C4",
+                        "B3"});
+            table62.AddRow(new string[] {
+                        "C4",
+                        "A2"});
+            table62.AddRow(new string[] {
+                        "D5",
+                        "C6"});
+            table62.AddRow(new string[] {
+                        "E4",
+                        "F3"});
+            table62.AddRow(new string[] {
+                        "E4",
+                        "G2"});
+            table62.AddRow(new string[] {
+                        "E6",
+                        "F7"});
+            table62.AddRow(new string[] {
+                        "E6",
+                        "G8"});
+#line 767
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table62, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned white rooks")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedWhiteRooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white rooks", ((string[])(null)));
+#line 779
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table63.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table63.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table63.AddRow(new string[] {
+                        "",
+                        "",
+                        "WR",
+                        "WR",
+                        "WR",
+                        "",
+                        "",
+                        ""});
+            table63.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "WR",
+                        "WK",
+                        "WR",
+                        "",
+                        "BR",
+                        ""});
+            table63.AddRow(new string[] {
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        ""});
+            table63.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table63.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table63.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK"});
+#line 780
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table63, "Given ");
+#line 790
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table64.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table64.AddRow(new string[] {
+                        "D6",
+                        "D7"});
+            table64.AddRow(new string[] {
+                        "D6",
+                        "D8"});
+            table64.AddRow(new string[] {
+                        "E5",
+                        "F5"});
+            table64.AddRow(new string[] {
+                        "E5",
+                        "G5"});
+            table64.AddRow(new string[] {
+                        "D3",
+                        "D4"});
+            table64.AddRow(new string[] {
+                        "D3",
+                        "D2"});
+            table64.AddRow(new string[] {
+                        "C5",
+                        "B5"});
+            table64.AddRow(new string[] {
+                        "C5",
+                        "A5"});
+#line 791
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table64, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned black rooks")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedBlackRooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black rooks", ((string[])(null)));
+#line 803
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table65.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table65.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table65.AddRow(new string[] {
+                        "",
+                        "",
+                        "BR",
+                        "BR",
+                        "BR",
+                        "",
+                        "",
+                        ""});
+            table65.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "BR",
+                        "BK",
+                        "BR",
+                        "",
+                        "WR",
+                        ""});
+            table65.AddRow(new string[] {
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        ""});
+            table65.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table65.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table65.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK"});
+#line 804
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table65, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table66.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 814
+ testRunner.Given("I have the following move history", ((string)(null)), table66, "Given ");
+#line 817
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table67.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table67.AddRow(new string[] {
+                        "D6",
+                        "D7"});
+            table67.AddRow(new string[] {
+                        "D6",
+                        "D8"});
+            table67.AddRow(new string[] {
+                        "E5",
+                        "F5"});
+            table67.AddRow(new string[] {
+                        "E5",
+                        "G5"});
+            table67.AddRow(new string[] {
+                        "D3",
+                        "D4"});
+            table67.AddRow(new string[] {
+                        "D3",
+                        "D2"});
+            table67.AddRow(new string[] {
+                        "C5",
+                        "B5"});
+            table67.AddRow(new string[] {
+                        "C5",
+                        "A5"});
+#line 818
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table67, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned white queens")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedWhiteQueens()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white queens", ((string[])(null)));
+#line 830
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table68.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table68.AddRow(new string[] {
+                        "",
+                        "WQ",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table68.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WQ",
+                        "WQ",
+                        "",
+                        "",
+                        ""});
+            table68.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "WQ",
+                        "WK",
+                        "WQ",
+                        "",
+                        "BR",
+                        ""});
+            table68.AddRow(new string[] {
+                        "",
+                        "",
+                        "WQ",
+                        "",
+                        "WQ",
+                        "",
+                        "",
+                        ""});
+            table68.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "WQ",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table68.AddRow(new string[] {
+                        "BB",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "BB",
+                        ""});
+            table68.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK"});
+#line 831
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table68, "Given ");
+#line 841
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table69.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table69.AddRow(new string[] {
+                        "D5",
+                        "C6"});
+            table69.AddRow(new string[] {
+                        "D6",
+                        "D7"});
+            table69.AddRow(new string[] {
+                        "D6",
+                        "D8"});
+            table69.AddRow(new string[] {
+                        "E5",
+                        "F5"});
+            table69.AddRow(new string[] {
+                        "E5",
+                        "G5"});
+            table69.AddRow(new string[] {
+                        "D3",
+                        "D4"});
+            table69.AddRow(new string[] {
+                        "D3",
+                        "D2"});
+            table69.AddRow(new string[] {
+                        "C5",
+                        "B5"});
+            table69.AddRow(new string[] {
+                        "C5",
+                        "A5"});
+            table69.AddRow(new string[] {
+                        "B7",
+                        "A8"});
+            table69.AddRow(new string[] {
+                        "B7",
+                        "C6"});
+            table69.AddRow(new string[] {
+                        "C4",
+                        "B3"});
+            table69.AddRow(new string[] {
+                        "C4",
+                        "A2"});
+            table69.AddRow(new string[] {
+                        "E4",
+                        "F3"});
+            table69.AddRow(new string[] {
+                        "E4",
+                        "G2"});
+            table69.AddRow(new string[] {
+                        "E6",
+                        "F7"});
+            table69.AddRow(new string[] {
+                        "E6",
+                        "G8"});
+#line 842
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table69, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find moves should find all moves for pinned black queens")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void FindMovesShouldFindAllMovesForPinnedBlackQueens()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black queens", ((string[])(null)));
+#line 863
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table70.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table70.AddRow(new string[] {
+                        "",
+                        "BQ",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table70.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BQ",
+                        "BQ",
+                        "",
+                        "",
+                        ""});
+            table70.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "BQ",
+                        "BK",
+                        "BQ",
+                        "",
+                        "WR",
+                        ""});
+            table70.AddRow(new string[] {
+                        "",
+                        "",
+                        "BQ",
+                        "",
+                        "BQ",
+                        "",
+                        "",
+                        ""});
+            table70.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BQ",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table70.AddRow(new string[] {
+                        "WB",
+                        "",
+                        "",
+                        "WR",
+                        "",
+                        "",
+                        "WB",
+                        ""});
+            table70.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK"});
+#line 864
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table70, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table71.AddRow(new string[] {
+                        "A1",
+                        "A1",
+                        "None"});
+#line 874
+ testRunner.Given("I have the following move history", ((string)(null)), table71, "Given ");
+#line 877
+ testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table72.AddRow(new string[] {
+                        "D5",
+                        "D4"});
+            table72.AddRow(new string[] {
+                        "D5",
+                        "C6"});
+            table72.AddRow(new string[] {
+                        "D6",
+                        "D7"});
+            table72.AddRow(new string[] {
+                        "D6",
+                        "D8"});
+            table72.AddRow(new string[] {
+                        "E5",
+                        "F5"});
+            table72.AddRow(new string[] {
+                        "E5",
+                        "G5"});
+            table72.AddRow(new string[] {
+                        "D3",
+                        "D4"});
+            table72.AddRow(new string[] {
+                        "D3",
+                        "D2"});
+            table72.AddRow(new string[] {
+                        "C5",
+                        "B5"});
+            table72.AddRow(new string[] {
+                        "C5",
+                        "A5"});
+            table72.AddRow(new string[] {
+                        "B7",
+                        "A8"});
+            table72.AddRow(new string[] {
+                        "B7",
+                        "C6"});
+            table72.AddRow(new string[] {
+                        "C4",
+                        "B3"});
+            table72.AddRow(new string[] {
+                        "C4",
+                        "A2"});
+            table72.AddRow(new string[] {
+                        "E4",
+                        "F3"});
+            table72.AddRow(new string[] {
+                        "E4",
+                        "G2"});
+            table72.AddRow(new string[] {
+                        "E6",
+                        "F7"});
+            table72.AddRow(new string[] {
+                        "E6",
+                        "G8"});
+#line 878
+ testRunner.Then("I expect the moves found should contain", ((string)(null)), table72, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

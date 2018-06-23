@@ -1,6 +1,7 @@
 ﻿using Arcesoft.Chess.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Arcesoft.Chess.Implementation
@@ -36,14 +37,17 @@ namespace Arcesoft.Chess.Implementation
         {
             return player == Models.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
         }
+
         public static bool BelongsToWhite(this ChessPiece chessPiece)
         {
             return chessPiece.ToByte() >= 20;
         }
+
         public static bool BelongsToBlack(this ChessPiece chessPiece)
         {
             return chessPiece.ToByte() >= 10 && chessPiece.ToByte() < 20;
         }
+
         public static Player Player(this ChessPiece chessPiece)
         {
             if (chessPiece == ChessPiece.None)
@@ -52,6 +56,11 @@ namespace Arcesoft.Chess.Implementation
             }
 
             return chessPiece.BelongsToWhite() ? Models.Player.White : Models.Player.Black;
+        }
+
+        public static bool IsKing(this ChessPiece chessPiece,Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhiteKing : chessPiece == ChessPiece.BlackKing;
         }
 
         public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
@@ -67,6 +76,38 @@ namespace Arcesoft.Chess.Implementation
         public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
         {
             foreach (var item in items) action(item);
+        }
+
+        public static string ToVisualString(this IList<Move> moves)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int row = 7; row >= 0; row--)
+            {
+                for (int column = 0; column < 8; column++)
+                {
+                    var location = (BoardLocation)(row + (column * 8));
+
+                    
+                    sb.Append(ToBoardLocationMoveString(moves.FirstOrDefault(a => a.Destination == location), column == 0));
+                }
+
+                sb.Append("\r\n");
+            }
+
+            return sb.ToString();
+        }
+
+        private static string ToBoardLocationMoveString(Move move, bool printStartingPipe)
+        {
+            string pieceString = "  ";
+
+            if (move != null)
+            {
+                pieceString = "::";
+            }
+
+            return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
         }
 
         public static string ToVisualString(this IDictionary<BoardLocation, ThreatDirection?> threatDictionary)

@@ -49,10 +49,22 @@ namespace Arcesoft.Chess.Tests
             Invoke(() => Moves = Game.FindMoves());
         }
 
-        [Then(@"I expect the the moves found to contain")]
-        public void ThenIExpectTheTheMovesFoundToContain(Table table)
+        [Then(@"I expect the moves found should contain")]
+        public void ThenIExpectTheMovesFoundToContain(Table table)
         {
             table.CompareToSet(Moves);
+        }
+
+        [Then(@"I expect the moves found should NOT contain")]
+        public void ThenIExpectTheMovesFoundShouldNotContain(Table table)
+        {
+            Moves.Should().NotContain(table.ToMoves());
+        }
+
+        [Then(@"I expect no moves were found")]
+        public void ThenIExpectNoMovesWereFound()
+        {
+            Moves.Should().BeEmpty();
         }
 
         [Given(@"I start a new game in the following state")]
@@ -101,6 +113,20 @@ namespace Arcesoft.Chess.Tests
             }
 
             return board;
+        }
+
+        public static List<Move> ToMoves(this Table table)
+        {
+            List<Move> moves = new List<Move>();
+
+            foreach (var row in table.Rows)
+            {
+                moves.Add(new Move(
+                    (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Source)]),
+                    (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Destination)])));
+            }
+
+            return moves;
         }
 
         public static List<MoveHistory> ToMoveHistory(this Table table)

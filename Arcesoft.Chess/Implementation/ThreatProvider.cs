@@ -127,7 +127,7 @@ namespace Arcesoft.Chess.Implementation
 
             moves
                 .Where(a => a.HasValue)
-                .ForEach(a => AddThreat(threatenedBoardLocations, a.Value));
+                .ForEach(a => AddThreat(threatenedBoardLocations, a.Value, ThreatDirection.Direct));
         }
 
         private void AddKnightThreats(
@@ -284,28 +284,49 @@ namespace Arcesoft.Chess.Implementation
                 //get the piece
                 var piece = board[currentLocation.Value];
 
+                //as long as we are empty we can keep moving!
                 if (piece == ChessPiece.None)
                 {
                     //empty square, no pin possible
                     AddThreat(threatenedBoardLocations, currentLocation.Value);
                 }
-                else if ((piece.BelongsTo(player)) && (kingCouldBePinned))
+                else
                 {
-                    //our piece which MIGHT have a pin since our king is on the same directional vector..check for it
-                    var pinDirection = PieceIsPinned(board, currentLocation.Value, playerKingLocation, direction) ? direction.ToThreatDirection() : default(ThreatDirection?);
+                    ThreatDirection? pinDirection = null;
+
+                    //our piece which MIGHT have a pin if our king is on the same directional vector..check for it
+                    if ((piece.BelongsTo(player)) && 
+                        (kingCouldBePinned) &&
+                        PieceIsPinned(board, currentLocation.Value, playerKingLocation, direction))
+                    {
+                        pinDirection = direction.ToThreatDirection();
+                    }
 
                     AddThreat(
                         threatenedBoardLocations,
                         currentLocation.Value,
                         pinDirection);
-                }
-                else
-                {
-                    //opposing piece which means no pin possible and we are done
-                    AddThreat(threatenedBoardLocations, currentLocation.Value);
 
-                    //short circuit search since we are done
-                    break;
+                    //NOTE: This is a hack, but its a domain hack. From a threat perspective, we can pretend
+                    //that the enemy king is 'invisible'. This will allow long range threats to penetrate the king
+                    //and proceed to any columns, rows, or diagonals he is on. This in turn will help us
+                    //when determining the kings moves by making 'backing up' an invalid strategy for him.
+                    //without this check, a king himself would demarcate the end of a long range threat (since a piece is like a stop)
+                    //but THAT would create the problem of making it seem like the square behind him was 'safe'. For Example:
+                    //   |  |  |  |  |         |  |  |  |  |
+                    //   |  |WR|BK|  |  To=>   |  |WR|  |BK|  would be allowed
+                    //   |  |  |  |  |         |  |  |  |  |
+                    //Where it is kind of a hack is by treating the king as invisible it means the white rook is threatening
+                    //'beyond' a piece. Theoretically, this would then also allow it to move into those spaces, in essence just
+                    //'hoping over' the king. This would be a HUGE problem if not for the golden rule of chess that it is impossible
+                    //to make a move that actually captures a king. The game literally ends as soon as a board state emerges where 
+                    //a king is able to captured on the next turn. Not sure why this is, I am sure it harkens back to some 
+                    //haughty rule about how 'ignoble' it would be to ever allow the capture of a royal.  
+                    if (piece.IsKing(player) == false)
+                    {
+                        //short circuit search since we are done
+                        break;
+                    }
                 }
 
                 currentLocation = currentLocation.Neighbor(direction);
