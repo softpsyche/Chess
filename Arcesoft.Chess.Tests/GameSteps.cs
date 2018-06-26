@@ -81,7 +81,6 @@ namespace Arcesoft.Chess.Tests
             Game.SetPrivateField("_moveHistory", table.ToMoveHistory());
         }
 
-
         [Then(@"I expect the moves found should NOT contain '(.*)'")]
         public void ThenIExpectTheMovesFoundShouldNOTContain(string expectedMoves)
         {
@@ -103,7 +102,6 @@ namespace Arcesoft.Chess.Tests
                 Moves.Should().Contain(moves);
             }
         }
-
     }
 
     public static class Extensions
@@ -147,6 +145,7 @@ namespace Arcesoft.Chess.Tests
                 .Select(a => a.ToMove())
                 .ToList();
         }
+
         public static Move ToMove(this string moveString)
         {
             var pieces = moveString.ToUpperInvariant().Split("-".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
@@ -154,6 +153,7 @@ namespace Arcesoft.Chess.Tests
             return new Move(pieces[0].ToBoardLocation(), pieces[1].ToBoardLocation());
 
         }
+
         public static BoardLocation ToBoardLocation(this string boardLocation)
         {
             return boardLocation.ToEnum<BoardLocation>();
