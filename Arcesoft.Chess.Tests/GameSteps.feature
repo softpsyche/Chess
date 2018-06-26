@@ -147,6 +147,7 @@ Scenario: Find moves should find all moves for white knights
 	When I find moves for the current game
 	Then I expect the moves found should contain
 		| Source | Destination |
+		| B3     | A1          |
 		| B3     | A5          |
 		| B3     | C5          |
 		| B3     | C1          |
@@ -190,6 +191,7 @@ Scenario: Find moves should find all moves for black knights
 		| B3     | C1          |
 		| B3     | D4          |
 		| B3     | D2          |
+		| B3     | A1          |
 		| C6     | A5          |
 		| C6     | A7          |
 		| C6     | B8          |
@@ -889,3 +891,207 @@ Scenario: Find moves should find all moves for pinned black queens
 		| E4     | G2          |
 		| E6     | F7          |
 		| E6     | G8          |
+
+
+
+#########################################################################
+###		Checked moves												  ###
+#########################################################################
+Scenario: Find moves should find all moves for double checked white king
+	Given I start a new game in the following state
+		| A | B  | C  | D  | E | F  | G  | H  |
+		|   |    |    |    |   |    | WQ |    |
+		|   |    | BN |    |   | BB |    |    |
+		|   |    |    |    |   |    |    | BR |
+		|   | WR |    | WK |   |    |    |    |
+		|   |    |    |    |   | WR |    |    |
+		|   |    |    |    |   | BN |    |    |
+		|   |    |    |    |   |    |    |    |
+		|   |    |    |    |   |    |    | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| D5     | C5          |
+		| D5     | E4          |
+
+Scenario: Find moves should find all moves for double checked black king
+	Given I start a new game in the following state
+		| A  | B  | C  | D | E  | F | G | H  |
+		|    |    |    |   |    |   |   |    |
+		|    |    |    |   |    |   |   |    |
+		|    |    | WR |   | BK |   |   |    |
+		|    |    |    |   |    |   |   |    |
+		|    |    |    |   |    |   |   |    |
+		|    | WB |    |   |    |   |   |    |
+		| BQ |    |    |   |    |   |   |    |
+		|    |    |    |   |    |   |   | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| C1     | C1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| E6     | E7          |
+		| E6     | E5          |
+		| E6     | D7          |
+		| E6     | F5          |
+
+Scenario: Find moves should find all moves for white king checked by pawn
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G | H  |
+		|    | WR |    | WN | WB |   |   |    |
+		|    | BP |    |    |    |   |   |    |
+		| WQ |    | BP |    |    |   |   |    |
+		|    |    |    | WK |    |   |   |    |
+		|    |    |    |    |    |   |   |    |
+		|    |    |    |    |    |   |   |    |
+		|    |    |    |    |    |   |   |    |
+		|    |    |    |    |    |   |   | BK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A6     | C6          |
+		| D5     | D6          |
+		| D5     | D4          |
+		| D5     | E5          |
+		| D5     | C5          |
+		| D5     | E6          |
+		| D5     | E4          |
+		| D5     | C4          |
+		| D8     | C6          |
+		| E8     | C6          |
+
+Scenario: Find moves should find all moves for black king checked by pawn
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F | G | H  |
+		|    |    | BQ |    |    |   |   |    |
+		|    |    |    |    |    |   |   |    |
+		|    |    |    |    |    |   |   |    |
+		| BB |    |    |    | BP |   |   |    |
+		|    |    |    | BK | BN |   |   |    |
+		|    |    | WP |    |    |   |   | BR |
+		|    | WP |    |    |    |   |   |    |
+		|    | WK |    |    |    |   |   |    |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| C1     | C1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A5     | C3          |
+		| C8     | C3          |
+		| D4     | D5          |
+		| D4     | D3          |
+		| D4     | C4          |
+		| D4     | C5          |
+		| D4     | E3          |
+		| E4     | C3          |
+		| H3     | C3          |
+
+Scenario: Find moves should find all moves for white king checked by knight
+	Given I start a new game in the following state
+		| A  | B  | C  | D | E | F | G  | H  |
+		|    | WQ |    |   |   |   | WB | BK |
+		|    |    |    |   |   |   |    | BP |
+		|    |    |    |   |   |   |    |    |
+		| WN |    |    |   |   |   |    |    |
+		|    |    |    |   |   |   |    |    |
+		|    | BN |    |   |   |   |    | WR |
+		| WP | WP | WP |   |   |   |    |    |
+		| WK |    |    |   |   |   |    |    |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A1     | B1          |
+		| A2     | B3          |
+		| A5     | B3          |
+		| B8     | B3          |
+		| C2     | B3          |
+		| G8     | B3          |
+		| H3     | B3          |
+
+Scenario: Find moves should find all moves for black king checked by knight
+	Given I start a new game in the following state
+		| A  | B  | C  | D | E | F | G  | H  |
+		| BK |    |    |   |   |   |    |    |
+		| BP | BP | BP |   |   |   |    |    |
+		|    | WN |    |   |   |   |    | BR |
+		|    |    |    |   |   |   |    |    |
+		| BN |    |    |   |   |   |    |    |
+		|    |    |    |   |   |   |    |    |
+		|    |    |    |   |   |   |    | WP |
+		|    | BQ |    |   |   |   | BB | WK |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| C1     | C1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A4     | B6          |
+		| A7     | B6          |
+		| A8     | B8          |
+		| B1     | B6          |
+		| C7     | B6          |
+		| G1     | B6          |
+		| H6     | B6          |
+
+Scenario Outline: Find moves should find all moves for white king checked by
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E | F | G | H    |
+		| BK |    |    |    |   |   |   | <H8> |
+		| BP |    |    |    |   |   |   |      |
+		|    |    |    |    |   |   |   |      |
+		|    | WR |    | WN |   |   |   |      |
+		|    |    |    |    |   |   |   | WQ   |
+		| WB |    |    |    |   |   |   |      |
+		| WP |    | WP | WP |   |   |   |      |
+		| WK |    |    |    |   |   |   |      |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A1     | B1          |
+		| C2     | C3          |
+		| D2     | D4          |
+		| D5     | C3          |
+		| D5     | F6          |
+		| A3     | B2          |
+		| B5     | B2          |
+		| H4     | D4          |
+		| H4     | H8          |
+		| H4     | F6          |
+	Examples: 
+		| Test name | H8 |
+		| Bishop    | BB |
+		| Queen     | BQ |
+
+Scenario Outline: Find moves should find all moves for black king checked by
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E | F | G | H    |
+		| BK |    |    |    |   |   |   |      |
+		| BP |    | BP | BP |   |   |   |      |
+		| BB |    |    |    |   |   |   |      |
+		|    |    |    |    |   |   |   | BQ   |
+		|    | BR |    | BN |   |   |   |      |
+		|    |    |    |    |   |   |   |      |
+		| WP |    |    |    |   |   |   |      |
+		| WK |    |    |    |   |   |   | <H1> |
+	Given I have the following move history
+		| Source | Destination | Result |
+		| C1     | C1          | None   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination |
+		| A8     | B8          |
+		| A6     | B7          |
+		| B4     | B7          |
+		| C7     | C6          |
+		| D4     | C6          |
+		| D4     | F3          |
+		| D7     | D5          |
+		| H5     | D5          |
+		| H5     | H1          |
+		| H5     | F3          |
+	Examples: 
+		| Test name | H1 |
+		| Bishop    | WB |
+		| Queen     | WQ |

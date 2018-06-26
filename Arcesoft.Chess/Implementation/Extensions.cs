@@ -33,6 +33,31 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
+        public static Direction ToDirection(this ThreatDirection threatDirection)
+        {
+            switch (threatDirection)
+            {
+                case ThreatDirection.East:
+                    return Direction.East;
+                case ThreatDirection.North:
+                    return Direction.North;
+                case ThreatDirection.NorthEast:
+                    return Direction.NorthEast;
+                case ThreatDirection.NorthWest:
+                    return Direction.NorthWest;
+                case ThreatDirection.South:
+                    return Direction.South;
+                case ThreatDirection.SouthEast:
+                    return Direction.SouthEast;
+                case ThreatDirection.SouthWest:
+                    return Direction.SouthWest;
+                case ThreatDirection.West:
+                    return Direction.West;
+                default:
+                    throw new InvalidOperationException();
+            }
+        }
+
         public static bool BelongsTo(this ChessPiece chessPiece, Player player)
         {
             return player == Models.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
@@ -107,37 +132,6 @@ namespace Arcesoft.Chess.Implementation
             if (move != null)
             {
                 pieceString = "::";
-            }
-
-            return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
-        }
-
-        public static string ToVisualString(this IDictionary<BoardLocation, ThreatDirection?> threatDictionary)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            for (int row = 7; row >= 0; row--)
-            {
-                for (int column = 0; column < 8; column++)
-                {
-                    var location = (BoardLocation)(row + (column * 8));
-
-                    sb.Append(ToBoardLocationThreatString(threatDictionary, location,  column == 0));
-                }
-
-                sb.Append("\r\n");
-            }
-
-            return sb.ToString();
-        }
-
-        private static string ToBoardLocationThreatString(IDictionary<BoardLocation, ThreatDirection?> threatDictionary, BoardLocation boardLocation,bool printStartingPipe)
-        {
-            string pieceString = "  ";
-
-            if (threatDictionary.ContainsKey(boardLocation))
-            {
-                pieceString = "<>";
             }
 
             return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";

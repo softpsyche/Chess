@@ -74,19 +74,16 @@ namespace Arcesoft.Chess.Implementation
             //find da man and
             //find if any chumps be threatenin da man
             var playerKingLocation = _board.GetKingsLocation(CurrentPlayer);
-            var playerKingThreatDirection = threats.ContainsKey(playerKingLocation) ? threats[playerKingLocation] : default(ThreatDirection?);
+            var playerKingThreat = threats.ContainsKey(playerKingLocation) ? threats[playerKingLocation] : null;
 
-            //if da man is in check, we need to find only the moves that remove the check...
-            if (playerKingThreatDirection.HasValue)
+            //if da king has multiple threats then fleeing is his only option
+            if (playerKingThreat!= null && playerKingThreat.HasMultipleKingThreats)
             {
-                FindMovesWhenKingsInCheck(
-                    moves,
-                    threats,
-                    playerKingLocation,
-                    playerKingThreatDirection);
+                //only chance for is for the king to move to a location that is not threatened.
+                FindMoves(moves, threats, playerKingLocation);
             }
             else
-            {//da man is not in check..
+            {//we have a few more options
 
                 //get all pieces for current player. 
                 var playerPieceLocations = _board.FindPlayerPieceLocations(CurrentPlayer);
@@ -94,6 +91,12 @@ namespace Arcesoft.Chess.Implementation
                 //find moves for each given piece
                 playerPieceLocations
                     .ForEach(a => FindMoves(moves, threats, a));
+
+                //if the king is in check, now we need to trim the moves appropriately
+                if (playerKingThreat != null)
+                {
+                    moves = TrimMovesForKingInCheck(moves, threats, playerKingLocation, playerKingThreat);
+                }
             }
 
             //return list of available moves
@@ -102,59 +105,88 @@ namespace Arcesoft.Chess.Implementation
 
         #region Private methods
 
-        private void FindMovesWhenKingsInCheck(
+        private List<Move> TrimMovesForKingInCheck(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             BoardLocation playerKingLocation,
-            ThreatDirection? playerKingThreatDirection)
+            Threat playerKingThreat)
         {
-            //if the king has multiple threats, the only valid moves require the king moving
-            if (playerKingThreatDirection.HasMultipleThreats())
+            var pieceThreateningKing = Board[playerKingThreat.FirstPieceThreateningKingBoardLocation.Value];
+
+            //if we have a direct threat to the king then the only moves allowed are ones that capture
+            //the piece which is threatening the king, or of course the ones that represent the king itself moving
+            if (playerKingThreat.ThreatDirection == ThreatDirection.Direct)
             {
-                //only chance for is for the king to move to a location that is not threatened.
-                FindMoves(moves, threats, playerKingLocation);
+                return moves
+                    .Where(a => playerKingLocation == a.Source || a.Destination == playerKingThreat.FirstPieceThreateningKingBoardLocation.Value)
+                    .ToList();
             }
             else
             {
-                //the king is in check but not on multiple fronts
-                throw new NotImplementedException();
+                //ok, so if this is a non-direct threat then any move that is either 
+                //captures the piece in question or blocks the threat path is valid
+                //AND of course, any move that represents the king moving
+                List<BoardLocation> allowedBoardLocations = new List<BoardLocation>();
+                BoardLocation? currentLocation = playerKingThreat.FirstPieceThreateningKingBoardLocation.Value;
+                var direction = playerKingThreat.ThreatDirection.ToDirection();
+
+                //get all allowable moves
+                while ((currentLocation != null) && (currentLocation.Value != playerKingLocation))
+                {
+                    allowedBoardLocations.Add(currentLocation.Value);
+
+                    currentLocation = currentLocation.Neighbor(direction);
+                }
+
+                //get kings moves and remove them from the original moves list and put them into the finalmoves
+                var finalMoves = moves.Where(a => a.Source == playerKingLocation).ToList();
+                moves.RemoveAll(a => a.Source == playerKingLocation);
+
+                //Now that the moves list only contains the moves that are non king moves, we can simply
+                //join to the allowableboardlocations and add this to the final moves
+                finalMoves.AddRange(
+                    moves
+                    .Join(allowedBoardLocations, a => a.Destination, a => a, (a, b) => a));
+
+                return finalMoves;
             }
         }
 
         private void FindMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             BoardLocation playerPieceLocation)
         {
             var chessPiece = _board[playerPieceLocation];
             var player = chessPiece.Player();
-            var playerPieceThreatDirection = threats.ContainsKey(playerPieceLocation) ? threats[playerPieceLocation] : default(ThreatDirection?);
+            var playerPiecePinDirection = threats.ContainsKey(playerPieceLocation) ? threats[playerPieceLocation].Pin : default(ThreatDirection?);
 
             switch (chessPiece)
             {
                 case ChessPiece.BlackPawn:
                 case ChessPiece.WhitePawn:
-                    FindPawnMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    FindPawnMoves(moves, threats, player, playerPieceLocation, playerPiecePinDirection);
                     break;
                 case ChessPiece.BlackKnight:
                 case ChessPiece.WhiteKnight:
-                    FindKnightMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    FindKnightMoves(moves, threats, player, playerPieceLocation, playerPiecePinDirection);
                     break;
                 case ChessPiece.BlackBishop:
                 case ChessPiece.WhiteBishop:
-                    FindBishopMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    FindBishopMoves(moves, threats, player, playerPieceLocation, playerPiecePinDirection);
                     break;
                 case ChessPiece.BlackRook:
                 case ChessPiece.WhiteRook:
-                    FindRookMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    FindRookMoves(moves, threats, player, playerPieceLocation, playerPiecePinDirection);
                     break;
                 case ChessPiece.BlackQueen:
                 case ChessPiece.WhiteQueen:
-                    FindQueenMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    FindQueenMoves(moves, threats, player, playerPieceLocation, playerPiecePinDirection);
                     break;
                 case ChessPiece.BlackKing:
                 case ChessPiece.WhiteKing:
-                    FindKingMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+                    //da king cant be pinned yo!
+                    FindKingMoves(moves, threats, player, playerPieceLocation);
                     break;
                 default:
                     break;
@@ -163,7 +195,7 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindPawnMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
             BoardLocation playerPieceLocation,
             ThreatDirection? playerPieceThreatDirection)
@@ -268,15 +300,15 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindKnightMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
             BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            ThreatDirection? playerPiecePinDirection)
         {
             //There are NO possible moves if the knight is under non-direct threat because
             //he is not capable of removing any linear or diagonal threats ever. This is due to his L-shaped
             //move pattern (thank god for small favors)
-            if (playerPieceThreatDirection.HasThreats(ThreatDirection.NonDirect))
+            if (playerPiecePinDirection.HasThreats(ThreatDirection.NonDirect))
             {
                 return;
             }
@@ -295,21 +327,21 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindBishopMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
             BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            ThreatDirection? playerPiecePinDirection)
         {
             //There are NO possible moves if the bishop is under any line threats. 
-            if (playerPieceThreatDirection.HasThreats(ThreatDirection.Line))
+            if (playerPiecePinDirection.HasThreats(ThreatDirection.Line))
             {
                 return;
             }
 
             //we will use the threats matrix for this bishop to calculate our moves...
             var bishopThreatLocations = _threatProvider.FindThreatsForBoardLocation(_board, playerPieceLocation);
-            var hasGradeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Grade);
-            var hasSlopeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Slope);
+            var hasGradeThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Grade);
+            var hasSlopeThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Slope);
 
             foreach (var location in bishopThreatLocations.Keys)
             {
@@ -325,21 +357,21 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindRookMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
             BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            ThreatDirection? playerPiecePinDirection)
         {
             //There are NO possible moves if the rook is under any diagonal threats. 
-            if (playerPieceThreatDirection.HasThreats(ThreatDirection.Diagonal))
+            if (playerPiecePinDirection.HasThreats(ThreatDirection.Diagonal))
             {
                 return;
             }
 
             //we will use the threats matrix for this rook to calculate our moves...
             var rookThreatLocations = _threatProvider.FindThreatsForBoardLocation(_board, playerPieceLocation);
-            var hasVerticalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Vertical);
-            var hasHorizontalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Horizontal);
+            var hasVerticalThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Vertical);
+            var hasHorizontalThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Horizontal);
 
             foreach (var location in rookThreatLocations.Keys)
             {
@@ -355,17 +387,17 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindQueenMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
             BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            ThreatDirection? playerPiecePinDirection)
         {
             //we will use the threats matrix for this queen to calculate our moves...
             var queenThreatLocations = _threatProvider.FindThreatsForBoardLocation(_board, playerPieceLocation);
-            var hasVerticalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Vertical);
-            var hasHorizontalThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Horizontal);
-            var hasSlopeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Slope);
-            var hasGradeThreats = playerPieceThreatDirection.HasThreats(ThreatDirection.Grade);
+            var hasVerticalThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Vertical);
+            var hasHorizontalThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Horizontal);
+            var hasSlopeThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Slope);
+            var hasGradeThreats = playerPiecePinDirection.HasThreats(ThreatDirection.Grade);
 
             foreach (var location in queenThreatLocations.Keys)
             {
@@ -383,10 +415,9 @@ namespace Arcesoft.Chess.Implementation
 
         private void FindKingMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
-            BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            BoardLocation playerPieceLocation)
         {
             //we will use the threats matrix for this king to calculate our moves...
             var kingThreatLocations = _threatProvider.FindThreatsForBoardLocation(_board, playerPieceLocation);
@@ -402,14 +433,13 @@ namespace Arcesoft.Chess.Implementation
             }
 
             //find our castle moves
-            FindKingCastleMoves(moves, threats, player, playerPieceLocation, playerPieceThreatDirection);
+            FindKingCastleMoves(moves, threats, player, playerPieceLocation);
         }
         private void FindKingCastleMoves(
             List<Move> moves,
-            Dictionary<BoardLocation, ThreatDirection?> threats,
+            ThreatMatrix threats,
             Player player,
-            BoardLocation playerPieceLocation,
-            ThreatDirection? playerPieceThreatDirection)
+            BoardLocation playerPieceLocation)
         {
             //When are you not allowed to castle?
             //    There are a number of cases when castling is not permitted:
@@ -437,7 +467,7 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
-        private bool WesternCastleMoveAvailable(Player player, Dictionary<BoardLocation, ThreatDirection?> threats)
+        private bool WesternCastleMoveAvailable(Player player, ThreatMatrix threats)
         {
             if (player == Player.White)
             {
@@ -455,7 +485,7 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
-        private bool EasternCastleMoveAvailable(Player player, Dictionary<BoardLocation, ThreatDirection?> threats)
+        private bool EasternCastleMoveAvailable(Player player, ThreatMatrix threats)
         {
             if (player == Player.White)
             {

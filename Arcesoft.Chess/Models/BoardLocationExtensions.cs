@@ -52,10 +52,10 @@ namespace Arcesoft.Chess.Models
             return false;
         }
 
-        public static IEnumerable<BoardLocation> Neighbors(this BoardLocation? currentLocation)
-            => currentLocation.HasValue ? currentLocation.Value.Neighbors() : Enumerable.Empty<BoardLocation>();
+        public static List<BoardLocation> Neighbors(this BoardLocation? currentLocation)
+            => currentLocation.HasValue ? currentLocation.Value.Neighbors() : new List<BoardLocation>();
 
-        public static IEnumerable<BoardLocation> Neighbors(this BoardLocation currentLocation)
+        public static List<BoardLocation> Neighbors(this BoardLocation currentLocation)
         {
             List<BoardLocation> boardLocations = new List<BoardLocation>();
             foreach (Direction dir in Enum.GetValues(typeof(Direction)))
