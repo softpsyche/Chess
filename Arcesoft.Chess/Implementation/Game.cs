@@ -47,24 +47,17 @@ namespace Arcesoft.Chess.Implementation
             }
 
             //now we need to make the move..
-            if (gameMove.IsCastle())
+            //Deal with these 'special' moves first
+            if (MakeCastleMove(gameMove) || MakeAuPassantMove(gameMove))
             {
-                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Castle));
+                return;
+            }
 
+            //make the normal move
+            var moveResult = (_board[gameMove.Destination] == ChessPiece.None) ? MoveResult.None : MoveResult.Capture;
+            MovePieceOnBoard(gameMove);
+            _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, moveResult));
 
-            }
-            else if (gameMove.IsAuPassant())
-            {
-                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Capture));
-            }
-            else if (gameMove.IsCapture())
-            {
-                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Capture));
-            }
-            else
-            {
-                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.None));
-            }
         } 
 
         public string GetThreatenedBoardDisplay(Player player)
@@ -148,6 +141,83 @@ namespace Arcesoft.Chess.Implementation
         }
 
         #region Private methods
+        private bool MakeAuPassantMove(Move move)
+        {
+            //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
+            if ((!move.Source.IsOnSameRowAs(move.Destination)) &&
+                (_board[move.Source].IsPawn(CurrentPlayer)) &&
+                (_board[move.Destination] == ChessPiece.None))
+            {
+                MovePieceOnBoard(move);
+
+                var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
+                _board[capturedPawnLocation] = ChessPiece.None;
+
+                return true;
+            }
+
+            return false;
+        }
+        private bool MakeCastleMove(Move move)
+        {
+            BoardLocation? castlingRookLocation = null;
+            BoardLocation? castlingRookDestination = null;
+
+            if (_board[move.Source].IsKing(CurrentPlayer))
+            {
+                if (move.Source == BoardLocation.E1)
+                {
+                    if (move.Destination == BoardLocation.G1)
+                    {
+                        castlingRookLocation = BoardLocation.H1;
+                        castlingRookDestination = BoardLocation.F1;
+                    }
+                    else if (move.Destination == BoardLocation.C1)
+                    {
+                        castlingRookLocation = BoardLocation.A1;
+                        castlingRookDestination = BoardLocation.D1;
+                    }
+                }
+                else if (move.Source == BoardLocation.E8)
+                {
+                    if (move.Destination == BoardLocation.G8)
+                    {
+                        castlingRookLocation = BoardLocation.H8;
+                        castlingRookDestination = BoardLocation.F8;
+                    }
+                    else if (move.Destination == BoardLocation.C8)
+                    {
+                        castlingRookLocation = BoardLocation.A8;
+                        castlingRookDestination = BoardLocation.D8;
+                    }
+                }
+            }
+
+            if (castlingRookLocation.HasValue)
+            {
+                //move the king
+                MovePieceOnBoard(move);
+
+                //move the rook
+                MovePieceOnBoard(castlingRookLocation.Value, castlingRookDestination.Value);
+
+                //add the move history
+                _moveHistory.Add(new MoveHistory(move.Source, move.Destination, MoveResult.Castle));
+            }
+
+            return castlingRookLocation.HasValue;
+        }
+        private void MovePieceOnBoard(Move move)
+        {
+            _board[move.Destination] = _board[move.Source];
+            _board[move.Source] = ChessPiece.None;
+        }
+        private void MovePieceOnBoard(BoardLocation source, BoardLocation destination)
+        {
+            _board[destination] = _board[source];
+            _board[source] = ChessPiece.None;
+        }
+
         private bool MoveIsLegal(Move move) => FindMoves().Contains(move);
 
         private List<Move> TrimMovesForKingInCheck(

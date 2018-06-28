@@ -105,27 +105,6 @@ namespace Arcesoft.Chess.Implementation
         }
     }
 
-    public static class MoveExtensions
-    {
-        public static bool IsCastle(this Move move)
-        {
-            switch (move.Source)
-            {
-                case BoardLocation.E
-            }
-        }
-
-        public static bool IsAuPassant(this Move move)
-        {
-
-        }
-
-        public static bool IsCapture(this Move move)
-        {
-
-        }
-    }
-
     public static class ChessPieceExtensions
     {
         public static bool BelongsTo(this ChessPiece chessPiece, Player player)
@@ -154,6 +133,11 @@ namespace Arcesoft.Chess.Implementation
         }
 
         public static bool IsEmpty(this ChessPiece chessPiece) => chessPiece == ChessPiece.None;
+      
+        public static bool IsPawn(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhitePawn : chessPiece == ChessPiece.BlackPawn;
+        }
 
         public static bool IsKing(this ChessPiece chessPiece, Player player)
         {

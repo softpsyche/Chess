@@ -17,6 +17,9 @@ Background:
 	Given I have a container
 	Given I have a game factory
 
+#########################################################################
+###		Finding Moves												  ###
+#########################################################################
 Scenario: New game should start in correct state
 	When I start a new game
 	Then I expect the game to not be over
@@ -637,7 +640,7 @@ Scenario Outline: Find moves should NOT find castle moves for black king when
 
 
 #########################################################################
-###		Pinned Moves												  ###
+###		Finding Moves While Pinned									  ###
 #########################################################################
 #NOTE: we never have to worry about au-passant
 Scenario: Find moves should find all moves for pinned white pawns
@@ -895,7 +898,7 @@ Scenario: Find moves should find all moves for pinned black queens
 
 
 #########################################################################
-###		Checked moves												  ###
+###		Finding Moves While Checked 								  ###
 #########################################################################
 Scenario: Find moves should find all moves for double checked white king
 	Given I start a new game in the following state
@@ -1095,3 +1098,9 @@ Scenario Outline: Find moves should find all moves for black king checked by
 		| Test name | H1 |
 		| Bishop    | WB |
 		| Queen     | WQ |
+
+
+#########################################################################
+###		Making moves												  ###
+#########################################################################
+Scenario: Make move should make 
