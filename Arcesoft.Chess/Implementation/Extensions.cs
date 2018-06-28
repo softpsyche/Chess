@@ -58,6 +58,76 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
+
+        public static Player OpposingPlayer(this Player player) => player == Models.Player.White ? Models.Player.Black : Models.Player.White;
+
+        /// <summary>
+        /// Performs the specified action on each element of the enumeration.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="action"></param>
+        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            foreach (var item in items) action(item);
+        }
+
+        public static string ToVisualString(this IList<Move> moves)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int row = 7; row >= 0; row--)
+            {
+                for (int column = 0; column < 8; column++)
+                {
+                    var location = (BoardLocation)(row + (column * 8));
+
+
+                    sb.Append(ToBoardLocationMoveString(moves.FirstOrDefault(a => a.Destination == location), column == 0));
+                }
+
+                sb.Append("\r\n");
+            }
+
+            return sb.ToString();
+        }
+
+        private static string ToBoardLocationMoveString(Move move, bool printStartingPipe)
+        {
+            string pieceString = "  ";
+
+            if (move != null)
+            {
+                pieceString = "::";
+            }
+
+            return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
+        }
+    }
+
+    public static class MoveExtensions
+    {
+        public static bool IsCastle(this Move move)
+        {
+            switch (move.Source)
+            {
+                case BoardLocation.E
+            }
+        }
+
+        public static bool IsAuPassant(this Move move)
+        {
+
+        }
+
+        public static bool IsCapture(this Move move)
+        {
+
+        }
+    }
+
+    public static class ChessPieceExtensions
+    {
         public static bool BelongsTo(this ChessPiece chessPiece, Player player)
         {
             return player == Models.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
@@ -85,56 +155,11 @@ namespace Arcesoft.Chess.Implementation
 
         public static bool IsEmpty(this ChessPiece chessPiece) => chessPiece == ChessPiece.None;
 
-        public static bool IsKing(this ChessPiece chessPiece,Player player)
+        public static bool IsKing(this ChessPiece chessPiece, Player player)
         {
             return player == Models.Player.White ? chessPiece == ChessPiece.WhiteKing : chessPiece == ChessPiece.BlackKing;
         }
 
         public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
-
-        public static Player OpposingPlayer(this Player player) => player == Models.Player.White ? Models.Player.Black : Models.Player.White;
-
-        /// <summary>
-        /// Performs the specified action on each element of the enumeration.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="items"></param>
-        /// <param name="action"></param>
-        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
-        {
-            foreach (var item in items) action(item);
-        }
-
-        public static string ToVisualString(this IList<Move> moves)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            for (int row = 7; row >= 0; row--)
-            {
-                for (int column = 0; column < 8; column++)
-                {
-                    var location = (BoardLocation)(row + (column * 8));
-
-                    
-                    sb.Append(ToBoardLocationMoveString(moves.FirstOrDefault(a => a.Destination == location), column == 0));
-                }
-
-                sb.Append("\r\n");
-            }
-
-            return sb.ToString();
-        }
-
-        private static string ToBoardLocationMoveString(Move move, bool printStartingPipe)
-        {
-            string pieceString = "  ";
-
-            if (move != null)
-            {
-                pieceString = "::";
-            }
-
-            return printStartingPipe ? $"|{pieceString}|" : $"{pieceString}|";
-        }
     }
 }

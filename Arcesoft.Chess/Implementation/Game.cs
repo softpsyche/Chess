@@ -13,6 +13,8 @@ namespace Arcesoft.Chess.Implementation
 
         private GameState _gameState = GameState.InPlay;
         private List<MoveHistory> _moveHistory = new List<MoveHistory>();
+        private List<Move> _moves = null;
+        private ThreatMatrix _threatMatrix = null;
 
         public IReadOnlyList<MoveHistory> MoveHistory => _moveHistory;
 
@@ -32,10 +34,38 @@ namespace Arcesoft.Chess.Implementation
             _threatProvider = threatProvider;
         }
 
-        public GameState MakeMove(Move gameMove)
+        public void MakeMove(Move gameMove)
         {
-            throw new NotImplementedException();
-        }
+            if (GameIsOver)
+            {
+                throw new ChessException(ChessErrorCode.InvalidMoveGameOver, "The move is not valid because the game is over.");
+            }
+
+            if (!MoveIsLegal(gameMove))
+            {
+                throw new ChessException(ChessErrorCode.IllegalMove, "The move is not valid because it is not legal.");
+            }
+
+            //now we need to make the move..
+            if (gameMove.IsCastle())
+            {
+                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Castle));
+
+
+            }
+            else if (gameMove.IsAuPassant())
+            {
+                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Capture));
+            }
+            else if (gameMove.IsCapture())
+            {
+                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.Capture));
+            }
+            else
+            {
+                _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, MoveResult.None));
+            }
+        } 
 
         public string GetThreatenedBoardDisplay(Player player)
         {
@@ -61,6 +91,11 @@ namespace Arcesoft.Chess.Implementation
 
         public List<Move> FindMoves()
         {
+            if (_moves != null)
+            {
+                return _moves;
+            }
+
             var moves = new List<Move>();
 
             if (GameIsOver)
@@ -99,11 +134,21 @@ namespace Arcesoft.Chess.Implementation
                 }
             }
 
+            //cache the moves and threats
+            _moves = moves;
+            _threatMatrix = threats;
+
             //return list of available moves
             return moves;
         }
 
+        public void UndoLastMove()
+        {
+            throw new NotImplementedException();
+        }
+
         #region Private methods
+        private bool MoveIsLegal(Move move) => FindMoves().Contains(move);
 
         private List<Move> TrimMovesForKingInCheck(
             List<Move> moves,

@@ -22,6 +22,8 @@ namespace Arcesoft.Chess
 
         bool IsValidMove(Move gameMove);
 
-        GameState MakeMove(Move gameMove);
+        void MakeMove(Move gameMove);
+
+        void UndoLastMove();
     }
 }
