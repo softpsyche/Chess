@@ -10,17 +10,15 @@ namespace Arcesoft.Chess.Implementation
     {
         private readonly Board _board;
         private readonly ThreatProvider _threatProvider;
-
-        private GameState _gameState = GameState.InPlay;
         private List<MoveHistory> _moveHistory = new List<MoveHistory>();
         private List<Move> _moves = null;
         private ThreatMatrix _threatMatrix = null;
 
         public IReadOnlyList<MoveHistory> MoveHistory => _moveHistory;
 
-        public bool GameIsOver => _gameState != GameState.InPlay;
+        public bool GameIsOver => GameState != GameState.InPlay;
 
-        public GameState GameState => _gameState;
+        public GameState GameState { get; private set; } = GameState.InPlay;
 
         public IReadOnlyBoard Board => _board as IReadOnlyBoard;
 
@@ -58,6 +56,12 @@ namespace Arcesoft.Chess.Implementation
             MovePieceOnBoard(gameMove);
             _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, moveResult));
 
+            //clear the moves and threats (for caching of next moves)
+            _moves = null;
+            _threatMatrix = null;
+
+            //determine the game state now that this move has been made
+            DetermineGameState();
         } 
 
         public string GetThreatenedBoardDisplay(Player player)
@@ -141,6 +145,28 @@ namespace Arcesoft.Chess.Implementation
         }
 
         #region Private methods
+        private void DetermineGameState()
+        {
+            //find the king and moves for this player
+            var kingLocation = _board.GetKingsLocation(CurrentPlayer);
+            var moves = FindMoves();
+
+            //if we have no moves, this gets easy...
+            if (!moves.Any())
+            {
+                //checkmate, son
+                if (_threatMatrix.ContainsKey(kingLocation))
+                {
+                    GameState = CurrentPlayer == Player.White ? GameState.BlackWin : GameState.WhiteWin;
+                }
+                else
+                {
+                    GameState = GameState.DrawStalemate;
+                }
+            }
+
+            //we need to check for draw due to insufficient material
+        }
         private bool MakeAuPassantMove(Move move)
         {
             //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
@@ -550,6 +576,7 @@ namespace Arcesoft.Chess.Implementation
             //find our castle moves
             FindKingCastleMoves(moves, threats, player, playerPieceLocation);
         }
+
         private void FindKingCastleMoves(
             List<Move> moves,
             ThreatMatrix threats,
