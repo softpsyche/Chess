@@ -107,6 +107,8 @@ namespace Arcesoft.Chess.Implementation
 
     public static class ChessPieceExtensions
     {
+        public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
+
         public static bool BelongsTo(this ChessPiece chessPiece, Player player)
         {
             return player == Models.Player.White ? chessPiece.BelongsToWhite() : chessPiece.BelongsToBlack();
@@ -133,17 +135,30 @@ namespace Arcesoft.Chess.Implementation
         }
 
         public static bool IsEmpty(this ChessPiece chessPiece) => chessPiece == ChessPiece.None;
-      
-        public static bool IsPawn(this ChessPiece chessPiece, Player player)
-        {
-            return player == Models.Player.White ? chessPiece == ChessPiece.WhitePawn : chessPiece == ChessPiece.BlackPawn;
-        }
-
+        
         public static bool IsKing(this ChessPiece chessPiece, Player player)
         {
             return player == Models.Player.White ? chessPiece == ChessPiece.WhiteKing : chessPiece == ChessPiece.BlackKing;
         }
-
-        public static byte ToByte(this ChessPiece boardSquare) => (byte)boardSquare;
+        public static bool IsQueen(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhiteQueen : chessPiece == ChessPiece.BlackQueen;
+        }
+        public static bool IsRook(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhiteRook : chessPiece == ChessPiece.BlackRook;
+        }
+        public static bool IsBishop(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhiteBishop : chessPiece == ChessPiece.BlackBishop;
+        }
+        public static bool IsKnight(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhiteKnight : chessPiece == ChessPiece.BlackKnight;
+        }
+        public static bool IsPawn(this ChessPiece chessPiece, Player player)
+        {
+            return player == Models.Player.White ? chessPiece == ChessPiece.WhitePawn : chessPiece == ChessPiece.BlackPawn;
+        }
     }
 }

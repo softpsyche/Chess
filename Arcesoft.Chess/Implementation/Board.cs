@@ -71,6 +71,27 @@ namespace Arcesoft.Chess.Implementation
             return listy;
         }
 
+        //public List<ChessPiece> FindPieces()
+        //{
+        //    return _board.Where(a => a != ChessPiece.None).ToList();
+        //}
+        public List<ChessPiece> FindPieces(Player player)
+        {
+            byte lowRange, upperRange;
+            if (player == Player.White)
+            {
+                lowRange = ChessPiece.WhitePawn.ToByte();
+                upperRange = ChessPiece.WhiteKing.ToByte();
+            }
+            else
+            {
+                lowRange = ChessPiece.BlackPawn.ToByte();
+                upperRange = ChessPiece.BlackKing.ToByte();
+            }
+
+            return _board.Where(a => a.ToByte() >= lowRange && a.ToByte() <= upperRange).ToList();
+        }
+
         public BoardLocation GetKingsLocation(Player player)
         {
             var king = player == Player.Black ? ChessPiece.BlackKing : ChessPiece.WhiteKing;

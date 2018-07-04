@@ -19,6 +19,11 @@ namespace Arcesoft.Chess.Models
     //1:| 0| 8|16|24|32|40|48|56|
     internal static class BoardLocationExtensions
     {
+        public static BoardLocationColor Color(this BoardLocation boardLocation)
+        {
+            return ((boardLocation.ToByte() + boardLocation.Column() % 2) % 2 == 0) ? BoardLocationColor.Black : BoardLocationColor.White;
+        }
+
         public static bool IsPawnStartingLocation(this BoardLocation boardLocation, Player player)
         {
             if (player == Player.White)

@@ -163,9 +163,61 @@ namespace Arcesoft.Chess.Implementation
                 {
                     GameState = GameState.DrawStalemate;
                 }
+                return;
             }
 
             //we need to check for draw due to insufficient material
+            if (HasInsufficientMaterialForMate(CurrentPlayer) && 
+                HasInsufficientMaterialForMate(CurrentPlayer.OpposingPlayer()))
+            {
+                GameState = GameState.DrawInsufficientMaterial;
+            }
+
+            //TODO
+            //https://en.wikipedia.org/wiki/Draw_(chess)
+            //TODO:Check threefold repetition
+            //TODO:Check fifty-move rule
+            //TODO: Check 'dead position' (not sure how that is done)
+        }
+        private bool HasInsufficientMaterialForMate(Player player)
+        {
+            var playerPieceLocations = _board.FindPlayerPieceLocations(player);
+
+            //only king left
+            if (playerPieceLocations.Count == 1) return true;
+
+            //if we a queen rook or pawn we have enough
+            if (playerPieceLocations.Any(a => _board[a].IsQueen(player) || _board[a].IsRook(player) || _board[a].IsPawn(player)))
+            {
+                return false;
+            }
+
+            //more than one knight we have enough
+            var knightCount = playerPieceLocations.Count(a => _board[a].IsKnight(player));
+            if (knightCount > 1)
+            {
+                return false;
+            }
+
+            //bishop and a knight we have enough
+            var bishopCount = playerPieceLocations.Count(a => _board[a].IsBishop(player));
+            if ((knightCount > 0) && (bishopCount > 0))
+            {
+                return false;
+            }
+
+            //the last thing left is if we have more than 1 bishop of a different color
+            if (playerPieceLocations
+                .Where(a => _board[a].IsBishop(player))
+                .Select(a => a.Color())
+                .Distinct()
+                .Count() > 1)
+            {
+                return false;
+            }
+
+            //we can to assume we have insuficient material
+            return true;
         }
         private bool MakeAuPassantMove(Move move)
         {

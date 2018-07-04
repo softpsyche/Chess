@@ -52,9 +52,15 @@ namespace Arcesoft.Chess.Models
         DrawStalemate = 3,// when the player to move has no legal move and is not in check
         DrawThreeFoldRepetition = 4, // when the same position occurs three times with the same player to move
         DrawFiftyMoveRule = 5,// when the last fifty successive moves made by both players contain no capture or pawn move
-        DrawInDeadPosition = 6// when no sequence of legal moves can lead to checkmate, most commonly when neither player has sufficient material to checkmate the opponent
+        DrawInDeadPosition = 6,// when no sequence of legal moves can lead to checkmate, most commonly when neither player has sufficient material to checkmate the opponent
+        DrawInsufficientMaterial = 7// when no sequence of legal moves can lead to checkmate, most commonly when neither player has sufficient material to checkmate the opponent
     }
 
+    public enum BoardLocationColor
+    {
+        White,
+        Black
+    }
     public enum Player : byte
     {
         White = 0,
