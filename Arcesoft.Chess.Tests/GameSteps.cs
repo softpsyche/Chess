@@ -46,7 +46,7 @@ namespace Arcesoft.Chess.Tests
         [When(@"I find moves for the current game")]
         public void WhenIFindMovesForTheCurrentGame()
         {
-            Invoke(() => Moves = Game.FindMoves());
+            Invoke(() => Moves = Game.FindMoves().ToList());
         }
 
         [Then(@"I expect the moves found should contain")]
@@ -102,6 +102,39 @@ namespace Arcesoft.Chess.Tests
                 Moves.Should().Contain(moves);
             }
         }
+
+        [Given(@"The game is in the following gamestate '(.*)'")]
+        public void GivenTheGameIsInTheFollowingGamestate(GameState gameState)
+        {
+            //thank you, filthy filthy reflection
+            Game.SetPrivateProperty(nameof(Game.GameState), gameState);
+        }
+
+        [When(@"I make the following move")]
+        public void WhenIMakeTheFollowingMove(Table table)
+        {
+            Invoke(() => Game.MakeMove(table.ToMove()));
+        }
+
+        [Then(@"I expect the following ChessException to be thrown")]
+        public void ThenIExpectTheFollowingChessExceptionToBeThrown(Table table)
+        {
+            Exception.Should().BeOfType(typeof(ChessException));
+            table.CompareToInstance(Exception);
+        }
+
+        [When(@"I make the following moves")]
+        public void WhenIMakeTheFollowingMoves(Table table)
+        {
+            Invoke(() => table.ToMoves().ForEach(a => Game.MakeMove(a)));
+        }
+
+        [Then(@"I expect the following move history")]
+        public void ThenIExpectTheFollowingMoveHistory(Table table)
+        {
+            table.CompareToSet(Game.MoveHistory);
+        }
+
     }
 
     public static class Extensions
@@ -162,6 +195,11 @@ namespace Arcesoft.Chess.Tests
         public static T ToEnum<T>(this string value)
         {
             return (T)Enum.Parse(typeof(T), value);
+        }
+
+        public static Move ToMove(this Table table)
+        {
+            return table.ToMoves().Single();
         }
 
         public static List<Move> ToMoves(this Table table)
@@ -233,6 +271,12 @@ namespace Arcesoft.Chess.Tests
         {
             obj.GetType()
                .GetField(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+               .SetValue(obj, value);
+        }
+        public static void SetPrivateProperty(this Object obj, string name, Object value)
+        {
+            obj.GetType()
+               .GetProperty(name, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public| System.Reflection.BindingFlags.SetProperty)
                .SetValue(obj, value);
         }
     }

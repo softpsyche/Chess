@@ -24,7 +24,7 @@ namespace Arcesoft.Chess.Implementation
 
         public Player CurrentPlayer => (_moveHistory.Count % 2) == 0 ? Player.White : Player.Black;
 
-        public bool IsValidMove(Move gameMove) => GameIsOver ? false : FindMoves().Contains(gameMove);
+        public bool IsLegalMove(Move gameMove) => GameIsOver ? false : FindMoves().Contains(gameMove);
 
         public Game(Board board, ThreatProvider threatProvider)
         {
@@ -54,14 +54,9 @@ namespace Arcesoft.Chess.Implementation
             //make the normal move
             var moveResult = (_board[gameMove.Destination] == ChessPiece.None) ? MoveResult.None : MoveResult.Capture;
             MovePieceOnBoard(gameMove);
-            _moveHistory.Add(new MoveHistory(gameMove.Source, gameMove.Destination, moveResult));
 
-            //clear the moves and threats (for caching of next moves)
-            _moves = null;
-            _threatMatrix = null;
-
-            //determine the game state now that this move has been made
-            DetermineGameState();
+            //performfinal
+            FinishMove(gameMove, moveResult);
         } 
 
         public string GetThreatenedBoardDisplay(Player player)
@@ -86,7 +81,7 @@ namespace Arcesoft.Chess.Implementation
             return sb.ToString();
         }
 
-        public List<Move> FindMoves()
+        public IReadOnlyList<Move> FindMoves()
         {
             if (_moves != null)
             {
@@ -94,9 +89,9 @@ namespace Arcesoft.Chess.Implementation
             }
 
             var moves = new List<Move>();
-
             if (GameIsOver)
             {
+                _moves = moves;
                 return moves;
             }
 
@@ -145,6 +140,84 @@ namespace Arcesoft.Chess.Implementation
         }
 
         #region Private methods
+        private bool MakeAuPassantMove(Move move)
+        {
+            //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
+            if ((!move.Source.IsOnSameColumnAs(move.Destination)) &&
+                (_board[move.Source].IsPawn(CurrentPlayer)) &&
+                (_board[move.Destination] == ChessPiece.None))
+            {
+                MovePieceOnBoard(move);
+
+                var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
+                _board[capturedPawnLocation] = ChessPiece.None;
+
+                FinishMove(move, MoveResult.CaptureAuPassant);
+
+                return true;
+            }
+
+            return false;
+        }
+        private bool MakeCastleMove(Move move)
+        {
+            BoardLocation? castlingRookLocation = null;
+            BoardLocation? castlingRookDestination = null;
+
+            if (_board[move.Source].IsKing(CurrentPlayer))
+            {
+                if (move.Source == BoardLocation.E1)
+                {
+                    if (move.Destination == BoardLocation.G1)
+                    {
+                        castlingRookLocation = BoardLocation.H1;
+                        castlingRookDestination = BoardLocation.F1;
+                    }
+                    else if (move.Destination == BoardLocation.C1)
+                    {
+                        castlingRookLocation = BoardLocation.A1;
+                        castlingRookDestination = BoardLocation.D1;
+                    }
+                }
+                else if (move.Source == BoardLocation.E8)
+                {
+                    if (move.Destination == BoardLocation.G8)
+                    {
+                        castlingRookLocation = BoardLocation.H8;
+                        castlingRookDestination = BoardLocation.F8;
+                    }
+                    else if (move.Destination == BoardLocation.C8)
+                    {
+                        castlingRookLocation = BoardLocation.A8;
+                        castlingRookDestination = BoardLocation.D8;
+                    }
+                }
+            }
+
+            if (castlingRookLocation.HasValue)
+            {
+                //move the king
+                MovePieceOnBoard(move);
+
+                //move the rook
+                MovePieceOnBoard(castlingRookLocation.Value, castlingRookDestination.Value);
+
+                FinishMove(move, MoveResult.Castle);
+            }
+
+            return castlingRookLocation.HasValue;
+        }
+        private void FinishMove(Move move, MoveResult moveResult)
+        {
+            _moveHistory.Add(new MoveHistory(move.Source, move.Destination, moveResult));
+
+            //clear the moves and threats (for caching of next moves)
+            _moves = null;
+            _threatMatrix = null;
+
+            //determine the game state now that this move has been made
+            DetermineGameState();
+        }
         private void DetermineGameState()
         {
             //find the king and moves for this player
@@ -218,72 +291,6 @@ namespace Arcesoft.Chess.Implementation
 
             //we can to assume we have insuficient material
             return true;
-        }
-        private bool MakeAuPassantMove(Move move)
-        {
-            //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
-            if ((!move.Source.IsOnSameRowAs(move.Destination)) &&
-                (_board[move.Source].IsPawn(CurrentPlayer)) &&
-                (_board[move.Destination] == ChessPiece.None))
-            {
-                MovePieceOnBoard(move);
-
-                var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
-                _board[capturedPawnLocation] = ChessPiece.None;
-
-                return true;
-            }
-
-            return false;
-        }
-        private bool MakeCastleMove(Move move)
-        {
-            BoardLocation? castlingRookLocation = null;
-            BoardLocation? castlingRookDestination = null;
-
-            if (_board[move.Source].IsKing(CurrentPlayer))
-            {
-                if (move.Source == BoardLocation.E1)
-                {
-                    if (move.Destination == BoardLocation.G1)
-                    {
-                        castlingRookLocation = BoardLocation.H1;
-                        castlingRookDestination = BoardLocation.F1;
-                    }
-                    else if (move.Destination == BoardLocation.C1)
-                    {
-                        castlingRookLocation = BoardLocation.A1;
-                        castlingRookDestination = BoardLocation.D1;
-                    }
-                }
-                else if (move.Source == BoardLocation.E8)
-                {
-                    if (move.Destination == BoardLocation.G8)
-                    {
-                        castlingRookLocation = BoardLocation.H8;
-                        castlingRookDestination = BoardLocation.F8;
-                    }
-                    else if (move.Destination == BoardLocation.C8)
-                    {
-                        castlingRookLocation = BoardLocation.A8;
-                        castlingRookDestination = BoardLocation.D8;
-                    }
-                }
-            }
-
-            if (castlingRookLocation.HasValue)
-            {
-                //move the king
-                MovePieceOnBoard(move);
-
-                //move the rook
-                MovePieceOnBoard(castlingRookLocation.Value, castlingRookDestination.Value);
-
-                //add the move history
-                _moveHistory.Add(new MoveHistory(move.Source, move.Destination, MoveResult.Castle));
-            }
-
-            return castlingRookLocation.HasValue;
         }
         private void MovePieceOnBoard(Move move)
         {

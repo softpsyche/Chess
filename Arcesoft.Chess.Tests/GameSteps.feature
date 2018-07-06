@@ -1103,4 +1103,102 @@ Scenario Outline: Find moves should find all moves for black king checked by
 #########################################################################
 ###		Making moves												  ###
 #########################################################################
-Scenario: Make move should make 
+Scenario Outline: Make move should not allow a move if the gamestate is in
+	Given I start a new game
+	Given The game is in the following gamestate '<GameState>'
+	Given I expect an exception to be thrown
+	When I make the following move
+		| Source | Destination |
+		| A2     | A3          |
+	Then I expect the following ChessException to be thrown
+		| ErrorCode           | Message                                         |
+		| InvalidMoveGameOver | The move is not valid because the game is over. |
+	Examples: 
+		| GameState                |
+		| WhiteWin                 |
+		| BlackWin                 |
+		| DrawStalemate            |
+		| DrawThreeFoldRepetition  |
+		| DrawFiftyMoveRule        |
+		| DrawInDeadPosition       |
+		| DrawInsufficientMaterial |
+
+Scenario: Make move should not allow a move if the move is illegal
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| BR | BN | BB | BQ | BK | BB | BN | BR |
+		| BP | BP | BP | BP | BP | BP | BP | BP |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		| WP | WP | WP | WP | WP | WP | WP | WP |
+		| WR | WN | WB | WQ | WK | WB | WN | WR |
+	Given I expect an exception to be thrown
+	When I make the following move
+		| Source | Destination |
+		| A4     | F3          |
+	Then I expect the following ChessException to be thrown
+		| ErrorCode   | Message                                        |
+		| IllegalMove | The move is not valid because it is not legal. |
+
+Scenario: Make move should make moves for pieces
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| BR | BN | BB | BQ | BK | BB | BN | BR |
+		| BP | BP | BP | BP | BP | BP | BP | BP |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		|    |    |    |    |    |    |    |    |
+		| WP | WP | WP | WP | WP | WP | WP | WP |
+		| WR | WN | WB | WQ | WK | WB | WN | WR |
+	When I make the following moves
+		| Source | Destination |
+		| D2     | D4          |
+		| D7     | D5          |
+		| B1     | C3          |
+		| G8     | F6          |
+		| E2     | E4          |
+		| D5     | E4          |
+		| C3     | E4          |
+		| C8     | G4          |
+		| D1     | D3          |
+		| E7     | E6          |
+		| D4     | D5          |
+		| C7     | C5          |
+		| D5     | C6          |
+		| F8     | B4          |
+		| E4     | D2          |
+		| E8     | G8          |
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the following move history
+		| Source | Destination | Result           |
+		| D2     | D4          | None             |
+		| D7     | D5          | None             |
+		| B1     | C3          | None             |
+		| G8     | F6          | None             |
+		| E2     | E4          | None             |
+		| D5     | E4          | Capture          |
+		| C3     | E4          | Capture          |
+		| C8     | G4          | None             |
+		| D1     | D3          | None             |
+		| E7     | E6          | None             |
+		| D4     | D5          | None             |
+		| C7     | C5          | None             |
+		| D5     | C6          | CaptureAuPassant |
+		| F8     | B4          | None             |
+		| E4     | D2          | None             |
+		| E8     | G8          | Castle           |
+	Then I expect the current board to contain the following
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| BR | BN |    | BQ |    | BR | BK |    |
+		| BP | BP |    |    |    | BP | BP | BP |
+		|    |    | WP |    | BP | BN |    |    |
+		|    |    |    |    |    |    |    |    |
+		|    | BB |    |    |    |    | BB |    |
+		|    |    |    | WQ |    |    |    |    |
+		| WP | WP | WP | WN |    | WP | WP | WP |
+		| WR |    | WB |    | WK | WB | WN | WR |
+
+		

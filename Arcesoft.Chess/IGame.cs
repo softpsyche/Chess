@@ -18,9 +18,9 @@ namespace Arcesoft.Chess
 
         IReadOnlyList<MoveHistory> MoveHistory { get; }
 
-        List<Move> FindMoves();
+        IReadOnlyList<Move> FindMoves();
 
-        bool IsValidMove(Move gameMove);
+        bool IsLegalMove(Move gameMove);
 
         void MakeMove(Move gameMove);
 
