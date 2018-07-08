@@ -7,6 +7,7 @@ namespace Arcesoft.Chess
     public enum ChessErrorCode
     {
         InvalidMoveGameOver = 0,
-        IllegalMove
+        IllegalMove,
+        UndoMoveIllegal
     }
 }

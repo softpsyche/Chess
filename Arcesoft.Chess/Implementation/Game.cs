@@ -24,7 +24,7 @@ namespace Arcesoft.Chess.Implementation
 
         public Player CurrentPlayer => (_moveHistory.Count % 2) == 0 ? Player.White : Player.Black;
 
-        public bool IsLegalMove(Move gameMove) => GameIsOver ? false : FindMoves().Contains(gameMove);
+        public bool IsLegalMove(Move move) => GameIsOver ? false : FindMoves().Contains(move);
 
         public Game(Board board, ThreatProvider threatProvider)
         {
@@ -32,31 +32,32 @@ namespace Arcesoft.Chess.Implementation
             _threatProvider = threatProvider;
         }
 
-        public void MakeMove(Move gameMove)
+        public void MakeMove(Move move)
         {
             if (GameIsOver)
             {
                 throw new ChessException(ChessErrorCode.InvalidMoveGameOver, "The move is not valid because the game is over.");
             }
 
-            if (!MoveIsLegal(gameMove))
+            if (!MoveIsLegal(move))
             {
                 throw new ChessException(ChessErrorCode.IllegalMove, "The move is not valid because it is not legal.");
             }
 
             //now we need to make the move..
             //Deal with these 'special' moves first
-            if (MakeCastleMove(gameMove) || MakeAuPassantMove(gameMove))
+            if (MakeCastleMove(move) || MakeAuPassantMove(move))
             {
                 return;
             }
 
-            //make the normal move
-            var moveResult = (_board[gameMove.Destination] == ChessPiece.None) ? MoveResult.None : MoveResult.Capture;
-            MovePieceOnBoard(gameMove);
+            //make the normal move.
+            //Note that we calculate the move result now while we can still figure out the capture piece if needed
+            var moveResult = DetermineMoveResult(move);
+            MovePieceOnBoard(move);
 
             //performfinal
-            FinishMove(gameMove, moveResult);
+            FinishMove(move, moveResult);
         } 
 
         public string GetThreatenedBoardDisplay(Player player)
@@ -136,10 +137,42 @@ namespace Arcesoft.Chess.Implementation
 
         public void UndoLastMove()
         {
-            throw new NotImplementedException();
+            if (_moveHistory?.Any() == false)
+            {
+                throw new ChessException(ChessErrorCode.UndoMoveIllegal, 
+                    $"Unable to undo last move because no moves have been made");
+            }
         }
 
         #region Private methods
+        private MoveResult DetermineMoveResult(Move move)
+        {
+            var destinationPiece = _board[move.Destination];
+
+            switch (destinationPiece)
+            {
+                case ChessPiece.WhitePawn:
+                case ChessPiece.BlackPawn:
+                    return MoveResult.CapturePawn;
+                case ChessPiece.WhiteKnight:
+                case ChessPiece.BlackKnight:
+                    return MoveResult.CapturePawn;
+                case ChessPiece.WhiteBishop:
+                case ChessPiece.BlackBishop:
+                    return MoveResult.CapturePawn;
+                case ChessPiece.WhiteRook:
+                case ChessPiece.BlackRook:
+                    return MoveResult.CapturePawn;
+                case ChessPiece.WhiteQueen:
+                case ChessPiece.BlackQueen:
+                    return MoveResult.CapturePawn;
+                case ChessPiece.WhiteKing:
+                case ChessPiece.BlackKing:
+                    throw new InvalidOperationException("Invalid game state detected, cannot execute move because it would result in capture of king.");
+                default:
+                    return MoveResult.Move;
+            }
+        }
         private bool MakeAuPassantMove(Move move)
         {
             //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
@@ -152,7 +185,7 @@ namespace Arcesoft.Chess.Implementation
                 var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
                 _board[capturedPawnLocation] = ChessPiece.None;
 
-                FinishMove(move, MoveResult.CaptureAuPassant);
+                FinishMove(move, MoveResult.AuPassant);
 
                 return true;
             }

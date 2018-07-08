@@ -8,10 +8,14 @@ namespace Arcesoft.Chess.Models
     [Flags]
     public enum MoveResult : byte
     {
-        None = 0,
-        Capture = 1,
-        CaptureAuPassant = 2,
-        Castle = 3,
-        Check = 4
+        Move = 0,
+        CapturePawn = 1,
+        CaptureKnight = 2,
+        CaptureBishop = 4,
+        CaptureRook = 8,
+        CaptureQueen = 16,
+        AuPassant = 32,
+        Castle = 64,
+        Check = 128
     }
 }

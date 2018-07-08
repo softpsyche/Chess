@@ -151,6 +151,13 @@ namespace Arcesoft.Chess.Tests
                 Game = Match.Game;
             });
         }
+
+        [When(@"I undo the last move")]
+        public void WhenIUndoTheLastMove()
+        {
+            Invoke(() => Game.UndoLastMove());
+        }
+
     }
 
     public static class Extensions
