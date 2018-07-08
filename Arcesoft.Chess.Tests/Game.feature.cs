@@ -25,7 +25,7 @@ namespace Arcesoft.Chess.Tests
         
         private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
         
-#line 1 "GameSteps.feature"
+#line 1 "Game.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -5851,145 +5851,110 @@ this.FindMovesShouldFindAllMovesForBlackKingCheckedBy("Queen", "WQ", ((string[])
 #line hidden
         }
         
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn(string gameState, string[] exampleTags)
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly move for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMoveForWhite()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the gamestate is in", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly move for white", ((string[])(null)));
 #line 1106
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
-#line 1107
- testRunner.Given("I start a new game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1108
- testRunner.Given(string.Format("The game is in the following gamestate \'{0}\'", gameState), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1109
- testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table91 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Source",
-                        "Destination"});
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
             table91.AddRow(new string[] {
-                        "A2",
-                        "A3"});
-#line 1110
- testRunner.When("I make the following move", ((string)(null)), table91, "When ");
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table91.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1107
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table91, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table92 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ErrorCode",
-                        "Message"});
+                        "Source",
+                        "Destination"});
             table92.AddRow(new string[] {
-                        "InvalidMoveGameOver",
-                        "The move is not valid because the game is over."});
-#line 1113
- testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table92, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: WhiteWin")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "WhiteWin")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "WhiteWin")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_WhiteWin()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("WhiteWin", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: BlackWin")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "BlackWin")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "BlackWin")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_BlackWin()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("BlackWin", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawStalemate")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawStalemate")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawStalemate")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawStalemate()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawStalemate", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawThreeFoldRepetition" +
-            "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawThreeFoldRepetition")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawThreeFoldRepetition")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawThreeFoldRepetition()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawThreeFoldRepetition", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawFiftyMoveRule")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawFiftyMoveRule")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawFiftyMoveRule")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawFiftyMoveRule()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawFiftyMoveRule", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawInDeadPosition")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawInDeadPosition")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInDeadPosition")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInDeadPosition()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInDeadPosition", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawInsufficientMateria" +
-            "l")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawInsufficientMaterial")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInsufficientMaterial")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInsufficientMaterial()
-        {
-#line 1106
-this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInsufficientMaterial", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the move is illegal")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        public virtual void MakeMoveShouldNotAllowAMoveIfTheMoveIsIllegal()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the move is illegal", ((string[])(null)));
-#line 1126
-this.ScenarioSetup(scenarioInfo);
-#line 16
-this.FeatureBackground();
+                        "H1",
+                        "H7"});
+#line 1117
+ testRunner.When("I make the following move", ((string)(null)), table92, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table93 = new TechTalk.SpecFlow.Table(new string[] {
                         "A",
@@ -6001,24 +5966,15 @@ this.FeatureBackground();
                         "G",
                         "H"});
             table93.AddRow(new string[] {
-                        "BR",
-                        "BN",
-                        "BB",
-                        "BQ",
+                        "",
+                        "",
+                        "",
+                        "",
                         "BK",
-                        "BB",
-                        "BN",
+                        "",
+                        "",
                         "BR"});
             table93.AddRow(new string[] {
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP"});
-            table93.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -6026,426 +5982,182 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
-                        ""});
-            table93.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table93.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table93.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table93.AddRow(new string[] {
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP"});
-            table93.AddRow(new string[] {
-                        "WR",
-                        "WN",
-                        "WB",
-                        "WQ",
-                        "WK",
-                        "WB",
-                        "WN",
                         "WR"});
-#line 1127
- testRunner.Given("I start a new game in the following state", ((string)(null)), table93, "Given ");
-#line 1137
- testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table94 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Source",
-                        "Destination"});
-            table94.AddRow(new string[] {
-                        "A4",
-                        "F3"});
-#line 1138
- testRunner.When("I make the following move", ((string)(null)), table94, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table95 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ErrorCode",
-                        "Message"});
-            table95.AddRow(new string[] {
-                        "IllegalMove",
-                        "The move is not valid because it is not legal."});
-#line 1141
- testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table95, "Then ");
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table93.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1120
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table93, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should make moves for famous game Fischer V Spassky 1972")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly move for black")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        public virtual void MakeMoveShouldMakeMovesForFamousGameFischerVSpassky1972()
+        public virtual void MakeMoveShouldCorrectlyMoveForBlack()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should make moves for famous game Fischer V Spassky 1972", ((string[])(null)));
-#line 1149
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly move for black", ((string[])(null)));
+#line 1131
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
-#line 1150
- testRunner.Given("I have a match factory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1151
- testRunner.When("I load the match \'fischer_spassky_1972.pgn\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1152
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table96 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table94 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table94.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1132
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table94, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table95 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
                         "Result"});
-            table96.AddRow(new string[] {
-                        "C2",
-                        "C4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E7",
-                        "E6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G1",
-                        "F3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D7",
-                        "D5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D2",
-                        "D4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G8",
-                        "F6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B1",
-                        "C3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F8",
-                        "E7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C1",
-                        "G5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E8",
-                        "G8",
-                        "Castle"});
-            table96.AddRow(new string[] {
-                        "E2",
-                        "E3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "H7",
-                        "H6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G5",
-                        "H4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B7",
-                        "B6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C4",
-                        "D5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "F6",
-                        "D5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "H4",
-                        "E7",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "D8",
-                        "E7",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "C3",
-                        "D5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "E6",
-                        "D5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "A1",
-                        "C1",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C8",
-                        "E6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D1",
+            table95.AddRow(new string[] {
+                        "A4",
                         "A4",
                         "None"});
-            table96.AddRow(new string[] {
-                        "C7",
-                        "C5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A4",
-                        "A3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F8",
-                        "C8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F1",
-                        "B5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A7",
-                        "A6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D4",
-                        "C5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "B6",
-                        "C5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "E1",
-                        "G1",
-                        "Castle"});
-            table96.AddRow(new string[] {
-                        "A8",
-                        "A7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B5",
-                        "E2",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B8",
-                        "D7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F3",
-                        "D4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E7",
-                        "F8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D4",
-                        "E6",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "F7",
-                        "E6",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "E3",
-                        "E4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D5",
-                        "D4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F2",
-                        "F4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F8",
-                        "E7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E4",
-                        "E5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C8",
-                        "B8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E2",
-                        "C4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G8",
-                        "H8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A3",
-                        "H3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D7",
-                        "F8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B2",
-                        "B3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A6",
-                        "A5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F4",
-                        "F5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E6",
-                        "F5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "F1",
-                        "F5",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "F8",
-                        "H7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C1",
-                        "F1",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E7",
-                        "D8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "H3",
-                        "G3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A7",
-                        "E7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "H2",
-                        "H4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B8",
-                        "B7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E5",
-                        "E6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "B7",
-                        "C7",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G3",
-                        "E5",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D8",
-                        "E8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "A2",
-                        "A4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E8",
-                        "D8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F1",
-                        "F2",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D8",
-                        "E8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F2",
-                        "F3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E8",
-                        "D8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "C4",
-                        "D3",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D8",
-                        "E8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E5",
-                        "E4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "H7",
-                        "F6",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "F5",
-                        "F6",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "G7",
-                        "F6",
-                        "Capture"});
-            table96.AddRow(new string[] {
-                        "F3",
-                        "F6",
-                        "Capture"});
+#line 1142
+ testRunner.Given("I have the following move history", ((string)(null)), table95, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table96 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
             table96.AddRow(new string[] {
                         "H8",
-                        "G8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "D3",
-                        "C4",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "G8",
-                        "H8",
-                        "None"});
-            table96.AddRow(new string[] {
-                        "E4",
-                        "F4",
-                        "None"});
-#line 1153
- testRunner.Then("I expect the following move history", ((string)(null)), table96, "Then ");
+                        "H2"});
+#line 1145
+ testRunner.When("I make the following move", ((string)(null)), table96, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
                         "A",
@@ -6461,49 +6173,13 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
-                        "BQ",
-                        "",
-                        "",
-                        "BK"});
-            table97.AddRow(new string[] {
-                        "",
-                        "",
-                        "BR",
-                        "",
-                        "BR",
+                        "BK",
                         "",
                         "",
                         ""});
             table97.AddRow(new string[] {
                         "",
                         "",
-                        "",
-                        "",
-                        "WP",
-                        "WR",
-                        "",
-                        "BP"});
-            table97.AddRow(new string[] {
-                        "BP",
-                        "",
-                        "BP",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table97.AddRow(new string[] {
-                        "WP",
-                        "",
-                        "WB",
-                        "BP",
-                        "",
-                        "WQ",
-                        "",
-                        "WP"});
-            table97.AddRow(new string[] {
-                        "",
-                        "WP",
                         "",
                         "",
                         "",
@@ -6517,397 +6193,72 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
-                        "WP",
+                        "",
                         ""});
             table97.AddRow(new string[] {
                         "",
                         "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BR"});
+            table97.AddRow(new string[] {
                         "",
                         "",
                         "",
                         "",
                         "WK",
-                        ""});
-#line 1236
+                        "",
+                        "",
+                        "WR"});
+#line 1148
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table97, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should make moves for famous game Kasparov V Topalov 1999")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly capture for white")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        public virtual void MakeMoveShouldMakeMovesForFamousGameKasparovVTopalov1999()
+        public virtual void MakeMoveShouldCorrectlyCaptureForWhite()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should make moves for famous game Kasparov V Topalov 1999", ((string[])(null)));
-#line 1247
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly capture for white", ((string[])(null)));
+#line 1159
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
-#line 1248
- testRunner.Given("I have a match factory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1249
- testRunner.When("I load the match \'kasparov_topalov_1999.pgn\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1250
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table98 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Source",
-                        "Destination",
-                        "Result"});
-            table98.AddRow(new string[] {
-                        "E2",
-                        "E4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D7",
-                        "D6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D2",
-                        "D4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "G8",
-                        "F6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B1",
-                        "C3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "G7",
-                        "G6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C1",
-                        "E3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F8",
-                        "G7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D1",
-                        "D2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C7",
-                        "C6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F2",
-                        "F3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B7",
-                        "B5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "G1",
-                        "E2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B8",
-                        "D7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E3",
-                        "H6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "G7",
-                        "H6",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "D2",
-                        "H6",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "C8",
-                        "B7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A2",
-                        "A3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E7",
-                        "E5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E1",
-                        "C1",
-                        "Castle"});
-            table98.AddRow(new string[] {
-                        "D8",
-                        "E7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C1",
-                        "B1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A7",
-                        "A6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E2",
-                        "C1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E8",
-                        "C8",
-                        "Castle"});
-            table98.AddRow(new string[] {
-                        "C1",
-                        "B3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E5",
-                        "D4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "D1",
-                        "D4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "C6",
-                        "C5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D4",
-                        "D1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D7",
-                        "B6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "G2",
-                        "G3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C8",
-                        "B8",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B3",
-                        "A5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B7",
-                        "A8",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F1",
-                        "H3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D6",
-                        "D5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "H6",
-                        "F4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B8",
-                        "A7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "H1",
-                        "E1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D5",
-                        "D4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C3",
-                        "D5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B6",
-                        "D5",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "E4",
-                        "D5",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "E7",
-                        "D6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D1",
-                        "D4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "C5",
-                        "D4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "E1",
-                        "E7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A7",
-                        "B6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F4",
-                        "D4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "B6",
-                        "A5",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "B2",
-                        "B4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A5",
-                        "A4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D4",
-                        "C3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D6",
-                        "D5",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "E7",
-                        "A7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A8",
-                        "B7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A7",
-                        "B7",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "D5",
-                        "C4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C3",
-                        "F6",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "A4",
-                        "A3",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "F6",
-                        "A6",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "A3",
-                        "B4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "C2",
-                        "C3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B4",
-                        "C3",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "A6",
-                        "A1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C3",
-                        "D2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A1",
-                        "B2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D2",
-                        "D1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "H3",
-                        "F1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D8",
-                        "D2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B7",
-                        "D7",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D2",
-                        "D7",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "F1",
-                        "C4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "B5",
-                        "C4",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "B2",
-                        "H8",
-                        "Capture"});
-            table98.AddRow(new string[] {
-                        "D7",
-                        "D3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "H8",
-                        "A8",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C4",
-                        "C3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A8",
-                        "A4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D1",
-                        "E1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F3",
-                        "F4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "F7",
-                        "F5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "B1",
-                        "C1",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D3",
-                        "D2",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "A4",
-                        "A7",
-                        "None"});
-#line 1251
- testRunner.Then("I expect the following move history", ((string)(null)), table98, "Then ");
-#line hidden
-            TechTalk.SpecFlow.Table table99 = new TechTalk.SpecFlow.Table(new string[] {
                         "A",
                         "B",
                         "C",
@@ -6916,7 +6267,16 @@ this.FeatureBackground();
                         "F",
                         "G",
                         "H"});
-            table99.AddRow(new string[] {
+            table98.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table98.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -6925,71 +6285,2215 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-            table99.AddRow(new string[] {
-                        "WQ",
+            table98.AddRow(new string[] {
                         "",
                         "",
                         "",
                         "",
                         "",
                         "",
-                        "BP"});
-            table99.AddRow(new string[] {
+                        "",
+                        ""});
+            table98.AddRow(new string[] {
                         "",
                         "",
                         "",
                         "",
                         "",
                         "",
-                        "BP",
+                        "",
+                        ""});
+            table98.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table98.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
                         ""});
-            table99.AddRow(new string[] {
+            table98.AddRow(new string[] {
                         "",
                         "",
                         "",
                         "",
                         "",
-                        "BP",
+                        "",
                         "",
                         ""});
-            table99.AddRow(new string[] {
+            table98.AddRow(new string[] {
                         "",
                         "",
-                        "",
-                        "",
-                        "",
-                        "WP",
-                        "",
-                        ""});
-            table99.AddRow(new string[] {
-                        "",
-                        "",
-                        "BP",
-                        "",
-                        "",
-                        "",
-                        "WP",
-                        ""});
-            table99.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "BR",
-                        "",
-                        "",
-                        "",
-                        "WP"});
-            table99.AddRow(new string[] {
                         "",
                         "",
                         "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1160
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table98, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table99 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table99.AddRow(new string[] {
+                        "H1",
+                        "H8"});
+#line 1170
+ testRunner.When("I make the following move", ((string)(null)), table99, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table100 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "WR"});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table100.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1173
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table100, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly capture for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyCaptureForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly capture for black", ((string[])(null)));
+#line 1184
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table101.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1185
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table101, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table102 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table102.AddRow(new string[] {
+                        "A4",
+                        "A4",
+                        "None"});
+#line 1195
+ testRunner.Given("I have the following move history", ((string)(null)), table102, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table103 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table103.AddRow(new string[] {
+                        "H8",
+                        "H1"});
+#line 1198
+ testRunner.When("I make the following move", ((string)(null)), table103, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table104 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
                         "",
                         "BK",
                         "",
                         "",
                         ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table104.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "BR"});
+#line 1201
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table104, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn(string gameState, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the gamestate is in", exampleTags);
+#line 1212
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line 1213
+ testRunner.Given("I start a new game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 1214
+ testRunner.Given(string.Format("The game is in the following gamestate \'{0}\'", gameState), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 1215
+ testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table105.AddRow(new string[] {
+                        "A2",
+                        "A3"});
+#line 1216
+ testRunner.When("I make the following move", ((string)(null)), table105, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ErrorCode",
+                        "Message"});
+            table106.AddRow(new string[] {
+                        "InvalidMoveGameOver",
+                        "The move is not valid because the game is over."});
+#line 1219
+ testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table106, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: WhiteWin")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "WhiteWin")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "WhiteWin")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_WhiteWin()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("WhiteWin", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: BlackWin")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "BlackWin")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "BlackWin")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_BlackWin()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("BlackWin", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawStalemate")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawStalemate")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawStalemate")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawStalemate()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawStalemate", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawThreeFoldRepetition" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawThreeFoldRepetition")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawThreeFoldRepetition")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawThreeFoldRepetition()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawThreeFoldRepetition", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawFiftyMoveRule")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawFiftyMoveRule")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawFiftyMoveRule")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawFiftyMoveRule()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawFiftyMoveRule", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawInDeadPosition")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawInDeadPosition")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInDeadPosition")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInDeadPosition()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInDeadPosition", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the gamestate is in: DrawInsufficientMateria" +
+            "l")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DrawInsufficientMaterial")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInsufficientMaterial")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInsufficientMaterial()
+        {
+#line 1212
+this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInsufficientMaterial", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should not allow a move if the move is illegal")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldNotAllowAMoveIfTheMoveIsIllegal()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the move is illegal", ((string[])(null)));
+#line 1232
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table107.AddRow(new string[] {
+                        "BR",
+                        "BN",
+                        "BB",
+                        "BQ",
+                        "BK",
+                        "BB",
+                        "BN",
+                        "BR"});
+            table107.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table107.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table107.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table107.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table107.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table107.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table107.AddRow(new string[] {
+                        "WR",
+                        "WN",
+                        "WB",
+                        "WQ",
+                        "WK",
+                        "WB",
+                        "WN",
+                        "WR"});
+#line 1233
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table107, "Given ");
+#line 1243
+ testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table108.AddRow(new string[] {
+                        "A4",
+                        "F3"});
+#line 1244
+ testRunner.When("I make the following move", ((string)(null)), table108, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ErrorCode",
+                        "Message"});
+            table109.AddRow(new string[] {
+                        "IllegalMove",
+                        "The move is not valid because it is not legal."});
+#line 1247
+ testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table109, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make kingside castle for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeKingsideCastleForWhite()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make kingside castle for white", ((string[])(null)));
+#line 1251
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table110 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table110.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table110.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table110.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table110.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table110.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table110.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table110.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table110.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1252
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table110, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table111 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table111.AddRow(new string[] {
+                        "E1",
+                        "G1"});
+#line 1262
+ testRunner.When("I make the following move", ((string)(null)), table111, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table112 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table112.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table112.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table112.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table112.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table112.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table112.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table112.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table112.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WR",
+                        "WK",
+                        ""});
+#line 1265
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table112, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make queenside castle for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeQueensideCastleForWhite()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make queenside castle for white", ((string[])(null)));
+#line 1276
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table113 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table113.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table113.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table113.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table113.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table113.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table113.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table113.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table113.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1277
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table113, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table114 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table114.AddRow(new string[] {
+                        "E1",
+                        "C1"});
+#line 1287
+ testRunner.When("I make the following move", ((string)(null)), table114, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table115 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table115.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table115.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table115.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table115.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table115.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table115.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table115.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table115.AddRow(new string[] {
+                        "",
+                        "",
+                        "WK",
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WR"});
+#line 1290
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table115, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make kingside castle for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeKingsideCastleForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make kingside castle for black", ((string[])(null)));
+#line 1301
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table116 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table116.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table116.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table116.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table116.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table116.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table116.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table116.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table116.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1302
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table116, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table117 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table117.AddRow(new string[] {
+                        "A4",
+                        "A4",
+                        "None"});
+#line 1312
+ testRunner.Given("I have the following move history", ((string)(null)), table117, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table118 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table118.AddRow(new string[] {
+                        "E8",
+                        "G8"});
+#line 1315
+ testRunner.When("I make the following move", ((string)(null)), table118, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table119 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table119.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BR",
+                        "BK",
+                        ""});
+            table119.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table119.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table119.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table119.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table119.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table119.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table119.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1318
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table119, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make queenside castle for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeQueensideCastleForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make queenside castle for black", ((string[])(null)));
+#line 1329
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table120 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table120.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table120.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table120.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table120.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table120.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table120.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table120.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table120.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1330
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table120, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table121 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table121.AddRow(new string[] {
+                        "A4",
+                        "A4",
+                        "None"});
 #line 1340
- testRunner.Then("I expect the current board to contain the following", ((string)(null)), table99, "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table121, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table122 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table122.AddRow(new string[] {
+                        "E8",
+                        "C8"});
+#line 1343
+ testRunner.When("I make the following move", ((string)(null)), table122, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table123 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table123.AddRow(new string[] {
+                        "",
+                        "",
+                        "BK",
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BR"});
+            table123.AddRow(new string[] {
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP",
+                        "BP"});
+            table123.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table123.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table123.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table123.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table123.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table123.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 1346
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table123, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make northwest au passant move for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeNorthwestAuPassantMoveForWhite()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make northwest au passant move for white", ((string[])(null)));
+#line 1357
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table124 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table124.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1358
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table124, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table125 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table125.AddRow(new string[] {
+                        "A4",
+                        "A4",
+                        "None"});
+            table125.AddRow(new string[] {
+                        "E7",
+                        "E5",
+                        "None"});
+#line 1368
+ testRunner.Given("I have the following move history", ((string)(null)), table125, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table126 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table126.AddRow(new string[] {
+                        "F5",
+                        "E6"});
+#line 1372
+ testRunner.When("I make the following move", ((string)(null)), table126, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table127 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table127.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1375
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table127, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make northeast au passant move for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeNortheastAuPassantMoveForWhite()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make northeast au passant move for white", ((string[])(null)));
+#line 1386
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table128 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table128.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1387
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table128, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table129 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table129.AddRow(new string[] {
+                        "A4",
+                        "A4",
+                        "None"});
+            table129.AddRow(new string[] {
+                        "G7",
+                        "G5",
+                        "None"});
+#line 1397
+ testRunner.Given("I have the following move history", ((string)(null)), table129, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table130 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table130.AddRow(new string[] {
+                        "F5",
+                        "G6"});
+#line 1401
+ testRunner.When("I make the following move", ((string)(null)), table130, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table131 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table131.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1404
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table131, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make southwest au passant move for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeSouthwestAuPassantMoveForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make southwest au passant move for black", ((string[])(null)));
+#line 1415
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table132 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table132.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1416
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table132, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table133 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table133.AddRow(new string[] {
+                        "C2",
+                        "C4",
+                        "None"});
+#line 1426
+ testRunner.Given("I have the following move history", ((string)(null)), table133, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table134 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table134.AddRow(new string[] {
+                        "D4",
+                        "C3"});
+#line 1429
+ testRunner.When("I make the following move", ((string)(null)), table134, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table135 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table135.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1432
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table135, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should correctly make southeast au passant move for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldCorrectlyMakeSoutheastAuPassantMoveForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make southeast au passant move for black", ((string[])(null)));
+#line 1443
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table136 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "BP",
+                        "WP",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table136.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1444
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table136, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table137 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table137.AddRow(new string[] {
+                        "E2",
+                        "E4",
+                        "None"});
+#line 1454
+ testRunner.Given("I have the following move history", ((string)(null)), table137, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table138 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination"});
+            table138.AddRow(new string[] {
+                        "D4",
+                        "E3"});
+#line 1457
+ testRunner.When("I make the following move", ((string)(null)), table138, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table139 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "WP",
+                        "BP",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table139.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        ""});
+#line 1460
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table139, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

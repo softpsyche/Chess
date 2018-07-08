@@ -81,19 +81,29 @@
     <Compile Include="AssemblyExensions.cs" />
     <Compile Include="CommonSteps.cs" />
     <Compile Include="GameSteps.cs" />
-    <Compile Include="GameSteps.feature.cs">
+    <Compile Include="Game.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GameSteps.feature</DependentUpon>
+      <DependentUpon>Game.feature</DependentUpon>
     </Compile>
+    <Compile Include="Match.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Match.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MatchSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="GameSteps.feature">
+    <None Include="Game.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GameSteps.feature.cs</LastGenOutput>
+      <LastGenOutput>Game.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Match.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Match.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\beliavsky_nunn_1985.pgn" />

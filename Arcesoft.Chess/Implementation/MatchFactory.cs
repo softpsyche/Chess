@@ -38,6 +38,7 @@ namespace Arcesoft.Chess.Implementation
                 .ToList();
         }
 
+        #region Private methods
         private Match ToMatch(ilf.pgn.Data.Game game)
         {
             return new Match
@@ -158,6 +159,7 @@ namespace Arcesoft.Chess.Implementation
                 game.MakeMove(qualifyingMoves.Single());
             }
         }
+        #endregion
     }
-    
+
 }
