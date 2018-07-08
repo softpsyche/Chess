@@ -15,6 +15,7 @@ namespace Arcesoft.Chess.DependencyInjection
 
             container.Register<IGameFactory, GameFactory>();
             container.Register<IGame, Game>();
+            container.Register<IMatchFactory, MatchFactory>();
         }
     }
 }

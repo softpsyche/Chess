@@ -6099,18 +6099,355 @@ this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should make moves for pieces")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should make moves for famous game Fischer V Spassky 1972")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        public virtual void MakeMoveShouldMakeMovesForPieces()
+        public virtual void MakeMoveShouldMakeMovesForFamousGameFischerVSpassky1972()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should make moves for pieces", ((string[])(null)));
-#line 1145
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should make moves for famous game Fischer V Spassky 1972", ((string[])(null)));
+#line 1149
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
+#line 1150
+ testRunner.Given("I have a match factory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 1151
+ testRunner.When("I load the match \'fischer_spassky_1972.pgn\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 1152
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table96 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Result"});
+            table96.AddRow(new string[] {
+                        "C2",
+                        "C4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E7",
+                        "E6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G1",
+                        "F3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D7",
+                        "D5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D2",
+                        "D4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G8",
+                        "F6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B1",
+                        "C3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F8",
+                        "E7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C1",
+                        "G5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E8",
+                        "G8",
+                        "Castle"});
+            table96.AddRow(new string[] {
+                        "E2",
+                        "E3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "H7",
+                        "H6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G5",
+                        "H4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B7",
+                        "B6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C4",
+                        "D5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "F6",
+                        "D5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "H4",
+                        "E7",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "D8",
+                        "E7",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "C3",
+                        "D5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "E6",
+                        "D5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "A1",
+                        "C1",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C8",
+                        "E6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D1",
+                        "A4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C7",
+                        "C5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A4",
+                        "A3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F8",
+                        "C8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F1",
+                        "B5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A7",
+                        "A6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D4",
+                        "C5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "B6",
+                        "C5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "E1",
+                        "G1",
+                        "Castle"});
+            table96.AddRow(new string[] {
+                        "A8",
+                        "A7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B5",
+                        "E2",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B8",
+                        "D7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F3",
+                        "D4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E7",
+                        "F8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D4",
+                        "E6",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "F7",
+                        "E6",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "E3",
+                        "E4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D5",
+                        "D4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F2",
+                        "F4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F8",
+                        "E7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E4",
+                        "E5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C8",
+                        "B8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E2",
+                        "C4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G8",
+                        "H8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A3",
+                        "H3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D7",
+                        "F8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B2",
+                        "B3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A6",
+                        "A5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F4",
+                        "F5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E6",
+                        "F5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "F1",
+                        "F5",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "F8",
+                        "H7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C1",
+                        "F1",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E7",
+                        "D8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "H3",
+                        "G3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A7",
+                        "E7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "H2",
+                        "H4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B8",
+                        "B7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E5",
+                        "E6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "B7",
+                        "C7",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G3",
+                        "E5",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D8",
+                        "E8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "A2",
+                        "A4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E8",
+                        "D8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F1",
+                        "F2",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D8",
+                        "E8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F2",
+                        "F3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E8",
+                        "D8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "C4",
+                        "D3",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D8",
+                        "E8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E5",
+                        "E4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "H7",
+                        "F6",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "F5",
+                        "F6",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "G7",
+                        "F6",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "F3",
+                        "F6",
+                        "Capture"});
+            table96.AddRow(new string[] {
+                        "H8",
+                        "G8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "D3",
+                        "C4",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "G8",
+                        "H8",
+                        "None"});
+            table96.AddRow(new string[] {
+                        "E4",
+                        "F4",
+                        "None"});
+#line 1153
+ testRunner.Then("I expect the following move history", ((string)(null)), table96, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
                         "A",
                         "B",
                         "C",
@@ -6119,135 +6456,100 @@ this.FeatureBackground();
                         "F",
                         "G",
                         "H"});
-            table96.AddRow(new string[] {
-                        "BR",
-                        "BN",
-                        "BB",
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
                         "BQ",
-                        "BK",
-                        "BB",
-                        "BN",
-                        "BR"});
-            table96.AddRow(new string[] {
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP",
-                        "BP"});
-            table96.AddRow(new string[] {
                         "",
                         "",
+                        "BK"});
+            table97.AddRow(new string[] {
                         "",
                         "",
+                        "BR",
                         "",
+                        "BR",
                         "",
                         "",
                         ""});
-            table96.AddRow(new string[] {
+            table97.AddRow(new string[] {
                         "",
                         "",
                         "",
                         "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table96.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table96.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table96.AddRow(new string[] {
                         "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WP"});
-            table96.AddRow(new string[] {
                         "WR",
-                        "WN",
+                        "",
+                        "BP"});
+            table97.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table97.AddRow(new string[] {
+                        "WP",
+                        "",
                         "WB",
+                        "BP",
+                        "",
                         "WQ",
+                        "",
+                        "WP"});
+            table97.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP",
+                        ""});
+            table97.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
                         "WK",
-                        "WB",
-                        "WN",
-                        "WR"});
-#line 1146
- testRunner.Given("I start a new game in the following state", ((string)(null)), table96, "Given ");
+                        ""});
+#line 1236
+ testRunner.Then("I expect the current board to contain the following", ((string)(null)), table97, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Source",
-                        "Destination"});
-            table97.AddRow(new string[] {
-                        "D2",
-                        "D4"});
-            table97.AddRow(new string[] {
-                        "D7",
-                        "D5"});
-            table97.AddRow(new string[] {
-                        "B1",
-                        "C3"});
-            table97.AddRow(new string[] {
-                        "G8",
-                        "F6"});
-            table97.AddRow(new string[] {
-                        "E2",
-                        "E4"});
-            table97.AddRow(new string[] {
-                        "D5",
-                        "E4"});
-            table97.AddRow(new string[] {
-                        "C3",
-                        "E4"});
-            table97.AddRow(new string[] {
-                        "C8",
-                        "G4"});
-            table97.AddRow(new string[] {
-                        "D1",
-                        "D3"});
-            table97.AddRow(new string[] {
-                        "E7",
-                        "E6"});
-            table97.AddRow(new string[] {
-                        "D4",
-                        "D5"});
-            table97.AddRow(new string[] {
-                        "C7",
-                        "C5"});
-            table97.AddRow(new string[] {
-                        "D5",
-                        "C6"});
-            table97.AddRow(new string[] {
-                        "F8",
-                        "B4"});
-            table97.AddRow(new string[] {
-                        "E4",
-                        "D2"});
-            table97.AddRow(new string[] {
-                        "E8",
-                        "G8"});
-#line 1156
- testRunner.When("I make the following moves", ((string)(null)), table97, "When ");
-#line 1174
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Make move should make moves for famous game Kasparov V Topalov 1999")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "GameSteps")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        public virtual void MakeMoveShouldMakeMovesForFamousGameKasparovVTopalov1999()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should make moves for famous game Kasparov V Topalov 1999", ((string[])(null)));
+#line 1247
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line 1248
+ testRunner.Given("I have a match factory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 1249
+ testRunner.When("I load the match \'kasparov_topalov_1999.pgn\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 1250
  testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table98 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6255,70 +6557,354 @@ this.FeatureBackground();
                         "Destination",
                         "Result"});
             table98.AddRow(new string[] {
-                        "D2",
-                        "D4",
+                        "E2",
+                        "E4",
                         "None"});
             table98.AddRow(new string[] {
                         "D7",
-                        "D5",
+                        "D6",
                         "None"});
             table98.AddRow(new string[] {
-                        "B1",
-                        "C3",
+                        "D2",
+                        "D4",
                         "None"});
             table98.AddRow(new string[] {
                         "G8",
                         "F6",
                         "None"});
             table98.AddRow(new string[] {
-                        "E2",
-                        "E4",
+                        "B1",
+                        "C3",
                         "None"});
             table98.AddRow(new string[] {
-                        "D5",
-                        "E4",
-                        "Capture"});
+                        "G7",
+                        "G6",
+                        "None"});
             table98.AddRow(new string[] {
-                        "C3",
-                        "E4",
-                        "Capture"});
+                        "C1",
+                        "E3",
+                        "None"});
             table98.AddRow(new string[] {
-                        "C8",
-                        "G4",
+                        "F8",
+                        "G7",
                         "None"});
             table98.AddRow(new string[] {
                         "D1",
-                        "D3",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E7",
-                        "E6",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D4",
-                        "D5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "C7",
-                        "C5",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "D5",
-                        "C6",
-                        "CaptureAuPassant"});
-            table98.AddRow(new string[] {
-                        "F8",
-                        "B4",
-                        "None"});
-            table98.AddRow(new string[] {
-                        "E4",
                         "D2",
                         "None"});
             table98.AddRow(new string[] {
-                        "E8",
-                        "G8",
+                        "C7",
+                        "C6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "F2",
+                        "F3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B7",
+                        "B5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "G1",
+                        "E2",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B8",
+                        "D7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E3",
+                        "H6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "G7",
+                        "H6",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "D2",
+                        "H6",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "C8",
+                        "B7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A2",
+                        "A3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E7",
+                        "E5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E1",
+                        "C1",
                         "Castle"});
-#line 1175
+            table98.AddRow(new string[] {
+                        "D8",
+                        "E7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C1",
+                        "B1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A7",
+                        "A6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E2",
+                        "C1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E8",
+                        "C8",
+                        "Castle"});
+            table98.AddRow(new string[] {
+                        "C1",
+                        "B3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "E5",
+                        "D4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "D1",
+                        "D4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "C6",
+                        "C5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D4",
+                        "D1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D7",
+                        "B6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "G2",
+                        "G3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C8",
+                        "B8",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B3",
+                        "A5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B7",
+                        "A8",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "F1",
+                        "H3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D6",
+                        "D5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "H6",
+                        "F4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B8",
+                        "A7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "H1",
+                        "E1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D5",
+                        "D4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C3",
+                        "D5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B6",
+                        "D5",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "E4",
+                        "D5",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "E7",
+                        "D6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D1",
+                        "D4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "C5",
+                        "D4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "E1",
+                        "E7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A7",
+                        "B6",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "F4",
+                        "D4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "B6",
+                        "A5",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "B2",
+                        "B4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A5",
+                        "A4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D4",
+                        "C3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D6",
+                        "D5",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "E7",
+                        "A7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A8",
+                        "B7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A7",
+                        "B7",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "D5",
+                        "C4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C3",
+                        "F6",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "A4",
+                        "A3",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "F6",
+                        "A6",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "A3",
+                        "B4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "C2",
+                        "C3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B4",
+                        "C3",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "A6",
+                        "A1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C3",
+                        "D2",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A1",
+                        "B2",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D2",
+                        "D1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "H3",
+                        "F1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D8",
+                        "D2",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B7",
+                        "D7",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D2",
+                        "D7",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "F1",
+                        "C4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "B5",
+                        "C4",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "B2",
+                        "H8",
+                        "Capture"});
+            table98.AddRow(new string[] {
+                        "D7",
+                        "D3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "H8",
+                        "A8",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "C4",
+                        "C3",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A8",
+                        "A4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D1",
+                        "E1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "F3",
+                        "F4",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "F7",
+                        "F5",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "B1",
+                        "C1",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "D3",
+                        "D2",
+                        "None"});
+            table98.AddRow(new string[] {
+                        "A4",
+                        "A7",
+                        "None"});
+#line 1251
  testRunner.Then("I expect the following move history", ((string)(null)), table98, "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table99 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6331,33 +6917,6 @@ this.FeatureBackground();
                         "G",
                         "H"});
             table99.AddRow(new string[] {
-                        "BR",
-                        "BN",
-                        "",
-                        "BQ",
-                        "",
-                        "BR",
-                        "BK",
-                        ""});
-            table99.AddRow(new string[] {
-                        "BP",
-                        "BP",
-                        "",
-                        "",
-                        "",
-                        "BP",
-                        "BP",
-                        "BP"});
-            table99.AddRow(new string[] {
-                        "",
-                        "",
-                        "WP",
-                        "",
-                        "BP",
-                        "BN",
-                        "",
-                        ""});
-            table99.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -6367,42 +6926,69 @@ this.FeatureBackground();
                         "",
                         ""});
             table99.AddRow(new string[] {
-                        "",
-                        "BB",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "BB",
-                        ""});
-            table99.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
                         "WQ",
                         "",
                         "",
                         "",
+                        "",
+                        "",
+                        "",
+                        "BP"});
+            table99.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
                         ""});
             table99.AddRow(new string[] {
-                        "WP",
-                        "WP",
-                        "WP",
-                        "WN",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        ""});
+            table99.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
                         "",
                         "WP",
+                        "",
+                        ""});
+            table99.AddRow(new string[] {
+                        "",
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
                         "WP",
+                        ""});
+            table99.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "",
                         "WP"});
             table99.AddRow(new string[] {
-                        "WR",
                         "",
-                        "WB",
                         "",
                         "WK",
-                        "WB",
-                        "WN",
-                        "WR"});
-#line 1193
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        ""});
+#line 1340
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table99, "Then ");
 #line hidden
             this.ScenarioCleanup();

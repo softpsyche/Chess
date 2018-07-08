@@ -62,6 +62,30 @@ namespace Arcesoft.Chess.Tests
             }
         }
 
+        protected IMatchFactory MatchFactory
+        {
+            get
+            {
+                return GetScenarioContextItemOrDefault<IMatchFactory>();
+            }
+            set
+            {
+                CurrentContext.Set(value);
+            }
+        }
+
+        protected Match Match
+        {
+            get
+            {
+                return GetScenarioContextItemOrDefault<Match>();
+            }
+            set
+            {
+                CurrentContext.Set(value);
+            }
+        }
+
         protected IGame Game
         {
             get

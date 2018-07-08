@@ -4,6 +4,7 @@ using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -135,6 +136,21 @@ namespace Arcesoft.Chess.Tests
             table.CompareToSet(Game.MoveHistory);
         }
 
+        [Given(@"I have a match factory")]
+        public void GivenIHaveAMatchFactory()
+        {
+            MatchFactory = Container.GetInstance<IMatchFactory>();
+        }
+
+        [When(@"I load the match '(.*)'")]
+        public void WhenILoadTheMatch(string embeddedResource)
+        {
+            Invoke(() =>
+            {
+                Match = MatchFactory.Load(Assembly.GetExecutingAssembly().EmbeddedResourceString(embeddedResource)).Single();
+                Game = Match.Game;
+            });
+        }
     }
 
     public static class Extensions

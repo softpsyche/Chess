@@ -56,6 +56,9 @@
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="pgn.net, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\pgn.net.1.2.1\lib\net45\pgn.net.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
@@ -75,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyExensions.cs" />
     <Compile Include="CommonSteps.cs" />
     <Compile Include="GameSteps.cs" />
     <Compile Include="GameSteps.feature.cs">
@@ -92,6 +96,12 @@
       <LastGenOutput>GameSteps.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\beliavsky_nunn_1985.pgn" />
+    <EmbeddedResource Include="Resources\byrne_fischer_1956.pgn" />
+    <EmbeddedResource Include="Resources\fischer_spassky_1972.pgn" />
+    <EmbeddedResource Include="Resources\kasparov_topalov_1999.pgn" />
+    <EmbeddedResource Include="Resources\morphy_duke_karl_count_isouard_1858.pgn" />
+    <EmbeddedResource Include="Resources\nobody_has_aupassant.pgn" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arcesoft.Chess\Arcesoft.Chess.csproj">

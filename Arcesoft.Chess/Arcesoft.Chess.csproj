@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="pgn.NET" Version="1.2.1" />
     <PackageReference Include="SimpleInjector" Version="4.3.0" />
   </ItemGroup>
 
