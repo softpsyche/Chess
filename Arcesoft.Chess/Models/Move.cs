@@ -8,15 +8,17 @@ namespace Arcesoft.Chess.Models
     /// <summary>
     /// This class is immutable and thus also threadsafe.
     /// </summary>
-    public class Move
+    internal class Move : IMove
     {
         public BoardLocation Source { get; private set; }
         public BoardLocation Destination { get; private set; }
+        public MoveType Type { get; private set; }
 
-        public Move(BoardLocation source, BoardLocation destination)
+        public Move(BoardLocation source, BoardLocation destination, MoveType moveType)
         {
             Source = source;
             Destination = destination;
+            Type = moveType;
         }
 
         public override string ToString()
@@ -31,12 +33,16 @@ namespace Arcesoft.Chess.Models
 
             return
                 Source.Equals(other.Source) &&
-                Destination.Equals(other.Destination);
+                Destination.Equals(other.Destination) &&
+                Type.Equals(other.Type);
         }
 
         public override int GetHashCode()
         {
-            return Source.ToByte().GetHashCode() ^ Destination.ToByte().GetHashCode();
+            return 
+                Source.ToByte().GetHashCode() 
+                ^ Destination.ToByte().GetHashCode() 
+                ^ Type.GetHashCode();
         }
     }
 }

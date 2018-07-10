@@ -16,13 +16,15 @@ namespace Arcesoft.Chess
 
         IReadOnlyBoard Board { get; }
 
-        IReadOnlyList<MoveHistory> MoveHistory { get; }
+        IReadOnlyList<IMove> MoveHistory { get; }
 
-        IReadOnlyList<Move> FindMoves();
+        IReadOnlyList<IMove> FindMoves();
 
-        bool IsLegalMove(Move gameMove);
+        bool IsLegalMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType = null);
+        bool IsLegalMove(IMove gameMove);
 
-        void MakeMove(Move gameMove);
+        void MakeMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType = null);
+        void MakeMove(IMove gameMove);
 
         void UndoLastMove();
     }

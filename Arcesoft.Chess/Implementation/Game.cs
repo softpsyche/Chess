@@ -10,11 +10,17 @@ namespace Arcesoft.Chess.Implementation
     {
         private readonly Board _board;
         private readonly ThreatProvider _threatProvider;
-        private List<MoveHistory> _moveHistory = new List<MoveHistory>();
+        private List<IMove> _moveHistory = new List<IMove>();
         private List<Move> _moves = null;
         private ThreatMatrix _threatMatrix = null;
 
-        public IReadOnlyList<MoveHistory> MoveHistory => _moveHistory;
+        public Game(Board board, ThreatProvider threatProvider)
+        {
+            _board = board;
+            _threatProvider = threatProvider;
+        }
+
+        public IReadOnlyList<IMove> MoveHistory => _moveHistory;
 
         public bool GameIsOver => GameState != GameState.InPlay;
 
@@ -24,15 +30,15 @@ namespace Arcesoft.Chess.Implementation
 
         public Player CurrentPlayer => (_moveHistory.Count % 2) == 0 ? Player.White : Player.Black;
 
-        public bool IsLegalMove(Move move) => GameIsOver ? false : FindMoves().Contains(move);
+        public void MakeMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType)
+            => MakeMove(TryFindMove(source, destination, promotionType));
 
-        public Game(Board board, ThreatProvider threatProvider)
+        public bool IsLegalMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType)
         {
-            _board = board;
-            _threatProvider = threatProvider;
+            return TryFindMove(source, destination, promotionType) != null;
         }
 
-        public void MakeMove(Move move)
+        public void MakeMove(IMove move)
         {
             if (GameIsOver)
             {
@@ -52,13 +58,16 @@ namespace Arcesoft.Chess.Implementation
             }
 
             //make the normal move.
-            //Note that we calculate the move result now while we can still figure out the capture piece if needed
-            var moveResult = DetermineMoveResult(move);
             MovePieceOnBoard(move);
 
             //performfinal
-            FinishMove(move, moveResult);
-        } 
+            FinishMove(move);
+        }
+
+
+        private IMove TryFindMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType)
+            => FindMoves().SingleOrDefault(a => a.Source == source && a.Destination == destination && (promotionType.HasValue == false || promotionType.Value == promotionType));
+        public bool IsLegalMove(IMove move) => GameIsOver ? false : FindMoves().Contains(move);
 
         public string GetThreatenedBoardDisplay(Player player)
         {
@@ -82,7 +91,7 @@ namespace Arcesoft.Chess.Implementation
             return sb.ToString();
         }
 
-        public IReadOnlyList<Move> FindMoves()
+        public IReadOnlyList<IMove> FindMoves()
         {
             if (_moves != null)
             {
@@ -145,35 +154,39 @@ namespace Arcesoft.Chess.Implementation
         }
 
         #region Private methods
-        private MoveResult DetermineMoveResult(Move move)
+        private MoveType DetermineMoveType(IMove move)
         {
-            var destinationPiece = _board[move.Destination];
+            return DetermineMoveType(move.Destination);
+        }
+        private MoveType DetermineMoveType(BoardLocation destination)
+        {
+            var destinationPiece = _board[destination];
 
             switch (destinationPiece)
             {
                 case ChessPiece.WhitePawn:
                 case ChessPiece.BlackPawn:
-                    return MoveResult.CapturePawn;
+                    return MoveType.CapturePawn;
                 case ChessPiece.WhiteKnight:
                 case ChessPiece.BlackKnight:
-                    return MoveResult.CapturePawn;
+                    return MoveType.CapturePawn;
                 case ChessPiece.WhiteBishop:
                 case ChessPiece.BlackBishop:
-                    return MoveResult.CapturePawn;
+                    return MoveType.CapturePawn;
                 case ChessPiece.WhiteRook:
                 case ChessPiece.BlackRook:
-                    return MoveResult.CapturePawn;
+                    return MoveType.CapturePawn;
                 case ChessPiece.WhiteQueen:
                 case ChessPiece.BlackQueen:
-                    return MoveResult.CapturePawn;
+                    return MoveType.CapturePawn;
                 case ChessPiece.WhiteKing:
                 case ChessPiece.BlackKing:
                     throw new InvalidOperationException("Invalid game state detected, cannot execute move because it would result in capture of king.");
                 default:
-                    return MoveResult.Move;
+                    return MoveType.Move;
             }
         }
-        private bool MakeAuPassantMove(Move move)
+        private bool MakeAuPassantMove(IMove move)
         {
             //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
             if ((!move.Source.IsOnSameColumnAs(move.Destination)) &&
@@ -185,14 +198,14 @@ namespace Arcesoft.Chess.Implementation
                 var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
                 _board[capturedPawnLocation] = ChessPiece.None;
 
-                FinishMove(move, MoveResult.AuPassant);
+                FinishMove(move);
 
                 return true;
             }
 
             return false;
         }
-        private bool MakeCastleMove(Move move)
+        private bool MakeCastleMove(IMove move)
         {
             BoardLocation? castlingRookLocation = null;
             BoardLocation? castlingRookDestination = null;
@@ -235,14 +248,14 @@ namespace Arcesoft.Chess.Implementation
                 //move the rook
                 MovePieceOnBoard(castlingRookLocation.Value, castlingRookDestination.Value);
 
-                FinishMove(move, MoveResult.Castle);
+                FinishMove(move);
             }
 
             return castlingRookLocation.HasValue;
         }
-        private void FinishMove(Move move, MoveResult moveResult)
+        private void FinishMove(IMove move)
         {
-            _moveHistory.Add(new MoveHistory(move.Source, move.Destination, moveResult));
+            _moveHistory.Add(move);
 
             //clear the moves and threats (for caching of next moves)
             _moves = null;
@@ -325,7 +338,7 @@ namespace Arcesoft.Chess.Implementation
             //we can to assume we have insuficient material
             return true;
         }
-        private void MovePieceOnBoard(Move move)
+        private void MovePieceOnBoard(IMove move)
         {
             _board[move.Destination] = _board[move.Source];
             _board[move.Source] = ChessPiece.None;
@@ -336,7 +349,7 @@ namespace Arcesoft.Chess.Implementation
             _board[source] = ChessPiece.None;
         }
 
-        private bool MoveIsLegal(Move move) => FindMoves().Contains(move);
+        private bool MoveIsLegal(IMove move) => FindMoves().Contains(move);
 
         private List<Move> TrimMovesForKingInCheck(
             List<Move> moves,
@@ -444,14 +457,14 @@ namespace Arcesoft.Chess.Implementation
                 (_board.NeighboringLocationIsEmpty(playerPieceLocation, marchDirection)))
             {
                 var firstMarchLocation = playerPieceLocation.Neighbor(marchDirection).Value;
-                moves.Add(new Move(playerPieceLocation, firstMarchLocation));
+                moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.Move));
 
 
                 //we can also move up two spaces if the next northern square is empty
                 if ((playerPieceLocation.IsPawnStartingLocation(player)) &&
                     (_board.NeighboringLocationIsEmpty(firstMarchLocation, marchDirection)))
                 {
-                    moves.Add(new Move(playerPieceLocation, firstMarchLocation.Neighbor(marchDirection).Value));
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation.Neighbor(marchDirection).Value, MoveType.Move));
                 }
             }
 
@@ -462,13 +475,14 @@ namespace Arcesoft.Chess.Implementation
                 //if we have an opposing piece in the next square, make hte move
                 if (_board.NeighboringLocationIsOccupiedBy(playerPieceLocation, gradeAttackDirection, opposingPlayer))
                 {
-                    moves.Add(new Move(playerPieceLocation, playerPieceLocation.Neighbor(gradeAttackDirection).Value));
+                    var neighbor = playerPieceLocation.Neighbor(gradeAttackDirection).Value;
+                    moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
                 }
                 else if (LastMoveAllowsEnPassantFor(playerPieceLocation, gradeAttackDirection))
                 {//we can do an en passant.
-                    moves.Add(new Move(playerPieceLocation, playerPieceLocation.Neighbor(gradeAttackDirection).Value));
+                    var neighbor = playerPieceLocation.Neighbor(gradeAttackDirection).Value;
+                    moves.Add(new Move(playerPieceLocation,neighbor, MoveType.AuPassant));
                 }
-
             }
 
             //check to see if we can move along the slope
@@ -478,11 +492,13 @@ namespace Arcesoft.Chess.Implementation
                 //if we have an opposing piece in the next square, make hte move
                 if (_board.NeighboringLocationIsOccupiedBy(playerPieceLocation, slopeAttackDirection, opposingPlayer))
                 {
-                    moves.Add(new Move(playerPieceLocation, playerPieceLocation.Neighbor(slopeAttackDirection).Value));
+                    var neighbor = playerPieceLocation.Neighbor(slopeAttackDirection).Value;
+                    moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
                 }
                 else if (LastMoveAllowsEnPassantFor(playerPieceLocation, slopeAttackDirection))
                 {//we can do an en passant.
-                    moves.Add(new Move(playerPieceLocation, playerPieceLocation.Neighbor(slopeAttackDirection).Value));
+                    var neighbor = playerPieceLocation.Neighbor(slopeAttackDirection).Value;
+                    moves.Add(new Move(playerPieceLocation, neighbor, MoveType.AuPassant));
                 }
             }
 
@@ -553,7 +569,7 @@ namespace Arcesoft.Chess.Implementation
             {
                 if (_board.LocationIsEmptyOrOccupiedBy(location, player.OpposingPlayer()))
                 {
-                    moves.Add(new Move(playerPieceLocation, location));
+                    moves.Add(new Move(playerPieceLocation, location, DetermineMoveType(location)));
                 }
             }
         }
@@ -583,7 +599,7 @@ namespace Arcesoft.Chess.Implementation
                     ((hasGradeThreats == false) || (location.IsOnSameGradeAs(playerPieceLocation))) &&
                     ((hasSlopeThreats == false) || (location.IsOnSameSlopeAs(playerPieceLocation))))
                 {
-                    moves.Add(new Move(playerPieceLocation, location));
+                    moves.Add(new Move(playerPieceLocation, location, DetermineMoveType(location)));
                 }
             }
         }
@@ -613,7 +629,7 @@ namespace Arcesoft.Chess.Implementation
                     ((hasVerticalThreats == false) || (location.IsOnSameColumnAs(playerPieceLocation))) &&
                     ((hasHorizontalThreats == false) || (location.IsOnSameRowAs(playerPieceLocation))))
                 {
-                    moves.Add(new Move(playerPieceLocation, location));
+                    moves.Add(new Move(playerPieceLocation, location,DetermineMoveType(location)));
                 }
             }
         }
@@ -641,7 +657,7 @@ namespace Arcesoft.Chess.Implementation
                     ((hasVerticalThreats == false) || (location.IsOnSameColumnAs(playerPieceLocation))) &&
                     ((hasHorizontalThreats == false) || (location.IsOnSameRowAs(playerPieceLocation))))
                 {
-                    moves.Add(new Move(playerPieceLocation, location));
+                    moves.Add(new Move(playerPieceLocation, location,DetermineMoveType(location)));
                 }
             }
         }
@@ -661,7 +677,7 @@ namespace Arcesoft.Chess.Implementation
                 if ((_board.LocationIsEmptyOrOccupiedBy(location, player.OpposingPlayer())) &&
                     (threats.ContainsKey(location) == false))
                 {
-                    moves.Add(new Move(playerPieceLocation, location));
+                    moves.Add(new Move(playerPieceLocation, location, DetermineMoveType(location)));
                 }
             }
 
@@ -690,18 +706,18 @@ namespace Arcesoft.Chess.Implementation
                 return;
             }
 
-            if (WesternCastleMoveAvailable(player, threats))
+            if (CastleQueensideMoveAvailable(player, threats))
             {
-                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.C1: BoardLocation.C8));
+                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.C1: BoardLocation.C8, MoveType.CastleQueenside));
             }
 
-            if (EasternCastleMoveAvailable(player, threats))
+            if (CastleKingsideMoveAvailable(player, threats))
             {
-                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.G1 : BoardLocation.G8));
+                moves.Add(new Move(playerPieceLocation, player == Player.White ? BoardLocation.G1 : BoardLocation.G8, MoveType.CastleKingside));
             }
         }
 
-        private bool WesternCastleMoveAvailable(Player player, ThreatMatrix threats)
+        private bool CastleQueensideMoveAvailable(Player player, ThreatMatrix threats)
         {
             if (player == Player.White)
             {
@@ -719,7 +735,7 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
-        private bool EasternCastleMoveAvailable(Player player, ThreatMatrix threats)
+        private bool CastleKingsideMoveAvailable(Player player, ThreatMatrix threats)
         {
             if (player == Player.White)
             {

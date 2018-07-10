@@ -98,11 +98,11 @@ namespace Arcesoft.Chess.Tests
             }
         }
 
-        protected List<Move> Moves
+        protected List<IMove> Moves
         {
             get
             {
-                return GetScenarioContextItemOrDefault<List<Move>>();
+                return GetScenarioContextItemOrDefault<List<IMove>>();
             }
             set
             {

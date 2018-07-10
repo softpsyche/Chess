@@ -113,10 +113,9 @@ namespace Arcesoft.Chess.Implementation
                     {
                         targetLocation = move.Type == ilf.pgn.Data.MoveType.CastleKingSide ? BoardLocation.G8 : BoardLocation.C8;
                     }
-                    var castleMove = new Move(
+                    game.MakeMove(
                         game.CurrentPlayer == Player.White ? BoardLocation.E1 : BoardLocation.E8,
                         targetLocation);
-                    game.MakeMove(castleMove);
                     break;
             }
         }

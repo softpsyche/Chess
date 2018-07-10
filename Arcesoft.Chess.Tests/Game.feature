@@ -83,9 +83,9 @@ Scenario: Find moves should find all moves for white pawns
 	#moves made must be even so its whites turn
 	#last move is to test au passant
 	Given I have the following move history
-		| Source | Destination | Result |
-		| A1     | A2          | Move   |
-		| F7     | F5          | Move   |
+		| Source | Destination | Type |
+		| A1     | A2          | Move |
+		| F7     | F5          | Move |
 	When I find moves for the current game
 	Then I expect the moves found should contain
 		| Source | Destination |
@@ -121,7 +121,7 @@ Scenario: Find moves should find all moves for black pawns
 	#moves made must be odd so its blacks turn
 	#last move is to test au passant
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| H2     | H4          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -184,7 +184,7 @@ Scenario: Find moves should find all moves for black knights
 		|    |    |    |    |   |   | BN |    |
 		|    |    |    |    |   |   |    | BK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -253,7 +253,7 @@ Scenario: Find moves should find all moves for black bishops
 		|    |   |   |    |   | WP | WK |   |
 		|    |   |   |    |   |    |    |   |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -311,7 +311,7 @@ Scenario: Find moves should find all moves for black rooks
 		|    |    |   |   |    |   |   |    |
 		|    |    |   |   | WR |   |   | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -383,7 +383,7 @@ Scenario: Find moves should find all moves for black queens
 		|   |   |   | WP |   |   |    |    |
 		|   |   |   |    |   |   |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -467,7 +467,7 @@ Scenario: Find moves should find all moves for black King (no threats)
 		|   |   |   |    |   |   |   |    |
 		|   |   |   |    |   |   |   | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -493,7 +493,7 @@ Scenario: Find moves should find all moves for black King
 		|   |   |    |    |   |   |   |    |
 		|   |   |    |    |   |   |   | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -548,7 +548,7 @@ Scenario: Find moves should find castle moves for black king
 		|    |   |   |   |    |   |   |    |
 		|    |   |   |   | WK |   |   |    |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -593,7 +593,7 @@ Scenario Outline: Find moves should NOT find castle moves for white king when
 		| WP |      |      |      |    |      |      | WP |
 		| WR |      |      | <D1> | WK |      | <G1> | WR |
 	Given I have the following move history
-		| Source              | Destination              | Result |
+		| Source              | Destination              | Type |
 		| D1                  | D1                       | Move   |
 		| <MoveHistorySource> | <MoveHistoryDestination> | Move   |
 	When I find moves for the current game
@@ -622,7 +622,7 @@ Scenario Outline: Find moves should NOT find castle moves for black king when
 		|    |      |      |      |    |      |      |    |
 		|    |      |      |      | WK | <F1> |      |    |
 	Given I have the following move history
-		| Source              | Destination              | Result |
+		| Source              | Destination              | Type |
 		| <MoveHistorySource> | <MoveHistoryDestination> | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should NOT contain '<NonExpectedMoves>'
@@ -679,7 +679,7 @@ Scenario: Find moves should find all moves for pinned black pawns
 		| WB |    |    |    | WP |    | WB |    |
 		|    |    |    | WR |    |    |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -719,7 +719,7 @@ Scenario: Find moves should find all moves for pinned black knights
 		| WB |   |    | WR |    |   | WB |    |
 		|    |   |    |    |    |   |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect no moves were found
@@ -760,7 +760,7 @@ Scenario: Find moves should find all moves for pinned black bishops
 		| WB |    |    | WR |    |   | WB |    |
 		|    |    |    |    |    |   |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -811,7 +811,7 @@ Scenario: Find moves should find all moves for pinned black rooks
 		| WB |   |    | WR |    |   | WB |    |
 		|    |   |    |    |    |   |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -871,7 +871,7 @@ Scenario: Find moves should find all moves for pinned black queens
 		| WB |    |    | WR |    |   | WB |    |
 		|    |    |    |    |    |   |    | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| A1     | A1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -929,7 +929,7 @@ Scenario: Find moves should find all moves for double checked black king
 		| BQ |    |    |   |    |   |   |    |
 		|    |    |    |   |    |   |   | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| C1     | C1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -976,7 +976,7 @@ Scenario: Find moves should find all moves for black king checked by pawn
 		|    | WP |    |    |    |   |   |    |
 		|    | WK |    |    |    |   |   |    |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| C1     | C1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -1025,7 +1025,7 @@ Scenario: Find moves should find all moves for black king checked by knight
 		|    |    |    |   |   |   |    | WP |
 		|    | BQ |    |   |   |   | BB | WK |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| C1     | C1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -1079,7 +1079,7 @@ Scenario Outline: Find moves should find all moves for black king checked by
 		| WP |    |    |    |   |   |   |      |
 		| WK |    |    |    |   |   |   | <H1> |
 	Given I have the following move history
-		| Source | Destination | Result |
+		| Source | Destination | Type |
 		| C1     | C1          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
@@ -1140,7 +1140,7 @@ Scenario: Make move should correctly move for black
 		|   |   |   |   |    |   |   |    |
 		|   |   |   |   | WK |   |   | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | A4     | A4          | Move   |
 	When I make the following move
          | Source | Destination |
@@ -1193,8 +1193,8 @@ Scenario: Make move should correctly capture for black
 		|   |   |   |   |    |   |   |    |
 		|   |   |   |   | WK |   |   | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
-         | A4     | A4          | Move   |
+         | Source | Destination | Type |
+         | A4     | A4          | Move |
 	When I make the following move
          | Source | Destination |
          | H8     | H1          |
@@ -1208,6 +1208,11 @@ Scenario: Make move should correctly capture for black
          |   |   |   |   |    |   |   |    |
          |   |   |   |   |    |   |   |    |
          |   |   |   |   | WK |   |   | BR |
+
+Scenario: Make move should correctly promote pawn for white
+
+Scenario: Make move should correctly promote pawn for black
+
 
 Scenario Outline: Make move should not allow a move if the gamestate is in
 	Given I start a new game
@@ -1310,7 +1315,7 @@ Scenario: Make move should correctly make kingside castle for black
 		| WP | WP | WP | WP | WP | WP | WP | WP |
 		| WR |    |    |    | WK |    |    | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | A4     | A4          | Move   |
 	When I make the following move
          | Source | Destination |
@@ -1338,7 +1343,7 @@ Scenario: Make move should correctly make queenside castle for black
 		| WP | WP | WP | WP | WP | WP | WP | WP |
 		| WR |    |    |    | WK |    |    | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | A4     | A4          | Move   |
 	When I make the following move
          | Source | Destination |
@@ -1366,7 +1371,7 @@ Scenario: Make move should correctly make northwest au passant move for white
 		|   |   |    |    |    |    |    |   |
 		|   |   |    |    | WK |    |    |   |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | A4     | A4          | Move   |
 		 | E7     | E5          | Move   |
 	When I make the following move
@@ -1395,7 +1400,7 @@ Scenario: Make move should correctly make northeast au passant move for white
 		|   |   |    |    |    |    |    |   |
 		|   |   |    |    | WK |    |    |   |
 	Given I have the following move history
-        | Source | Destination | Result |
+        | Source | Destination | Type |
         | A4     | A4          | Move   |
 		| G7     | G5          | Move   |
 	When I make the following move
@@ -1424,7 +1429,7 @@ Scenario: Make move should correctly make southwest au passant move for black
 		|   |   |    |    |    |    |    |   |
 		|   |   |    |    | WK |    |    |   |
 	Given I have the following move history
-        | Source | Destination | Result |
+        | Source | Destination | Type |
         | C2     | C4          | Move   |
 	When I make the following move
         | Source | Destination |
@@ -1452,7 +1457,7 @@ Scenario: Make move should correctly make southeast au passant move for black
 		|   |   |    |    |    |    |    |   |
 		|   |   |    |    | WK |    |    |   |
 	Given I have the following move history
-        | Source | Destination | Result |
+        | Source | Destination | Type |
         | E2     | E4          | Move   |
 	When I make the following move
         | Source | Destination |
@@ -1507,7 +1512,7 @@ Scenario: Undo last move should undo a simple move for white
 		| WP | WP | WP | WP |    | WP | WP | WP |
 		| WR | WN | WB | WQ | WK | WB | WN | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | E2     | E4          | Move   |
 	When I undo the last move
 	Then I expect the game to not be over
@@ -1537,7 +1542,7 @@ Scenario: Undo last move should undo a simple move for black
 		| WP | WP | WP | WP |    | WP | WP | WP |
 		| WR | WN | WB | WQ | WK | WB | WN | WR |
 	Given I have the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | E2     | E4          | Move   |
 		 | E7     | E5          | Move   |
 	When I undo the last move
@@ -1545,7 +1550,7 @@ Scenario: Undo last move should undo a simple move for black
 	Then I expect the gamestate to be 'InPlay'
 	Then I expect the current player is 'Black'
 	Then I expect the following move history
-         | Source | Destination | Result |
+         | Source | Destination | Type |
          | E2     | E4          | Move   |
 	Then I expect the current board to contain the following
          | A  | B  | C  | D  | E  | F  | G  | H  |
@@ -1560,6 +1565,9 @@ Scenario: Undo last move should undo a simple move for black
 
 Scenario: Undo last move should undo a capture move for white
 Scenario: Undo last move should undo a capture move for black
+
+Scenario: Undo last move should undo a pawn promotion move for white
+Scenario: Undo last move should undo a pawn promotion move for black
 
 Scenario: Undo last move should undo an au passant northwest move for white
 Scenario: Undo last move should undo an au passant northeast move for white
