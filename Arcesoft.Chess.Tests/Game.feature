@@ -88,18 +88,18 @@ Scenario: Find moves should find all moves for white pawns
 		| F7     | F5          | Move |
 	When I find moves for the current game
 	Then I expect the moves found should contain
-		| Source | Destination |
-		| A2     | A3          |
-		| A2     | A4          |
-		| B3     | B4          |
-		| C3     | C4          |
-		| C3     | D4          |
-		| D2     | D3          |
-		| D2     | E3          |
-		| G5     | F6          |
-		| H3     | H4          |
-		| H3     | G3          |
-		| H3     | G2          |
+		| Source | Destination | Type        |
+		| A2     | A3          | Move        |
+		| A2     | A4          | Move        |
+		| B3     | B4          | Move        |
+		| C3     | C4          | Move        |
+		| C3     | D4          | CapturePawn |
+		| D2     | D3          | Move        |
+		| D2     | E3          | CapturePawn |
+		| G5     | F6          | AuPassant   |
+		| H3     | H4          | Move        |
+		| H3     | G3          | Move        |
+		| H3     | G2          | Move        |
 
 #This includes pawn movement tests which cover all the following:
 #moving up one space
@@ -125,16 +125,16 @@ Scenario: Find moves should find all moves for black pawns
 		| H2     | H4          | Move   |
 	When I find moves for the current game
 	Then I expect the moves found should contain
-		| Source | Destination |
-		| A8     | B8          |
-		| A7     | A6          |
-		| A7     | A5          |
-		| A7     | B6          |
-		| C6     | B5          |
-		| C6     | C5          |
-		| C6     | D5          |
-		| G4     | H3          |
-		| H6     | H5          |
+		| Source | Destination | Type        |
+		| A7     | A6          | Move        |
+		| A7     | A5          | Move        |
+		| A7     | B6          | CapturePawn |
+		| A8     | B8          | Move        |
+		| C6     | C5          | Move        |
+		| C6     | B5          | CapturePawn |
+		| C6     | D5          | CapturePawn |
+		| G4     | H3          | AuPassant   |
+		| H6     | H5          | Move        |
 
 Scenario: Find moves should find all moves for white knights
 	Given I start a new game in the following state

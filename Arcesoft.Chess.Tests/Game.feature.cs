@@ -402,40 +402,52 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination"});
+                        "Destination",
+                        "Type"});
             table5.AddRow(new string[] {
                         "A2",
-                        "A3"});
+                        "A3",
+                        "Move"});
             table5.AddRow(new string[] {
                         "A2",
-                        "A4"});
+                        "A4",
+                        "Move"});
             table5.AddRow(new string[] {
                         "B3",
-                        "B4"});
+                        "B4",
+                        "Move"});
             table5.AddRow(new string[] {
                         "C3",
-                        "C4"});
+                        "C4",
+                        "Move"});
             table5.AddRow(new string[] {
                         "C3",
-                        "D4"});
+                        "D4",
+                        "CapturePawn"});
             table5.AddRow(new string[] {
                         "D2",
-                        "D3"});
+                        "D3",
+                        "Move"});
             table5.AddRow(new string[] {
                         "D2",
-                        "E3"});
+                        "E3",
+                        "CapturePawn"});
             table5.AddRow(new string[] {
                         "G5",
-                        "F6"});
+                        "F6",
+                        "AuPassant"});
             table5.AddRow(new string[] {
                         "H3",
-                        "H4"});
+                        "H4",
+                        "Move"});
             table5.AddRow(new string[] {
                         "H3",
-                        "G3"});
+                        "G3",
+                        "Move"});
             table5.AddRow(new string[] {
                         "H3",
-                        "G2"});
+                        "G2",
+                        "Move"});
 #line 90
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table5, "Then ");
 #line hidden
@@ -553,34 +565,44 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination"});
+                        "Destination",
+                        "Type"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "A6",
+                        "Move"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "A5",
+                        "Move"});
+            table8.AddRow(new string[] {
+                        "A7",
+                        "B6",
+                        "CapturePawn"});
             table8.AddRow(new string[] {
                         "A8",
-                        "B8"});
-            table8.AddRow(new string[] {
-                        "A7",
-                        "A6"});
-            table8.AddRow(new string[] {
-                        "A7",
-                        "A5"});
-            table8.AddRow(new string[] {
-                        "A7",
-                        "B6"});
+                        "B8",
+                        "Move"});
             table8.AddRow(new string[] {
                         "C6",
-                        "B5"});
+                        "C5",
+                        "Move"});
             table8.AddRow(new string[] {
                         "C6",
-                        "C5"});
+                        "B5",
+                        "CapturePawn"});
             table8.AddRow(new string[] {
                         "C6",
-                        "D5"});
+                        "D5",
+                        "CapturePawn"});
             table8.AddRow(new string[] {
                         "G4",
-                        "H3"});
+                        "H3",
+                        "AuPassant"});
             table8.AddRow(new string[] {
                         "H6",
-                        "H5"});
+                        "H5",
+                        "Move"});
 #line 127
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table8, "Then ");
 #line hidden

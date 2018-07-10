@@ -169,16 +169,16 @@ namespace Arcesoft.Chess.Implementation
                     return MoveType.CapturePawn;
                 case ChessPiece.WhiteKnight:
                 case ChessPiece.BlackKnight:
-                    return MoveType.CapturePawn;
+                    return MoveType.CaptureKnight;
                 case ChessPiece.WhiteBishop:
                 case ChessPiece.BlackBishop:
-                    return MoveType.CapturePawn;
+                    return MoveType.CaptureBishop;
                 case ChessPiece.WhiteRook:
                 case ChessPiece.BlackRook:
-                    return MoveType.CapturePawn;
+                    return MoveType.CaptureRook;
                 case ChessPiece.WhiteQueen:
                 case ChessPiece.BlackQueen:
-                    return MoveType.CapturePawn;
+                    return MoveType.CaptureQueen;
                 case ChessPiece.WhiteKing:
                 case ChessPiece.BlackKing:
                     throw new InvalidOperationException("Invalid game state detected, cannot execute move because it would result in capture of king.");
@@ -657,7 +657,7 @@ namespace Arcesoft.Chess.Implementation
                     ((hasVerticalThreats == false) || (location.IsOnSameColumnAs(playerPieceLocation))) &&
                     ((hasHorizontalThreats == false) || (location.IsOnSameRowAs(playerPieceLocation))))
                 {
-                    moves.Add(new Move(playerPieceLocation, location,DetermineMoveType(location)));
+                    moves.Add(new Move(playerPieceLocation, location, DetermineMoveType(location)));
                 }
             }
         }
