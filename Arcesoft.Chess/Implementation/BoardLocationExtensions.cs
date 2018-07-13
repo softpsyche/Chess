@@ -1,11 +1,12 @@
 ﻿using Arcesoft.Chess.Implementation;
 using Arcesoft.Chess.Models;
+using Arcesoft.Chess.Models.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Arcesoft.Chess.Models
+namespace Arcesoft.Chess.Implementation
 {
     //PGN format for the board
     //    A  B  C  D  E  F  G  H

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Arcesoft.Chess.Models
+namespace Arcesoft.Chess.Models.Internal
 {
     /// <summary>
     /// This class is immutable and thus also threadsafe.

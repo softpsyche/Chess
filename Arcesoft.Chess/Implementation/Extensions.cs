@@ -1,4 +1,5 @@
 ﻿using Arcesoft.Chess.Models;
+using Arcesoft.Chess.Models.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;

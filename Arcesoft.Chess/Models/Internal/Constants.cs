@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Arcesoft.Chess.Models
+namespace Arcesoft.Chess.Models.Internal
 {
     internal static class Constants
     {

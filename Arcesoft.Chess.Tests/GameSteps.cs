@@ -1,5 +1,6 @@
 ﻿using Arcesoft.Chess.Implementation;
 using Arcesoft.Chess.Models;
+using Arcesoft.Chess.Models.Internal;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;

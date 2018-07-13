@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcesoft.Chess.Tests", "Arc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5D5D598C-93DC-4A5D-9DAA-B74DDC2A9A02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcesoft.Chess.ArtificialIntelligence", "Arcesoft.Chess.ArtificialIntelligence\Arcesoft.Chess.ArtificialIntelligence.csproj", "{D32ADAA0-E165-4ED7-A9FB-8ED082ADA913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725F3C40-9435-499B-BFE5-B36CFFDC76E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32ADAA0-E165-4ED7-A9FB-8ED082ADA913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32ADAA0-E165-4ED7-A9FB-8ED082ADA913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32ADAA0-E165-4ED7-A9FB-8ED082ADA913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32ADAA0-E165-4ED7-A9FB-8ED082ADA913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

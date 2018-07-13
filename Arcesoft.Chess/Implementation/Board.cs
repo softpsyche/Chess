@@ -1,4 +1,5 @@
 ﻿using Arcesoft.Chess.Models;
+using Arcesoft.Chess.Models.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Arcesoft.Chess.Implementation
 {
-    public class Board : IReadOnlyBoard
+    internal class Board : IReadOnlyBoard
     {
         //PGN format for the board
         //    A  B  C  D  E  F  G  H
