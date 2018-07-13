@@ -14,6 +14,22 @@ namespace Arcesoft.Chess.Tests
     [Binding]
     internal sealed class GameSteps : Steps
     {
+        [Given(@"Its blacks turn")]
+        public void GivenItsBlacksTurn()
+        {
+            if (Game.CurrentPlayer != Player.Black)
+            {
+                Game.SetPrivateField("_moveHistory", 
+                    new List<IMove>(new[] { new Move(BoardLocation.A1, BoardLocation.A1, MoveType.Move) }));
+            }
+        }
+
+        [Then(@"I expect the game to be over")]
+        public void ThenIExpectTheGameToBeOver()
+        {
+            Game.GameIsOver.Should().BeTrue();
+        }
+
         [Then(@"I expect the game to not be over")]
         public void ThenIExpectTheGameToNotBeOver()
         {

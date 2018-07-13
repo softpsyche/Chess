@@ -21,7 +21,7 @@ namespace Arcesoft.Chess.Models
     {
         public static BoardLocationColor Color(this BoardLocation boardLocation)
         {
-            return ((boardLocation.ToByte() + boardLocation.Column() % 2) % 2 == 0) ? BoardLocationColor.Black : BoardLocationColor.White;
+            return ((boardLocation.ToByte() + boardLocation.Column() % 2) % 2 == 0) ? BoardLocationColor.Dark : BoardLocationColor.Light;
         }
 
         public static bool IsPawnStartingLocation(this BoardLocation boardLocation, Player player)

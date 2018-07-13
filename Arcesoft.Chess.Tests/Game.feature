@@ -1582,11 +1582,292 @@ Scenario: Make move should correctly make southeast au passant move for black
         |   |   |    |   | WK |    |    |   |
 
 Scenario: Make move should record move history correctly
-Scenario: Make move should calculate white win
-Scenario: Make move should calculate black win
-Scenario: Make move should calculate draw - stalemate
-Scenario: Make move should calculate draw - insufficient material
+	Given I start a new game
+	When I make the following moves
+		| Source | Destination |
+		| E2     | E4          |
+		| E7     | E5          |
+		| B1     | C3          |
+		| B8     | C6          |
+		| D2     | D4          |
+		| E5     | D4          |
+		| D1     | D4          |
+		| C6     | D4          |
+		| G1     | F3          |
+		| D8     | G5          |
+		| F3     | D4          |
+		| G5     | C1          |
+		| A1     | C1          |
+	Then I expect the following move history
+         | Source | Destination | Type          |
+         | E2     | E4          | Move          |
+         | E7     | E5          | Move          |
+         | B1     | C3          | Move          |
+         | B8     | C6          | Move          |
+         | D2     | D4          | Move          |
+         | E5     | D4          | CapturePawn   |
+         | D1     | D4          | CapturePawn   |
+         | C6     | D4          | CaptureQueen  |
+         | G1     | F3          | Move          |
+         | D8     | G5          | Move          |
+         | F3     | D4          | CaptureKnight |
+         | G5     | C1          | CaptureBishop |
+         | A1     | C1          | CaptureQueen  |
+	Then I expect the current board to contain the following
+         | A  | B  | C  | D  | E  | F  | G  | H  |
+         | BR |    | BB |    | BK | BB | BN | BR |
+         | BP | BP | BP | BP |    | BP | BP | BP |
+         |    |    |    |    |    |    |    |    |
+         |    |    |    |    |    |    |    |    |
+         |    |    |    | WN | WP |    |    |    |
+         |    |    | WN |    |    |    |    |    |
+         | WP | WP | WP |    |    | WP | WP | WP |
+         |    |    | WR |    | WK | WB |    | WR |
 
+Scenario: Make move should calculate white win
+	Given I start a new game in the following state
+		| A  | B | C | D | E  | F | G  | H  |
+		|    |   |   |   |    |   |    | BK |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		| WR |   |   |   |    |   |    |    |
+		|    |   |   |   | WK |   | WR |    |
+	When I make the following move
+         | Source | Destination |
+         | A2     | H2          |
+	Then I expect the gamestate to be 'WhiteWin'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate black win
+	Given I start a new game in the following state
+		| A  | B | C | D | E  | F | G  | H  |
+		|    |   |   |   |    |   |    | WK |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		|    |   |   |   |    |   |    |    |
+		| BR |   |   |   |    |   |    |    |
+		|    |   |   |   | BK |   | BR |    |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | A2     | H2          |
+	Then I expect the gamestate to be 'BlackWin'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate stalemate draw for white
+	Given I start a new game in the following state
+		| A  | B | C | D | E | F | G  | H  |
+		| BK |   |   |   |   |   |    |    |
+		| BP |   |   |   |   |   |    |    |
+		| WP |   |   |   |   |   |    |    |
+		|    |   |   |   |   |   |    |    |
+		|    |   |   |   |   |   |    |    |
+		|    |   |   |   |   |   |    |    |
+		|    |   |   |   |   |   |    |    |
+		|    |   |   |   |   |   | WQ | WK |
+	When I make the following move
+         | Source | Destination |
+         | G1     | B1          |
+	Then I expect the gamestate to be 'DrawStalemate'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate stalemate draw for black
+	Given I start a new game in the following state
+		| A  | B  | C | D | E | F | G | H  |
+		| BK | BQ |   |   |   |   |   |    |
+		|    |    |   |   |   |   |   |    |
+		|    |    |   |   |   |   |   |    |
+		|    |    |   |   |   |   |   |    |
+		|    |    |   |   |   |   |   |    |
+		|    |    |   |   |   |   |   | BP |
+		|    |    |   |   |   |   |   | WP |
+		|    |    |   |   |   |   |   | WK |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | B8     | G8          |
+	Then I expect the gamestate to be 'DrawStalemate'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for white (two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | BQ |
+		|   |   |   |   |   |   |   | WK |
+	When I make the following move
+         | Source | Destination |
+         | H1     | H2          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for black (two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   | WQ |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | WK |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | H8     | H7          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for white (one knight two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | BN |
+		|   |   |   |   |   |   |   | BN |
+		|   |   |   |   |   |   |   | WK |
+	When I make the following move
+         | Source | Destination |
+         | H1     | H2          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for black (one knight two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   | WN |
+		|   |   |   |   |   |   |   | WN |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | WK |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | H8     | H7          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for white (one bishop two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | BB |
+		|   |   |   |   |   |   |   | BB |
+		|   |   |   |   |   |   |   | WK |
+	When I make the following move
+         | Source | Destination |
+         | H1     | H2          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for black (one bishop two kings)
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   | WB |
+		|   |   |   |   |   |   |   | WB |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | WK |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | H8     | H7          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for white (many bishops on dark square two kings)
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB | BK |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB |    |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB |    |
+		|    | BB |    | BB |    | BB | BB | BB |
+		| BB |    | BB |    | BB |    | BB | WK |
+	When I make the following move
+         | Source | Destination |
+         | H1     | G2          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for white (many bishops on light square two kings)
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| BB |    | BB |    | BB |    | BB | BK |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB |    |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB |    |
+		|    | BB |    | BB |    | BB |    | BB |
+		| BB |    | BB |    | BB |    | BB | WK |
+		|    | BB |    | BB |    | BB | BB | BB |
+	When I make the following move
+         | Source | Destination |
+         | H2     | G1          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for black (many bishops on dark square two kings)
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB | WK |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB |    |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB |    |
+		|    | WB |    | WB |    | WB | WB | WB |
+		| WB |    | WB |    | WB |    | WB | BK |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | H1     | G2          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
+
+Scenario: Make move should calculate insufficient material draw for black (many bishops on light square two kings)
+	Given I start a new game in the following state
+		| A  | B  | C  | D  | E  | F  | G  | H  |
+		| WB |    | WB |    | WB |    | WB | WK |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB |    |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB |    |
+		|    | WB |    | WB |    | WB |    | WB |
+		| WB |    | WB |    | WB |    | WB | BK |
+		|    | WB |    | WB |    | WB | WB | WB |
+	Given Its blacks turn
+	When I make the following move
+         | Source | Destination |
+         | H2     | G1          |
+	Then I expect the gamestate to be 'DrawInsufficientMaterial'
+	Then I expect the game to be over
 
 #########################################################################
 ###		Undo last move												  ###
@@ -1671,21 +1952,385 @@ Scenario: Undo last move should undo a simple move for black
          | WP | WP | WP | WP |    | WP | WP | WP |
          | WR | WN | WB | WQ | WK | WB | WN | WR |
 
-Scenario: Undo last move should undo a capture move for white
-Scenario: Undo last move should undo a capture move for black
+Scenario Outline: Undo last move should undo a capture move for white capture of black
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   | BP |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | WK |
+		|   |   |   |   |   |   |   |    |
+	Given I have the following move history
+        | Source | Destination | Type   |
+        | H1     | H2          | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A | B | C | D | E | F | G | H    |
+        |   |   |   |   |   |   |   | BK   |
+        |   |   |   |   |   |   |   | BP   |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   | <H2> |
+        |   |   |   |   |   |   |   | WK   |
+	Examples: 
+		| TestName | Type          | H2 |
+		| pawn     | CapturePawn   | BP |
+		| knight   | CaptureKnight | BN |
+		| bishop   | CaptureBishop | BB |
+		| rook     | CaptureRook   | BR |
+		| queen    | CaptureQueen  | BQ |
 
-Scenario: Undo last move should undo a pawn promotion move for white
-Scenario: Undo last move should undo a pawn promotion move for black
+Scenario Outline: Undo last move should undo a capture move for black capture of white
+	Given I start a new game in the following state
+		| A | B | C | D | E | F | G | H  |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | BK |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   |    |
+		|   |   |   |   |   |   |   | WP |
+		|   |   |   |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type   |
+        | A1     | A1          | Move   |
+        | H8     | H7          | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A | B | C | D | E | F | G | H    |
+        |   |   |   |   |   |   |   | BK   |
+        |   |   |   |   |   |   |   | <H7> |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   |      |
+        |   |   |   |   |   |   |   | WP   |
+        |   |   |   |   |   |   |   | WK   |
+	Examples: 
+		| TestName | Type          | H7 |
+		| pawn     | CapturePawn   | WP |
+		| knight   | CaptureKnight | WN |
+		| bishop   | CaptureBishop | WB |
+		| rook     | CaptureRook   | WR |
+		| queen    | CaptureQueen  | WQ |
+
+Scenario Outline: Undo last move should undo a pawn promotion move for white
+	Given I start a new game in the following state
+		| A    | B | C | D | E | F | G | H  |
+		| <A8> |   |   |   |   |   |   | BK |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type   |
+        | A7     | A8          | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A  | B | C | D | E | F | G | H  |
+        |    |   |   |   |   |   |   | BK |
+        | WP |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   | WK |
+	Examples: 
+		| TestName | Type          | A8 |
+		| knight   | PawnPromotionKnight | WN |
+		| bishop   | PawnPromotionBishop | WB |
+		| rook     | PawnPromotionRook   | WR |
+		| queen    | PawnPromotionQueen  | WQ |
+
+Scenario Outline: Undo last move should undo a pawn promotion move for black
+	Given I start a new game in the following state
+		| A    | B | C | D | E | F | G | H  |
+		|      |   |   |   |   |   |   | BK |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		|      |   |   |   |   |   |   |    |
+		| <A1> |   |   |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type   |
+        | A4     | A4          | Move   |
+        | A2     | A1          | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A  | B | C | D | E | F | G | H  |
+        |    |   |   |   |   |   |   | BK |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   |    |
+        | BP |   |   |   |   |   |   |    |
+        |    |   |   |   |   |   |   | WK |
+	Examples: 
+		| TestName | Type          | A8 |
+		| knight   | PawnPromotionKnight | BN |
+		| bishop   | PawnPromotionBishop | BB |
+		| rook     | PawnPromotionRook   | BR |
+		| queen    | PawnPromotionQueen  | BQ |
 
 Scenario: Undo last move should undo an au passant northwest move for white
+	Given I start a new game in the following state
+		| A  | B | C | D | E | F | G | H  |
+		|    |   |   |   |   |   |   | BK |
+		|    |   |   |   |   |   |   |    |
+		| WP |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type      |
+        | B5     | A6          | AuPassant |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A  | B  | C | D | E | F | G | H  |
+        |    |    |   |   |   |   |   | BK |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        | BP | WP |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   | WK |
+
 Scenario: Undo last move should undo an au passant northeast move for white
+	Given I start a new game in the following state
+		| A | B | C  | D | E | F | G | H  |
+		|   |   |    |   |   |   |   | BK |
+		|   |   |    |   |   |   |   |    |
+		|   |   | WP |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type      |
+        | B5     | C6          | AuPassant |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A | B  | C  | D | E | F | G | H  |
+        |   |    |    |   |   |   |   | BK |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   | WP | BP |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   | WK |
+
 Scenario: Undo last move should undo an au passant southwest move for black
+	Given I start a new game in the following state
+		| A  | B | C | D | E | F | G | H  |
+		|    |   |   |   |   |   |   | BK |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		| BP |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type      |
+        | A1     | A1          | Move      |
+        | B4     | B3          | AuPassant |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A  | B  | C | D | E | F | G | H  |
+        |    |    |   |   |   |   |   | BK |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        | WP | BP |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   |    |
+        |    |    |   |   |   |   |   | WK |
+
 Scenario: Undo last move should undo an au passant southeast move for black
+	Given I start a new game in the following state
+		| A | B | C  | D | E | F | G | H  |
+		|   |   |    |   |   |   |   | BK |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   | BP |   |   |   |   |    |
+		|   |   |    |   |   |   |   |    |
+		|   |   |    |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination | Type      |
+        | A1     | A1          | Move      |
+        | B4     | C3          | AuPassant |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A | B  | C  | D | E | F | G | H  |
+        |   |    |    |   |   |   |   | BK |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   | BP | WP |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   |    |
+        |   |    |    |   |   |   |   | WK |
 
 Scenario: Undo last move should undo a castle kingside move for white
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F  | G  | H |
+		|   |   |   |   | BK |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    | WR | WK |   |
+	Given I have the following move history
+        | Source | Destination | Type           |
+        | E1     | G1          | CastleKingside |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A | B | C | D | E  | F | G | H  |
+        |   |   |   |   | BK |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   |    |   |   |    |
+        |   |   |   |   | WK |   |   | WR |
+
 Scenario: Undo last move should undo a castle queenside move for white
+	Given I start a new game in the following state
+		| A | B | C  | D  | E  | F | G | H |
+		|   |   |    |    | BK |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   | WK | WR |    |   |   |   |
+	Given I have the following move history
+        | Source | Destination | Type            |
+        | E1     | C1          | CastleQueenside |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A  | B | C | D | E  | F | G | H |
+        |    |   |   |   | BK |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        | WR |   |   |   | WK |   |   |   |
+
 Scenario: Undo last move should undo a castle kingside move for black
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F  | G  | H |
+		|   |   |   |   |    | BR | BK |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   |    |    |    |   |
+		|   |   |   |   | WK |    |    |   |
+	Given I have the following move history
+        | Source | Destination | Type           |
+        | A1     | A1          | Move           |
+        | E8     | G8          | CastleKingside |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A | B | C | D | E  | F | G | H  |
+        |   |   |   |   | BK |   |   | BR |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   | WK |   |   |    |
+
 Scenario: Undo last move should undo a castle queenside move for black
+	Given I start a new game in the following state
+		| A | B | C  | D  | E  | F | G | H |
+		|   |   | BK | BR |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    |    |   |   |   |
+		|   |   |    |    | WK |   |   |   |
+	Given I have the following move history
+        | Source | Destination | Type            |
+        | A1     | A1          | Move            |
+        | E8     | C8          | CastleQueenside |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A  | B | C | D | E  | F | G | H |
+        | BR |   |   |   | BK |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   |    |   |   |   |
+        |    |   |   |   | WK |   |   |   |
 
 
 		

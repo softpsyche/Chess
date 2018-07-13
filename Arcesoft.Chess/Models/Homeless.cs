@@ -58,8 +58,8 @@ namespace Arcesoft.Chess.Models
 
     public enum BoardLocationColor
     {
-        White,
-        Black
+        Light,
+        Dark
     }
     public enum Player : byte
     {
