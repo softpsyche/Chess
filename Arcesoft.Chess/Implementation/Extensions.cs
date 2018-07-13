@@ -58,6 +58,22 @@ namespace Arcesoft.Chess.Implementation
             }
         }
 
+        public static MoveType ToMoveType(this PawnPromotionType pawnPromotionType)
+        {
+            switch (pawnPromotionType)
+            {
+                case PawnPromotionType.Knight:
+                    return MoveType.PawnPromotionKnight;
+                case PawnPromotionType.Bishop:
+                    return MoveType.PawnPromotionBishop;
+                case PawnPromotionType.Rook:
+                    return MoveType.PawnPromotionRook;
+                case PawnPromotionType.Queen:
+                    return MoveType.PawnPromotionQueen;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
 
         public static Player OpposingPlayer(this Player player) => player == Models.Player.White ? Models.Player.Black : Models.Player.White;
 

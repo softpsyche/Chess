@@ -101,6 +101,28 @@ Scenario: Find moves should find all moves for white pawns
 		| H3     | G3          | Move        |
 		| H3     | G2          | Move        |
 
+Scenario: Find moves should find all moves for white pawn promotions
+	Given I start a new game in the following state
+		| A  | B | C | D | E | F | G | H  |
+		| BK |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   | WP |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   | WK |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination | Type                |
+		| H1     | H2          | Move                |
+		| H1     | G1          | Move                |
+		| H1     | G2          | Move                |
+		| H7     | H8          | PawnPromotionKnight |
+		| H7     | H8          | PawnPromotionBishop |
+		| H7     | H8          | PawnPromotionRook   |
+		| H7     | H8          | PawnPromotionQueen  |
+
 #This includes pawn movement tests which cover all the following:
 #moving up one space
 #moving up two spaces
@@ -135,6 +157,31 @@ Scenario: Find moves should find all moves for black pawns
 		| C6     | D5          | CapturePawn |
 		| G4     | H3          | AuPassant   |
 		| H6     | H5          | Move        |
+
+Scenario: Find moves should find all moves for black pawn promotions
+	Given I start a new game in the following state
+		| A  | B | C | D | E | F | G | H  |
+		| BK |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   |    |
+		| BP |   |   |   |   |   |   |    |
+		|    |   |   |   |   |   |   | WK |
+	Given I have the following move history
+		| Source | Destination | Type |
+		| H2     | H4          | Move   |
+	When I find moves for the current game
+	Then I expect the moves found should contain
+		| Source | Destination | Type                |
+		| A8     | A7          | Move                |
+		| A8     | B8          | Move                |
+		| A8     | B7          | Move                |
+		| A2     | A1          | PawnPromotionKnight |
+		| A2     | A1          | PawnPromotionBishop |
+		| A2     | A1          | PawnPromotionRook   |
+		| A2     | A1          | PawnPromotionQueen  |
 
 Scenario: Find moves should find all moves for white knights
 	Given I start a new game in the following state
@@ -1209,9 +1256,70 @@ Scenario: Make move should correctly capture for black
          |   |   |   |   |    |   |   |    |
          |   |   |   |   | WK |   |   | BR |
 
-Scenario: Make move should correctly promote pawn for white
+Scenario Outline: Make move should correctly promote pawn for white to
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F | G | H  |
+		|   |   |   |   | BK |   |   |    |
+		|   |   |   |   |    |   |   | WP |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   | WK |   |   |    |
+	When I make the following move
+         | Source | Destination | PromotionType   |
+         | H7     | H8          | <PromotionType> |
+	Then I expect the current board to contain the following
+         | A | B | C | D | E  | F | G | H    |
+         |   |   |   |   | BK |   |   | <H8> |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   | WK |   |   |      |
+	Examples: 
+		| PromotionType | H8 |
+		| Knight        | WN |
+		| Bishop        | WB |
+		| Rook          | WR |
+		| Queen         | WQ |
 
-Scenario: Make move should correctly promote pawn for black
+Scenario Outline: Make move should correctly promote pawn for black to
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F | G | H  |
+		|   |   |   |   | BK |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   | BP |
+		|   |   |   |   | WK |   |   |    |
+	Given I have the following move history
+         | Source | Destination | Type |
+         | H4     | H4          | Move |
+	When I make the following move
+         | Source | Destination | PromotionType   |
+         | H2     | H1          | <PromotionType> |
+	Then I expect the current board to contain the following
+         | A | B | C | D | E  | F | G | H    |
+         |   |   |   |   | BK |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   |    |   |   |      |
+         |   |   |   |   | WK |   |   | <H1> |
+	Examples: 
+		| PromotionType | H1 |
+		| Knight        | BN |
+		| Bishop        | BB |
+		| Rook          | BR |
+		| Queen         | BQ |
 
 
 Scenario Outline: Make move should not allow a move if the gamestate is in

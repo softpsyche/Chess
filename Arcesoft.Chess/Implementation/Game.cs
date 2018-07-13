@@ -50,23 +50,23 @@ namespace Arcesoft.Chess.Implementation
                 throw new ChessException(ChessErrorCode.IllegalMove, "The move is not valid because it is not legal.");
             }
 
-            //now we need to make the move..
-            //Deal with these 'special' moves first
-            if (MakeCastleMove(move) || MakeAuPassantMove(move))
-            {
-                return;
-            }
+            //Make the move
+            MakeMoveForMoveType(move);
 
-            //make the normal move.
-            MovePieceOnBoard(move);
+            //add the history
+            _moveHistory.Add(move);
 
-            //performfinal
-            FinishMove(move);
+            //clear the moves and threats (for caching of next moves)
+            _moves = null;
+            _threatMatrix = null;
+
+            //determine the game state now that this move has been made
+            DetermineGameState();
         }
 
-
         private IMove TryFindMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType)
-            => FindMoves().SingleOrDefault(a => a.Source == source && a.Destination == destination && (promotionType.HasValue == false || promotionType.Value == promotionType));
+            => FindMoves().SingleOrDefault(a => a.Source == source && a.Destination == destination && (promotionType.HasValue == false || a.Type == promotionType.Value.ToMoveType()));
+
         public bool IsLegalMove(IMove move) => GameIsOver ? false : FindMoves().Contains(move);
 
         public string GetThreatenedBoardDisplay(Player player)
@@ -148,9 +148,15 @@ namespace Arcesoft.Chess.Implementation
         {
             if (_moveHistory?.Any() == false)
             {
-                throw new ChessException(ChessErrorCode.UndoMoveIllegal, 
+                throw new ChessException(ChessErrorCode.UndoMoveIllegal,
                     $"Unable to undo last move because no moves have been made");
             }
+
+            var lastMove = _moveHistory.Last();
+
+            //switch (lastMove.Type)
+            //{
+            //}
         }
 
         #region Private methods
@@ -185,84 +191,6 @@ namespace Arcesoft.Chess.Implementation
                 default:
                     return MoveType.Move;
             }
-        }
-        private bool MakeAuPassantMove(IMove move)
-        {
-            //if the moving piece is a pawn AND the destination is not on the same row (i.e. a capture) AND the destination is empty
-            if ((!move.Source.IsOnSameColumnAs(move.Destination)) &&
-                (_board[move.Source].IsPawn(CurrentPlayer)) &&
-                (_board[move.Destination] == ChessPiece.None))
-            {
-                MovePieceOnBoard(move);
-
-                var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
-                _board[capturedPawnLocation] = ChessPiece.None;
-
-                FinishMove(move);
-
-                return true;
-            }
-
-            return false;
-        }
-        private bool MakeCastleMove(IMove move)
-        {
-            BoardLocation? castlingRookLocation = null;
-            BoardLocation? castlingRookDestination = null;
-
-            if (_board[move.Source].IsKing(CurrentPlayer))
-            {
-                if (move.Source == BoardLocation.E1)
-                {
-                    if (move.Destination == BoardLocation.G1)
-                    {
-                        castlingRookLocation = BoardLocation.H1;
-                        castlingRookDestination = BoardLocation.F1;
-                    }
-                    else if (move.Destination == BoardLocation.C1)
-                    {
-                        castlingRookLocation = BoardLocation.A1;
-                        castlingRookDestination = BoardLocation.D1;
-                    }
-                }
-                else if (move.Source == BoardLocation.E8)
-                {
-                    if (move.Destination == BoardLocation.G8)
-                    {
-                        castlingRookLocation = BoardLocation.H8;
-                        castlingRookDestination = BoardLocation.F8;
-                    }
-                    else if (move.Destination == BoardLocation.C8)
-                    {
-                        castlingRookLocation = BoardLocation.A8;
-                        castlingRookDestination = BoardLocation.D8;
-                    }
-                }
-            }
-
-            if (castlingRookLocation.HasValue)
-            {
-                //move the king
-                MovePieceOnBoard(move);
-
-                //move the rook
-                MovePieceOnBoard(castlingRookLocation.Value, castlingRookDestination.Value);
-
-                FinishMove(move);
-            }
-
-            return castlingRookLocation.HasValue;
-        }
-        private void FinishMove(IMove move)
-        {
-            _moveHistory.Add(move);
-
-            //clear the moves and threats (for caching of next moves)
-            _moves = null;
-            _threatMatrix = null;
-
-            //determine the game state now that this move has been made
-            DetermineGameState();
         }
         private void DetermineGameState()
         {
@@ -338,10 +266,73 @@ namespace Arcesoft.Chess.Implementation
             //we can to assume we have insuficient material
             return true;
         }
-        private void MovePieceOnBoard(IMove move)
+        private void MakeMoveForMoveType(IMove move)
         {
-            _board[move.Destination] = _board[move.Source];
-            _board[move.Source] = ChessPiece.None;
+            switch (move.Type)
+            {
+                //these cases are super simple, just put the new piece on the destination square, done
+                case MoveType.Move:
+                case MoveType.CapturePawn:
+                case MoveType.CaptureKnight:
+                case MoveType.CaptureBishop:
+                case MoveType.CaptureRook:
+                case MoveType.CaptureQueen:
+                    MovePieceOnBoard(move.Source, move.Destination);
+                    break;
+                case MoveType.AuPassant:
+                    //move the pawn
+                    MovePieceOnBoard(move.Source,move.Destination);
+
+                    //remove the capture pawn
+                    var capturedPawnLocation = CurrentPlayer == Player.White ? move.Destination - 1 : move.Destination + 1;
+                    _board[capturedPawnLocation] = ChessPiece.None;
+
+                    break;
+                case MoveType.CastleKingside:
+                    //move the king
+                    MovePieceOnBoard(move.Source, move.Destination);
+
+                    if (CurrentPlayer == Player.White)
+                    {
+                        //move the rook
+                        MovePieceOnBoard(BoardLocation.H1, BoardLocation.F1);
+                    }
+                    else
+                    {
+                        MovePieceOnBoard(BoardLocation.H8, BoardLocation.F8);
+                    }
+                    break;
+                case MoveType.CastleQueenside:
+                    //move the king
+                    MovePieceOnBoard(move.Source, move.Destination);
+
+                    if (CurrentPlayer == Player.White)
+                    {
+                        //move the rook
+                        MovePieceOnBoard(BoardLocation.A1, BoardLocation.D1);
+                    }
+                    else
+                    {
+                        MovePieceOnBoard(BoardLocation.A8, BoardLocation.D8);
+                    }
+                    break;
+                case MoveType.PawnPromotionKnight:
+                    _board[move.Destination] = CurrentPlayer == Player.White ? ChessPiece.WhiteKnight : ChessPiece.BlackKnight;
+                    _board[move.Source] = ChessPiece.None;
+                    break;
+                case MoveType.PawnPromotionBishop:
+                    _board[move.Destination] = CurrentPlayer == Player.White ? ChessPiece.WhiteBishop : ChessPiece.BlackBishop;
+                    _board[move.Source] = ChessPiece.None;
+                    break;
+                case MoveType.PawnPromotionRook:
+                    _board[move.Destination] = CurrentPlayer == Player.White ? ChessPiece.WhiteRook : ChessPiece.BlackRook;
+                    _board[move.Source] = ChessPiece.None;
+                    break;
+                case MoveType.PawnPromotionQueen:
+                    _board[move.Destination] = CurrentPlayer == Player.White ? ChessPiece.WhiteQueen : ChessPiece.BlackQueen;
+                    _board[move.Source] = ChessPiece.None;
+                    break;
+            }
         }
         private void MovePieceOnBoard(BoardLocation source, BoardLocation destination)
         {
@@ -457,8 +448,18 @@ namespace Arcesoft.Chess.Implementation
                 (_board.NeighboringLocationIsEmpty(playerPieceLocation, marchDirection)))
             {
                 var firstMarchLocation = playerPieceLocation.Neighbor(marchDirection).Value;
-                moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.Move));
-
+                var row = firstMarchLocation.Row();
+                if (row == 0 || row == 7)//we can assume this is a pawn promotion
+                {
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.PawnPromotionKnight));
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.PawnPromotionBishop));
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.PawnPromotionRook));
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.PawnPromotionQueen));
+                }
+                else
+                {
+                    moves.Add(new Move(playerPieceLocation, firstMarchLocation, MoveType.Move));
+                }
 
                 //we can also move up two spaces if the next northern square is empty
                 if ((playerPieceLocation.IsPawnStartingLocation(player)) &&
