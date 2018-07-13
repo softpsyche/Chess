@@ -152,11 +152,19 @@ namespace Arcesoft.Chess.Implementation
                     $"Unable to undo last move because no moves have been made");
             }
 
+            //undo this move now
             var lastMove = _moveHistory.Last();
+            
+            UndoLastMoveForMoveType(lastMove);
 
-            //switch (lastMove.Type)
-            //{
-            //}
+            _moveHistory.RemoveAt(_moveHistory.Count - 1);
+
+            //clear the moves and threats (for caching of next moves)
+            _moves = null;
+            _threatMatrix = null;
+
+            //determine the game state now that this move has been made
+            DetermineGameState();
         }
 
         #region Private methods
@@ -331,6 +339,90 @@ namespace Arcesoft.Chess.Implementation
                 case MoveType.PawnPromotionQueen:
                     _board[move.Destination] = CurrentPlayer == Player.White ? ChessPiece.WhiteQueen : ChessPiece.BlackQueen;
                     _board[move.Source] = ChessPiece.None;
+                    break;
+            }
+        }
+        private void UndoLastMoveForMoveType(IMove lastMove)
+        {
+            var playerWhoMadeMove = CurrentPlayer.OpposingPlayer();
+
+            switch (lastMove.Type)
+            {
+                case MoveType.Move:
+                    //simply undo the move
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    break;
+                case MoveType.CapturePawn:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    _board[lastMove.Destination] = playerWhoMadeMove == Player.White ? ChessPiece.BlackPawn : ChessPiece.WhitePawn;
+                    break;
+                case MoveType.CaptureKnight:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    _board[lastMove.Destination] = playerWhoMadeMove == Player.White ? ChessPiece.BlackKnight : ChessPiece.WhiteKnight;
+                    break;
+                case MoveType.CaptureBishop:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    _board[lastMove.Destination] = playerWhoMadeMove == Player.White ? ChessPiece.BlackBishop : ChessPiece.WhiteBishop;
+                    break;
+                case MoveType.CaptureRook:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    _board[lastMove.Destination] = playerWhoMadeMove == Player.White ? ChessPiece.BlackRook : ChessPiece.WhiteRook;
+                    break;
+                case MoveType.CaptureQueen:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+                    _board[lastMove.Destination] = playerWhoMadeMove == Player.White ? ChessPiece.BlackQueen : ChessPiece.WhiteQueen;
+                    break;
+                case MoveType.AuPassant:
+                    MovePieceOnBoard(lastMove.Destination, lastMove.Source);
+
+                    //resurrect the captured pawn
+                    var capturedPawnLocation = playerWhoMadeMove == Player.White ? lastMove.Destination - 1 : lastMove.Destination + 1;
+                    _board[capturedPawnLocation] = playerWhoMadeMove == Player.White ? ChessPiece.BlackPawn : ChessPiece.WhitePawn;
+                    break;
+                case MoveType.PawnPromotionBishop:
+                case MoveType.PawnPromotionKnight:
+                case MoveType.PawnPromotionRook:
+                case MoveType.PawnPromotionQueen:
+                    _board[lastMove.Destination] = ChessPiece.None;
+                    _board[lastMove.Source] = playerWhoMadeMove == Player.White ? ChessPiece.WhitePawn : ChessPiece.BlackPawn;
+                    break;
+                case MoveType.CastleKingside:
+                    if (playerWhoMadeMove == Player.White)
+                    {
+                        //white castle occurred
+                        _board[BoardLocation.E1] = ChessPiece.WhiteKing;
+                        _board[BoardLocation.F1] = ChessPiece.None;
+                        _board[BoardLocation.G1] = ChessPiece.None;
+                        _board[BoardLocation.H1] = ChessPiece.WhiteRook;
+                    }
+                    else
+                    {
+                        //black castle occurred
+                        _board[BoardLocation.E8] = ChessPiece.BlackKing;
+                        _board[BoardLocation.F8] = ChessPiece.None;
+                        _board[BoardLocation.G8] = ChessPiece.None;
+                        _board[BoardLocation.H8] = ChessPiece.BlackRook;
+                    }
+                     
+                    break;
+                case MoveType.CastleQueenside:
+                    if (playerWhoMadeMove == Player.White)
+                    {
+                        //white castle occurred
+                        _board[BoardLocation.E1] = ChessPiece.WhiteKing;
+                        _board[BoardLocation.C1] = ChessPiece.None;
+                        _board[BoardLocation.D1] = ChessPiece.None;
+                        _board[BoardLocation.A1] = ChessPiece.WhiteRook;
+                    }
+                    else
+                    {
+                        //black castle occurred
+                        _board[BoardLocation.E8] = ChessPiece.BlackKing;
+                        _board[BoardLocation.C8] = ChessPiece.None;
+                        _board[BoardLocation.D8] = ChessPiece.None;
+                        _board[BoardLocation.A8] = ChessPiece.BlackRook;
+                    }
+                    
                     break;
             }
         }

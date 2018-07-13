@@ -12450,7 +12450,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("queen", "PawnPromotionQue
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack(string testName, string type, string a8, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack(string testName, string type, string a1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion move for black", exampleTags);
 #line 2063
@@ -12531,7 +12531,7 @@ this.FeatureBackground();
                         "",
                         ""});
             table201.AddRow(new string[] {
-                        "<A1>",
+                        string.Format("{0}", a1),
                         "",
                         "",
                         "",
@@ -12659,7 +12659,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionKnight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Knight()
         {
 #line 2063
@@ -12674,7 +12674,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("knight", "PawnPromotionKn
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionBishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Bishop()
         {
 #line 2063
@@ -12689,7 +12689,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("bishop", "PawnPromotionBi
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionRook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BR")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BR")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Rook()
         {
 #line 2063
@@ -12704,7 +12704,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("rook", "PawnPromotionRook
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionQueen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Queen()
         {
 #line 2063
@@ -13222,7 +13222,7 @@ this.FeatureBackground();
                         "Move"});
             table211.AddRow(new string[] {
                         "B4",
-                        "B3",
+                        "A3",
                         "AuPassant"});
 #line 2168
  testRunner.Given("I have the following move history", ((string)(null)), table211, "Given ");

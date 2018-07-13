@@ -2090,7 +2090,7 @@ Scenario Outline: Undo last move should undo a pawn promotion move for black
         | BP |   |   |   |   |   |   |    |
         |    |   |   |   |   |   |   | WK |
 	Examples: 
-		| TestName | Type          | A8 |
+		| TestName | Type                | A1 |
 		| knight   | PawnPromotionKnight | BN |
 		| bishop   | PawnPromotionBishop | BB |
 		| rook     | PawnPromotionRook   | BR |
@@ -2168,7 +2168,7 @@ Scenario: Undo last move should undo an au passant southwest move for black
 	Given I have the following move history
         | Source | Destination | Type      |
         | A1     | A1          | Move      |
-        | B4     | B3          | AuPassant |
+        | B4     | A3          | AuPassant |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
