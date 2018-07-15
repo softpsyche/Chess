@@ -100,14 +100,16 @@ namespace Arcesoft.Chess.Implementation
             }
 
             var moves = new List<Move>();
+            
+            //get threats against current player
+            var threats = _threatProvider.FindThreatsForPlayer(_board, CurrentPlayer);
+            _threatMatrix = threats;
+
             if (GameIsOver)
             {
                 _moves = moves;
                 return moves;
             }
-
-            //get threats against current player
-            var threats = _threatProvider.FindThreatsForPlayer(_board, CurrentPlayer);
 
             //find da man and
             //find if any chumps be threatenin da man
@@ -137,9 +139,8 @@ namespace Arcesoft.Chess.Implementation
                 }
             }
 
-            //cache the moves and threats
+            //cache the moves
             _moves = moves;
-            _threatMatrix = threats;
 
             //return list of available moves
             return moves;
@@ -154,7 +155,7 @@ namespace Arcesoft.Chess.Implementation
             }
 
             //undo this move now
-            var lastMove = _moveHistory.Last();
+            var lastMove = _moveHistory[_moveHistory.Count - 1];
             
             UndoLastMoveForMoveType(lastMove);
 
@@ -164,8 +165,10 @@ namespace Arcesoft.Chess.Implementation
             _moves = null;
             _threatMatrix = null;
 
-            //determine the game state now that this move has been made
-            DetermineGameState();
+            //we put the game back into play. We KNOW we can do this because we are
+            //UNDOING a previous move which means the game MUST have been in play in order to allow the move
+            //to be made in the first place.
+            GameState = GameState.InPlay;
         }
 
         #region Private methods

@@ -1,6 +1,7 @@
 ﻿using Arcesoft.Chess.Models;
 using Arcesoft.Chess.Models.Internal;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -247,6 +248,12 @@ namespace Arcesoft.Chess.Implementation
             return newBoard;
         }
 
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _board.GetEnumerator();
+        }
+        #endregion
         #region Static methods
         static Board()
         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Arcesoft.Chess.DependencyInjection
 {
-    public class Binder : IBinder
+    public class Binder
     {
         public void BindDependencies(Container container)
         {

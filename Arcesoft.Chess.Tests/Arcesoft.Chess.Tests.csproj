@@ -78,6 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtificialIntelligence.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArtificialIntelligence.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ArtificialIntelligenceSteps.cs" />
     <Compile Include="AssemblyExensions.cs" />
     <Compile Include="CommonSteps.cs" />
     <Compile Include="Extensions.cs" />
@@ -98,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ArtificialIntelligence.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ArtificialIntelligence.feature.cs</LastGenOutput>
+    </None>
     <None Include="Game.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Game.feature.cs</LastGenOutput>
@@ -115,6 +125,10 @@
     <EmbeddedResource Include="Resources\nobody_has_aupassant.pgn" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Arcesoft.Chess.ArtificialIntelligence\Arcesoft.Chess.ArtificialIntelligence.csproj">
+      <Project>{d32adaa0-e165-4ed7-a9fb-8ed082ada913}</Project>
+      <Name>Arcesoft.Chess.ArtificialIntelligence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Arcesoft.Chess\Arcesoft.Chess.csproj">
       <Project>{0F8C4C2C-F905-4CE7-8007-71C7E123F172}</Project>
       <Name>Arcesoft.Chess</Name>

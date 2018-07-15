@@ -24,7 +24,8 @@ namespace Arcesoft.Chess.Tests
             var container = new Container();
             container.Options.AllowOverridingRegistrations = true;
 
-            new DependencyInjection.Binder().BindDependencies(container);
+            new Chess.DependencyInjection.Binder().BindDependencies(container);
+            new ArtificialIntelligence.DependencyInjection.Binder().BindDependencies(container);
 
             //this locks the container so no tx for us...
             //container.Verify();
