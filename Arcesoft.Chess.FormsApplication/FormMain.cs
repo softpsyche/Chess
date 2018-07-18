@@ -1,4 +1,5 @@
-﻿using Arcesoft.Chess.Implementation;
+﻿using Arcesoft.Chess.ArtificialIntelligence;
+using Arcesoft.Chess.Implementation;
 using Arcesoft.Chess.Models;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,25 @@ namespace Arcesoft.Chess.FormsApplication
 {
     public partial class FormMain : Form
     {
-        public FormMain()
+        SimpleInjector.Container IocContainer { get; }
+        private IGameFactory _gameFactory;
+        private IGame _game;
+        private IArtificialIntelligence _artificialIntelligence;
+
+        public FormMain(SimpleInjector.Container container)
         {
             InitializeComponent();
+
+            IocContainer = container;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DoIt();
+            _gameFactory = IocContainer.GetInstance<IGameFactory>();
+            _game = _gameFactory.NewGame();
+            _artificialIntelligence = IocContainer.GetInstance<IArtificialIntelligence>();
+
+            uxChessBoardMain.setChessGame(_game);
         }
 
         private void DoIt()

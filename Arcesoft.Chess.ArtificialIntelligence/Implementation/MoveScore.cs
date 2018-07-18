@@ -21,6 +21,11 @@ namespace Arcesoft.Chess.ArtificialIntelligence.Implementation
             Score = score;
         }
 
+        public override string ToString()
+        {
+            return $"{Move?.ToString()} ({Score.ToString("0000")})";
+        }
+
         public static MoveScore WorstMoveScore = new MoveScore(null, WorstScore);
         public static MoveScore WinningMoveScore(IMove move) => new MoveScore(move, WinScore);
         public static MoveScore LosingMoveScore(IMove move) => new MoveScore(move, LoseScore);

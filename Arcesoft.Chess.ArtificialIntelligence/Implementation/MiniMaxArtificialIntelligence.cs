@@ -38,7 +38,9 @@ namespace Arcesoft.Chess.ArtificialIntelligence.Implementation
             miniMaxGraph.Root.BoardVisual = game.Board.ToString();
             miniMaxGraph.Root.PlayerWhoScoreIsFor = game.CurrentPlayer;
 
-            return CalculateBestMoveScore(game, depth, miniMaxGraph.Root).Move;
+            var bestMove = CalculateBestMoveScore(game, depth, miniMaxGraph.Root).Move;
+
+            return bestMove;
         }
 
         #region Private
@@ -77,32 +79,41 @@ namespace Arcesoft.Chess.ArtificialIntelligence.Implementation
                         break;
                 }
 
-                currentNode.Score = result;
+                if (currentNode != null)
+                {
+                    currentNode.Score = result;
+                }
                 return result;
             }
 
             MoveScore currentMoveScore;
             MoveScore bestMoveScore = MoveScore.WorstMoveScore;
             var moves = game.FindMoves();
+            Node childNode = null;
 
             foreach (var move in moves)
             {
                 game.MakeMove(move);
 
                 //add a child node to our AI graph if we have one
-                currentNode?.Children.Add(new Node
+                if (currentNode != null)
                 {
-                    Parent = currentNode,
-                    Score = null,
-                    BoardVisual = game.Board.ToString(),
-                    PlayerWhoScoreIsFor = game.CurrentPlayer.OpposingPlayer()
-                });
+                    childNode = new Node
+                    {
+                        Parent = currentNode,
+                        Score = null,
+                        BoardVisual = game.Board.ToString(),
+                        PlayerWhoScoreIsFor = game.CurrentPlayer.OpposingPlayer()
+                    };
 
-                currentMoveScore = CalculateBestMoveScore(game, depth - 1, currentNode?.Children.Last());
+                    currentNode?.Children.Add(childNode);
+                }
+                             
+                currentMoveScore = CalculateBestMoveScore(game, depth - 1, childNode);
 
                 if (currentMoveScore.Score > bestMoveScore.Score)
                 {
-                    bestMoveScore = currentMoveScore;
+                    bestMoveScore = new MoveScore(move, currentMoveScore.Score);
                 }
 
                 game.UndoLastMove();
@@ -110,9 +121,7 @@ namespace Arcesoft.Chess.ArtificialIntelligence.Implementation
 
             if (currentNode != null)
             {
-                currentNode.Score = new MoveScore(
-                    game.MoveHistory.LastOrDefault(),
-                    bestMoveScore.Score);
+                currentNode.Score = bestMoveScore;
             }
 
             return bestMoveScore;

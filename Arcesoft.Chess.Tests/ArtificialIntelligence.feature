@@ -31,11 +31,11 @@ Scenario: Artificial intelligence should find mate in one for white
 		|    |   |   |   |   |   |   |    |
 		| WK |   |   |   |   |   |   | WR |
 	When I have the AI calculate the best move to a depth of '1'
-	Then I expect the best moves found to contain
+	Then I expect the best move found to be
          | Source | Destination | Type |
          | H1     | H8          | Move |
 
-Scenario: Artificial intelligence should find mate in three for white
+Scenario: Artificial intelligence should find mate in three for white (rook mate)
 	Given I start a new game in the following state
 		| A  | B  | C  | D  | E  | F  | G  | H |
 		| BK |    |    |    |    |    |    |   |
@@ -50,6 +50,26 @@ Scenario: Artificial intelligence should find mate in three for white
 	Then I expect the best move found to be
          | Source | Destination | Type |
          | B1     | H1          | Move |
+
+Scenario: Artificial intelligence should find mate in three for white (knight mate)
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F | G  | H  |
+		|   |   |   |   | WK |   |    | BK |
+		|   |   |   |   |    |   |    | BP |
+		|   |   |   |   |    |   |    | WP |
+		|   |   |   |   | WN |   |    |    |
+		|   |   |   |   |    |   | WN |    |
+		|   |   |   |   |    |   |    |    |
+		|   |   |   |   |    |   |    |    |
+		|   |   |   |   |    |   |    |    |
+	Given I have the following move history
+         | Source | Destination | Type |
+		 | E1     | D1          | Move |
+		 | E8     | D8          | Move |
+	When I have the AI calculate the best move to a depth of '3'
+	Then I expect the best move found to be
+         | Source | Destination | Type |
+         | E5     | F7          | Move |
 
 
 #	Winning moves:
@@ -72,7 +92,7 @@ Scenario: Artificial intelligence should find mate in Five moves for black
 		| WR | WN |    | BR |    |    |    |   |
 	Given Its blacks turn
 	When I have the AI calculate the best move to a depth of '4'
-	Then I expect the best moves found to contain
+	Then I expect the best move found to be
          | Source | Destination | Type |
          |        |             |      |
 

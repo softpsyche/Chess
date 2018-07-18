@@ -202,18 +202,18 @@ this.FeatureBackground();
                         "H8",
                         "Move"});
 #line 34
- testRunner.Then("I expect the best moves found to contain", ((string)(null)), table2, "Then ");
+ testRunner.Then("I expect the best move found to be", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Artificial intelligence should find mate in three for white")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Artificial intelligence should find mate in three for white (rook mate)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ArtificialIntelligence")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        public virtual void ArtificialIntelligenceShouldFindMateInThreeForWhite()
+        public virtual void ArtificialIntelligenceShouldFindMateInThreeForWhiteRookMate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in three for white", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in three for white (rook mate)", ((string[])(null)));
 #line 38
 this.ScenarioSetup(scenarioInfo);
 #line 16
@@ -320,15 +320,13 @@ this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Artificial intelligence should find mate in Five moves for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Artificial intelligence should find mate in three for white (knight mate)")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ArtificialIntelligence")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.IgnoreAttribute()]
-        public virtual void ArtificialIntelligenceShouldFindMateInFiveMovesForBlack()
+        public virtual void ArtificialIntelligenceShouldFindMateInThreeForWhiteKnightMate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in Five moves for black", new string[] {
-                        "ignore"});
-#line 62
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in three for white (knight mate)", ((string[])(null)));
+#line 54
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -343,6 +341,135 @@ this.FeatureBackground();
                         "G",
                         "H"});
             table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "BK"});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "BP"});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP"});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WN",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WN",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 55
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table5, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Type"});
+            table6.AddRow(new string[] {
+                        "E1",
+                        "D1",
+                        "Move"});
+            table6.AddRow(new string[] {
+                        "E8",
+                        "D8",
+                        "Move"});
+#line 65
+ testRunner.Given("I have the following move history", ((string)(null)), table6, "Given ");
+#line 69
+ testRunner.When("I have the AI calculate the best move to a depth of \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Source",
+                        "Destination",
+                        "Type"});
+            table7.AddRow(new string[] {
+                        "E5",
+                        "F7",
+                        "Move"});
+#line 70
+ testRunner.Then("I expect the best move found to be", ((string)(null)), table7, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Artificial intelligence should find mate in Five moves for black")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ArtificialIntelligence")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.IgnoreAttribute()]
+        public virtual void ArtificialIntelligenceShouldFindMateInFiveMovesForBlack()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in Five moves for black", new string[] {
+                        "ignore"});
+#line 82
+this.ScenarioSetup(scenarioInfo);
+#line 16
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E",
+                        "F",
+                        "G",
+                        "H"});
+            table8.AddRow(new string[] {
                         "BR",
                         "",
                         "",
@@ -351,7 +478,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "BP",
                         "BP",
                         "BP",
@@ -360,7 +487,7 @@ this.FeatureBackground();
                         "BP",
                         "BP",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "",
                         "",
                         "BN",
@@ -369,7 +496,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -378,7 +505,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "",
                         "",
                         "WB",
@@ -387,7 +514,7 @@ this.FeatureBackground();
                         "",
                         "BN",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -396,7 +523,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "WP",
                         "WP",
                         "WP",
@@ -405,7 +532,7 @@ this.FeatureBackground();
                         "BP",
                         "WP",
                         ""});
-            table5.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "WR",
                         "WN",
                         "",
@@ -414,23 +541,23 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 63
- testRunner.Given("I start a new game in the following state", ((string)(null)), table5, "Given ");
-#line 73
+#line 83
+ testRunner.Given("I start a new game in the following state", ((string)(null)), table8, "Given ");
+#line 93
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 74
+#line 94
  testRunner.When("I have the AI calculate the best move to a depth of \'4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
                         "Type"});
-            table6.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "",
                         "",
                         ""});
-#line 75
- testRunner.Then("I expect the best moves found to contain", ((string)(null)), table6, "Then ");
+#line 95
+ testRunner.Then("I expect the best move found to be", ((string)(null)), table9, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
