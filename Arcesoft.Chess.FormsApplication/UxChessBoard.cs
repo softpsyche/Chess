@@ -147,20 +147,25 @@ namespace Arcesoft.Chess.FormsApplication
         private void DrawMovingPiece(System.Windows.Forms.PaintEventArgs e, Graphics surface)
         {
             if (MovingPiece != ChessPiece.None)
-                surface.DrawImage(imageList32.Images[(int)MovingPiece],
+                surface.DrawImage(imageList32.Images[ToImageIndex(MovingPieceBoardLocation)],
                     mousex - 16, mousey - 16, 32, 32);
         }
         private void DrawSquares(System.Windows.Forms.PaintEventArgs e, Graphics surface)
         {
+            List<BoardLocation> listy = new List<BoardLocation>();
+
             //draws board from top to bottom
-            for (int count = 0; count < 8; count++)
+            for (int xPosition = 0; xPosition < 8; xPosition++)
             {
-                for (int count2 = 0; count2 < 8; count2++)
+                for (int yPosition = 0; yPosition < 8; yPosition++)
                 {
-                    DrawSquare(e, surface, ToBoardLocation(count, count2),
-                        count * 64, count2 * 64);
+                    listy.Add(ToBoardLocation(xPosition, yPosition));
+                    DrawSquare(e, surface, ToBoardLocation(xPosition, yPosition),
+                        xPosition * 64, yPosition * 64);
                 }
             }
+
+            var yo = 34;
         }
         private void DrawSquare(System.Windows.Forms.PaintEventArgs e, Graphics surface,
             BoardLocation boardLocation, int x, int y)
@@ -190,7 +195,7 @@ namespace Arcesoft.Chess.FormsApplication
                 surface.DrawString(Convert.ToString((boardLocation.Row() + 1)), Font,
                     BlackBoardTextbrush, x + 3, y + 25);
             }        
-            if (boardLocation.Row()== 7)
+            if (boardLocation.Row()== 0)
             {//ascii A=65
                 surface.DrawString(Convert.ToChar(65 + boardLocation.Column()).ToString(), Font,
                     BlackBoardTextbrush, x + 27, y + 48);
@@ -357,7 +362,12 @@ namespace Arcesoft.Chess.FormsApplication
 
         private BoardLocation ToBoardLocation(int boardX, int boardY)
         {
-            return BoardLocation.A1;
+            //left to right increments ok
+            var column = Convert.ToChar(65 + boardX).ToString();
+            //unfortunately top to bottom is inverted so we need to flip it for the y-axis
+            boardY = Math.Abs(boardY - 7);
+
+            return (BoardLocation)Enum.Parse(typeof(BoardLocation), $"{column}{(boardY + 1)}");
         }
         #endregion
     }
