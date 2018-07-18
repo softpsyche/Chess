@@ -307,7 +307,14 @@ namespace Arcesoft.Chess.FormsApplication
                     {//we are finishing a move...
                         var destination = ToBoardLocation(boardx, boardy);
 
-                        Game.MakeMove(MovingPieceBoardLocation, destination);
+                        if (Game.IsLegalMove(MovingPieceBoardLocation, destination))
+                        {
+                            Game.MakeMove(MovingPieceBoardLocation, destination);
+                        }
+                        else
+                        {
+                            //invalid move, notify??
+                        }
 
                         MovingPiecePossibleMoves = null;
                         Invalidate();
