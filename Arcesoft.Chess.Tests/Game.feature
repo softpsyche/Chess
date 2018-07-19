@@ -1256,7 +1256,26 @@ Scenario: Make move should correctly capture for black
          |   |   |   |   |    |   |   |    |
          |   |   |   |   | WK |   |   | BR |
 
-Scenario Outline: Make move should correctly promote pawn for white to
+Scenario: Make move should report an illegal move for a pawn promotion without promotion specified
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F | G | H  |
+		|   |   |   |   | BK |   |   |    |
+		|   |   |   |   |    |   |   | WP |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   |    |   |   |    |
+		|   |   |   |   | WK |   |   |    |
+	Given I expect an exception to be thrown
+	When I make the following move
+         | Source | Destination |
+         | H7     | H8          |
+	Then I expect the following Exception to be thrown
+		| ErrorCode   | Message                                        |
+		| IllegalMove | The move is not valid because it is not legal. |
+
+Scenario Outline: Make move should correctly promote pawn for white move to
 	Given I start a new game in the following state
 		| A | B | C | D | E  | F | G | H  |
 		|   |   |   |   | BK |   |   |    |
@@ -1287,7 +1306,7 @@ Scenario Outline: Make move should correctly promote pawn for white to
 		| Rook          | WR |
 		| Queen         | WQ |
 
-Scenario Outline: Make move should correctly promote pawn for black to
+Scenario Outline: Make move should correctly promote pawn for black move to
 	Given I start a new game in the following state
 		| A | B | C | D | E  | F | G | H  |
 		|   |   |   |   | BK |   |   |    |
@@ -1321,6 +1340,70 @@ Scenario Outline: Make move should correctly promote pawn for black to
 		| Rook          | BR |
 		| Queen         | BQ |
 
+Scenario Outline: Make move should correctly promote pawn for white capture to
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F  | G  | H  |
+		|   |   |   |   | BK | BN |    | BN |
+		|   |   |   |   |    |    | WP |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   | WK |    |    |    |
+	When I make the following move
+         | Source | Destination   | PromotionType   |
+         | H7     | <Destination> | <PromotionType> |
+	Then I expect the current board to contain the following
+         | A | B | C | D | E  | F    | G | H    |
+         |   |   |   |   | BK | <F8> |   | <H8> |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   | WK |      |   |      |
+	Examples: 
+		| PromotionType | Destination | H8 | F8 |
+		| Knight        | H8          | WN | BN |
+		| Bishop        | F8          | BN | WB |
+		| Rook          | H8          | WR | BN |
+		| Queen         | F8          | BN | WQ |
+
+Scenario Outline: Make move should correctly promote pawn for black capture to
+	Given I start a new game in the following state
+		| A | B | C | D | E  | F  | G  | H  |
+		|   |   |   |   | BK |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    |    |    |
+		|   |   |   |   |    |    | BP |    |
+		|   |   |   |   | WK | WN |    | WN |
+	Given I have the following move history
+         | Source | Destination | Type |
+         | H4     | H4          | Move |
+	When I make the following move
+         | Source | Destination   | PromotionType   |
+         | H2     | <Destination> | <PromotionType> |
+	Then I expect the current board to contain the following
+         | A | B | C | D | E  | F    | G | H    |
+         |   |   |   |   | BK |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   |    |      |   |      |
+         |   |   |   |   | WK | <F1> |   | <H1> |
+	Examples: 
+		| PromotionType | Destination | F1 | H1 |
+		| Knight        | H1          | WN | BN |
+		| Bishop        | F1          | BB | WN |
+		| Rook          | H1          | WN | BR |
+		| Queen         | F1          | BQ | WN |
 
 Scenario Outline: Make move should not allow a move if the gamestate is in
 	Given I start a new game
@@ -2095,6 +2178,77 @@ Scenario Outline: Undo last move should undo a pawn promotion move for black
 		| bishop   | PawnPromotionBishop | BB |
 		| rook     | PawnPromotionRook   | BR |
 		| queen    | PawnPromotionQueen  | BQ |
+
+Scenario Outline: Undo last move should undo a pawn promotion capture for white
+	Given I start a new game in the following state
+		| A    | B | C    | D | E | F | G | H  |
+		| <A8> |   | <C8> |   |   |   |   | BK |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination   | Type   |
+        | A7     | <Destination> | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'White'
+	Then I expect the current board to contain the following
+        | A  | B  | C  | D | E | F | G | H  |
+        | BN |    | BN |   |   |   |   | BK |
+        |    | WP |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   | WK |
+	Examples: 
+		| TestName | Type                | Destination | A8 | C8 |
+		| knight   | PawnPromotionKnight | A8          | WN | BN |
+		| bishop   | PawnPromotionBishop | C8          | BN | WB |
+		| rook     | PawnPromotionRook   | A8          | WR | BN |
+		| queen    | PawnPromotionQueen  | C8          | BN | WQ |
+
+Scenario Outline: Undo last move should undo a pawn promotion capture for black
+	Given I start a new game in the following state
+		| A    | B | C    | D | E | F | G | H  |
+		|      |   |      |   |   |   |   | BK |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		|      |   |      |   |   |   |   |    |
+		| <A1> |   | <C1> |   |   |   |   | WK |
+	Given I have the following move history
+        | Source | Destination   | Type   |
+        | A4     | A4            | Move   |
+        | A2     | <Destination> | <Type> |
+	When I undo the last move
+	Then I expect the game to not be over
+	Then I expect the gamestate to be 'InPlay'
+	Then I expect the current player is 'Black'
+	Then I expect the current board to contain the following
+        | A  | B  | C  | D | E | F | G | H  |
+        |    |    |    |   |   |   |   | BK |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    |    |    |   |   |   |   |    |
+        |    | BP |    |   |   |   |   |    |
+        | WN |    | WN |   |   |   |   | WK |
+	Examples: 
+		| TestName | Type                | Destination | A1 | C1 |
+		| knight   | PawnPromotionKnight | A1          | BN | WN |
+		| bishop   | PawnPromotionBishop | C1          | WN | BB |
+		| rook     | PawnPromotionRook   | A1          | BR | WN |
+		| queen    | PawnPromotionQueen  | C1          | WN | BQ |
 
 Scenario: Undo last move should undo an au passant northwest move for white
 	Given I start a new game in the following state

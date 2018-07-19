@@ -4,20 +4,21 @@ using System.Text;
 
 namespace Arcesoft.Chess.Models
 {
-    public enum MoveType : byte
+    [Flags]
+    public enum MoveType : int
     {
-        Move = 0,
-        CapturePawn = 1,
-        CaptureKnight = 2,
-        CaptureBishop = 3,
-        CaptureRook = 4,
-        CaptureQueen = 5,
-        PawnPromotionKnight = 10,
-        PawnPromotionBishop = 11,
-        PawnPromotionRook = 12,
-        PawnPromotionQueen = 13,
-        AuPassant= 20,
-        CastleKingside = 30,
-        CastleQueenside = 31
+        Move = 1,
+        CapturePawn = 2,
+        CaptureKnight = 4,
+        CaptureBishop = 8,
+        CaptureRook = 16,
+        CaptureQueen = 32,
+        PawnPromotionKnight = 64,
+        PawnPromotionBishop = 128,
+        PawnPromotionRook = 256,
+        PawnPromotionQueen = 512,
+        AuPassant = 1024,
+        CastleKingside = 2048,
+        CastleQueenside = 4096         
     }
 }

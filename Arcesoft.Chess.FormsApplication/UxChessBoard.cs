@@ -306,10 +306,22 @@ namespace Arcesoft.Chess.FormsApplication
                     else
                     {//we are finishing a move...
                         var destination = ToBoardLocation(boardx, boardy);
+                        var availableMoves = MovingPiecePossibleMoves
+                            .Where(a => a.Destination == destination)
+                            .ToList();
 
-                        if (Game.IsLegalMove(MovingPieceBoardLocation, destination))
+                        if (availableMoves.Count == 1)
                         {
                             Game.MakeMove(MovingPieceBoardLocation, destination);
+                        }
+                        else if (availableMoves.Count > 1)
+                        {
+                            var promotion = DlgPawnPromotion.PromotePawn(Game.CurrentPlayer);
+
+                            if (promotion.HasValue)
+                            {
+                                Game.MakeMove(MovingPieceBoardLocation, destination, promotion);
+                            }
                         }
                         else
                         {

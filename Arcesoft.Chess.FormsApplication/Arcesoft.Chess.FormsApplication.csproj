@@ -54,7 +54,7 @@
     <Compile Include="UxChessBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="dlgPawnPromotion.cs">
+    <Compile Include="DlgPawnPromotion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -65,8 +65,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="dlgPawnPromotion.resx">
-      <DependentUpon>dlgPawnPromotion.cs</DependentUpon>
+    <EmbeddedResource Include="DlgPawnPromotion.resx">
+      <DependentUpon>DlgPawnPromotion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

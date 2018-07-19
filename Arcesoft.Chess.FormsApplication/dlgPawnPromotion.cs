@@ -6,66 +6,63 @@ using System.Windows.Forms;
 using Arcesoft.Chess;
 using Arcesoft.Chess.Models;
 
-namespace Chess
+namespace Arcesoft.Chess.FormsApplication
 {
-	/// <summary>
-	/// Summary description for frmPawnPromotion.
-	/// </summary>
-	public class dlgPawnPromotion : System.Windows.Forms.Form
-	{
-		private IGame chessGame;
+    /// <summary>
+    /// Summary description for frmPawnPromotion.
+    /// </summary>
+    public class DlgPawnPromotion : System.Windows.Forms.Form
+    {
+        private Player _player;
 
 
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.RadioButton rdoQueen;
-		private System.Windows.Forms.PictureBox pbxQueen;
-		private System.Windows.Forms.PictureBox pbxRook;
-		private System.Windows.Forms.PictureBox pbxBishop;
-		private System.Windows.Forms.PictureBox pbxKnight;
-		private System.Windows.Forms.Button btnOk;
-		private System.Windows.Forms.RadioButton rdoRook;
-		private System.Windows.Forms.RadioButton rdoBishop;
-		private System.Windows.Forms.RadioButton rdoKnight;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdoQueen;
+        private System.Windows.Forms.PictureBox pbxQueen;
+        private System.Windows.Forms.PictureBox pbxRook;
+        private System.Windows.Forms.PictureBox pbxBishop;
+        private System.Windows.Forms.PictureBox pbxKnight;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.RadioButton rdoRook;
+        private System.Windows.Forms.RadioButton rdoBishop;
+        private System.Windows.Forms.RadioButton rdoKnight;
         public ImageList imageList32;
         private System.ComponentModel.IContainer components;
 
-		public dlgPawnPromotion(IGame chessGame)
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        public DlgPawnPromotion(Player player)
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-			this.chessGame = chessGame;
-		}
+            _player = player;
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dlgPawnPromotion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DlgPawnPromotion));
             this.btnOk = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdoKnight = new System.Windows.Forms.RadioButton();
@@ -217,31 +214,31 @@ namespace Chess
             ((System.ComponentModel.ISupportInitialize)(this.pbxKnight)).EndInit();
             this.ResumeLayout(false);
 
-		}
-		#endregion
+        }
+        #endregion
 
-		private void frmPawnPromotion_Load(object sender, System.EventArgs e)
-		{
-			this.drawChoices();
-		}
+        private void frmPawnPromotion_Load(object sender, System.EventArgs e)
+        {
+            this.drawChoices();
+        }
 
-		private void drawChoices()
-		{
-			if(chessGame.CurrentPlayer == Arcesoft.Chess.Models.Player.Black)
-			{
-				pbxKnight.Image	= this.imageList32.Images[ToImageIndex(ChessPiece.BlackKnight)];
-				pbxBishop.Image	= this.imageList32.Images[ToImageIndex(ChessPiece.BlackBishop)];
-				pbxRook.Image		= this.imageList32.Images[ToImageIndex(ChessPiece.BlackRook)];
-				pbxQueen.Image		= this.imageList32.Images[ToImageIndex(ChessPiece.BlackQueen)];
-			}
-			else
-			{
+        private void drawChoices()
+        {
+            if (_player == Player.Black)
+            {
+                pbxKnight.Image = this.imageList32.Images[ToImageIndex(ChessPiece.BlackKnight)];
+                pbxBishop.Image = this.imageList32.Images[ToImageIndex(ChessPiece.BlackBishop)];
+                pbxRook.Image = this.imageList32.Images[ToImageIndex(ChessPiece.BlackRook)];
+                pbxQueen.Image = this.imageList32.Images[ToImageIndex(ChessPiece.BlackQueen)];
+            }
+            else
+            {
                 pbxKnight.Image = this.imageList32.Images[ToImageIndex(ChessPiece.WhiteKnight)];
                 pbxBishop.Image = this.imageList32.Images[ToImageIndex(ChessPiece.WhiteBishop)];
                 pbxRook.Image = this.imageList32.Images[ToImageIndex(ChessPiece.WhiteRook)];
                 pbxQueen.Image = this.imageList32.Images[ToImageIndex(ChessPiece.WhiteQueen)];
             }
-		}
+        }
 
         private int ToImageIndex(ChessPiece chessPiece)
         {
@@ -277,28 +274,56 @@ namespace Chess
         }
 
         private void btnOk_Click(object sender, System.EventArgs e)
-		{
-			this.DialogResult = DialogResult.OK;
-		}
+        {
+            this.DialogResult = DialogResult.OK;
+        }
 
-		private void pbxRook_Click(object sender, System.EventArgs e)
-		{
-			this.rdoRook.Checked = true;
-		}
+        private void pbxRook_Click(object sender, System.EventArgs e)
+        {
+            this.rdoRook.Checked = true;
+        }
 
-		private void pbxQueen_Click(object sender, System.EventArgs e)
-		{
-			this.rdoQueen.Checked =true;
-		}
+        private void pbxQueen_Click(object sender, System.EventArgs e)
+        {
+            this.rdoQueen.Checked = true;
+        }
 
-		private void pbxBishop_Click(object sender, System.EventArgs e)
-		{
-			this.rdoBishop.Checked=true;
-		}
+        private void pbxBishop_Click(object sender, System.EventArgs e)
+        {
+            this.rdoBishop.Checked = true;
+        }
 
-		private void pbxKnight_Click(object sender, System.EventArgs e)
-		{
-			this.rdoKnight.Checked =true;
-		}
-	}
+        private void pbxKnight_Click(object sender, System.EventArgs e)
+        {
+            this.rdoKnight.Checked = true;
+        }
+
+        public PawnPromotionType SelectedPawnPromotion
+        {
+            get
+            {
+                if (rdoKnight.Checked)
+                    return PawnPromotionType.Knight;
+                else if (rdoBishop.Checked)
+                    return PawnPromotionType.Bishop;
+                else if (rdoRook.Checked)
+                    return PawnPromotionType.Rook;
+                else
+                    return PawnPromotionType.Queen;
+            }
+        }
+
+        public static PawnPromotionType? PromotePawn(Player player)
+        {
+            using (var dialog = new DlgPawnPromotion(player))
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    return dialog.SelectedPawnPromotion;
+                }
+            }
+
+            return null;
+        }
+    }
 }

@@ -1,5 +1,4 @@
-﻿using Chess;
-
+﻿
 namespace Arcesoft.Chess.FormsApplication
 {
     partial class FormMain

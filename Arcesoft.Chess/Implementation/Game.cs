@@ -66,7 +66,14 @@ namespace Arcesoft.Chess.Implementation
         }
 
         private IMove TryFindMove(BoardLocation source, BoardLocation destination, PawnPromotionType? promotionType)
-            => FindMoves().SingleOrDefault(a => a.Source == source && a.Destination == destination && (promotionType.HasValue == false || a.Type == promotionType.Value.ToMoveType()));
+        {
+            var moves = FindMoves()
+                .Where(a => a.Source == source && a.Destination == destination &&
+                    (promotionType.HasValue == false || a.Type == promotionType.Value.ToMoveType()))
+                .ToArray();
+
+            return moves.Length == 1 ? moves[0] : null;
+        }
 
         public bool IsLegalMove(IMove move) => GameIsOver ? false : FindMoves().Contains(move);
 
@@ -573,7 +580,20 @@ namespace Arcesoft.Chess.Implementation
                 if (_board.NeighboringLocationIsOccupiedBy(playerPieceLocation, gradeAttackDirection, opposingPlayer))
                 {
                     var neighbor = playerPieceLocation.Neighbor(gradeAttackDirection).Value;
-                    moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
+                    var row = neighbor.Row();
+                    
+                    //capture pawn promotion
+                    if (row == 0 || row == 7)
+                    {
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionKnight | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionBishop | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionRook | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionQueen | DetermineMoveType(neighbor)));
+                    }
+                    else//normal capture
+                    {              
+                        moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
+                    }
                 }
                 else if (LastMoveAllowsEnPassantFor(playerPieceLocation, gradeAttackDirection))
                 {//we can do an en passant.
@@ -590,7 +610,20 @@ namespace Arcesoft.Chess.Implementation
                 if (_board.NeighboringLocationIsOccupiedBy(playerPieceLocation, slopeAttackDirection, opposingPlayer))
                 {
                     var neighbor = playerPieceLocation.Neighbor(slopeAttackDirection).Value;
-                    moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
+                    var row = neighbor.Row();
+
+                    //capture pawn promotion
+                    if (row == 0 || row == 7)
+                    {
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionKnight | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionBishop | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionRook | DetermineMoveType(neighbor)));
+                        moves.Add(new Move(playerPieceLocation, neighbor, MoveType.PawnPromotionQueen | DetermineMoveType(neighbor)));
+                    }
+                    else//normal capture
+                    {
+                        moves.Add(new Move(playerPieceLocation, neighbor, DetermineMoveType(neighbor)));
+                    }         
                 }
                 else if (LastMoveAllowsEnPassantFor(playerPieceLocation, slopeAttackDirection))
                 {//we can do an en passant.
@@ -598,7 +631,6 @@ namespace Arcesoft.Chess.Implementation
                     moves.Add(new Move(playerPieceLocation, neighbor, MoveType.AuPassant));
                 }
             }
-
         }
 
         private bool LastMoveAllowsEnPassantFor(BoardLocation pawnLocation, Direction pawnCaptureDirection)
