@@ -152,7 +152,7 @@ namespace Arcesoft.Chess.Tests
         [Then(@"I expect the following move history")]
         public void ThenIExpectTheFollowingMoveHistory(Table table)
         {
-            table.CompareToSet(Game.MoveHistory);
+            table.CompareToSet(Game.MoveHistory, true);
         }
 
         [Given(@"I have a match factory")]

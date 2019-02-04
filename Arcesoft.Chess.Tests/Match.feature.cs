@@ -114,331 +114,413 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "CapturedPiece",
+                        "SpecialMoveType"});
             table1.AddRow(new string[] {
                         "C2",
                         "C4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E7",
                         "E6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G1",
                         "F3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D7",
                         "D5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D2",
                         "D4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G8",
                         "F6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B1",
                         "C3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F8",
                         "E7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C1",
                         "G5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E8",
                         "G8",
+                        "",
                         "CastleKingside"});
             table1.AddRow(new string[] {
                         "E2",
                         "E3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "H7",
                         "H6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G5",
                         "H4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B7",
                         "B6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C4",
                         "D5",
-                        "CapturePawn"});
+                        "BlackPawn",
+                        ""});
             table1.AddRow(new string[] {
                         "F6",
                         "D5",
-                        "CapturePawn"});
+                        "WhitePawn",
+                        ""});
             table1.AddRow(new string[] {
                         "H4",
                         "E7",
-                        "CaptureBishop"});
+                        "BlackBishop",
+                        ""});
             table1.AddRow(new string[] {
                         "D8",
                         "E7",
-                        "CaptureBishop"});
+                        "WhiteBishop",
+                        ""});
             table1.AddRow(new string[] {
                         "C3",
                         "D5",
-                        "CaptureKnight"});
+                        "BlackKnight",
+                        ""});
             table1.AddRow(new string[] {
                         "E6",
                         "D5",
-                        "CaptureKnight"});
+                        "WhiteKnight",
+                        ""});
             table1.AddRow(new string[] {
                         "A1",
                         "C1",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C8",
                         "E6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D1",
                         "A4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C7",
                         "C5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A4",
                         "A3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F8",
                         "C8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F1",
                         "B5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A7",
                         "A6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D4",
                         "C5",
-                        "CapturePawn"});
+                        "BlackPawn",
+                        ""});
             table1.AddRow(new string[] {
                         "B6",
                         "C5",
-                        "CapturePawn"});
+                        "WhitePawn",
+                        ""});
             table1.AddRow(new string[] {
                         "E1",
                         "G1",
+                        "",
                         "CastleKingside"});
             table1.AddRow(new string[] {
                         "A8",
                         "A7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B5",
                         "E2",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B8",
                         "D7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F3",
                         "D4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E7",
                         "F8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D4",
                         "E6",
-                        "CaptureBishop"});
+                        "BlackBishop",
+                        ""});
             table1.AddRow(new string[] {
                         "F7",
                         "E6",
-                        "CaptureKnight"});
+                        "WhiteKnight",
+                        ""});
             table1.AddRow(new string[] {
                         "E3",
                         "E4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D5",
                         "D4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F2",
                         "F4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F8",
                         "E7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E4",
                         "E5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C8",
                         "B8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E2",
                         "C4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G8",
                         "H8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A3",
                         "H3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D7",
                         "F8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B2",
                         "B3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A6",
                         "A5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F4",
                         "F5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E6",
                         "F5",
-                        "CapturePawn"});
+                        "WhitePawn",
+                        ""});
             table1.AddRow(new string[] {
                         "F1",
                         "F5",
-                        "CapturePawn"});
+                        "BlackPawn",
+                        ""});
             table1.AddRow(new string[] {
                         "F8",
                         "H7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C1",
                         "F1",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E7",
                         "D8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "H3",
                         "G3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A7",
                         "E7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "H2",
                         "H4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B8",
                         "B7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E5",
                         "E6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "B7",
                         "C7",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G3",
                         "E5",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D8",
                         "E8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "A2",
                         "A4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E8",
                         "D8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F1",
                         "F2",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D8",
                         "E8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F2",
                         "F3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E8",
                         "D8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "C4",
                         "D3",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D8",
                         "E8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E5",
                         "E4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "H7",
                         "F6",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "F5",
                         "F6",
-                        "CaptureKnight"});
+                        "BlackKnight",
+                        ""});
             table1.AddRow(new string[] {
                         "G7",
                         "F6",
-                        "CaptureRook"});
+                        "WhiteRook",
+                        ""});
             table1.AddRow(new string[] {
                         "F3",
                         "F6",
-                        "CapturePawn"});
+                        "BlackPawn",
+                        ""});
             table1.AddRow(new string[] {
                         "H8",
                         "G8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "D3",
                         "C4",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "G8",
                         "H8",
-                        "Move"});
+                        "",
+                        ""});
             table1.AddRow(new string[] {
                         "E4",
                         "F4",
-                        "Move"});
+                        "",
+                        ""});
 #line 27
  testRunner.Then("I expect the following move history", ((string)(null)), table1, "Then ");
 #line hidden
