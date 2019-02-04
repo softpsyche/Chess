@@ -350,7 +350,7 @@ namespace Arcesoft.Chess.Implementation
                 case SpecialMoveType.PawnPromotionKnight:
                 case SpecialMoveType.PawnPromotionRook:
                 case SpecialMoveType.PawnPromotionQueen:
-                    _board[lastMove.Destination] = ChessPiece.None;
+                    _board[lastMove.Destination] = lastMove.CapturedPiece.HasValue? lastMove.CapturedPiece.Value: ChessPiece.None;
                     _board[lastMove.Source] = playerWhoMadeMove == Player.White ? ChessPiece.WhitePawn : ChessPiece.BlackPawn;
                     break;
                 case SpecialMoveType.CastleKingside:

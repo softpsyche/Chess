@@ -10052,11 +10052,11 @@ this.FeatureBackground();
             table163.AddRow(new string[] {
                         "G1",
                         "F3",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "D8",
                         "G5",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "F3",
                         "D4",
@@ -12194,12 +12194,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table200 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table200.AddRow(new string[] {
                         "E2",
-                        "E4",
-                        "Move"});
+                        "E4"});
 #line 2027
  testRunner.Then("I expect the following move history", ((string)(null)), table200, "Then ");
 #line hidden
@@ -12290,7 +12288,7 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack(string testName, string type, string h2, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack(string testName, string capturedPiece, string h2, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a capture move for white capture of black", exampleTags);
 #line 2041
@@ -12385,11 +12383,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table203 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "CapturedPiece"});
             table203.AddRow(new string[] {
                         "H1",
                         "H2",
-                        string.Format("{0}", type)});
+                        string.Format("{0}", capturedPiece)});
 #line 2052
  testRunner.Given("I have the following move history", ((string)(null)), table203, "Given ");
 #line 2055
@@ -12494,12 +12492,12 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "pawn")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "pawn")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CapturePawn")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "BlackPawn")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BP")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Pawn()
         {
 #line 2041
-this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("pawn", "CapturePawn", "BP", ((string[])(null)));
+this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("pawn", "BlackPawn", "BP", ((string[])(null)));
 #line hidden
         }
         
@@ -12509,12 +12507,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("pawn", "CapturePa
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureKnight")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "BlackKnight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BN")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Knight()
         {
 #line 2041
-this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("knight", "CaptureKnight", "BN", ((string[])(null)));
+this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("knight", "BlackKnight", "BN", ((string[])(null)));
 #line hidden
         }
         
@@ -12524,12 +12522,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("knight", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureBishop")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "BlackBishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BB")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Bishop()
         {
 #line 2041
-this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("bishop", "CaptureBishop", "BB", ((string[])(null)));
+this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("bishop", "BlackBishop", "BB", ((string[])(null)));
 #line hidden
         }
         
@@ -12539,12 +12537,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("bishop", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureRook")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "BlackRook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BR")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Rook()
         {
 #line 2041
-this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("rook", "CaptureRook", "BR", ((string[])(null)));
+this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("rook", "BlackRook", "BR", ((string[])(null)));
 #line hidden
         }
         
@@ -12554,12 +12552,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("rook", "CaptureRo
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureQueen")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "BlackQueen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BQ")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Queen()
         {
 #line 2041
-this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("queen", "CaptureQueen", "BQ", ((string[])(null)));
+this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("queen", "BlackQueen", "BQ", ((string[])(null)));
 #line hidden
         }
         
@@ -12840,7 +12838,7 @@ this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("queen", "WhiteQue
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite(string testName, string type, string a8, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite(string testName, string specialMoveType, string a8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion move for white", exampleTags);
 #line 2114
@@ -12935,11 +12933,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table209 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table209.AddRow(new string[] {
                         "A7",
                         "A8",
-                        string.Format("{0}", type)});
+                        string.Format("{0}", specialMoveType)});
 #line 2125
  testRunner.Given("I have the following move history", ((string)(null)), table209, "Given ");
 #line 2128
@@ -13044,7 +13042,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionKnight")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionKnight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Knight()
         {
@@ -13059,7 +13057,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("knight", "PawnPromotionKn
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionBishop")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionBishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Bishop()
         {
@@ -13074,7 +13072,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("bishop", "PawnPromotionBi
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionRook")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionRook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WR")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Rook()
         {
@@ -13089,7 +13087,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("rook", "PawnPromotionRook
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionQueen")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionQueen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Queen()
         {
@@ -13098,7 +13096,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("queen", "PawnPromotionQue
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack(string testName, string type, string a1, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack(string testName, string specialMoveType, string a1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion move for black", exampleTags);
 #line 2149
@@ -13193,15 +13191,15 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table212 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table212.AddRow(new string[] {
                         "A4",
                         "A4",
-                        "Move"});
+                        ""});
             table212.AddRow(new string[] {
                         "A2",
                         "A1",
-                        string.Format("{0}", type)});
+                        string.Format("{0}", specialMoveType)});
 #line 2160
  testRunner.Given("I have the following move history", ((string)(null)), table212, "Given ");
 #line 2164
@@ -13306,7 +13304,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionKnight")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionKnight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Knight()
         {
@@ -13321,7 +13319,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("knight", "PawnPromotionKn
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionBishop")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionBishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Bishop()
         {
@@ -13336,7 +13334,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("bishop", "PawnPromotionBi
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionRook")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionRook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BR")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Rook()
         {
@@ -13351,7 +13349,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("rook", "PawnPromotionRook
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionQueen")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionQueen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Queen()
         {
@@ -13360,7 +13358,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("queen", "PawnPromotionQue
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite(string testName, string type, string destination, string a8, string c8, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite(string testName, string specialMoveType, string destination, string a8, string c8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion capture for white", exampleTags);
 #line 2185
@@ -13455,11 +13453,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table215 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType",
+                        "CapturedPiece"});
             table215.AddRow(new string[] {
-                        "A7",
+                        "B7",
                         string.Format("{0}", destination),
-                        string.Format("{0}", type)});
+                        string.Format("{0}", specialMoveType),
+                        "BlackKnight"});
 #line 2196
  testRunner.Given("I have the following move history", ((string)(null)), table215, "Given ");
 #line 2199
@@ -13564,7 +13564,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionKnight")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionKnight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "A8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WN")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "BN")]
@@ -13581,7 +13581,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("knight", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionBishop")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionBishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "C8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BN")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "WB")]
@@ -13598,7 +13598,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("bishop", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionRook")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionRook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "A8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WR")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "BN")]
@@ -13615,7 +13615,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("rook", "PawnPromotionR
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionQueen")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionQueen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "C8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "BN")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "WQ")]
@@ -13626,7 +13626,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("queen", "PawnPromotion
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack(string testName, string type, string destination, string a1, string c1, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack(string testName, string a1, string specialMoveType, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion capture for black", exampleTags);
 #line 2220
@@ -13709,7 +13709,7 @@ this.FeatureBackground();
             table217.AddRow(new string[] {
                         string.Format("{0}", a1),
                         "",
-                        string.Format("{0}", c1),
+                        "WN",
                         "",
                         "",
                         "",
@@ -13721,15 +13721,18 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table218 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "CapturedPiece",
+                        "SpecialMoveType"});
             table218.AddRow(new string[] {
                         "A4",
                         "A4",
-                        "Move"});
+                        "",
+                        ""});
             table218.AddRow(new string[] {
-                        "A2",
-                        string.Format("{0}", destination),
-                        string.Format("{0}", type)});
+                        "B2",
+                        "A1",
+                        "WhiteKnight",
+                        string.Format("{0}", specialMoveType)});
 #line 2231
  testRunner.Given("I have the following move history", ((string)(null)), table218, "Given ");
 #line 2235
@@ -13834,14 +13837,12 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionKnight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "A1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "WN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionKnight")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Knight()
         {
 #line 2220
-this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("knight", "PawnPromotionKnight", "A1", "BN", "WN", ((string[])(null)));
+this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("knight", "BN", "PawnPromotionKnight", ((string[])(null)));
 #line hidden
         }
         
@@ -13851,14 +13852,12 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("knight", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionBishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "C1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "WN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "BB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionBishop")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Bishop()
         {
 #line 2220
-this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("bishop", "PawnPromotionBishop", "C1", "WN", "BB", ((string[])(null)));
+this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("bishop", "BB", "PawnPromotionBishop", ((string[])(null)));
 #line hidden
         }
         
@@ -13868,14 +13867,12 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("bishop", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionRook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "A1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BR")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "WN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionRook")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Rook()
         {
 #line 2220
-this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("rook", "PawnPromotionRook", "A1", "BR", "WN", ((string[])(null)));
+this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("rook", "BR", "PawnPromotionRook", ((string[])(null)));
 #line hidden
         }
         
@@ -13885,14 +13882,12 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("rook", "PawnPromotionR
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "PawnPromotionQueen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "C1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "WN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "BQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecialMoveType", "PawnPromotionQueen")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Queen()
         {
 #line 2220
-this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("queen", "PawnPromotionQueen", "C1", "WN", "BQ", ((string[])(null)));
+this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("queen", "BQ", "PawnPromotionQueen", ((string[])(null)));
 #line hidden
         }
         
@@ -13995,7 +13990,7 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table221 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table221.AddRow(new string[] {
                         "B5",
                         "A6",
@@ -14197,7 +14192,7 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table224 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table224.AddRow(new string[] {
                         "B5",
                         "C6",
@@ -14399,11 +14394,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table227 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table227.AddRow(new string[] {
                         "A1",
                         "A1",
-                        "Move"});
+                        ""});
             table227.AddRow(new string[] {
                         "B4",
                         "A3",
@@ -14605,11 +14600,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table230 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table230.AddRow(new string[] {
                         "A1",
                         "A1",
-                        "Move"});
+                        ""});
             table230.AddRow(new string[] {
                         "B4",
                         "C3",
@@ -14811,7 +14806,7 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table233 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table233.AddRow(new string[] {
                         "E1",
                         "G1",
@@ -15013,7 +15008,7 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table236 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table236.AddRow(new string[] {
                         "E1",
                         "C1",
@@ -15215,11 +15210,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table239 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table239.AddRow(new string[] {
                         "A1",
                         "A1",
-                        "Move"});
+                        ""});
             table239.AddRow(new string[] {
                         "E8",
                         "G8",
@@ -15421,11 +15416,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table242 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table242.AddRow(new string[] {
                         "A1",
                         "A1",
-                        "Move"});
+                        ""});
             table242.AddRow(new string[] {
                         "E8",
                         "C8",

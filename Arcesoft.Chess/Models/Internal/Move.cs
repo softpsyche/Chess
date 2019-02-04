@@ -41,7 +41,8 @@ namespace Arcesoft.Chess.Models.Internal
             Source = source;
             Destination = destination;
             SpecialMoveType = moveType;
-            CapturedPiece = capturedPiece;
+            //we will not accept a none chess piece.
+            CapturedPiece = capturedPiece != ChessPiece.None ? capturedPiece : default(ChessPiece?);
         }
 
         public override string ToString()

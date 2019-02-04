@@ -1694,8 +1694,8 @@ Scenario: Make move should record move history correctly
          | E5     | D4          | WhitePawn     |
          | D1     | D4          | BlackPawn     |
          | C6     | D4          | WhiteQueen    |
-         | G1     | F3          | Move          |
-         | D8     | G5          | Move          |
+         | G1     | F3          |               |
+         | D8     | G5          |               |
          | F3     | D4          | BlackKnight   |
          | G5     | C1          | WhiteBishop   |
          | A1     | C1          | BlackQueen    |
@@ -2025,8 +2025,8 @@ Scenario: Undo last move should undo a simple move for black
 	Then I expect the gamestate to be 'InPlay'
 	Then I expect the current player is 'Black'
 	Then I expect the following move history
-         | Source | Destination | Type |
-         | E2     | E4          | Move   |
+         | Source | Destination |  
+         | E2     | E4          |    
 	Then I expect the current board to contain the following
          | A  | B  | C  | D  | E  | F  | G  | H  |
          | BR | BN | BB | BQ | BK | BB | BN | BR |
@@ -2050,8 +2050,8 @@ Scenario Outline: Undo last move should undo a capture move for white capture of
 		|   |   |   |   |   |   |   | WK |
 		|   |   |   |   |   |   |   |    |
 	Given I have the following move history
-        | Source | Destination | Type   |
-        | H1     | H2          | <Type> |
+        | Source | Destination | CapturedPiece   |
+        | H1     | H2          | <CapturedPiece> |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2067,12 +2067,12 @@ Scenario Outline: Undo last move should undo a capture move for white capture of
         |   |   |   |   |   |   |   | <H2> |
         |   |   |   |   |   |   |   | WK   |
 	Examples: 
-		| TestName | Type          | H2 |
-		| pawn     | CapturePawn   | BP |
-		| knight   | CaptureKnight | BN |
-		| bishop   | CaptureBishop | BB |
-		| rook     | CaptureRook   | BR |
-		| queen    | CaptureQueen  | BQ |
+		| TestName | CapturedPiece | H2 |
+		| pawn     | BlackPawn   | BP |
+		| knight   | BlackKnight | BN |
+		| bishop   | BlackBishop | BB |
+		| rook     | BlackRook   | BR |
+		| queen    | BlackQueen  | BQ |
 
 Scenario Outline: Undo last move should undo a capture move for black capture of white
 	Given I start a new game in the following state
@@ -2123,8 +2123,8 @@ Scenario Outline: Undo last move should undo a pawn promotion move for white
 		|      |   |   |   |   |   |   |    |
 		|      |   |   |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type   |
-        | A7     | A8          | <Type> |
+        | Source | Destination | SpecialMoveType   |  
+        | A7     | A8          | <SpecialMoveType> | 
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2140,7 +2140,7 @@ Scenario Outline: Undo last move should undo a pawn promotion move for white
         |    |   |   |   |   |   |   |    |
         |    |   |   |   |   |   |   | WK |
 	Examples: 
-		| TestName | Type          | A8 |
+		| TestName | SpecialMoveType     | A8 |
 		| knight   | PawnPromotionKnight | WN |
 		| bishop   | PawnPromotionBishop | WB |
 		| rook     | PawnPromotionRook   | WR |
@@ -2158,9 +2158,9 @@ Scenario Outline: Undo last move should undo a pawn promotion move for black
 		|      |   |   |   |   |   |   |    |
 		| <A1> |   |   |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type   |
-        | A4     | A4          | Move   |
-        | A2     | A1          | <Type> |
+        | Source | Destination | SpecialMoveType   |
+        | A4     | A4          |                   |
+        | A2     | A1          | <SpecialMoveType> |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2176,7 +2176,7 @@ Scenario Outline: Undo last move should undo a pawn promotion move for black
         | BP |   |   |   |   |   |   |    |
         |    |   |   |   |   |   |   | WK |
 	Examples: 
-		| TestName | Type                | A1 |
+		| TestName | SpecialMoveType     | A1 |
 		| knight   | PawnPromotionKnight | BN |
 		| bishop   | PawnPromotionBishop | BB |
 		| rook     | PawnPromotionRook   | BR |
@@ -2194,8 +2194,8 @@ Scenario Outline: Undo last move should undo a pawn promotion capture for white
 		|      |   |      |   |   |   |   |    |
 		|      |   |      |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination   | Type   |
-        | A7     | <Destination> | <Type> |
+        | Source | Destination   | SpecialMoveType   | CapturedPiece |
+        | B7     | <Destination> | <SpecialMoveType> | BlackKnight   |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2211,7 +2211,7 @@ Scenario Outline: Undo last move should undo a pawn promotion capture for white
         |    |    |    |   |   |   |   |    |
         |    |    |    |   |   |   |   | WK |
 	Examples: 
-		| TestName | Type                | Destination | A8 | C8 |
+		| TestName | SpecialMoveType     | Destination | A8 | C8 |
 		| knight   | PawnPromotionKnight | A8          | WN | BN |
 		| bishop   | PawnPromotionBishop | C8          | BN | WB |
 		| rook     | PawnPromotionRook   | A8          | WR | BN |
@@ -2219,19 +2219,19 @@ Scenario Outline: Undo last move should undo a pawn promotion capture for white
 
 Scenario Outline: Undo last move should undo a pawn promotion capture for black
 	Given I start a new game in the following state
-		| A    | B | C    | D | E | F | G | H  |
-		|      |   |      |   |   |   |   | BK |
-		|      |   |      |   |   |   |   |    |
-		|      |   |      |   |   |   |   |    |
-		|      |   |      |   |   |   |   |    |
-		|      |   |      |   |   |   |   |    |
-		|      |   |      |   |   |   |   |    |
-		|      |   |      |   |   |   |   |    |
-		| <A1> |   | <C1> |   |   |   |   | WK |
+		| A    | B | C  | D | E | F | G | H  |
+		|      |   |    |   |   |   |   | BK |
+		|      |   |    |   |   |   |   |    |
+		|      |   |    |   |   |   |   |    |
+		|      |   |    |   |   |   |   |    |
+		|      |   |    |   |   |   |   |    |
+		|      |   |    |   |   |   |   |    |
+		|      |   |    |   |   |   |   |    |
+		| <A1> |   | WN |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination   | Type   |
-        | A4     | A4            | Move   |
-        | A2     | <Destination> | <Type> |
+        | Source | Destination | CapturedPiece | SpecialMoveType   |
+        | A4     | A4          |               |                   |
+        | B2     | A1          | WhiteKnight   | <SpecialMoveType> |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2247,11 +2247,11 @@ Scenario Outline: Undo last move should undo a pawn promotion capture for black
         |    | BP |    |   |   |   |   |    |
         | WN |    | WN |   |   |   |   | WK |
 	Examples: 
-		| TestName | Type                | Destination | A1 | C1 |
-		| knight   | PawnPromotionKnight | A1          | BN | WN |
-		| bishop   | PawnPromotionBishop | C1          | WN | BB |
-		| rook     | PawnPromotionRook   | A1          | BR | WN |
-		| queen    | PawnPromotionQueen  | C1          | WN | BQ |
+		| TestName | A1 | SpecialMoveType     |
+		| knight   | BN | PawnPromotionKnight |
+		| bishop   | BB | PawnPromotionBishop |
+		| rook     | BR | PawnPromotionRook   |
+		| queen    | BQ | PawnPromotionQueen  |
 
 Scenario: Undo last move should undo an au passant northwest move for white
 	Given I start a new game in the following state
@@ -2265,8 +2265,8 @@ Scenario: Undo last move should undo an au passant northwest move for white
 		|    |   |   |   |   |   |   |    |
 		|    |   |   |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type      |
-        | B5     | A6          | AuPassant |
+        | Source | Destination | SpecialMoveType |
+        | B5     | A6          | AuPassant       |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2294,8 +2294,8 @@ Scenario: Undo last move should undo an au passant northeast move for white
 		|   |   |    |   |   |   |   |    |
 		|   |   |    |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type      |
-        | B5     | C6          | AuPassant |
+        | Source | Destination | SpecialMoveType |
+        | B5     | C6          | AuPassant       |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2323,9 +2323,9 @@ Scenario: Undo last move should undo an au passant southwest move for black
 		|    |   |   |   |   |   |   |    |
 		|    |   |   |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type      |
-        | A1     | A1          | Move      |
-        | B4     | A3          | AuPassant |
+        | Source | Destination | SpecialMoveType |
+        | A1     | A1          |                 |
+        | B4     | A3          | AuPassant       |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2353,9 +2353,9 @@ Scenario: Undo last move should undo an au passant southeast move for black
 		|   |   |    |   |   |   |   |    |
 		|   |   |    |   |   |   |   | WK |
 	Given I have the following move history
-        | Source | Destination | Type      |
-        | A1     | A1          | Move      |
-        | B4     | C3          | AuPassant |
+        | Source | Destination | SpecialMoveType |
+        | A1     | A1          |                 |
+        | B4     | C3          | AuPassant       |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2383,8 +2383,8 @@ Scenario: Undo last move should undo a castle kingside move for white
 		|   |   |   |   |    |    |    |   |
 		|   |   |   |   |    | WR | WK |   |
 	Given I have the following move history
-        | Source | Destination | Type           |
-        | E1     | G1          | CastleKingside |
+        | Source | Destination | SpecialMoveType |
+        | E1     | G1          | CastleKingside  |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2412,7 +2412,7 @@ Scenario: Undo last move should undo a castle queenside move for white
 		|   |   |    |    |    |   |   |   |
 		|   |   | WK | WR |    |   |   |   |
 	Given I have the following move history
-        | Source | Destination | Type            |
+        | Source | Destination | SpecialMoveType |
         | E1     | C1          | CastleQueenside |
 	When I undo the last move
 	Then I expect the game to not be over
@@ -2441,9 +2441,9 @@ Scenario: Undo last move should undo a castle kingside move for black
 		|   |   |   |   |    |    |    |   |
 		|   |   |   |   | WK |    |    |   |
 	Given I have the following move history
-        | Source | Destination | Type           |
-        | A1     | A1          | Move           |
-        | E8     | G8          | CastleKingside |
+        | Source | Destination | SpecialMoveType |
+        | A1     | A1          |                 |
+        | E8     | G8          | CastleKingside  |
 	When I undo the last move
 	Then I expect the game to not be over
 	Then I expect the gamestate to be 'InPlay'
@@ -2471,8 +2471,8 @@ Scenario: Undo last move should undo a castle queenside move for black
 		|   |   |    |    |    |   |   |   |
 		|   |   |    |    | WK |   |   |   |
 	Given I have the following move history
-        | Source | Destination | Type            |
-        | A1     | A1          | Move            |
+        | Source | Destination | SpecialMoveType |
+        | A1     | A1          |                 |
         | E8     | C8          | CastleQueenside |
 	When I undo the last move
 	Then I expect the game to not be over
