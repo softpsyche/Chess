@@ -23,20 +23,20 @@ namespace Arcesoft.Chess
             foreach (var item in items) action(item);
         }
 
-        public static MoveType ToMoveType(this PawnPromotionType pawnPromotionType)
+        public static SpecialMoveType? ToSpecialMoveType(this PawnPromotionType? pawnPromotionType)
         {
             switch (pawnPromotionType)
             {
                 case PawnPromotionType.Knight:
-                    return MoveType.PawnPromotionKnight;
+                    return SpecialMoveType.PawnPromotionKnight;
                 case PawnPromotionType.Bishop:
-                    return MoveType.PawnPromotionBishop;
+                    return SpecialMoveType.PawnPromotionBishop;
                 case PawnPromotionType.Rook:
-                    return MoveType.PawnPromotionRook;
+                    return SpecialMoveType.PawnPromotionRook;
                 case PawnPromotionType.Queen:
-                    return MoveType.PawnPromotionQueen;
+                    return SpecialMoveType.PawnPromotionQueen;
                 default:
-                    throw new NotImplementedException();
+                    return null;
             }
         }
 

@@ -55,7 +55,7 @@ namespace Arcesoft.Chess.Tests
         {
             var pieces = moveString.ToUpperInvariant().Split("-".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-            return new Move(pieces[0].ToBoardLocation(), pieces[1].ToBoardLocation(), MoveType.Move);
+            return new Move(pieces[0].ToBoardLocation(), pieces[1].ToBoardLocation());
 
         }
 
@@ -83,7 +83,7 @@ namespace Arcesoft.Chess.Tests
                 moves.Add(new Move(
                     (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Source)]),
                     (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Destination)]),
-                    table.Header.Contains(nameof(Move.Type)) ? MoveType.Move: (MoveType)Enum.Parse(typeof(MoveType), row[nameof(Move.Type)])));
+                    table.Header.Contains(nameof(Move.SpecialMoveType)) == false ? default(SpecialMoveType) : (SpecialMoveType)Enum.Parse(typeof(SpecialMoveType), row[nameof(Move.SpecialMoveType)])));
             }
 
             return moves;
@@ -95,10 +95,19 @@ namespace Arcesoft.Chess.Tests
 
             foreach (var row in table.Rows)
             {
+                SpecialMoveType? specialMoveType  =
+                    !table.Header.Contains(nameof(Move.SpecialMoveType)) || string.IsNullOrWhiteSpace(row[nameof(Move.SpecialMoveType)]) ? default(SpecialMoveType?) : 
+                    (SpecialMoveType)Enum.Parse(typeof(SpecialMoveType), row[nameof(Move.SpecialMoveType)]);
+
+                ChessPiece? capturedPiece =
+                    !table.Header.Contains(nameof(Move.CapturedPiece)) || string.IsNullOrWhiteSpace(row[nameof(Move.CapturedPiece)]) ? default(ChessPiece?) :
+                    (ChessPiece)Enum.Parse(typeof(ChessPiece), row[nameof(Move.CapturedPiece)]);
+
                 moveHistories.Add(new Move(
                     (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Source)]),
                     (BoardLocation)Enum.Parse(typeof(BoardLocation), row[nameof(Move.Destination)]),
-                    (MoveType)Enum.Parse(typeof(MoveType), row[nameof(Move.Type)])));
+                    capturedPiece, 
+                    specialMoveType));
             }
 
             return moveHistories;

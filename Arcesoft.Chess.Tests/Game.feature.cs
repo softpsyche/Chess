@@ -403,35 +403,35 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table5.AddRow(new string[] {
                         "A2",
                         "A3",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "A2",
                         "A4",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "B3",
                         "B4",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "C3",
                         "C4",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "C3",
                         "D4",
-                        "CapturePawn"});
+                        ""});
             table5.AddRow(new string[] {
                         "D2",
                         "D3",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "D2",
                         "E3",
-                        "CapturePawn"});
+                        ""});
             table5.AddRow(new string[] {
                         "G5",
                         "F6",
@@ -439,15 +439,15 @@ this.FeatureBackground();
             table5.AddRow(new string[] {
                         "H3",
                         "H4",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "H3",
                         "G3",
-                        "Move"});
+                        ""});
             table5.AddRow(new string[] {
                         "H3",
                         "G2",
-                        "Move"});
+                        ""});
 #line 90
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table5, "Then ");
 #line hidden
@@ -555,19 +555,19 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table7.AddRow(new string[] {
                         "H1",
                         "H2",
-                        "Move"});
+                        ""});
             table7.AddRow(new string[] {
                         "H1",
                         "G1",
-                        "Move"});
+                        ""});
             table7.AddRow(new string[] {
                         "H1",
                         "G2",
-                        "Move"});
+                        ""});
             table7.AddRow(new string[] {
                         "H7",
                         "H8",
@@ -702,35 +702,35 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table10.AddRow(new string[] {
                         "A7",
                         "A6",
-                        "Move"});
+                        ""});
             table10.AddRow(new string[] {
                         "A7",
                         "A5",
-                        "Move"});
+                        ""});
             table10.AddRow(new string[] {
                         "A7",
                         "B6",
-                        "CapturePawn"});
+                        ""});
             table10.AddRow(new string[] {
                         "A8",
                         "B8",
-                        "Move"});
+                        ""});
             table10.AddRow(new string[] {
                         "C6",
                         "C5",
-                        "Move"});
+                        ""});
             table10.AddRow(new string[] {
                         "C6",
                         "B5",
-                        "CapturePawn"});
+                        ""});
             table10.AddRow(new string[] {
                         "C6",
                         "D5",
-                        "CapturePawn"});
+                        ""});
             table10.AddRow(new string[] {
                         "G4",
                         "H3",
@@ -738,7 +738,7 @@ this.FeatureBackground();
             table10.AddRow(new string[] {
                         "H6",
                         "H5",
-                        "Move"});
+                        ""});
 #line 149
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table10, "Then ");
 #line hidden
@@ -857,19 +857,19 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table13.AddRow(new string[] {
                         "A8",
                         "A7",
-                        "Move"});
+                        ""});
             table13.AddRow(new string[] {
                         "A8",
                         "B8",
-                        "Move"});
+                        ""});
             table13.AddRow(new string[] {
                         "A8",
                         "B7",
-                        "Move"});
+                        ""});
             table13.AddRow(new string[] {
                         "A2",
                         "A1",
@@ -1493,12 +1493,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table22.AddRow(new string[] {
                         "A1",
-                        "A1",
-                        "Move"});
+                        "A1"});
 #line 302
  testRunner.Given("I have the following move history", ((string)(null)), table22, "Given ");
 #line 305
@@ -3460,11 +3458,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "SpecialMoveType"});
             table52.AddRow(new string[] {
                         string.Format("{0}", moveHistorySource),
                         string.Format("{0}", moveHistoryDestination),
-                        "Move"});
+                        ""});
 #line 671
  testRunner.Given("I have the following move history", ((string)(null)), table52, "Given ");
 #line 674
@@ -3759,28 +3757,48 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination"});
+                        "Destination",
+                        "SpecialMoveType"});
             table54.AddRow(new string[] {
                         "D5",
-                        "E5"});
+                        "E5",
+                        ""});
             table54.AddRow(new string[] {
                         "D5",
-                        "E4"});
+                        "E4",
+                        ""});
             table54.AddRow(new string[] {
                         "D5",
-                        "D4"});
-            table54.AddRow(new string[] {
-                        "B7",
-                        "A8"});
+                        "D4",
+                        ""});
             table54.AddRow(new string[] {
                         "D6",
-                        "D7"});
+                        "D7",
+                        ""});
             table54.AddRow(new string[] {
                         "D2",
-                        "D3"});
+                        "D3",
+                        ""});
             table54.AddRow(new string[] {
                         "D2",
-                        "D4"});
+                        "D4",
+                        ""});
+            table54.AddRow(new string[] {
+                        "B7",
+                        "A8",
+                        "PawnPromotionKnight"});
+            table54.AddRow(new string[] {
+                        "B7",
+                        "A8",
+                        "PawnPromotionBishop"});
+            table54.AddRow(new string[] {
+                        "B7",
+                        "A8",
+                        "PawnPromotionRook"});
+            table54.AddRow(new string[] {
+                        "B7",
+                        "A8",
+                        "PawnPromotionQueen"});
 #line 705
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table54, "Then ");
 #line hidden
@@ -3794,7 +3812,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedBlackPawns()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black pawns", ((string[])(null)));
-#line 717
+#line 720
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -3880,7 +3898,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 718
+#line 721
  testRunner.Given("I start a new game in the following state", ((string)(null)), table55, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
@@ -3891,9 +3909,9 @@ this.FeatureBackground();
                         "A1",
                         "A1",
                         "Move"});
-#line 728
- testRunner.Given("I have the following move history", ((string)(null)), table56, "Given ");
 #line 731
+ testRunner.Given("I have the following move history", ((string)(null)), table56, "Given ");
+#line 734
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
@@ -3917,7 +3935,7 @@ this.FeatureBackground();
             table57.AddRow(new string[] {
                         "B3",
                         "A2"});
-#line 732
+#line 735
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table57, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -3930,7 +3948,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedWhiteKnights()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white knights", ((string[])(null)));
-#line 743
+#line 746
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4016,11 +4034,11 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 744
+#line 747
  testRunner.Given("I start a new game in the following state", ((string)(null)), table58, "Given ");
-#line 754
+#line 757
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 755
+#line 758
  testRunner.Then("I expect no moves were found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4033,7 +4051,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedBlackKnights()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black knights", ((string[])(null)));
-#line 757
+#line 760
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4119,7 +4137,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 758
+#line 761
  testRunner.Given("I start a new game in the following state", ((string)(null)), table59, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4130,11 +4148,11 @@ this.FeatureBackground();
                         "A1",
                         "A1",
                         "Move"});
-#line 768
- testRunner.Given("I have the following move history", ((string)(null)), table60, "Given ");
 #line 771
+ testRunner.Given("I have the following move history", ((string)(null)), table60, "Given ");
+#line 774
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 772
+#line 775
  testRunner.Then("I expect no moves were found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4147,7 +4165,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedWhiteBishops()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white bishops", ((string[])(null)));
-#line 774
+#line 777
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4233,9 +4251,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 775
+#line 778
  testRunner.Given("I start a new game in the following state", ((string)(null)), table61, "Given ");
-#line 785
+#line 788
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4268,7 +4286,7 @@ this.FeatureBackground();
             table62.AddRow(new string[] {
                         "E6",
                         "G8"});
-#line 786
+#line 789
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table62, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4281,7 +4299,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedBlackBishops()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black bishops", ((string[])(null)));
-#line 798
+#line 801
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4367,7 +4385,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 799
+#line 802
  testRunner.Given("I start a new game in the following state", ((string)(null)), table63, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4378,9 +4396,9 @@ this.FeatureBackground();
                         "A1",
                         "A1",
                         "Move"});
-#line 809
- testRunner.Given("I have the following move history", ((string)(null)), table64, "Given ");
 #line 812
+ testRunner.Given("I have the following move history", ((string)(null)), table64, "Given ");
+#line 815
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4413,7 +4431,7 @@ this.FeatureBackground();
             table65.AddRow(new string[] {
                         "E6",
                         "G8"});
-#line 813
+#line 816
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table65, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4426,7 +4444,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedWhiteRooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white rooks", ((string[])(null)));
-#line 825
+#line 828
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4512,9 +4530,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 826
+#line 829
  testRunner.Given("I start a new game in the following state", ((string)(null)), table66, "Given ");
-#line 836
+#line 839
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4547,7 +4565,7 @@ this.FeatureBackground();
             table67.AddRow(new string[] {
                         "C5",
                         "A5"});
-#line 837
+#line 840
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table67, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4560,7 +4578,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedBlackRooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black rooks", ((string[])(null)));
-#line 849
+#line 852
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4646,7 +4664,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 850
+#line 853
  testRunner.Given("I start a new game in the following state", ((string)(null)), table68, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4657,9 +4675,9 @@ this.FeatureBackground();
                         "A1",
                         "A1",
                         "Move"});
-#line 860
- testRunner.Given("I have the following move history", ((string)(null)), table69, "Given ");
 #line 863
+ testRunner.Given("I have the following move history", ((string)(null)), table69, "Given ");
+#line 866
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4692,7 +4710,7 @@ this.FeatureBackground();
             table70.AddRow(new string[] {
                         "C5",
                         "A5"});
-#line 864
+#line 867
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table70, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4705,7 +4723,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedWhiteQueens()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned white queens", ((string[])(null)));
-#line 876
+#line 879
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4791,9 +4809,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 877
+#line 880
  testRunner.Given("I start a new game in the following state", ((string)(null)), table71, "Given ");
-#line 887
+#line 890
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4853,7 +4871,7 @@ this.FeatureBackground();
             table72.AddRow(new string[] {
                         "E6",
                         "G8"});
-#line 888
+#line 891
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table72, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -4866,7 +4884,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForPinnedBlackQueens()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for pinned black queens", ((string[])(null)));
-#line 909
+#line 912
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -4952,7 +4970,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 910
+#line 913
  testRunner.Given("I start a new game in the following state", ((string)(null)), table73, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
@@ -4963,9 +4981,9 @@ this.FeatureBackground();
                         "A1",
                         "A1",
                         "Move"});
-#line 920
- testRunner.Given("I have the following move history", ((string)(null)), table74, "Given ");
 #line 923
+ testRunner.Given("I have the following move history", ((string)(null)), table74, "Given ");
+#line 926
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5025,7 +5043,7 @@ this.FeatureBackground();
             table75.AddRow(new string[] {
                         "E6",
                         "G8"});
-#line 924
+#line 927
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table75, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5038,7 +5056,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForDoubleCheckedWhiteKing()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for double checked white king", ((string[])(null)));
-#line 950
+#line 953
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5124,9 +5142,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 951
+#line 954
  testRunner.Given("I start a new game in the following state", ((string)(null)), table76, "Given ");
-#line 961
+#line 964
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table77 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5138,7 +5156,7 @@ this.FeatureBackground();
             table77.AddRow(new string[] {
                         "D5",
                         "E4"});
-#line 962
+#line 965
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table77, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5151,7 +5169,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForDoubleCheckedBlackKing()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for double checked black king", ((string[])(null)));
-#line 967
+#line 970
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5237,7 +5255,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 968
+#line 971
  testRunner.Given("I start a new game in the following state", ((string)(null)), table78, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5248,9 +5266,9 @@ this.FeatureBackground();
                         "C1",
                         "C1",
                         "Move"});
-#line 978
- testRunner.Given("I have the following move history", ((string)(null)), table79, "Given ");
 #line 981
+ testRunner.Given("I have the following move history", ((string)(null)), table79, "Given ");
+#line 984
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table80 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5268,7 +5286,7 @@ this.FeatureBackground();
             table80.AddRow(new string[] {
                         "E6",
                         "F5"});
-#line 982
+#line 985
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table80, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5281,7 +5299,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForWhiteKingCheckedByPawn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for white king checked by pawn", ((string[])(null)));
-#line 989
+#line 992
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5367,9 +5385,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK"});
-#line 990
+#line 993
  testRunner.Given("I start a new game in the following state", ((string)(null)), table81, "Given ");
-#line 1000
+#line 1003
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table82 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5405,7 +5423,7 @@ this.FeatureBackground();
             table82.AddRow(new string[] {
                         "E8",
                         "C6"});
-#line 1001
+#line 1004
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table82, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5418,7 +5436,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForBlackKingCheckedByPawn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for black king checked by pawn", ((string[])(null)));
-#line 1014
+#line 1017
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5504,7 +5522,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1015
+#line 1018
  testRunner.Given("I start a new game in the following state", ((string)(null)), table83, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table84 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5515,9 +5533,9 @@ this.FeatureBackground();
                         "C1",
                         "C1",
                         "Move"});
-#line 1025
- testRunner.Given("I have the following move history", ((string)(null)), table84, "Given ");
 #line 1028
+ testRunner.Given("I have the following move history", ((string)(null)), table84, "Given ");
+#line 1031
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table85 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5550,7 +5568,7 @@ this.FeatureBackground();
             table85.AddRow(new string[] {
                         "H3",
                         "C3"});
-#line 1029
+#line 1032
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table85, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5563,7 +5581,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForWhiteKingCheckedByKnight()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for white king checked by knight", ((string[])(null)));
-#line 1041
+#line 1044
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5649,9 +5667,9 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1042
+#line 1045
  testRunner.Given("I start a new game in the following state", ((string)(null)), table86, "Given ");
-#line 1052
+#line 1055
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table87 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5678,7 +5696,7 @@ this.FeatureBackground();
             table87.AddRow(new string[] {
                         "H3",
                         "B3"});
-#line 1053
+#line 1056
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table87, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5691,7 +5709,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForBlackKingCheckedByKnight()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for black king checked by knight", ((string[])(null)));
-#line 1063
+#line 1066
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5777,7 +5795,7 @@ this.FeatureBackground();
                         "",
                         "BB",
                         "WK"});
-#line 1064
+#line 1067
  testRunner.Given("I start a new game in the following state", ((string)(null)), table88, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table89 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5788,9 +5806,9 @@ this.FeatureBackground();
                         "C1",
                         "C1",
                         "Move"});
-#line 1074
- testRunner.Given("I have the following move history", ((string)(null)), table89, "Given ");
 #line 1077
+ testRunner.Given("I have the following move history", ((string)(null)), table89, "Given ");
+#line 1080
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table90 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5817,7 +5835,7 @@ this.FeatureBackground();
             table90.AddRow(new string[] {
                         "H6",
                         "B6"});
-#line 1078
+#line 1081
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table90, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5826,7 +5844,7 @@ this.FeatureBackground();
         public virtual void FindMovesShouldFindAllMovesForWhiteKingCheckedBy(string testName, string h8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for white king checked by", exampleTags);
-#line 1088
+#line 1091
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -5912,9 +5930,9 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1089
+#line 1092
  testRunner.Given("I start a new game in the following state", ((string)(null)), table91, "Given ");
-#line 1099
+#line 1102
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table92 = new TechTalk.SpecFlow.Table(new string[] {
@@ -5950,7 +5968,7 @@ this.FeatureBackground();
             table92.AddRow(new string[] {
                         "H4",
                         "F6"});
-#line 1100
+#line 1103
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table92, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -5965,7 +5983,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "BB")]
         public virtual void FindMovesShouldFindAllMovesForWhiteKingCheckedBy_Bishop()
         {
-#line 1088
+#line 1091
 this.FindMovesShouldFindAllMovesForWhiteKingCheckedBy("Bishop", "BB", ((string[])(null)));
 #line hidden
         }
@@ -5979,7 +5997,7 @@ this.FindMovesShouldFindAllMovesForWhiteKingCheckedBy("Bishop", "BB", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "BQ")]
         public virtual void FindMovesShouldFindAllMovesForWhiteKingCheckedBy_Queen()
         {
-#line 1088
+#line 1091
 this.FindMovesShouldFindAllMovesForWhiteKingCheckedBy("Queen", "BQ", ((string[])(null)));
 #line hidden
         }
@@ -5987,7 +6005,7 @@ this.FindMovesShouldFindAllMovesForWhiteKingCheckedBy("Queen", "BQ", ((string[])
         public virtual void FindMovesShouldFindAllMovesForBlackKingCheckedBy(string testName, string h1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find moves should find all moves for black king checked by", exampleTags);
-#line 1117
+#line 1120
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -6073,7 +6091,7 @@ this.FeatureBackground();
                         "",
                         "",
                         string.Format("{0}", h1)});
-#line 1118
+#line 1121
  testRunner.Given("I start a new game in the following state", ((string)(null)), table93, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table94 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6084,9 +6102,9 @@ this.FeatureBackground();
                         "C1",
                         "C1",
                         "Move"});
-#line 1128
- testRunner.Given("I have the following move history", ((string)(null)), table94, "Given ");
 #line 1131
+ testRunner.Given("I have the following move history", ((string)(null)), table94, "Given ");
+#line 1134
  testRunner.When("I find moves for the current game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table95 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6122,7 +6140,7 @@ this.FeatureBackground();
             table95.AddRow(new string[] {
                         "H5",
                         "F3"});
-#line 1132
+#line 1135
  testRunner.Then("I expect the moves found should contain", ((string)(null)), table95, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -6137,7 +6155,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "WB")]
         public virtual void FindMovesShouldFindAllMovesForBlackKingCheckedBy_Bishop()
         {
-#line 1117
+#line 1120
 this.FindMovesShouldFindAllMovesForBlackKingCheckedBy("Bishop", "WB", ((string[])(null)));
 #line hidden
         }
@@ -6151,7 +6169,7 @@ this.FindMovesShouldFindAllMovesForBlackKingCheckedBy("Bishop", "WB", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "WQ")]
         public virtual void FindMovesShouldFindAllMovesForBlackKingCheckedBy_Queen()
         {
-#line 1117
+#line 1120
 this.FindMovesShouldFindAllMovesForBlackKingCheckedBy("Queen", "WQ", ((string[])(null)));
 #line hidden
         }
@@ -6163,7 +6181,7 @@ this.FindMovesShouldFindAllMovesForBlackKingCheckedBy("Queen", "WQ", ((string[])
         public virtual void MakeMoveShouldCorrectlyMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly move for white", ((string[])(null)));
-#line 1153
+#line 1156
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -6249,7 +6267,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1154
+#line 1157
  testRunner.Given("I start a new game in the following state", ((string)(null)), table96, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table97 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6258,7 +6276,7 @@ this.FeatureBackground();
             table97.AddRow(new string[] {
                         "H1",
                         "H7"});
-#line 1164
+#line 1167
  testRunner.When("I make the following move", ((string)(null)), table97, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table98 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6342,7 +6360,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1167
+#line 1170
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table98, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -6355,7 +6373,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly move for black", ((string[])(null)));
-#line 1178
+#line 1181
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -6441,7 +6459,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1179
+#line 1182
  testRunner.Given("I start a new game in the following state", ((string)(null)), table99, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table100 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6452,7 +6470,7 @@ this.FeatureBackground();
                         "A4",
                         "A4",
                         "Move"});
-#line 1189
+#line 1192
  testRunner.Given("I have the following move history", ((string)(null)), table100, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6461,7 +6479,7 @@ this.FeatureBackground();
             table101.AddRow(new string[] {
                         "H8",
                         "H2"});
-#line 1192
+#line 1195
  testRunner.When("I make the following move", ((string)(null)), table101, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table102 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6545,7 +6563,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1195
+#line 1198
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table102, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -6558,7 +6576,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyCaptureForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly capture for white", ((string[])(null)));
-#line 1206
+#line 1209
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -6644,7 +6662,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1207
+#line 1210
  testRunner.Given("I start a new game in the following state", ((string)(null)), table103, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table104 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6653,7 +6671,7 @@ this.FeatureBackground();
             table104.AddRow(new string[] {
                         "H1",
                         "H8"});
-#line 1217
+#line 1220
  testRunner.When("I make the following move", ((string)(null)), table104, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6737,7 +6755,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1220
+#line 1223
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table105, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -6750,7 +6768,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyCaptureForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly capture for black", ((string[])(null)));
-#line 1231
+#line 1234
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -6836,7 +6854,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1232
+#line 1235
  testRunner.Given("I start a new game in the following state", ((string)(null)), table106, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6847,7 +6865,7 @@ this.FeatureBackground();
                         "A4",
                         "A4",
                         "Move"});
-#line 1242
+#line 1245
  testRunner.Given("I have the following move history", ((string)(null)), table107, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table108 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6856,7 +6874,7 @@ this.FeatureBackground();
             table108.AddRow(new string[] {
                         "H8",
                         "H1"});
-#line 1245
+#line 1248
  testRunner.When("I make the following move", ((string)(null)), table108, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
@@ -6940,7 +6958,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "BR"});
-#line 1248
+#line 1251
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table109, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -6955,7 +6973,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should report an illegal move for a pawn promotion without promotion sp" +
                     "ecified", ((string[])(null)));
-#line 1259
+#line 1262
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -7041,9 +7059,9 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1260
+#line 1263
  testRunner.Given("I start a new game in the following state", ((string)(null)), table110, "Given ");
-#line 1270
+#line 1273
  testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table111 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7052,7 +7070,7 @@ this.FeatureBackground();
             table111.AddRow(new string[] {
                         "H7",
                         "H8"});
-#line 1271
+#line 1274
  testRunner.When("I make the following move", ((string)(null)), table111, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table112 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7061,7 +7079,7 @@ this.FeatureBackground();
             table112.AddRow(new string[] {
                         "IllegalMove",
                         "The move is not valid because it is not legal."});
-#line 1274
+#line 1277
  testRunner.Then("I expect the following Exception to be thrown", ((string)(null)), table112, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -7070,7 +7088,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo(string promotionType, string h8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly promote pawn for white move to", exampleTags);
-#line 1278
+#line 1281
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -7156,7 +7174,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1279
+#line 1282
  testRunner.Given("I start a new game in the following state", ((string)(null)), table113, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table114 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7167,7 +7185,7 @@ this.FeatureBackground();
                         "H7",
                         "H8",
                         string.Format("{0}", promotionType)});
-#line 1289
+#line 1292
  testRunner.When("I make the following move", ((string)(null)), table114, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table115 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7251,7 +7269,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1292
+#line 1295
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table115, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -7266,7 +7284,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo_Knight()
         {
-#line 1278
+#line 1281
 this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Knight", "WN", ((string[])(null)));
 #line hidden
         }
@@ -7280,7 +7298,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Knight", "WN", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WB")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo_Bishop()
         {
-#line 1278
+#line 1281
 this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Bishop", "WB", ((string[])(null)));
 #line hidden
         }
@@ -7294,7 +7312,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Bishop", "WB", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WR")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo_Rook()
         {
-#line 1278
+#line 1281
 this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Rook", "WR", ((string[])(null)));
 #line hidden
         }
@@ -7308,7 +7326,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Rook", "WR", ((string[])(
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WQ")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo_Queen()
         {
-#line 1278
+#line 1281
 this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Queen", "WQ", ((string[])(null)));
 #line hidden
         }
@@ -7316,7 +7334,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteMoveTo("Queen", "WQ", ((string[])
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo(string promotionType, string h1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly promote pawn for black move to", exampleTags);
-#line 1309
+#line 1312
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -7402,7 +7420,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1310
+#line 1313
  testRunner.Given("I start a new game in the following state", ((string)(null)), table116, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table117 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7413,7 +7431,7 @@ this.FeatureBackground();
                         "H4",
                         "H4",
                         "Move"});
-#line 1320
+#line 1323
  testRunner.Given("I have the following move history", ((string)(null)), table117, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table118 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7424,7 +7442,7 @@ this.FeatureBackground();
                         "H2",
                         "H1",
                         string.Format("{0}", promotionType)});
-#line 1323
+#line 1326
  testRunner.When("I make the following move", ((string)(null)), table118, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table119 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7508,7 +7526,7 @@ this.FeatureBackground();
                         "",
                         "",
                         string.Format("{0}", h1)});
-#line 1326
+#line 1329
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table119, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -7523,7 +7541,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo_Knight()
         {
-#line 1309
+#line 1312
 this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Knight", "BN", ((string[])(null)));
 #line hidden
         }
@@ -7537,7 +7555,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Knight", "BN", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BB")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo_Bishop()
         {
-#line 1309
+#line 1312
 this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Bishop", "BB", ((string[])(null)));
 #line hidden
         }
@@ -7551,7 +7569,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Bishop", "BB", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BR")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo_Rook()
         {
-#line 1309
+#line 1312
 this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Rook", "BR", ((string[])(null)));
 #line hidden
         }
@@ -7565,15 +7583,15 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Rook", "BR", ((string[])(
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BQ")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo_Queen()
         {
-#line 1309
+#line 1312
 this.MakeMoveShouldCorrectlyPromotePawnForBlackMoveTo("Queen", "BQ", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo(string promotionType, string destination, string h8, string f8, string[] exampleTags)
+        public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo(string promotionType, string destination, string h8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly promote pawn for white capture to", exampleTags);
-#line 1343
+#line 1346
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -7593,7 +7611,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK",
-                        "BN",
+                        "",
                         "",
                         "BN"});
             table120.AddRow(new string[] {
@@ -7659,7 +7677,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1344
+#line 1347
  testRunner.Given("I start a new game in the following state", ((string)(null)), table120, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table121 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7667,10 +7685,10 @@ this.FeatureBackground();
                         "Destination",
                         "PromotionType"});
             table121.AddRow(new string[] {
-                        "H7",
-                        string.Format("{0}", destination),
+                        "G7",
+                        "H8",
                         string.Format("{0}", promotionType)});
-#line 1354
+#line 1357
  testRunner.When("I make the following move", ((string)(null)), table121, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table122 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7688,7 +7706,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "BK",
-                        string.Format("{0}", f8),
+                        "",
                         "",
                         string.Format("{0}", h8)});
             table122.AddRow(new string[] {
@@ -7754,7 +7772,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1357
+#line 1360
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table122, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -7768,11 +7786,10 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PromotionType", "Knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "H8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "BN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo_Knight()
         {
-#line 1343
-this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Knight", "H8", "WN", "BN", ((string[])(null)));
+#line 1346
+this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Knight", "H8", "WN", ((string[])(null)));
 #line hidden
         }
         
@@ -7782,13 +7799,12 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Knight", "H8", "WN", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PromotionType", "Bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "F8")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "BN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "WB")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "H8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WB")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo_Bishop()
         {
-#line 1343
-this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Bishop", "F8", "BN", "WB", ((string[])(null)));
+#line 1346
+this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Bishop", "H8", "WB", ((string[])(null)));
 #line hidden
         }
         
@@ -7800,11 +7816,10 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Bishop", "F8", "BN", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PromotionType", "Rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "H8")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WR")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "BN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo_Rook()
         {
-#line 1343
-this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Rook", "H8", "WR", "BN", ((string[])(null)));
+#line 1346
+this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Rook", "H8", "WR", ((string[])(null)));
 #line hidden
         }
         
@@ -7814,20 +7829,19 @@ this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Rook", "H8", "WR", "BN
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PromotionType", "Queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "F8")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "BN")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:F8", "WQ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Destination", "H8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H8", "WQ")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo_Queen()
         {
-#line 1343
-this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Queen", "F8", "BN", "WQ", ((string[])(null)));
+#line 1346
+this.MakeMoveShouldCorrectlyPromotePawnForWhiteCaptureTo("Queen", "H8", "WQ", ((string[])(null)));
 #line hidden
         }
         
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo(string promotionType, string destination, string f1, string h1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly promote pawn for black capture to", exampleTags);
-#line 1374
+#line 1377
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -7913,18 +7927,16 @@ this.FeatureBackground();
                         "WN",
                         "",
                         "WN"});
-#line 1375
+#line 1378
  testRunner.Given("I start a new game in the following state", ((string)(null)), table123, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table124 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table124.AddRow(new string[] {
                         "H4",
-                        "H4",
-                        "Move"});
-#line 1385
+                        "H4"});
+#line 1388
  testRunner.Given("I have the following move history", ((string)(null)), table124, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table125 = new TechTalk.SpecFlow.Table(new string[] {
@@ -7932,10 +7944,10 @@ this.FeatureBackground();
                         "Destination",
                         "PromotionType"});
             table125.AddRow(new string[] {
-                        "H2",
+                        "G2",
                         string.Format("{0}", destination),
                         string.Format("{0}", promotionType)});
-#line 1388
+#line 1391
  testRunner.When("I make the following move", ((string)(null)), table125, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table126 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8019,7 +8031,7 @@ this.FeatureBackground();
                         string.Format("{0}", f1),
                         "",
                         string.Format("{0}", h1)});
-#line 1391
+#line 1394
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table126, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8036,7 +8048,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo_Knight()
         {
-#line 1374
+#line 1377
 this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Knight", "H1", "WN", "BN", ((string[])(null)));
 #line hidden
         }
@@ -8052,7 +8064,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Knight", "H1", "WN", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "WN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo_Bishop()
         {
-#line 1374
+#line 1377
 this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Bishop", "F1", "BB", "WN", ((string[])(null)));
 #line hidden
         }
@@ -8068,7 +8080,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Bishop", "F1", "BB", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "BR")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo_Rook()
         {
-#line 1374
+#line 1377
 this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Rook", "H1", "WN", "BR", ((string[])(null)));
 #line hidden
         }
@@ -8084,7 +8096,7 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Rook", "H1", "WN", "BR
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H1", "WN")]
         public virtual void MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo_Queen()
         {
-#line 1374
+#line 1377
 this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Queen", "F1", "BQ", "WN", ((string[])(null)));
 #line hidden
         }
@@ -8092,15 +8104,15 @@ this.MakeMoveShouldCorrectlyPromotePawnForBlackCaptureTo("Queen", "F1", "BQ", "W
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn(string gameState, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the gamestate is in", exampleTags);
-#line 1408
+#line 1411
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
-#line 1409
+#line 1412
  testRunner.Given("I start a new game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1410
+#line 1413
  testRunner.Given(string.Format("The game is in the following gamestate \'{0}\'", gameState), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1411
+#line 1414
  testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table127 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8109,7 +8121,7 @@ this.FeatureBackground();
             table127.AddRow(new string[] {
                         "A2",
                         "A3"});
-#line 1412
+#line 1415
  testRunner.When("I make the following move", ((string)(null)), table127, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table128 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8118,7 +8130,7 @@ this.FeatureBackground();
             table128.AddRow(new string[] {
                         "InvalidMoveGameOver",
                         "The move is not valid because the game is over."});
-#line 1415
+#line 1418
  testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table128, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8132,7 +8144,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "WhiteWin")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_WhiteWin()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("WhiteWin", ((string[])(null)));
 #line hidden
         }
@@ -8145,7 +8157,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("WhiteWin", ((string[])(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "BlackWin")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_BlackWin()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("BlackWin", ((string[])(null)));
 #line hidden
         }
@@ -8158,7 +8170,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("BlackWin", ((string[])(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawStalemate")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawStalemate()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawStalemate", ((string[])(null)));
 #line hidden
         }
@@ -8172,7 +8184,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawStalemate", ((string[])(
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawThreeFoldRepetition")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawThreeFoldRepetition()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawThreeFoldRepetition", ((string[])(null)));
 #line hidden
         }
@@ -8185,7 +8197,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawThreeFoldRepetition", ((
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawFiftyMoveRule")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawFiftyMoveRule()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawFiftyMoveRule", ((string[])(null)));
 #line hidden
         }
@@ -8198,7 +8210,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawFiftyMoveRule", ((string
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInDeadPosition")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInDeadPosition()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInDeadPosition", ((string[])(null)));
 #line hidden
         }
@@ -8212,7 +8224,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInDeadPosition", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:GameState", "DrawInsufficientMaterial")]
         public virtual void MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn_DrawInsufficientMaterial()
         {
-#line 1408
+#line 1411
 this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInsufficientMaterial", ((string[])(null)));
 #line hidden
         }
@@ -8224,7 +8236,7 @@ this.MakeMoveShouldNotAllowAMoveIfTheGamestateIsIn("DrawInsufficientMaterial", (
         public virtual void MakeMoveShouldNotAllowAMoveIfTheMoveIsIllegal()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should not allow a move if the move is illegal", ((string[])(null)));
-#line 1428
+#line 1431
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -8310,9 +8322,9 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 1429
+#line 1432
  testRunner.Given("I start a new game in the following state", ((string)(null)), table129, "Given ");
-#line 1439
+#line 1442
  testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table130 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8321,7 +8333,7 @@ this.FeatureBackground();
             table130.AddRow(new string[] {
                         "A4",
                         "F3"});
-#line 1440
+#line 1443
  testRunner.When("I make the following move", ((string)(null)), table130, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table131 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8330,7 +8342,7 @@ this.FeatureBackground();
             table131.AddRow(new string[] {
                         "IllegalMove",
                         "The move is not valid because it is not legal."});
-#line 1443
+#line 1446
  testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table131, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8343,7 +8355,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeKingsideCastleForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make kingside castle for white", ((string[])(null)));
-#line 1447
+#line 1450
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -8429,7 +8441,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1448
+#line 1451
  testRunner.Given("I start a new game in the following state", ((string)(null)), table132, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table133 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8438,7 +8450,7 @@ this.FeatureBackground();
             table133.AddRow(new string[] {
                         "E1",
                         "G1"});
-#line 1458
+#line 1461
  testRunner.When("I make the following move", ((string)(null)), table133, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table134 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8522,7 +8534,7 @@ this.FeatureBackground();
                         "WR",
                         "WK",
                         ""});
-#line 1461
+#line 1464
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table134, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8535,7 +8547,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeQueensideCastleForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make queenside castle for white", ((string[])(null)));
-#line 1472
+#line 1475
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -8621,7 +8633,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1473
+#line 1476
  testRunner.Given("I start a new game in the following state", ((string)(null)), table135, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table136 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8630,7 +8642,7 @@ this.FeatureBackground();
             table136.AddRow(new string[] {
                         "E1",
                         "C1"});
-#line 1483
+#line 1486
  testRunner.When("I make the following move", ((string)(null)), table136, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table137 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8714,7 +8726,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1486
+#line 1489
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table137, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8727,7 +8739,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeKingsideCastleForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make kingside castle for black", ((string[])(null)));
-#line 1497
+#line 1500
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -8813,18 +8825,16 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1498
+#line 1501
  testRunner.Given("I start a new game in the following state", ((string)(null)), table138, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table139 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table139.AddRow(new string[] {
                         "A4",
-                        "A4",
-                        "Move"});
-#line 1508
+                        "A4"});
+#line 1511
  testRunner.Given("I have the following move history", ((string)(null)), table139, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table140 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8833,7 +8843,7 @@ this.FeatureBackground();
             table140.AddRow(new string[] {
                         "E8",
                         "G8"});
-#line 1511
+#line 1514
  testRunner.When("I make the following move", ((string)(null)), table140, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table141 = new TechTalk.SpecFlow.Table(new string[] {
@@ -8917,7 +8927,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1514
+#line 1517
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table141, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -8930,7 +8940,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeQueensideCastleForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make queenside castle for black", ((string[])(null)));
-#line 1525
+#line 1528
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -9016,7 +9026,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1526
+#line 1529
  testRunner.Given("I start a new game in the following state", ((string)(null)), table142, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table143 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9027,7 +9037,7 @@ this.FeatureBackground();
                         "A4",
                         "A4",
                         "Move"});
-#line 1536
+#line 1539
  testRunner.Given("I have the following move history", ((string)(null)), table143, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table144 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9036,7 +9046,7 @@ this.FeatureBackground();
             table144.AddRow(new string[] {
                         "E8",
                         "C8"});
-#line 1539
+#line 1542
  testRunner.When("I make the following move", ((string)(null)), table144, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table145 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9120,7 +9130,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 1542
+#line 1545
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table145, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -9133,7 +9143,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeNorthwestAuPassantMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make northwest au passant move for white", ((string[])(null)));
-#line 1553
+#line 1556
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -9219,7 +9229,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1554
+#line 1557
  testRunner.Given("I start a new game in the following state", ((string)(null)), table146, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table147 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9234,7 +9244,7 @@ this.FeatureBackground();
                         "E7",
                         "E5",
                         "Move"});
-#line 1564
+#line 1567
  testRunner.Given("I have the following move history", ((string)(null)), table147, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table148 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9243,7 +9253,7 @@ this.FeatureBackground();
             table148.AddRow(new string[] {
                         "F5",
                         "E6"});
-#line 1568
+#line 1571
  testRunner.When("I make the following move", ((string)(null)), table148, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table149 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9327,7 +9337,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1571
+#line 1574
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table149, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -9340,7 +9350,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeNortheastAuPassantMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make northeast au passant move for white", ((string[])(null)));
-#line 1582
+#line 1585
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -9426,7 +9436,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1583
+#line 1586
  testRunner.Given("I start a new game in the following state", ((string)(null)), table150, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table151 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9441,7 +9451,7 @@ this.FeatureBackground();
                         "G7",
                         "G5",
                         "Move"});
-#line 1593
+#line 1596
  testRunner.Given("I have the following move history", ((string)(null)), table151, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table152 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9450,7 +9460,7 @@ this.FeatureBackground();
             table152.AddRow(new string[] {
                         "F5",
                         "G6"});
-#line 1597
+#line 1600
  testRunner.When("I make the following move", ((string)(null)), table152, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table153 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9534,7 +9544,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1600
+#line 1603
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table153, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -9547,7 +9557,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeSouthwestAuPassantMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make southwest au passant move for black", ((string[])(null)));
-#line 1611
+#line 1614
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -9633,7 +9643,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1612
+#line 1615
  testRunner.Given("I start a new game in the following state", ((string)(null)), table154, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table155 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9644,7 +9654,7 @@ this.FeatureBackground();
                         "C2",
                         "C4",
                         "Move"});
-#line 1622
+#line 1625
  testRunner.Given("I have the following move history", ((string)(null)), table155, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table156 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9653,7 +9663,7 @@ this.FeatureBackground();
             table156.AddRow(new string[] {
                         "D4",
                         "C3"});
-#line 1625
+#line 1628
  testRunner.When("I make the following move", ((string)(null)), table156, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table157 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9737,7 +9747,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1628
+#line 1631
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table157, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -9750,7 +9760,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCorrectlyMakeSoutheastAuPassantMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should correctly make southeast au passant move for black", ((string[])(null)));
-#line 1639
+#line 1642
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -9836,18 +9846,16 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1640
+#line 1643
  testRunner.Given("I start a new game in the following state", ((string)(null)), table158, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table159 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table159.AddRow(new string[] {
                         "E2",
-                        "E4",
-                        "Move"});
-#line 1650
+                        "E4"});
+#line 1653
  testRunner.Given("I have the following move history", ((string)(null)), table159, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table160 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9856,7 +9864,7 @@ this.FeatureBackground();
             table160.AddRow(new string[] {
                         "D4",
                         "E3"});
-#line 1653
+#line 1656
  testRunner.When("I make the following move", ((string)(null)), table160, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table161 = new TechTalk.SpecFlow.Table(new string[] {
@@ -9940,7 +9948,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 1656
+#line 1659
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table161, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -9953,11 +9961,11 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldRecordMoveHistoryCorrectly()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should record move history correctly", ((string[])(null)));
-#line 1667
+#line 1670
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
-#line 1668
+#line 1671
  testRunner.Given("I start a new game", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table162 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10002,45 +10010,45 @@ this.FeatureBackground();
             table162.AddRow(new string[] {
                         "A1",
                         "C1"});
-#line 1669
+#line 1672
  testRunner.When("I make the following moves", ((string)(null)), table162, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table163 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "CapturedPiece"});
             table163.AddRow(new string[] {
                         "E2",
                         "E4",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "E7",
                         "E5",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "B1",
                         "C3",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "B8",
                         "C6",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "D2",
                         "D4",
-                        "Move"});
+                        ""});
             table163.AddRow(new string[] {
                         "E5",
                         "D4",
-                        "CapturePawn"});
+                        "WhitePawn"});
             table163.AddRow(new string[] {
                         "D1",
                         "D4",
-                        "CapturePawn"});
+                        "BlackPawn"});
             table163.AddRow(new string[] {
                         "C6",
                         "D4",
-                        "CaptureQueen"});
+                        "WhiteQueen"});
             table163.AddRow(new string[] {
                         "G1",
                         "F3",
@@ -10052,16 +10060,16 @@ this.FeatureBackground();
             table163.AddRow(new string[] {
                         "F3",
                         "D4",
-                        "CaptureKnight"});
+                        "BlackKnight"});
             table163.AddRow(new string[] {
                         "G5",
                         "C1",
-                        "CaptureBishop"});
+                        "WhiteBishop"});
             table163.AddRow(new string[] {
                         "A1",
                         "C1",
-                        "CaptureQueen"});
-#line 1684
+                        "BlackQueen"});
+#line 1687
  testRunner.Then("I expect the following move history", ((string)(null)), table163, "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table164 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10145,7 +10153,7 @@ this.FeatureBackground();
                         "WB",
                         "",
                         "WR"});
-#line 1699
+#line 1702
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table164, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10158,7 +10166,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateWhiteWin()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate white win", ((string[])(null)));
-#line 1710
+#line 1713
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10244,7 +10252,7 @@ this.FeatureBackground();
                         "",
                         "WR",
                         ""});
-#line 1711
+#line 1714
  testRunner.Given("I start a new game in the following state", ((string)(null)), table165, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table166 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10253,11 +10261,11 @@ this.FeatureBackground();
             table166.AddRow(new string[] {
                         "A2",
                         "H2"});
-#line 1721
- testRunner.When("I make the following move", ((string)(null)), table166, "When ");
 #line 1724
+ testRunner.When("I make the following move", ((string)(null)), table166, "When ");
+#line 1727
  testRunner.Then("I expect the gamestate to be \'WhiteWin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1725
+#line 1728
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10270,7 +10278,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateBlackWin()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate black win", ((string[])(null)));
-#line 1727
+#line 1730
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10356,9 +10364,9 @@ this.FeatureBackground();
                         "",
                         "BR",
                         ""});
-#line 1728
+#line 1731
  testRunner.Given("I start a new game in the following state", ((string)(null)), table167, "Given ");
-#line 1738
+#line 1741
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table168 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10367,11 +10375,11 @@ this.FeatureBackground();
             table168.AddRow(new string[] {
                         "A2",
                         "H2"});
-#line 1739
- testRunner.When("I make the following move", ((string)(null)), table168, "When ");
 #line 1742
+ testRunner.When("I make the following move", ((string)(null)), table168, "When ");
+#line 1745
  testRunner.Then("I expect the gamestate to be \'BlackWin\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1743
+#line 1746
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10384,7 +10392,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateStalemateDrawForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate stalemate draw for white", ((string[])(null)));
-#line 1745
+#line 1748
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10470,7 +10478,7 @@ this.FeatureBackground();
                         "",
                         "WQ",
                         "WK"});
-#line 1746
+#line 1749
  testRunner.Given("I start a new game in the following state", ((string)(null)), table169, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table170 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10479,11 +10487,11 @@ this.FeatureBackground();
             table170.AddRow(new string[] {
                         "G1",
                         "B1"});
-#line 1756
- testRunner.When("I make the following move", ((string)(null)), table170, "When ");
 #line 1759
+ testRunner.When("I make the following move", ((string)(null)), table170, "When ");
+#line 1762
  testRunner.Then("I expect the gamestate to be \'DrawStalemate\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1760
+#line 1763
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10496,7 +10504,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateStalemateDrawForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate stalemate draw for black", ((string[])(null)));
-#line 1762
+#line 1765
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10582,9 +10590,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1763
+#line 1766
  testRunner.Given("I start a new game in the following state", ((string)(null)), table171, "Given ");
-#line 1773
+#line 1776
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table172 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10593,11 +10601,11 @@ this.FeatureBackground();
             table172.AddRow(new string[] {
                         "B8",
                         "G8"});
-#line 1774
- testRunner.When("I make the following move", ((string)(null)), table172, "When ");
 #line 1777
+ testRunner.When("I make the following move", ((string)(null)), table172, "When ");
+#line 1780
  testRunner.Then("I expect the gamestate to be \'DrawStalemate\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1778
+#line 1781
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10610,7 +10618,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateInsufficientMaterialDrawForWhiteTwoKings()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for white (two kings)", ((string[])(null)));
-#line 1780
+#line 1783
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10696,7 +10704,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1781
+#line 1784
  testRunner.Given("I start a new game in the following state", ((string)(null)), table173, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table174 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10705,11 +10713,11 @@ this.FeatureBackground();
             table174.AddRow(new string[] {
                         "H1",
                         "H2"});
-#line 1791
- testRunner.When("I make the following move", ((string)(null)), table174, "When ");
 #line 1794
+ testRunner.When("I make the following move", ((string)(null)), table174, "When ");
+#line 1797
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1795
+#line 1798
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10722,7 +10730,7 @@ this.FeatureBackground();
         public virtual void MakeMoveShouldCalculateInsufficientMaterialDrawForBlackTwoKings()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for black (two kings)", ((string[])(null)));
-#line 1797
+#line 1800
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10808,9 +10816,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1798
+#line 1801
  testRunner.Given("I start a new game in the following state", ((string)(null)), table175, "Given ");
-#line 1808
+#line 1811
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table176 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10819,11 +10827,11 @@ this.FeatureBackground();
             table176.AddRow(new string[] {
                         "H8",
                         "H7"});
-#line 1809
- testRunner.When("I make the following move", ((string)(null)), table176, "When ");
 #line 1812
+ testRunner.When("I make the following move", ((string)(null)), table176, "When ");
+#line 1815
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1813
+#line 1816
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10838,7 +10846,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for white (one knight two k" +
                     "ings)", ((string[])(null)));
-#line 1815
+#line 1818
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -10924,7 +10932,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1816
+#line 1819
  testRunner.Given("I start a new game in the following state", ((string)(null)), table177, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table178 = new TechTalk.SpecFlow.Table(new string[] {
@@ -10933,11 +10941,11 @@ this.FeatureBackground();
             table178.AddRow(new string[] {
                         "H1",
                         "H2"});
-#line 1826
- testRunner.When("I make the following move", ((string)(null)), table178, "When ");
 #line 1829
+ testRunner.When("I make the following move", ((string)(null)), table178, "When ");
+#line 1832
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1830
+#line 1833
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -10952,7 +10960,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for black (one knight two k" +
                     "ings)", ((string[])(null)));
-#line 1832
+#line 1835
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11038,9 +11046,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1833
+#line 1836
  testRunner.Given("I start a new game in the following state", ((string)(null)), table179, "Given ");
-#line 1843
+#line 1846
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table180 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11049,11 +11057,11 @@ this.FeatureBackground();
             table180.AddRow(new string[] {
                         "H8",
                         "H7"});
-#line 1844
- testRunner.When("I make the following move", ((string)(null)), table180, "When ");
 #line 1847
+ testRunner.When("I make the following move", ((string)(null)), table180, "When ");
+#line 1850
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1848
+#line 1851
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11068,7 +11076,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for white (one bishop two k" +
                     "ings)", ((string[])(null)));
-#line 1850
+#line 1853
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11154,7 +11162,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1851
+#line 1854
  testRunner.Given("I start a new game in the following state", ((string)(null)), table181, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table182 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11163,11 +11171,11 @@ this.FeatureBackground();
             table182.AddRow(new string[] {
                         "H1",
                         "H2"});
-#line 1861
- testRunner.When("I make the following move", ((string)(null)), table182, "When ");
 #line 1864
+ testRunner.When("I make the following move", ((string)(null)), table182, "When ");
+#line 1867
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1865
+#line 1868
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11182,7 +11190,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for black (one bishop two k" +
                     "ings)", ((string[])(null)));
-#line 1867
+#line 1870
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11268,9 +11276,9 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 1868
+#line 1871
  testRunner.Given("I start a new game in the following state", ((string)(null)), table183, "Given ");
-#line 1878
+#line 1881
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table184 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11279,11 +11287,11 @@ this.FeatureBackground();
             table184.AddRow(new string[] {
                         "H8",
                         "H7"});
-#line 1879
- testRunner.When("I make the following move", ((string)(null)), table184, "When ");
 #line 1882
+ testRunner.When("I make the following move", ((string)(null)), table184, "When ");
+#line 1885
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1883
+#line 1886
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11298,7 +11306,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for white (many bishops on " +
                     "dark square two kings)", ((string[])(null)));
-#line 1885
+#line 1888
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11384,7 +11392,7 @@ this.FeatureBackground();
                         "",
                         "BB",
                         "WK"});
-#line 1886
+#line 1889
  testRunner.Given("I start a new game in the following state", ((string)(null)), table185, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table186 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11393,11 +11401,11 @@ this.FeatureBackground();
             table186.AddRow(new string[] {
                         "H1",
                         "G2"});
-#line 1896
- testRunner.When("I make the following move", ((string)(null)), table186, "When ");
 #line 1899
+ testRunner.When("I make the following move", ((string)(null)), table186, "When ");
+#line 1902
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1900
+#line 1903
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11412,7 +11420,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for white (many bishops on " +
                     "light square two kings)", ((string[])(null)));
-#line 1902
+#line 1905
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11498,7 +11506,7 @@ this.FeatureBackground();
                         "BB",
                         "BB",
                         "BB"});
-#line 1903
+#line 1906
  testRunner.Given("I start a new game in the following state", ((string)(null)), table187, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table188 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11507,11 +11515,11 @@ this.FeatureBackground();
             table188.AddRow(new string[] {
                         "H2",
                         "G1"});
-#line 1913
- testRunner.When("I make the following move", ((string)(null)), table188, "When ");
 #line 1916
+ testRunner.When("I make the following move", ((string)(null)), table188, "When ");
+#line 1919
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1917
+#line 1920
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11526,7 +11534,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for black (many bishops on " +
                     "dark square two kings)", ((string[])(null)));
-#line 1919
+#line 1922
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11612,9 +11620,9 @@ this.FeatureBackground();
                         "",
                         "WB",
                         "BK"});
-#line 1920
+#line 1923
  testRunner.Given("I start a new game in the following state", ((string)(null)), table189, "Given ");
-#line 1930
+#line 1933
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table190 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11623,11 +11631,11 @@ this.FeatureBackground();
             table190.AddRow(new string[] {
                         "H1",
                         "G2"});
-#line 1931
- testRunner.When("I make the following move", ((string)(null)), table190, "When ");
 #line 1934
+ testRunner.When("I make the following move", ((string)(null)), table190, "When ");
+#line 1937
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1935
+#line 1938
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11642,7 +11650,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Make move should calculate insufficient material draw for black (many bishops on " +
                     "light square two kings)", ((string[])(null)));
-#line 1937
+#line 1940
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11728,9 +11736,9 @@ this.FeatureBackground();
                         "WB",
                         "WB",
                         "WB"});
-#line 1938
+#line 1941
  testRunner.Given("I start a new game in the following state", ((string)(null)), table191, "Given ");
-#line 1948
+#line 1951
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table192 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11739,11 +11747,11 @@ this.FeatureBackground();
             table192.AddRow(new string[] {
                         "H2",
                         "G1"});
-#line 1949
- testRunner.When("I make the following move", ((string)(null)), table192, "When ");
 #line 1952
+ testRunner.When("I make the following move", ((string)(null)), table192, "When ");
+#line 1955
  testRunner.Then("I expect the gamestate to be \'DrawInsufficientMaterial\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1953
+#line 1956
  testRunner.Then("I expect the game to be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11756,7 +11764,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldThrowExceptionIfNoMovesHaveBeenMade()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should throw exception if no moves have been made", ((string[])(null)));
-#line 1958
+#line 1961
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11842,11 +11850,11 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 1959
+#line 1962
  testRunner.Given("I start a new game in the following state", ((string)(null)), table193, "Given ");
-#line 1969
+#line 1972
  testRunner.Given("I expect an exception to be thrown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 1970
+#line 1973
  testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table194 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11855,7 +11863,7 @@ this.FeatureBackground();
             table194.AddRow(new string[] {
                         "UndoMoveIllegal",
                         "Unable to undo last move because no moves have been made"});
-#line 1971
+#line 1974
  testRunner.Then("I expect the following ChessException to be thrown", ((string)(null)), table194, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -11868,7 +11876,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoASimpleMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a simple move for white", ((string[])(null)));
-#line 1975
+#line 1978
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -11954,7 +11962,7 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 1976
+#line 1979
  testRunner.Given("I start a new game in the following state", ((string)(null)), table195, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table196 = new TechTalk.SpecFlow.Table(new string[] {
@@ -11965,17 +11973,17 @@ this.FeatureBackground();
                         "E2",
                         "E4",
                         "Move"});
-#line 1986
- testRunner.Given("I have the following move history", ((string)(null)), table196, "Given ");
 #line 1989
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1990
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 1991
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table196, "Given ");
 #line 1992
- testRunner.Then("I expect no moves to have been made", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 1993
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 1994
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 1995
+ testRunner.Then("I expect no moves to have been made", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 1996
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table197 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12059,7 +12067,7 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 1994
+#line 1997
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table197, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -12072,7 +12080,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoASimpleMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a simple move for black", ((string[])(null)));
-#line 2005
+#line 2008
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -12158,7 +12166,7 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 2006
+#line 2009
  testRunner.Given("I start a new game in the following state", ((string)(null)), table198, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table199 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12173,15 +12181,15 @@ this.FeatureBackground();
                         "E7",
                         "E5",
                         "Move"});
-#line 2016
+#line 2019
  testRunner.Given("I have the following move history", ((string)(null)), table199, "Given ");
-#line 2020
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2021
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2022
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2023
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2024
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2025
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2026
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table200 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12192,7 +12200,7 @@ this.FeatureBackground();
                         "E2",
                         "E4",
                         "Move"});
-#line 2024
+#line 2027
  testRunner.Then("I expect the following move history", ((string)(null)), table200, "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table201 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12276,7 +12284,7 @@ this.FeatureBackground();
                         "WB",
                         "WN",
                         "WR"});
-#line 2027
+#line 2030
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table201, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -12285,7 +12293,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack(string testName, string type, string h2, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a capture move for white capture of black", exampleTags);
-#line 2038
+#line 2041
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -12371,7 +12379,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2039
+#line 2042
  testRunner.Given("I start a new game in the following state", ((string)(null)), table202, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table203 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12382,15 +12390,15 @@ this.FeatureBackground();
                         "H1",
                         "H2",
                         string.Format("{0}", type)});
-#line 2049
- testRunner.Given("I have the following move history", ((string)(null)), table203, "Given ");
 #line 2052
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2053
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2054
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table203, "Given ");
 #line 2055
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2056
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2057
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2058
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table204 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12474,7 +12482,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2056
+#line 2059
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table204, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -12490,7 +12498,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BP")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Pawn()
         {
-#line 2038
+#line 2041
 this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("pawn", "CapturePawn", "BP", ((string[])(null)));
 #line hidden
         }
@@ -12505,7 +12513,7 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("pawn", "CapturePa
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BN")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Knight()
         {
-#line 2038
+#line 2041
 this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("knight", "CaptureKnight", "BN", ((string[])(null)));
 #line hidden
         }
@@ -12520,7 +12528,7 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("knight", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BB")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Bishop()
         {
-#line 2038
+#line 2041
 this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("bishop", "CaptureBishop", "BB", ((string[])(null)));
 #line hidden
         }
@@ -12535,7 +12543,7 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("bishop", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BR")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Rook()
         {
-#line 2038
+#line 2041
 this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("rook", "CaptureRook", "BR", ((string[])(null)));
 #line hidden
         }
@@ -12550,15 +12558,15 @@ this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("rook", "CaptureRo
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H2", "BQ")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack_Queen()
         {
-#line 2038
+#line 2041
 this.UndoLastMoveShouldUndoACaptureMoveForWhiteCaptureOfBlack("queen", "CaptureQueen", "BQ", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite(string testName, string type, string h7, string[] exampleTags)
+        public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite(string testName, string capturedPiece, string h7, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a capture move for black capture of white", exampleTags);
-#line 2074
+#line 2077
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -12644,30 +12652,30 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2075
+#line 2078
  testRunner.Given("I start a new game in the following state", ((string)(null)), table205, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table206 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
                         "Destination",
-                        "Type"});
+                        "CapturedPiece"});
             table206.AddRow(new string[] {
                         "A1",
                         "A1",
-                        "Move"});
+                        ""});
             table206.AddRow(new string[] {
                         "H8",
                         "H7",
-                        string.Format("{0}", type)});
-#line 2085
+                        string.Format("{0}", capturedPiece)});
+#line 2088
  testRunner.Given("I have the following move history", ((string)(null)), table206, "Given ");
-#line 2089
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2090
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2091
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2092
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2093
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2094
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2095
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table207 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12751,7 +12759,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2093
+#line 2096
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table207, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -12763,12 +12771,12 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "pawn")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "pawn")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CapturePawn")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "WhitePawn")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H7", "WP")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite_Pawn()
         {
-#line 2074
-this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("pawn", "CapturePawn", "WP", ((string[])(null)));
+#line 2077
+this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("pawn", "WhitePawn", "WP", ((string[])(null)));
 #line hidden
         }
         
@@ -12778,12 +12786,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("pawn", "CapturePa
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "knight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "knight")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureKnight")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "WhiteKnight")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H7", "WN")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite_Knight()
         {
-#line 2074
-this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("knight", "CaptureKnight", "WN", ((string[])(null)));
+#line 2077
+this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("knight", "WhiteKnight", "WN", ((string[])(null)));
 #line hidden
         }
         
@@ -12793,12 +12801,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("knight", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "bishop")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureBishop")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "WhiteBishop")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H7", "WB")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite_Bishop()
         {
-#line 2074
-this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("bishop", "CaptureBishop", "WB", ((string[])(null)));
+#line 2077
+this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("bishop", "WhiteBishop", "WB", ((string[])(null)));
 #line hidden
         }
         
@@ -12808,12 +12816,12 @@ this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("bishop", "Capture
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "rook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "rook")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureRook")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "WhiteRook")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H7", "WR")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite_Rook()
         {
-#line 2074
-this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("rook", "CaptureRook", "WR", ((string[])(null)));
+#line 2077
+this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("rook", "WhiteRook", "WR", ((string[])(null)));
 #line hidden
         }
         
@@ -12823,19 +12831,19 @@ this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("rook", "CaptureRo
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Unit")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "queen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TestName", "queen")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Type", "CaptureQueen")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CapturedPiece", "WhiteQueen")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:H7", "WQ")]
         public virtual void UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite_Queen()
         {
-#line 2074
-this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("queen", "CaptureQueen", "WQ", ((string[])(null)));
+#line 2077
+this.UndoLastMoveShouldUndoACaptureMoveForBlackCaptureOfWhite("queen", "WhiteQueen", "WQ", ((string[])(null)));
 #line hidden
         }
         
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite(string testName, string type, string a8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion move for white", exampleTags);
-#line 2111
+#line 2114
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -12921,7 +12929,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2112
+#line 2115
  testRunner.Given("I start a new game in the following state", ((string)(null)), table208, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table209 = new TechTalk.SpecFlow.Table(new string[] {
@@ -12932,15 +12940,15 @@ this.FeatureBackground();
                         "A7",
                         "A8",
                         string.Format("{0}", type)});
-#line 2122
- testRunner.Given("I have the following move history", ((string)(null)), table209, "Given ");
 #line 2125
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2126
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2127
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table209, "Given ");
 #line 2128
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2129
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2130
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2131
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table210 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13024,7 +13032,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2129
+#line 2132
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table210, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -13040,7 +13048,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Knight()
         {
-#line 2111
+#line 2114
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("knight", "PawnPromotionKnight", "WN", ((string[])(null)));
 #line hidden
         }
@@ -13055,7 +13063,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("knight", "PawnPromotionKn
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Bishop()
         {
-#line 2111
+#line 2114
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("bishop", "PawnPromotionBishop", "WB", ((string[])(null)));
 #line hidden
         }
@@ -13070,7 +13078,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("bishop", "PawnPromotionBi
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WR")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Rook()
         {
-#line 2111
+#line 2114
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("rook", "PawnPromotionRook", "WR", ((string[])(null)));
 #line hidden
         }
@@ -13085,7 +13093,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("rook", "PawnPromotionRook
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A8", "WQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForWhite_Queen()
         {
-#line 2111
+#line 2114
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("queen", "PawnPromotionQueen", "WQ", ((string[])(null)));
 #line hidden
         }
@@ -13093,7 +13101,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForWhite("queen", "PawnPromotionQue
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack(string testName, string type, string a1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion move for black", exampleTags);
-#line 2146
+#line 2149
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -13179,7 +13187,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2147
+#line 2150
  testRunner.Given("I start a new game in the following state", ((string)(null)), table211, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table212 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13194,15 +13202,15 @@ this.FeatureBackground();
                         "A2",
                         "A1",
                         string.Format("{0}", type)});
-#line 2157
+#line 2160
  testRunner.Given("I have the following move history", ((string)(null)), table212, "Given ");
-#line 2161
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2162
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2163
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2164
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2165
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2166
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2167
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table213 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13286,7 +13294,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2165
+#line 2168
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table213, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -13302,7 +13310,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Knight()
         {
-#line 2146
+#line 2149
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("knight", "PawnPromotionKnight", "BN", ((string[])(null)));
 #line hidden
         }
@@ -13317,7 +13325,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("knight", "PawnPromotionKn
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Bishop()
         {
-#line 2146
+#line 2149
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("bishop", "PawnPromotionBishop", "BB", ((string[])(null)));
 #line hidden
         }
@@ -13332,7 +13340,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("bishop", "PawnPromotionBi
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BR")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Rook()
         {
-#line 2146
+#line 2149
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("rook", "PawnPromotionRook", "BR", ((string[])(null)));
 #line hidden
         }
@@ -13347,7 +13355,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("rook", "PawnPromotionRook
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:A1", "BQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionMoveForBlack_Queen()
         {
-#line 2146
+#line 2149
 this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("queen", "PawnPromotionQueen", "BQ", ((string[])(null)));
 #line hidden
         }
@@ -13355,7 +13363,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionMoveForBlack("queen", "PawnPromotionQue
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite(string testName, string type, string destination, string a8, string c8, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion capture for white", exampleTags);
-#line 2182
+#line 2185
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -13441,7 +13449,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2183
+#line 2186
  testRunner.Given("I start a new game in the following state", ((string)(null)), table214, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table215 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13452,15 +13460,15 @@ this.FeatureBackground();
                         "A7",
                         string.Format("{0}", destination),
                         string.Format("{0}", type)});
-#line 2193
- testRunner.Given("I have the following move history", ((string)(null)), table215, "Given ");
 #line 2196
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2197
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2198
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table215, "Given ");
 #line 2199
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2200
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2201
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2202
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table216 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13544,7 +13552,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2200
+#line 2203
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table216, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -13562,7 +13570,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "BN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite_Knight()
         {
-#line 2182
+#line 2185
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("knight", "PawnPromotionKnight", "A8", "WN", "BN", ((string[])(null)));
 #line hidden
         }
@@ -13579,7 +13587,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("knight", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "WB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite_Bishop()
         {
-#line 2182
+#line 2185
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("bishop", "PawnPromotionBishop", "C8", "BN", "WB", ((string[])(null)));
 #line hidden
         }
@@ -13596,7 +13604,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("bishop", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "BN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite_Rook()
         {
-#line 2182
+#line 2185
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("rook", "PawnPromotionRook", "A8", "WR", "BN", ((string[])(null)));
 #line hidden
         }
@@ -13613,7 +13621,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("rook", "PawnPromotionR
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C8", "WQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite_Queen()
         {
-#line 2182
+#line 2185
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("queen", "PawnPromotionQueen", "C8", "BN", "WQ", ((string[])(null)));
 #line hidden
         }
@@ -13621,7 +13629,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForWhite("queen", "PawnPromotion
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack(string testName, string type, string destination, string a1, string c1, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a pawn promotion capture for black", exampleTags);
-#line 2217
+#line 2220
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -13707,7 +13715,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2218
+#line 2221
  testRunner.Given("I start a new game in the following state", ((string)(null)), table217, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table218 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13722,15 +13730,15 @@ this.FeatureBackground();
                         "A2",
                         string.Format("{0}", destination),
                         string.Format("{0}", type)});
-#line 2228
+#line 2231
  testRunner.Given("I have the following move history", ((string)(null)), table218, "Given ");
-#line 2232
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2233
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2234
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2235
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2236
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2237
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2238
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table219 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13814,7 +13822,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2236
+#line 2239
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table219, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -13832,7 +13840,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "WN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Knight()
         {
-#line 2217
+#line 2220
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("knight", "PawnPromotionKnight", "A1", "BN", "WN", ((string[])(null)));
 #line hidden
         }
@@ -13849,7 +13857,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("knight", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "BB")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Bishop()
         {
-#line 2217
+#line 2220
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("bishop", "PawnPromotionBishop", "C1", "WN", "BB", ((string[])(null)));
 #line hidden
         }
@@ -13866,7 +13874,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("bishop", "PawnPromotio
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "WN")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Rook()
         {
-#line 2217
+#line 2220
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("rook", "PawnPromotionRook", "A1", "BR", "WN", ((string[])(null)));
 #line hidden
         }
@@ -13883,7 +13891,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("rook", "PawnPromotionR
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:C1", "BQ")]
         public virtual void UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack_Queen()
         {
-#line 2217
+#line 2220
 this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("queen", "PawnPromotionQueen", "C1", "WN", "BQ", ((string[])(null)));
 #line hidden
         }
@@ -13895,7 +13903,7 @@ this.UndoLastMoveShouldUndoAPawnPromotionCaptureForBlack("queen", "PawnPromotion
         public virtual void UndoLastMoveShouldUndoAnAuPassantNorthwestMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo an au passant northwest move for white", ((string[])(null)));
-#line 2253
+#line 2256
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -13981,7 +13989,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2254
+#line 2257
  testRunner.Given("I start a new game in the following state", ((string)(null)), table220, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table221 = new TechTalk.SpecFlow.Table(new string[] {
@@ -13992,15 +14000,15 @@ this.FeatureBackground();
                         "B5",
                         "A6",
                         "AuPassant"});
-#line 2264
- testRunner.Given("I have the following move history", ((string)(null)), table221, "Given ");
 #line 2267
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2268
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2269
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table221, "Given ");
 #line 2270
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2271
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2272
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2273
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table222 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14084,7 +14092,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2271
+#line 2274
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table222, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -14097,7 +14105,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoAnAuPassantNortheastMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo an au passant northeast move for white", ((string[])(null)));
-#line 2282
+#line 2285
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -14183,7 +14191,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2283
+#line 2286
  testRunner.Given("I start a new game in the following state", ((string)(null)), table223, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table224 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14194,15 +14202,15 @@ this.FeatureBackground();
                         "B5",
                         "C6",
                         "AuPassant"});
-#line 2293
- testRunner.Given("I have the following move history", ((string)(null)), table224, "Given ");
 #line 2296
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2297
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2298
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table224, "Given ");
 #line 2299
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2300
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2301
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2302
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table225 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14286,7 +14294,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2300
+#line 2303
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table225, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -14299,7 +14307,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoAnAuPassantSouthwestMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo an au passant southwest move for black", ((string[])(null)));
-#line 2311
+#line 2314
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -14385,7 +14393,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2312
+#line 2315
  testRunner.Given("I start a new game in the following state", ((string)(null)), table226, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table227 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14400,15 +14408,15 @@ this.FeatureBackground();
                         "B4",
                         "A3",
                         "AuPassant"});
-#line 2322
+#line 2325
  testRunner.Given("I have the following move history", ((string)(null)), table227, "Given ");
-#line 2326
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2327
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2328
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2329
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2330
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2331
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2332
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table228 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14492,7 +14500,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2330
+#line 2333
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table228, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -14505,7 +14513,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoAnAuPassantSoutheastMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo an au passant southeast move for black", ((string[])(null)));
-#line 2341
+#line 2344
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -14591,7 +14599,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2342
+#line 2345
  testRunner.Given("I start a new game in the following state", ((string)(null)), table229, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table230 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14606,15 +14614,15 @@ this.FeatureBackground();
                         "B4",
                         "C3",
                         "AuPassant"});
-#line 2352
+#line 2355
  testRunner.Given("I have the following move history", ((string)(null)), table230, "Given ");
-#line 2356
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2357
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2358
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2359
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2360
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2361
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2362
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table231 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14698,7 +14706,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WK"});
-#line 2360
+#line 2363
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table231, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -14711,7 +14719,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoACastleKingsideMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a castle kingside move for white", ((string[])(null)));
-#line 2371
+#line 2374
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -14797,7 +14805,7 @@ this.FeatureBackground();
                         "WR",
                         "WK",
                         ""});
-#line 2372
+#line 2375
  testRunner.Given("I start a new game in the following state", ((string)(null)), table232, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table233 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14808,15 +14816,15 @@ this.FeatureBackground();
                         "E1",
                         "G1",
                         "CastleKingside"});
-#line 2382
- testRunner.Given("I have the following move history", ((string)(null)), table233, "Given ");
 #line 2385
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2386
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2387
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table233, "Given ");
 #line 2388
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2389
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2390
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2391
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table234 = new TechTalk.SpecFlow.Table(new string[] {
@@ -14900,7 +14908,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "WR"});
-#line 2389
+#line 2392
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table234, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -14913,7 +14921,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoACastleQueensideMoveForWhite()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a castle queenside move for white", ((string[])(null)));
-#line 2400
+#line 2403
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -14999,7 +15007,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2401
+#line 2404
  testRunner.Given("I start a new game in the following state", ((string)(null)), table235, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table236 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15010,15 +15018,15 @@ this.FeatureBackground();
                         "E1",
                         "C1",
                         "CastleQueenside"});
-#line 2411
- testRunner.Given("I have the following move history", ((string)(null)), table236, "Given ");
 #line 2414
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2415
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2416
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("I have the following move history", ((string)(null)), table236, "Given ");
 #line 2417
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2418
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2419
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2420
  testRunner.Then("I expect the current player is \'White\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table237 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15102,7 +15110,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2418
+#line 2421
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table237, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -15115,7 +15123,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoACastleKingsideMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a castle kingside move for black", ((string[])(null)));
-#line 2429
+#line 2432
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -15201,7 +15209,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2430
+#line 2433
  testRunner.Given("I start a new game in the following state", ((string)(null)), table238, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table239 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15216,15 +15224,15 @@ this.FeatureBackground();
                         "E8",
                         "G8",
                         "CastleKingside"});
-#line 2440
+#line 2443
  testRunner.Given("I have the following move history", ((string)(null)), table239, "Given ");
-#line 2444
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2445
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2446
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2447
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2448
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2449
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2450
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table240 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15308,7 +15316,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2448
+#line 2451
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table240, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -15321,7 +15329,7 @@ this.FeatureBackground();
         public virtual void UndoLastMoveShouldUndoACastleQueensideMoveForBlack()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Undo last move should undo a castle queenside move for black", ((string[])(null)));
-#line 2459
+#line 2462
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -15407,7 +15415,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2460
+#line 2463
  testRunner.Given("I start a new game in the following state", ((string)(null)), table241, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table242 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15422,15 +15430,15 @@ this.FeatureBackground();
                         "E8",
                         "C8",
                         "CastleQueenside"});
-#line 2470
+#line 2473
  testRunner.Given("I have the following move history", ((string)(null)), table242, "Given ");
-#line 2474
- testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 2475
- testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 2476
- testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 2477
+ testRunner.When("I undo the last move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 2478
+ testRunner.Then("I expect the game to not be over", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2479
+ testRunner.Then("I expect the gamestate to be \'InPlay\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 2480
  testRunner.Then("I expect the current player is \'Black\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table243 = new TechTalk.SpecFlow.Table(new string[] {
@@ -15514,7 +15522,7 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 2478
+#line 2481
  testRunner.Then("I expect the current board to contain the following", ((string)(null)), table243, "Then ");
 #line hidden
             this.ScenarioCleanup();

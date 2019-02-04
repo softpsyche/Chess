@@ -21,7 +21,7 @@ namespace Arcesoft.Chess.Tests
             if (Game.CurrentPlayer != Player.Black)
             {
                 Game.SetPrivateField("_moveHistory", 
-                    new List<IMove>(new[] { new Move(BoardLocation.A1, BoardLocation.A1, MoveType.Move) }));
+                    new List<IMove>(new[] { new Move(BoardLocation.A1, BoardLocation.A1) }));
             }
         }
 

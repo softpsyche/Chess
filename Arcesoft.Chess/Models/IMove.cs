@@ -18,8 +18,12 @@ namespace Arcesoft.Chess.Models
         /// </summary>
         BoardLocation Destination { get; }
         /// <summary>
-        /// The type of move being made
+        /// The piece that was captured. Null if no piece was captured.
         /// </summary>
-        MoveType Type { get; }
+        ChessPiece? CapturedPiece { get; }
+        /// <summary>
+        /// If the move is special, denotes what special type it is
+        /// </summary>
+        SpecialMoveType? SpecialMoveType { get; }
     }
 }

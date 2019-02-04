@@ -12,37 +12,63 @@ namespace Arcesoft.Chess.Models.Internal
     {
         public BoardLocation Source { get; private set; }
         public BoardLocation Destination { get; private set; }
-        public MoveType Type { get; private set; }
+        public ChessPiece? CapturedPiece { get; private set; }
+        public SpecialMoveType? SpecialMoveType { get; private set; }
 
-        public Move(BoardLocation source, BoardLocation destination, MoveType moveType)
+        public Move(BoardLocation source, BoardLocation destination)
+            : this(source, destination, null, null)
+        {
+
+        }
+        public Move(BoardLocation source, BoardLocation destination, ChessPiece capturedPiece)
+            : this(source, destination, capturedPiece, null)
+        {
+
+        }
+        public Move(BoardLocation source, BoardLocation destination, SpecialMoveType specialMoveType)
+            : this(source, destination, null, specialMoveType)
+        {
+
+        }
+        public Move(BoardLocation source, BoardLocation destination, ChessPiece capturedPiece, SpecialMoveType specialMoveType)
+            : this(source, destination, (ChessPiece?)capturedPiece, (SpecialMoveType?)specialMoveType)
+        {
+
+        }
+
+        public Move(BoardLocation source, BoardLocation destination, ChessPiece? capturedPiece, SpecialMoveType? moveType)
         {
             Source = source;
             Destination = destination;
-            Type = moveType;
+            SpecialMoveType = moveType;
+            CapturedPiece = capturedPiece;
         }
 
         public override string ToString()
         {
             return $"{Source}-{Destination}";
+            //return $"{Source}-{Destination} ({SpecialMoveType})";
         }
 
         public override bool Equals(object obj)
         {
-            var other = obj as Move;
-            if ((obj == null) || (other == null)) return false;
+            var move = obj as Move;
+            if (move == null) return false;
 
             return
-                Source.Equals(other.Source) &&
-                Destination.Equals(other.Destination) &&
-                Type.Equals(other.Type);
+                Source.Equals(move.Source) &&
+                Destination.Equals(move.Destination) &&
+                CapturedPiece.Equals(move.CapturedPiece) &&
+                SpecialMoveType.Equals(move.SpecialMoveType);
         }
 
         public override int GetHashCode()
         {
             return 
-                Source.ToByte().GetHashCode() 
-                ^ Destination.ToByte().GetHashCode() 
-                ^ Type.GetHashCode();
+                Source.GetHashCode() 
+                ^ Destination.GetHashCode() 
+                ^ CapturedPiece.GetHashCode()
+                ^ SpecialMoveType.GetHashCode();
         }
     }
 }
