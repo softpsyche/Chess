@@ -195,12 +195,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table2.AddRow(new string[] {
                         "H1",
-                        "H8",
-                        "Move"});
+                        "H8"});
 #line 34
  testRunner.Then("I expect the best move found to be", ((string)(null)), table2, "Then ");
 #line hidden
@@ -307,12 +305,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table4.AddRow(new string[] {
                         "B1",
-                        "H1",
-                        "Move"});
+                        "H1"});
 #line 50
  testRunner.Then("I expect the best move found to be", ((string)(null)), table4, "Then ");
 #line hidden
@@ -417,16 +413,13 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table6.AddRow(new string[] {
                         "E1",
-                        "D1",
-                        "Move"});
+                        "D1"});
             table6.AddRow(new string[] {
                         "E8",
-                        "D8",
-                        "Move"});
+                        "D8"});
 #line 65
  testRunner.Given("I have the following move history", ((string)(null)), table6, "Given ");
 #line 69
@@ -434,12 +427,10 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table7.AddRow(new string[] {
                         "E5",
-                        "F7",
-                        "Move"});
+                        "F7"});
 #line 70
  testRunner.Then("I expect the best move found to be", ((string)(null)), table7, "Then ");
 #line hidden
@@ -550,10 +541,8 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "Source",
-                        "Destination",
-                        "Type"});
+                        "Destination"});
             table9.AddRow(new string[] {
-                        "",
                         "",
                         ""});
 #line 95
