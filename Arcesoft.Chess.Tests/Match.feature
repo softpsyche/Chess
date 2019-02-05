@@ -123,94 +123,94 @@ Scenario: Load match should load famous game Kasparov V Topalov 1999
 	When I load the match 'kasparov_topalov_1999.pgn'
 	Then I expect the gamestate to be 'InPlay'
 	Then I expect the following move history
-		| Source | Destination | Type            |
-		| E2     | E4          | Move            |
-		| D7     | D6          | Move            |
-		| D2     | D4          | Move            |
-		| G8     | F6          | Move            |
-		| B1     | C3          | Move            |
-		| G7     | G6          | Move            |
-		| C1     | E3          | Move            |
-		| F8     | G7          | Move            |
-		| D1     | D2          | Move            |
-		| C7     | C6          | Move            |
-		| F2     | F3          | Move            |
-		| B7     | B5          | Move            |
-		| G1     | E2          | Move            |
-		| B8     | D7          | Move            |
-		| E3     | H6          | Move            |
-		| G7     | H6          | CaptureBishop   |
-		| D2     | H6          | CaptureBishop   |
-		| C8     | B7          | Move            |
-		| A2     | A3          | Move            |
-		| E7     | E5          | Move            |
-		| E1     | C1          | CastleQueenside |
-		| D8     | E7          | Move            |
-		| C1     | B1          | Move            |
-		| A7     | A6          | Move            |
-		| E2     | C1          | Move            |
-		| E8     | C8          | CastleQueenside |
-		| C1     | B3          | Move            |
-		| E5     | D4          | CapturePawn     |
-		| D1     | D4          | CapturePawn     |
-		| C6     | C5          | Move            |
-		| D4     | D1          | Move            |
-		| D7     | B6          | Move            |
-		| G2     | G3          | Move            |
-		| C8     | B8          | Move            |
-		| B3     | A5          | Move            |
-		| B7     | A8          | Move            |
-		| F1     | H3          | Move            |
-		| D6     | D5          | Move            |
-		| H6     | F4          | Move            |
-		| B8     | A7          | Move            |
-		| H1     | E1          | Move            |
-		| D5     | D4          | Move            |
-		| C3     | D5          | Move            |
-		| B6     | D5          | CaptureKnight   |
-		| E4     | D5          | CaptureKnight   |
-		| E7     | D6          | Move            |
-		| D1     | D4          | CapturePawn     |
-		| C5     | D4          | CaptureRook     |
-		| E1     | E7          | Move            |
-		| A7     | B6          | Move            |
-		| F4     | D4          | CapturePawn     |
-		| B6     | A5          | CaptureKnight   |
-		| B2     | B4          | Move            |
-		| A5     | A4          | Move            |
-		| D4     | C3          | Move            |
-		| D6     | D5          | CapturePawn     |
-		| E7     | A7          | Move            |
-		| A8     | B7          | Move            |
-		| A7     | B7          | CaptureBishop   |
-		| D5     | C4          | Move            |
-		| C3     | F6          | CaptureKnight   |
-		| A4     | A3          | CapturePawn     |
-		| F6     | A6          | CapturePawn     |
-		| A3     | B4          | CapturePawn     |
-		| C2     | C3          | Move            |
-		| B4     | C3          | CapturePawn     |
-		| A6     | A1          | Move            |
-		| C3     | D2          | Move            |
-		| A1     | B2          | Move            |
-		| D2     | D1          | Move            |
-		| H3     | F1          | Move            |
-		| D8     | D2          | Move            |
-		| B7     | D7          | Move            |
-		| D2     | D7          | CaptureRook     |
-		| F1     | C4          | CaptureQueen    |
-		| B5     | C4          | CaptureBishop   |
-		| B2     | H8          | CaptureRook     |
-		| D7     | D3          | Move            |
-		| H8     | A8          | Move            |
-		| C4     | C3          | Move            |
-		| A8     | A4          | Move            |
-		| D1     | E1          | Move            |
-		| F3     | F4          | Move            |
-		| F7     | F5          | Move            |
-		| B1     | C1          | Move            |
-		| D3     | D2          | Move            |
-		| A4     | A7          | Move            |
+		| Source | Destination | CapturedPiece | SpecialMoveType |
+		| E2     | E4          |               |                 |
+		| D7     | D6          |               |                 |
+		| D2     | D4          |               |                 |
+		| G8     | F6          |               |                 |
+		| B1     | C3          |               |                 |
+		| G7     | G6          |               |                 |
+		| C1     | E3          |               |                 |
+		| F8     | G7          |               |                 |
+		| D1     | D2          |               |                 |
+		| C7     | C6          |               |                 |
+		| F2     | F3          |               |                 |
+		| B7     | B5          |               |                 |
+		| G1     | E2          |               |                 |
+		| B8     | D7          |               |                 |
+		| E3     | H6          |               |                 |
+		| G7     | H6          | WhiteBishop   |                 |
+		| D2     | H6          | BlackBishop   |                 |
+		| C8     | B7          |               |                 |
+		| A2     | A3          |               |                 |
+		| E7     | E5          |               |                 |
+		| E1     | C1          |               | CastleQueenside |
+		| D8     | E7          |               |                 |
+		| C1     | B1          |               |                 |
+		| A7     | A6          |               |                 |
+		| E2     | C1          |               |                 |
+		| E8     | C8          |               | CastleQueenside |
+		| C1     | B3          |               |                 |
+		| E5     | D4          | WhitePawn     |                 |
+		| D1     | D4          | BlackPawn     |                 |
+		| C6     | C5          |               |                 |
+		| D4     | D1          |               |                 |
+		| D7     | B6          |               |                 |
+		| G2     | G3          |               |                 |
+		| C8     | B8          |               |                 |
+		| B3     | A5          |               |                 |
+		| B7     | A8          |               |                 |
+		| F1     | H3          |               |                 |
+		| D6     | D5          |               |                 |
+		| H6     | F4          |               |                 |
+		| B8     | A7          |               |                 |
+		| H1     | E1          |               |                 |
+		| D5     | D4          |               |                 |
+		| C3     | D5          |               |                 |
+		| B6     | D5          | WhiteKnight   |                 |
+		| E4     | D5          | BlackKnight   |                 |
+		| E7     | D6          |               |                 |
+		| D1     | D4          | BlackPawn     |                 |
+		| C5     | D4          | WhiteRook     |                 |
+		| E1     | E7          |               |                 |
+		| A7     | B6          |               |                 |
+		| F4     | D4          | BlackPawn     |                 |
+		| B6     | A5          | WhiteKnight   |                 |
+		| B2     | B4          |               |                 |
+		| A5     | A4          |               |                 |
+		| D4     | C3          |               |                 |
+		| D6     | D5          | WhitePawn     |                 |
+		| E7     | A7          |               |                 |
+		| A8     | B7          |               |                 |
+		| A7     | B7          | BlackBishop   |                 |
+		| D5     | C4          |               |                 |
+		| C3     | F6          | BlackKnight   |                 |
+		| A4     | A3          | WhitePawn     |                 |
+		| F6     | A6          | BlackPawn     |                 |
+		| A3     | B4          | WhitePawn     |                 |
+		| C2     | C3          |               |                 |
+		| B4     | C3          | WhitePawn     |                 |
+		| A6     | A1          |               |                 |
+		| C3     | D2          |               |                 |
+		| A1     | B2          |               |                 |
+		| D2     | D1          |               |                 |
+		| H3     | F1          |               |                 |
+		| D8     | D2          |               |                 |
+		| B7     | D7          |               |                 |
+		| D2     | D7          | WhiteRook     |                 |
+		| F1     | C4          | BlackQueen    |                 |
+		| B5     | C4          | WhiteBishop   |                 |
+		| B2     | H8          | BlackRook     |                 |
+		| D7     | D3          |               |                 |
+		| H8     | A8          |               |                 |
+		| C4     | C3          |               |                 |
+		| A8     | A4          |               |                 |
+		| D1     | E1          |               |                 |
+		| F3     | F4          |               |                 |
+		| F7     | F5          |               |                 |
+		| B1     | C1          |               |                 |
+		| D3     | D2          |               |                 |
+		| A4     | A7          |               |                 |
 	Then I expect the current board to contain the following
 		| A  | B | C  | D  | E  | F  | G  | H  |
 		|    |   |    |    |    |    |    |    |
@@ -227,61 +227,61 @@ Scenario: Load match should load famous game Beliavsky V Nunn 1985
 	When I load the match 'beliavsky_nunn_1985.pgn'
 	Then I expect the gamestate to be 'InPlay'
 	Then I expect the following move history
-		| Source | Destination | Type           |
-		| D2     | D4          | Move           |
-		| G8     | F6          | Move           |
-		| C2     | C4          | Move           |
-		| G7     | G6          | Move           |
-		| B1     | C3          | Move           |
-		| F8     | G7          | Move           |
-		| E2     | E4          | Move           |
-		| D7     | D6          | Move           |
-		| F2     | F3          | Move           |
-		| E8     | G8          | CastleKingside |
-		| C1     | E3          | Move           |
-		| B8     | D7          | Move           |
-		| D1     | D2          | Move           |
-		| C7     | C5          | Move           |
-		| D4     | D5          | Move           |
-		| D7     | E5          | Move           |
-		| H2     | H3          | Move           |
-		| F6     | H5          | Move           |
-		| E3     | F2          | Move           |
-		| F7     | F5          | Move           |
-		| E4     | F5          | CapturePawn    |
-		| F8     | F5          | CapturePawn    |
-		| G2     | G4          | Move           |
-		| F5     | F3          | CapturePawn    |
-		| G4     | H5          | CaptureKnight  |
-		| D8     | F8          | Move           |
-		| C3     | E4          | Move           |
-		| G7     | H6          | Move           |
-		| D2     | C2          | Move           |
-		| F8     | F4          | Move           |
-		| G1     | E2          | Move           |
-		| F3     | F2          | CaptureBishop  |
-		| E4     | F2          | CaptureRook    |
-		| E5     | F3          | Move           |
-		| E1     | D1          | Move           |
-		| F4     | H4          | Move           |
-		| F2     | D3          | Move           |
-		| C8     | F5          | Move           |
-		| E2     | C1          | Move           |
-		| F3     | D2          | Move           |
-		| H5     | G6          | CapturePawn    |
-		| H7     | G6          | CapturePawn    |
-		| F1     | G2          | Move           |
-		| D2     | C4          | CapturePawn    |
-		| C2     | F2          | Move           |
-		| C4     | E3          | Move           |
-		| D1     | E2          | Move           |
-		| H4     | C4          | Move           |
-		| G2     | F3          | Move           |
-		| A8     | F8          | Move           |
-		| H1     | G1          | Move           |
-		| E3     | C2          | Move           |
-		| E2     | D1          | Move           |
-		| F5     | D3          | CaptureKnight  |
+		| Source | Destination | CapturedPiece | SpecialMoveType |
+		| D2     | D4          |               |                 |
+		| G8     | F6          |               |                 |
+		| C2     | C4          |               |                 |
+		| G7     | G6          |               |                 |
+		| B1     | C3          |               |                 |
+		| F8     | G7          |               |                 |
+		| E2     | E4          |               |                 |
+		| D7     | D6          |               |                 |
+		| F2     | F3          |               |                 |
+		| E8     | G8          |               | CastleKingside  |
+		| C1     | E3          |               |                 |
+		| B8     | D7          |               |                 |
+		| D1     | D2          |               |                 |
+		| C7     | C5          |               |                 |
+		| D4     | D5          |               |                 |
+		| D7     | E5          |               |                 |
+		| H2     | H3          |               |                 |
+		| F6     | H5          |               |                 |
+		| E3     | F2          |               |                 |
+		| F7     | F5          |               |                 |
+		| E4     | F5          | BlackPawn     |                 |
+		| F8     | F5          | WhitePawn     |                 |
+		| G2     | G4          |               |                 |
+		| F5     | F3          | WhitePawn     |                 |
+		| G4     | H5          | BlackKnight   |                 |
+		| D8     | F8          |               |                 |
+		| C3     | E4          |               |                 |
+		| G7     | H6          |               |                 |
+		| D2     | C2          |               |                 |
+		| F8     | F4          |               |                 |
+		| G1     | E2          |               |                 |
+		| F3     | F2          | WhiteBishop   |                 |
+		| E4     | F2          | BlackRook     |                 |
+		| E5     | F3          |               |                 |
+		| E1     | D1          |               |                 |
+		| F4     | H4          |               |                 |
+		| F2     | D3          |               |                 |
+		| C8     | F5          |               |                 |
+		| E2     | C1          |               |                 |
+		| F3     | D2          |               |                 |
+		| H5     | G6          | BlackPawn     |                 |
+		| H7     | G6          | WhitePawn     |                 |
+		| F1     | G2          |               |                 |
+		| D2     | C4          | WhitePawn     |                 |
+		| C2     | F2          |               |                 |
+		| C4     | E3          |               |                 |
+		| D1     | E2          |               |                 |
+		| H4     | C4          |               |                 |
+		| G2     | F3          |               |                 |
+		| A8     | F8          |               |                 |
+		| H1     | G1          |               |                 |
+		| E3     | C2          |               |                 |
+		| E2     | D1          |               |                 |
+		| F5     | D3          | WhiteKnight   |                 |
 	Then I expect the current board to contain the following
 		| A  | B  | C  | D  | E  | F  | G  | H  |
 		|    |    |    |    |    | BR | BK |    |
@@ -298,89 +298,89 @@ Scenario: Load match should load famous game Byrne V Fischer 1956
 	When I load the match 'byrne_fischer_1956.pgn'
 	Then I expect the gamestate to be 'BlackWin'
 	Then I expect the following move history
-		| Source | Destination | Type           |
-		| G1     | F3          | Move           |
-		| G8     | F6          | Move           |
-		| C2     | C4          | Move           |
-		| G7     | G6          | Move           |
-		| B1     | C3          | Move           |
-		| F8     | G7          | Move           |
-		| D2     | D4          | Move           |
-		| E8     | G8          | CastleKingside |
-		| C1     | F4          | Move           |
-		| D7     | D5          | Move           |
-		| D1     | B3          | Move           |
-		| D5     | C4          | CapturePawn    |
-		| B3     | C4          | CapturePawn    |
-		| C7     | C6          | Move           |
-		| E2     | E4          | Move           |
-		| B8     | D7          | Move           |
-		| A1     | D1          | Move           |
-		| D7     | B6          | Move           |
-		| C4     | C5          | Move           |
-		| C8     | G4          | Move           |
-		| F4     | G5          | Move           |
-		| B6     | A4          | Move           |
-		| C5     | A3          | Move           |
-		| A4     | C3          | CaptureKnight  |
-		| B2     | C3          | CaptureKnight  |
-		| F6     | E4          | CapturePawn    |
-		| G5     | E7          | CapturePawn    |
-		| D8     | B6          | Move           |
-		| F1     | C4          | Move           |
-		| E4     | C3          | CapturePawn    |
-		| E7     | C5          | Move           |
-		| F8     | E8          | Move           |
-		| E1     | F1          | Move           |
-		| G4     | E6          | Move           |
-		| C5     | B6          | CaptureQueen   |
-		| E6     | C4          | CaptureBishop  |
-		| F1     | G1          | Move           |
-		| C3     | E2          | Move           |
-		| G1     | F1          | Move           |
-		| E2     | D4          | CapturePawn    |
-		| F1     | G1          | Move           |
-		| D4     | E2          | Move           |
-		| G1     | F1          | Move           |
-		| E2     | C3          | Move           |
-		| F1     | G1          | Move           |
-		| A7     | B6          | CaptureBishop  |
-		| A3     | B4          | Move           |
-		| A8     | A4          | Move           |
-		| B4     | B6          | CapturePawn    |
-		| C3     | D1          | CaptureRook    |
-		| H2     | H3          | Move           |
-		| A4     | A2          | CapturePawn    |
-		| G1     | H2          | Move           |
-		| D1     | F2          | CapturePawn    |
-		| H1     | E1          | Move           |
-		| E8     | E1          | CaptureRook    |
-		| B6     | D8          | Move           |
-		| G7     | F8          | Move           |
-		| F3     | E1          | CaptureRook    |
-		| C4     | D5          | Move           |
-		| E1     | F3          | Move           |
-		| F2     | E4          | Move           |
-		| D8     | B8          | Move           |
-		| B7     | B5          | Move           |
-		| H3     | H4          | Move           |
-		| H7     | H5          | Move           |
-		| F3     | E5          | Move           |
-		| G8     | G7          | Move           |
-		| H2     | G1          | Move           |
-		| F8     | C5          | Move           |
-		| G1     | F1          | Move           |
-		| E4     | G3          | Move           |
-		| F1     | E1          | Move           |
-		| C5     | B4          | Move           |
-		| E1     | D1          | Move           |
-		| D5     | B3          | Move           |
-		| D1     | C1          | Move           |
-		| G3     | E2          | Move           |
-		| C1     | B1          | Move           |
-		| E2     | C3          | Move           |
-		| B1     | C1          | Move           |
-		| A2     | C2          | Move           |
+		| Source | Destination | CapturedPiece | SpecialMoveType |
+		| G1     | F3          |               |                 |
+		| G8     | F6          |               |                 |
+		| C2     | C4          |               |                 |
+		| G7     | G6          |               |                 |
+		| B1     | C3          |               |                 |
+		| F8     | G7          |               |                 |
+		| D2     | D4          |               |                 |
+		| E8     | G8          |               | CastleKingside  |
+		| C1     | F4          |               |                 |
+		| D7     | D5          |               |                 |
+		| D1     | B3          |               |                 |
+		| D5     | C4          | WhitePawn     |                 |
+		| B3     | C4          | BlackPawn     |                 |
+		| C7     | C6          |               |                 |
+		| E2     | E4          |               |                 |
+		| B8     | D7          |               |                 |
+		| A1     | D1          |               |                 |
+		| D7     | B6          |               |                 |
+		| C4     | C5          |               |                 |
+		| C8     | G4          |               |                 |
+		| F4     | G5          |               |                 |
+		| B6     | A4          |               |                 |
+		| C5     | A3          |               |                 |
+		| A4     | C3          | WhiteKnight   |                 |
+		| B2     | C3          | BlackKnight   |                 |
+		| F6     | E4          | WhitePawn     |                 |
+		| G5     | E7          | BlackPawn     |                 |
+		| D8     | B6          |               |                 |
+		| F1     | C4          |               |                 |
+		| E4     | C3          | WhitePawn     |                 |
+		| E7     | C5          |               |                 |
+		| F8     | E8          |               |                 |
+		| E1     | F1          |               |                 |
+		| G4     | E6          |               |                 |
+		| C5     | B6          | BlackQueen    |                 |
+		| E6     | C4          | WhiteBishop   |                 |
+		| F1     | G1          |               |                 |
+		| C3     | E2          |               |                 |
+		| G1     | F1          |               |                 |
+		| E2     | D4          | WhitePawn     |                 |
+		| F1     | G1          |               |                 |
+		| D4     | E2          |               |                 |
+		| G1     | F1          |               |                 |
+		| E2     | C3          |               |                 |
+		| F1     | G1          |               |                 |
+		| A7     | B6          | WhiteBishop   |                 |
+		| A3     | B4          |               |                 |
+		| A8     | A4          |               |                 |
+		| B4     | B6          | BlackPawn     |                 |
+		| C3     | D1          | WhiteRook     |                 |
+		| H2     | H3          |               |                 |
+		| A4     | A2          | WhitePawn     |                 |
+		| G1     | H2          |               |                 |
+		| D1     | F2          | WhitePawn     |                 |
+		| H1     | E1          |               |                 |
+		| E8     | E1          | WhiteRook     |                 |
+		| B6     | D8          |               |                 |
+		| G7     | F8          |               |                 |
+		| F3     | E1          | BlackRook     |                 |
+		| C4     | D5          |               |                 |
+		| E1     | F3          |               |                 |
+		| F2     | E4          |               |                 |
+		| D8     | B8          |               |                 |
+		| B7     | B5          |               |                 |
+		| H3     | H4          |               |                 |
+		| H7     | H5          |               |                 |
+		| F3     | E5          |               |                 |
+		| G8     | G7          |               |                 |
+		| H2     | G1          |               |                 |
+		| F8     | C5          |               |                 |
+		| G1     | F1          |               |                 |
+		| E4     | G3          |               |                 |
+		| F1     | E1          |               |                 |
+		| C5     | B4          |               |                 |
+		| E1     | D1          |               |                 |
+		| D5     | B3          |               |                 |
+		| D1     | C1          |               |                 |
+		| G3     | E2          |               |                 |
+		| C1     | B1          |               |                 |
+		| E2     | C3          |               |                 |
+		| B1     | C1          |               |                 |
+		| A2     | C2          |               |                 |
 	Then I expect the current board to contain the following
 		| A | B  | C  | D | E  | F  | G  | H  |
 		|   | WQ |    |   |    |    |    |    |
@@ -397,40 +397,40 @@ Scenario: Load match should load famous game Morphy Duke Karl Count Isouard 1858
 	When I load the match 'morphy_duke_karl_count_isouard_1858.pgn'
 	Then I expect the gamestate to be 'WhiteWin'
 	Then I expect the following move history
-		| Source | Destination | Type            |
-		| E2     | E4          | Move            |
-		| E7     | E5          | Move            |
-		| G1     | F3          | Move            |
-		| D7     | D6          | Move            |
-		| D2     | D4          | Move            |
-		| C8     | G4          | Move            |
-		| D4     | E5          | CapturePawn     |
-		| G4     | F3          | CaptureKnight   |
-		| D1     | F3          | CaptureBishop   |
-		| D6     | E5          | CapturePawn     |
-		| F1     | C4          | Move            |
-		| G8     | F6          | Move            |
-		| F3     | B3          | Move            |
-		| D8     | E7          | Move            |
-		| B1     | C3          | Move            |
-		| C7     | C6          | Move            |
-		| C1     | G5          | Move            |
-		| B7     | B5          | Move            |
-		| C3     | B5          | CapturePawn     |
-		| C6     | B5          | CaptureKnight   |
-		| C4     | B5          | CapturePawn     |
-		| B8     | D7          | Move            |
-		| E1     | C1          | CastleQueenside |
-		| A8     | D8          | Move            |
-		| D1     | D7          | CaptureKnight   |
-		| D8     | D7          | CaptureRook     |
-		| H1     | D1          | Move            |
-		| E7     | E6          | Move            |
-		| B5     | D7          | CaptureRook     |
-		| F6     | D7          | CaptureBishop   |
-		| B3     | B8          | Move            |
-		| D7     | B8          | CaptureQueen    |
-		| D1     | D8          | Move            |
+		| Source | Destination | CapturedPiece | SpecialMoveType |
+		| E2     | E4          |               |                 |
+		| E7     | E5          |               |                 |
+		| G1     | F3          |               |                 |
+		| D7     | D6          |               |                 |
+		| D2     | D4          |               |                 |
+		| C8     | G4          |               |                 |
+		| D4     | E5          | BlackPawn     |                 |
+		| G4     | F3          | WhiteKnight   |                 |
+		| D1     | F3          | BlackBishop   |                 |
+		| D6     | E5          | WhitePawn     |                 |
+		| F1     | C4          |               |                 |
+		| G8     | F6          |               |                 |
+		| F3     | B3          |               |                 |
+		| D8     | E7          |               |                 |
+		| B1     | C3          |               |                 |
+		| C7     | C6          |               |                 |
+		| C1     | G5          |               |                 |
+		| B7     | B5          |               |                 |
+		| C3     | B5          | BlackPawn     |                 |
+		| C6     | B5          | WhiteKnight   |                 |
+		| C4     | B5          | BlackPawn     |                 |
+		| B8     | D7          |               |                 |
+		| E1     | C1          |               | CastleQueenside |
+		| A8     | D8          |               |                 |
+		| D1     | D7          | BlackKnight   |                 |
+		| D8     | D7          | WhiteRook     |                 |
+		| H1     | D1          |               |                 |
+		| E7     | E6          |               |                 |
+		| B5     | D7          | BlackRook     |                 |
+		| F6     | D7          | WhiteBishop   |                 |
+		| B3     | B8          |               |                 |
+		| D7     | B8          | WhiteQueen    |                 |
+		| D1     | D8          |               |                 |
 	Then I expect the current board to contain the following
 		| A  | B  | C  | D  | E  | F  | G  | H  |
 		|    | BN |    | WR | BK | BB |    | BR |
@@ -447,60 +447,60 @@ Scenario: Load match should load game with au passant
 	When I load the match 'nobody_has_aupassant.pgn'
 	Then I expect the gamestate to be 'WhiteWin'
 	Then I expect the following move history
-		| Source | Destination | Type           |
-		| E2     | E4          | Move           |
-		| G8     | F6          | Move           |
-		| E4     | E5          | Move           |
-		| F6     | E4          | Move           |
-		| D2     | D3          | Move           |
-		| E4     | C5          | Move           |
-		| D3     | D4          | Move           |
-		| C5     | E4          | Move           |
-		| D1     | D3          | Move           |
-		| D7     | D5          | Move           |
-		| E5     | D6          | AuPassant      |
-		| E4     | D6          | CapturePawn    |
-		| G1     | F3          | Move           |
-		| B7     | B5          | Move           |
-		| C1     | F4          | Move           |
-		| E7     | E5          | Move           |
-		| F4     | E5          | CapturePawn    |
-		| C8     | F5          | Move           |
-		| D3     | B3          | Move           |
-		| B8     | C6          | Move           |
-		| F1     | B5          | CapturePawn    |
-		| D8     | D7          | Move           |
-		| E1     | G1          | CastleKingside |
-		| D6     | E4          | Move           |
-		| B1     | C3          | Move           |
-		| A7     | A6          | Move           |
-		| B5     | A4          | Move           |
-		| F5     | E6          | Move           |
-		| D4     | D5          | Move           |
-		| E6     | F5          | Move           |
-		| A4     | C6          | CaptureKnight  |
-		| D7     | C6          | CaptureBishop  |
-		| D5     | C6          | CaptureQueen   |
-		| F8     | C5          | Move           |
-		| E5     | G7          | CapturePawn    |
-		| H8     | G8          | Move           |
-		| F3     | E5          | Move           |
-		| G8     | G7          | CaptureBishop  |
-		| C3     | E4          | CaptureKnight  |
-		| F5     | E4          | CaptureKnight  |
-		| G2     | G3          | Move           |
-		| F7     | F5          | Move           |
-		| A1     | D1          | Move           |
-		| E4     | F3          | Move           |
-		| D1     | D7          | Move           |
-		| A8     | D8          | Move           |
-		| D7     | G7          | CaptureRook    |
-		| D8     | D4          | Move           |
-		| B3     | F7          | Move           |
-		| E8     | D8          | Move           |
-		| F7     | G8          | Move           |
-		| C5     | F8          | Move           |
-		| G8     | F8          | CaptureBishop  |
+		| Source | Destination | CapturedPiece | SpecialMoveType |
+		| E2     | E4          |               |                 |
+		| G8     | F6          |               |                 |
+		| E4     | E5          |               |                 |
+		| F6     | E4          |               |                 |
+		| D2     | D3          |               |                 |
+		| E4     | C5          |               |                 |
+		| D3     | D4          |               |                 |
+		| C5     | E4          |               |                 |
+		| D1     | D3          |               |                 |
+		| D7     | D5          |               |                 |
+		| E5     | D6          | BlackPawn     | AuPassant       |
+		| E4     | D6          | WhitePawn     |                 |
+		| G1     | F3          |               |                 |
+		| B7     | B5          |               |                 |
+		| C1     | F4          |               |                 |
+		| E7     | E5          |               |                 |
+		| F4     | E5          | BlackPawn     |                 |
+		| C8     | F5          |               |                 |
+		| D3     | B3          |               |                 |
+		| B8     | C6          |               |                 |
+		| F1     | B5          | BlackPawn     |                 |
+		| D8     | D7          |               |                 |
+		| E1     | G1          |               | CastleKingside  |
+		| D6     | E4          |               |                 |
+		| B1     | C3          |               |                 |
+		| A7     | A6          |               |                 |
+		| B5     | A4          |               |                 |
+		| F5     | E6          |               |                 |
+		| D4     | D5          |               |                 |
+		| E6     | F5          |               |                 |
+		| A4     | C6          | BlackKnight   |                 |
+		| D7     | C6          | WhiteBishop   |                 |
+		| D5     | C6          | BlackQueen    |                 |
+		| F8     | C5          |               |                 |
+		| E5     | G7          | BlackPawn     |                 |
+		| H8     | G8          |               |                 |
+		| F3     | E5          |               |                 |
+		| G8     | G7          | WhiteBishop   |                 |
+		| C3     | E4          | BlackKnight   |                 |
+		| F5     | E4          | WhiteKnight   |                 |
+		| G2     | G3          |               |                 |
+		| F7     | F5          |               |                 |
+		| A1     | D1          |               |                 |
+		| E4     | F3          |               |                 |
+		| D1     | D7          |               |                 |
+		| A8     | D8          |               |                 |
+		| D7     | G7          | BlackRook     |                 |
+		| D8     | D4          |               |                 |
+		| B3     | F7          |               |                 |
+		| E8     | D8          |               |                 |
+		| F7     | G8          |               |                 |
+		| C5     | F8          |               |                 |
+		| G8     | F8          | BlackBishop   |                 |
 	Then I expect the current board to contain the following
 		| A  | B  | C  | D  | E  | F  | G  | H  |
 		|    |    |    | BK |    | WQ |    |    |
