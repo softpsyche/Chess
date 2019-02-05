@@ -1,5 +1,6 @@
 ﻿using Arcesoft.Chess.Models;
 using ilf.pgn;
+using ilf.pgn.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -139,6 +140,12 @@ namespace Arcesoft.Chess.Implementation
             }
             else
             {
+                //if we have a pawn promotion, remove all this junk...
+                if (move.PromotedPiece.HasValue)
+                {
+                    qualifyingMoves.RemoveAll(a => a.SpecialMoveType != ToSpecialMoveType(move.PromotedPiece.Value));
+                }
+
                 if (move.OriginFile.HasValue)
                 {
                     var requiredColumn = move.OriginFile.Value.ToColumn();
@@ -146,16 +153,34 @@ namespace Arcesoft.Chess.Implementation
                 }
                 else if (move.OriginRank.HasValue)
                 {
-                    var requiredRow = move.OriginRank.Value -1;//remove 1 to adjust for zero based goodness
+                    var requiredRow = move.OriginRank.Value - 1;//remove 1 to adjust for zero based goodness
                     qualifyingMoves.RemoveAll(a => a.Source.Row() != requiredRow);
                 }
-                else
+   
+                if(qualifyingMoves.Count != 1)
                 {
                     //we need to do more digging, more than one piece can make this move...
-                    throw new NotImplementedException("Well get there...");
+                    throw new NotImplementedException("Failed to load game game from PGN file. Unexpected state found.");
                 }
 
                 game.MakeMove(qualifyingMoves.Single());
+            }
+        }
+
+        private SpecialMoveType ToSpecialMoveType(PieceType pieceType)
+        {
+            switch (pieceType)
+            {
+                case PieceType.Knight:
+                    return SpecialMoveType.PawnPromotionKnight;
+                case PieceType.Bishop:
+                    return SpecialMoveType.PawnPromotionBishop;
+                case PieceType.Rook:
+                    return SpecialMoveType.PawnPromotionRook;
+                case PieceType.Queen:
+                    return SpecialMoveType.PawnPromotionQueen;
+                default:
+                    throw new InvalidOperationException($"Failed to load game game from PGN file. Unable to convert '{pieceType}' to special move type.");
             }
         }
         #endregion

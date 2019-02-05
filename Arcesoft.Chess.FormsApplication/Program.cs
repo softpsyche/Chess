@@ -19,7 +19,27 @@ namespace Arcesoft.Chess.FormsApplication
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain(container));
+
+            Application.ThreadException += Application_ThreadException;
+
+            var mainForm = container.GetInstance<FormMain>();
+            Application.Run(mainForm);// new FormMain(container));
+
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            var chessException = e.Exception as ChessException;
+
+            if (chessException != null)
+            {
+                MessageBox.Show(e.Exception.Message, "Invalid command", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Oops...an unexpected error has occurred.", "Unexpected error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }         
         }
 
         public static Container BuildContainer()

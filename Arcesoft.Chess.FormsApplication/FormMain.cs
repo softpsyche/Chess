@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,25 +16,23 @@ namespace Arcesoft.Chess.FormsApplication
 {
     public partial class FormMain : Form
     {
-        SimpleInjector.Container IocContainer { get; }
-        private IGameFactory _gameFactory;
-        private IGame _game;
-        private IArtificialIntelligence _artificialIntelligence;
+        private readonly IGameFactory _gameFactory;     
+        private readonly IArtificialIntelligence _artificialIntelligence;
+        private readonly IMatchFactory _matchFactory;
 
-        public FormMain(SimpleInjector.Container container)
+        private IGame _game;
+
+        public FormMain(IGameFactory gameFactory, IArtificialIntelligence artificialIntelligence, IMatchFactory matchFactory)
         {
             InitializeComponent();
-
-            IocContainer = container;
+            _gameFactory = gameFactory;
+            _artificialIntelligence = artificialIntelligence;
+            _matchFactory = matchFactory;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _gameFactory = IocContainer.GetInstance<IGameFactory>();
-            _game = _gameFactory.NewGame();
-            _artificialIntelligence = IocContainer.GetInstance<IArtificialIntelligence>();
-
-            uxChessBoardMain.setChessGame(_game);
+            NewGame();
         }
 
         private void DoIt()
@@ -51,7 +50,7 @@ namespace Arcesoft.Chess.FormsApplication
                 board[Models.BoardLocation.D4] = ChessPiece.BlackQueen;
                 board[Models.BoardLocation.D7] = ChessPiece.BlackPawn;
                 board[Models.BoardLocation.D2] = ChessPiece.WhitePawn;
-                
+
                 //board[Models.BoardLocation.E2] = ChessPiece.BlackKnight;
                 var threats = threatProvider.FindThreatsForPlayer(board, Player.White);
                 var billy = gamey.GetThreatenedBoardDisplay(Player.White);
@@ -67,7 +66,73 @@ namespace Arcesoft.Chess.FormsApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //throw new InvalidOperationException();
             DoIt();
         }
+
+        private void undoLastMoveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _game?.UndoLastMove();
+            uxChessBoardMain.Refresh();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewGame();
+            uxChessBoardMain.Refresh();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MatchOpenFileDialog.ShowDialog(this) == DialogResult.OK)
+                { 
+                    var pgnFileText = File.ReadAllText(MatchOpenFileDialog.FileName);
+                    var matches = _matchFactory.Load(pgnFileText);
+
+                    switch (matches.Count)
+                    {
+                        case 0:
+                            MessageBox.Show("No games found", "Invalid or empty PGN file specified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        case 1:
+                            NewGame(matches.First().Game);
+                            break;
+                        default:
+                            NewGame(matches.First().Game);
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToMessageBox();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("NotImplemented yet...");
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("NotImplemented yet...");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #region Helpers
+        private void NewGame(IGame game = null)
+        {
+            _game = game ?? _gameFactory.NewGame();
+
+            uxChessBoardMain.setChessGame(_game);
+        }
+        #endregion
     }
 }

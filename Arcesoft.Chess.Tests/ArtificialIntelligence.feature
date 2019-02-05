@@ -71,7 +71,6 @@ Scenario: Artificial intelligence should find mate in three for white (knight ma
          | Source | Destination |
          | E5     | F7          |
 
-
 #	Winning moves:
 #	C6-D4
 #	E2-D1

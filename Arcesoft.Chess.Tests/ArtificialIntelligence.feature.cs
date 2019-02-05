@@ -446,7 +446,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Artificial intelligence should find mate in Five moves for black", new string[] {
                         "ignore"});
-#line 82
+#line 81
 this.ScenarioSetup(scenarioInfo);
 #line 16
 this.FeatureBackground();
@@ -532,11 +532,11 @@ this.FeatureBackground();
                         "",
                         "",
                         ""});
-#line 83
+#line 82
  testRunner.Given("I start a new game in the following state", ((string)(null)), table8, "Given ");
-#line 93
+#line 92
  testRunner.Given("Its blacks turn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 94
+#line 93
  testRunner.When("I have the AI calculate the best move to a depth of \'4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -545,7 +545,7 @@ this.FeatureBackground();
             table9.AddRow(new string[] {
                         "",
                         ""});
-#line 95
+#line 94
  testRunner.Then("I expect the best move found to be", ((string)(null)), table9, "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -29,6 +29,8 @@ namespace Arcesoft.Chess.FormsApplication
         private Brush RedBoardTextBrush;
         private Brush LegalMoveBrush;
         private Font ArialFont;
+        private Font GameOverFont;
+        private Font GameOverFontSmall;
 
         //debug stuff
         public bool showThreatStateInfo;
@@ -53,6 +55,8 @@ namespace Arcesoft.Chess.FormsApplication
             LegalMoveBrush = new SolidBrush(Color.Blue);
             MovingPiece = ChessPiece.None;
             ArialFont = new Font("Arial", 6.5F);
+            GameOverFont = new Font("AgencyFB", 30.5F);
+            GameOverFontSmall = new Font("AgencyFB", 22.5F);
 
             SetStyle(
                 ControlStyles.DoubleBuffer |ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
@@ -77,6 +81,7 @@ namespace Arcesoft.Chess.FormsApplication
         public void setChessGame(IGame chessGame)
         {
             Game = chessGame;
+            Refresh();
         }
 
         #region Component Designer generated code
@@ -133,7 +138,6 @@ namespace Arcesoft.Chess.FormsApplication
         }
         #endregion
 
-
         #region UI Paint Functions
 
         private void ctlUIChessBoard_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -142,6 +146,16 @@ namespace Arcesoft.Chess.FormsApplication
             {
                 DrawSquares(e, e.Graphics);
                 DrawMovingPiece(e, e.Graphics);
+
+                DrawGameOver(e, e.Graphics);
+            }
+        }
+        private void DrawGameOver(System.Windows.Forms.PaintEventArgs e, Graphics surface)
+        {
+            if (Game.GameIsOver)
+            {
+                surface.DrawString("Game Over", GameOverFont, Brushes.Black, 140, 200);
+                surface.DrawString($"-{Game.GameState.ToString()}", GameOverFontSmall, Brushes.Black, 160, 240);
             }
         }
         private void DrawMovingPiece(System.Windows.Forms.PaintEventArgs e, Graphics surface)
@@ -377,7 +391,6 @@ namespace Arcesoft.Chess.FormsApplication
                 Invalidate(new Rectangle(e.X - 16, e.Y - 16, 32, 32));
             }
         }
-
 
         private BoardLocation ToBoardLocation(int boardX, int boardY)
         {
